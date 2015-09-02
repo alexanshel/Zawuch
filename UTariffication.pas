@@ -66,18 +66,6 @@ type
     frxReport: TfrxReport;
     frxdbdsTariffTotalTable: TfrxDBDataset;
     ibqTariffTotallTable: TIBQuery;
-    ibqTariffTotallTableT_Y: TFloatField;
-    ibqTariffTotallTableT_O: TFloatField;
-    ibqTariffTotallTableT_C: TFloatField;
-    ibqTariffTotallTableT_V_Y: TFloatField;
-    ibqTariffTotallTableT_V_O: TFloatField;
-    ibqTariffTotallTableT_V_C: TFloatField;
-    ibqTariffTotallTableM_Y: TFloatField;
-    ibqTariffTotallTableM_O: TFloatField;
-    ibqTariffTotallTableM_C: TFloatField;
-    ibqTariffTotallTableM_V_Y: TFloatField;
-    ibqTariffTotallTableM_V_O: TFloatField;
-    ibqTariffTotallTableM_V_C: TFloatField;
     miTariffTotalTable: TMenuItem;
     frxRTFExport: TfrxRTFExport;
     frxrTarriffication: TfrxReport;

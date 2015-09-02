@@ -269,8 +269,8 @@ begin
   rep.AddPar(DM.ibdsConstPASPORT_NAME.Value);
   rep.AddPar('\par');
   rep.ParSetTableHead;
-  rep.CreateTableMMSz([10, 50, 65, 10, 45], []);
-  rep.AddRow(['№', 'Ф.И.О', 'Куратор', 'Кл.(п-д)', 'Отделение']);
+  rep.CreateTableMMSz([8, 53, 70, 15, 45], []);
+  rep.AddRow(['№', 'Ф.И.О', 'Куратор', 'Кл.', 'Отделение']);
   rep.ParSetTable;
   BM := DM.ibdsStudent.GetBookmark;
   DM.ibdsStudent.DisableControls;
@@ -280,7 +280,7 @@ begin
   begin
     rep.AddRow([IntToStr(i), DM.ibdsStudentName.Value,
       DM.ibdsStudentCURATOR.Value,
-      DM.ibdsStudentCLASS.AsString + '(' + DM.ibdsStudentPERIOD.AsString + ')',
+      DM.ibdsStudentCLASS.AsString + '(' + DM.ibdsStudent.FieldByName('PERIOD_FOR_PRINT').AsString + ')',
       DM.ibdsStudentDEPARTMENT.Value]);
     DM.ibdsStudent.Next;
     inc(i);
@@ -342,7 +342,7 @@ begin
       if IDs.IndexOf(DM.ibdsStudentDepartmentID.AsString) = i then
       begin
         rep.AddRow([IntToStr(k), DM.ibdsStudentName.Value,
-            DM.ibdsStudentCLASS.AsString + '(' + DM.ibdsStudentPERIOD.AsString + ')',
+            DM.ibdsStudentCLASS.AsString + '(' + DM.ibdsStudent.FieldByName('PERIOD_FOR_PRINT').AsString + ')',
             DM.ibdsStudentSpecialization.Value,
             DM.ibdsStudentCURATOR.Value
             ]);
@@ -608,7 +608,7 @@ begin
   begin
     rep.AddRow(['\fs24 ' + IntToStr(i), DM.ibdsStudentName.Value,
       DM.ibdsStudentCLASS.AsString +
-      '(' + DM.ibdsStudentPERIOD.AsString + ')',
+      '(' + DM.ibdsStudent.FieldByName('PERIOD_FOR_PRINT').AsString + ')',
       DM.ibdsStudentCURATOR.Value,
       '\fs20 ' + DM.ibdsStudentENTERDATE.AsString,
       DM.ibdsStudentRELEASEDATE.AsString,
@@ -930,9 +930,9 @@ var
     rep.ParSetTableHead;
 
     rep.CreateTable(P, []);
-    rep.AddRow(['\b\qc №', 'Ф.И.О. учащегося (предмет)', 'Кл.', 'Специализация', 'Куратор' ,
+    rep.AddRow(['\b\qc №', 'Ф.И.О. учащегося', 'Кл.', 'Специализация', 'Куратор' ,
       '\fs14 Кол-во гр. мл.', 'Кол-во гр. ст.',
-      'Кол-во часов мл.', 'Кол-во часов ст.', 'Кол-во часов конц.', '\fs20 Примечание']);
+      'мл. ч.', 'ст. ч.', 'конц. ч.', '\fs14 Примечание']);
     rep.ParSet(fTimes, 11);
     IsHeaderPrinted := true;
   end;
@@ -1022,7 +1022,7 @@ begin
         begin
           if not IsHeaderPrinted then PrintHeader;
           rep.AddRow([IntToStr(k), DM.ibdsStudentName.Value,
-            DM.ibdsStudentCLASS.AsString + '(' + DM.ibdsStudentPERIOD.AsString + ')',
+            DM.ibdsStudentCLASS.AsString + '(' + DM.ibdsStudent.FieldByName('PERIOD_FOR_PRINT').AsString + ')',
             DM.ibdsStudentSpecialization.Value,
             FIOToFInicials(DM.ibdsStudentCURATOR.Value),
             '',
@@ -1040,61 +1040,7 @@ begin
     end;
     DM.ibds.Close;
     DM.ibds.SelectSQL.Clear;
-    DM.ibds.SelectSQL.Append('SELECT * FROM PROC_TEACHER_REPORT(:t_id, :dept_id)'
-{
-' SELECT gs.name, vtgt.class_num, c.period, ' +
-'   vtgt.qty_y, vtgt.qty_o, ' +
-'   vtgt.time_y, vtgt.time_o, vtgt.time_c ' +
-' FROM "Department" d ' +
-'   LEFT JOIN curriculum c ON ' +
-'     d."CurriculumID" = c.id ' +
-'   LEFT JOIN grouping_subj_curr_id gsci ON ' +
-'     gsci.curr_id = c.id ' +
-'   LEFT JOIN grouping_subj gs ON ' +
-'     gs.grouping_id = gsci.grouping_id AND ' +
-'     gs.id = gsci.grouping_subj_id ' +
-'   LEFT JOIN v_teacher_group_time vtgt ON ' +
-'     vtgt.id_grouping = gsci.grouping_id AND ' +
-'     vtgt.id_grouping_subj = gsci.grouping_subj_id ' +
-' WHERE d.id = :dept_id AND vtgt.id_teacher = :t_id '
-}
-{
-      'select distinct GS.name, TG.class_num, C.period, ' + //--TG.group_q, CRT.c_time*TG.group_q ' +
-' CASE WHEN cc.category = 0 THEN TG.group_q ELSE NULL END, ' +
-' CASE WHEN cc.category = 1 THEN TG.group_q ELSE NULL END, ' +
-' CASE WHEN cc.category = 0 AND gs.code = 0 THEN CRT.c_time*TG.group_q ELSE NULL END, ' +
-' CASE WHEN cc.category = 1 AND gs.code = 0 THEN CRT.c_time*TG.group_q ELSE NULL END, ' +
-' CASE WHEN gs.code != 0 THEN CRT.c_time*TG.group_q ELSE NULL END ' +
-      'from teacher_group TG ' +
-      'join grouping_subj GS on TG.grouping_id = GS.grouping_id and ' +
-      '  GS.ID = TG.gr_subj_id ' +
-      'join grouping_subj_curr_id GSCI on ' +
-      '  GSCI.grouping_id = TG.grouping_id and ' +
-      '  GSCI.grouping_subj_id = TG.gr_subj_id ' +
-      'join grouping_dept GD on TG.grouping_id = GD.grouping_id ' +
-      'join "Department" D on D.id = GD.department_id ' +
-      'join curriculum C on C.id = D."CurriculumID" and ' +
-      '  GSCI.curr_id = C.id ' +
-      'join curr_rec_time CRT on CRT.curr_id = C.id and ' +
-      '  CRT.curr_rec_id = GSCI.curr_rec_id and ' +
-      '  CRT.class_num = TG.class_num ' +
-      ' LEFT JOIN curr_cat cc ON cc.curr_id = GSCI.curr_id AND cc.class_num = crt.class_num ' +
-      'where TG.teacher_id = :t_id and ' +
-      '  D.id = :dept_id and  ' +
-      '  D.id in ' +
-      ' (select min(D1.id) ' +
-      '  from grouping_dept GD1 ' +
-      '    join grouping_subj_curr_id GSCI1 on ' +
-      '      GSCI1.grouping_id = TG.grouping_id and ' +
-      '      GSCI1.grouping_subj_id = TG.gr_subj_id and ' +
-      '      GD1.grouping_id = TG.grouping_id ' +
-      '    join "Department" D1 on ' +
-      '      GD1.department_id = D1.id and ' +
-      '      D1."CurriculumID" = GSCI1.curr_id ' +
-      '  where D1.id in (' + DeptIDs.DelimitedText + ')) ' +
-      'order by TG.grouping_id, GS.id;'
-}
-    );
+    DM.ibds.SelectSQL.Append('SELECT * FROM PROC_TEACHER_REPORT(:t_id, :dept_id)');
     DM.ibds.ParamByName('dept_id').AsInteger := Integer(Depts.Objects[i]);
     DM.ibds.ParamByName('t_id').AsInteger := DM.ibdsStudentFilterTEACHER_ID_1.Value;
     DM.ibds.Open;
@@ -1232,7 +1178,7 @@ var
     rep.CreateTable(P, []);
     rep.AddRow([
       '\b\qc №',
-      'Ф.И.О. учащегося (предмет)',
+      'Ф.И.О. учащегося',
       'Кл.',
       'Специализация',
       'Куратор' ,
@@ -1322,7 +1268,7 @@ begin
         if not IsHeaderPrinted then PrintHeader;
         rep.AddRow([IntToStr(k),
           DM.ibdsStudentName.Value,
-          DM.ibdsStudentCLASS.AsString + '(' + DM.ibdsStudentPERIOD.AsString + ')',
+          DM.ibdsStudentCLASS.AsString + '(' + DM.ibdsStudent.FieldByName('PERIOD_FOR_PRINT').AsString + ')',
           DM.ibdsStudentSpecialization.Value,
           FIOToFInicials(DM.ibdsStudentCURATOR.Value),
           FIOToFInicials(DM.ibds.Fields[0].AsString),
@@ -1434,8 +1380,8 @@ var
 
     rep.CreateTable(P, []);
     rep.AddRow(['\b\qc №', 'Ф.И.О. учащегося (предмет)', 'Кл.', 'Специализация', 'Куратор' ,
-      '\fs14 Кол-во гр. мл.', 'Кол-во гр. ст.',
-      'Кол-во часов мл.', 'Кол-во часов ст.', 'Кол-во часов конц.', '\fs20 Примечание']);
+      '\fs14 гр. мл.', 'гр. ст.',
+      'мл. ч.', 'ст. ч.', 'конц. ч.', '\fs16 Примечание\fs20']);
     rep.ParSet(fTimes, 11);
     IsHeaderPrinted := true;
   end;
@@ -1490,18 +1436,19 @@ begin
 
   while not DM.ibds.Eof do
   begin
-    rep.AddRow([IntToStr(k),
+    rep.AddRow([
+      '\fs20 ' + IntToStr(k),
       DM.ibds.FieldByName('NAME').AsString,
       DM.ibds.FieldByName('CLASS').AsString + '(' + DM.ibds.FieldByName('PERIOD').AsString + ')',
       DM.ibds.FieldByName('SPECIALIZATION').AsString,
       FIOToFInicials(DM.ibds.FieldByName('CURATOR').AsString),
-            '',
-            '',
-            '\qr ' + dFormat(DM.ibds.FieldByName('TIME_Y').AsFloat),
-            '\qr ' + dFormat(DM.ibds.FieldByName('TIME_O').AsFloat),
-            '\qr ' + dFormat(DM.ibds.FieldByName('TIME_C').AsFloat),
-            '\ql ' + DM.ibds.FieldByName('CLOCKS').AsString
-      ]);
+      '',
+      '',
+      '\qr ' + dFormat(DM.ibds.FieldByName('TIME_Y').AsFloat),
+      '\qr ' + dFormat(DM.ibds.FieldByName('TIME_O').AsFloat),
+      '\qr ' + dFormat(DM.ibds.FieldByName('TIME_C').AsFloat),
+      '\ql \fs16 ' + DM.ibds.FieldByName('CLOCKS').AsString
+    ]);
     inc(k);
     TimeY := TimeY + DM.ibds.FieldByName('TIME_Y').AsFloat;
     TimeO := TimeO + DM.ibds.FieldByName('TIME_O').AsFloat;
@@ -1532,7 +1479,7 @@ begin
   while not DM.ibds.Eof do
   begin
     rep.AddRow([
-      IntToStr(k),
+      '\fs20 ' + IntToStr(k),
       DM.ibds.Fields[0].AsString,
       DM.ibds.Fields[1].AsString + '(' + DM.ibds.Fields[2].AsString + ')',
       '', '',

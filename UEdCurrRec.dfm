@@ -1,7 +1,7 @@
 object fmEdCurrRec: TfmEdCurrRec
-  Left = 177
-  Top = 209
-  Width = 709
+  Left = 284
+  Top = 279
+  Width = 762
   Height = 284
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -17,7 +17,7 @@ object fmEdCurrRec: TfmEdCurrRec
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 701
+    Width = 754
     Height = 185
     Align = alTop
     TabOrder = 0
@@ -38,7 +38,7 @@ object fmEdCurrRec: TfmEdCurrRec
     object GroupBox1: TGroupBox
       Left = 8
       Top = 80
-      Width = 665
+      Width = 737
       Height = 97
       Caption = #1042#1088#1077#1084#1103
       TabOrder = 2
@@ -104,6 +104,13 @@ object fmEdCurrRec: TfmEdCurrRec
         Width = 56
         Height = 20
         Caption = '8 '#1082#1083#1072#1089#1089
+      end
+      object Label11: TLabel
+        Left = 659
+        Top = 38
+        Width = 56
+        Height = 20
+        Caption = '9 '#1082#1083#1072#1089#1089
       end
       object cbT0: TComboBox
         Left = 12
@@ -339,6 +346,32 @@ object fmEdCurrRec: TfmEdCurrRec
           '6,00'
           '7,00')
       end
+      object cbT9: TComboBox
+        Left = 659
+        Top = 55
+        Width = 57
+        Height = 28
+        Enabled = False
+        ItemHeight = 20
+        ItemIndex = 0
+        TabOrder = 9
+        Text = '0,00'
+        OnEnter = cbT0Enter
+        OnKeyPress = cbT0KeyPress
+        Items.Strings = (
+          '0,00'
+          '0,50'
+          '1,00'
+          '1,50'
+          '2,00'
+          '2,50'
+          '3,00'
+          '3,50'
+          '4,00'
+          '5,00'
+          '6,00'
+          '7,00')
+      end
     end
     object cbGroup: TComboBox
       Left = 272
@@ -444,9 +477,5 @@ object fmEdCurrRec: TfmEdCurrRec
     ParentColor = False
     ParentFont = False
     TabOrder = 3
-  end
-  object FormPlacement1: TFormPlacement
-    Left = 280
-    Top = 200
   end
 end

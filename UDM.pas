@@ -21,7 +21,6 @@ type
   TDM = class(TDataModule)
     ibDatabase: TIBDatabase;
     ibTransaction: TIBTransaction;
-    ibdsCurriculum: TIBDataSet;
     ibdsDepartment: TIBDataSet;
     ibdsSpecialization: TIBDataSet;
     ibReadTransaction: TIBTransaction;
@@ -48,7 +47,6 @@ type
     ibdsTariffSalary: TFloatField;
     ibdsTariffInfo: TIBStringField;
     ibSQL: TIBSQL;
-    ibdsCurriculumRecord: TIBDataSet;
     ibdsDepartmentCurriculumID: TIntegerField;
     ibdsDepartmentCurriculum: TStringField;
     ibdsDepartmentPeriod: TIntegerField;
@@ -80,29 +78,10 @@ type
     ibdsStudentStage: TStringField;
     ibdsStudentFinancing: TStringField;
     ibdsStudentPlan: TIBDataSet;
-    ibdsCurriculumRecordYT: TFloatField;
-    ibdsCurriculumRecordOT: TFloatField;
-    ibdsCurriculumRecordCT: TFloatField;
     ibdsConst: TIBDataSet;
     ibdsConstYTCOEF: TFloatField;
     ibdsConstOTCOEF: TFloatField;
     ibdsConstCTCOEF: TFloatField;
-    ibdsCurriculumRecordID: TIntegerField;
-    ibdsCurriculumRecordNum: TSmallintField;
-    ibdsCurriculumRecordTime0: TFloatField;
-    ibdsCurriculumRecordTime1: TFloatField;
-    ibdsCurriculumRecordTime2: TFloatField;
-    ibdsCurriculumRecordTime3: TFloatField;
-    ibdsCurriculumRecordTime4: TFloatField;
-    ibdsCurriculumRecordTime5: TFloatField;
-    ibdsCurriculumRecordTime6: TFloatField;
-    ibdsCurriculumRecordTime7: TFloatField;
-    ibdsCurriculumRecordTime8: TFloatField;
-    ibdsCurriculumRecordCurriculumID: TIntegerField;
-    ibdsCurriculumRecordSubjectID: TIntegerField;
-    ibdsCurriculumRecordGroup: TIntegerField;
-    ibdsCurriculumRecordSubjName: TStringField;
-    ibdsCurriculumRecordSubjCode: TIntegerField;
     ibdsStudentPlanUseBool: TBooleanField;
     ibdsTeacherTM: TIBDataSet;
     ibdsTeacherTMOUTYTIME: TFloatField;
@@ -147,8 +126,6 @@ type
     ibdsFilialName: TIBStringField;
     ibdsEducationName: TIBStringField;
     ibdsPostName: TIBStringField;
-    ibdsCurriculumRecordSUMT: TFloatField;
-    ibdsCurriculumRecordSUMOT: TFloatField;
     ibdsGrouping: TIBDataSet;
     ibdsGroupingDept: TIBDataSet;
     ibdsGroupingID: TIntegerField;
@@ -204,18 +181,11 @@ type
     ibdsTarifficationRecCurrStageD: TIntegerField;
     ibdsMainTab: TIBDataSet;
     ibdsMainTabTEACHER_NAME: TIBStringField;
-    ibdsMainTabDAYS_QTY: TIntegerField;
     ibdsMainTabB_Y_TIME: TFloatField;
     ibdsMainTabB_O_TIME: TFloatField;
     ibdsMainTabB_C_TIME: TFloatField;
-    ibdsMainTabS_Y_TIME: TFloatField;
-    ibdsMainTabS_O_TIME: TFloatField;
-    ibdsMainTabS_C_TIME: TFloatField;
-    ibdsMainTabBEGIN_Y_TIME: TFloatField;
-    ibdsMainTabT_DATE: TDateField;
     ibdsMainTabSIGN: TIntegerField;
     ibdsMainTabTEACHER_ID: TIntegerField;
-    ibdsMainTabBEGIN_C_TIME: TFloatField;
     ibdsTeacherTAB_NUM: TIntegerField;
     ibdsStudentCategoryStr: TStringField;
     ibdsDeptNotGroupingID: TIntegerField;
@@ -267,18 +237,6 @@ type
     ibdsRepTabT_DATE: TDateField;
     ibdsRepTabSIGN: TIntegerField;
     ibdsRepTabID: TIntegerField;
-    ibdsCurriculumCAT_0: TLargeintField;
-    ibdsCurriculumCAT_1: TLargeintField;
-    ibdsCurriculumCAT_2: TLargeintField;
-    ibdsCurriculumCAT_3: TLargeintField;
-    ibdsCurriculumCAT_4: TLargeintField;
-    ibdsCurriculumCAT_5: TLargeintField;
-    ibdsCurriculumCAT_6: TLargeintField;
-    ibdsCurriculumCAT_7: TLargeintField;
-    ibdsCurriculumCAT_8: TLargeintField;
-    ibdsCurriculumID: TIntegerField;
-    ibdsCurriculumNAME: TIBStringField;
-    ibdsCurriculumPERIOD: TSmallintField;
     ibdsStudentPlanSTUDENT_ID: TIntegerField;
     ibdsStudentPlanID: TIntegerField;
     ibdsStudentPlanUSE: TSmallintField;
@@ -793,10 +751,19 @@ type
     ibdsTeacherEDUCATION_2_ID: TIntegerField;
     ibdsTeacherQUALIFICATION_2_ID: TIntegerField;
     ibdsTeacherDIPLOMA_2: TIBStringField;
+    ibdsTeacherQUALIFICATION_NAME: TIBStringField;
+    ibdsTeacherQUALIFICATION_2_NAME: TIBStringField;
+    ibdsMainTabCOMMENTS: TIBStringField;
+    ibdsMainTabSWP_Y_TIME: TFloatField;
+    ibdsMainTabSWP_O_TIME: TFloatField;
+    ibdsMainTabSWP_C_TIME: TFloatField;
+    ibdsMainTabPRECENCE_QTY: TLargeintField;
+    ibdsTeacherFilterAGE_B: TIntegerField;
+    ibdsTeacherFilterAGE_E: TIntegerField;
+    ibdsStudentPERIOD_FOR_PRINT: TIBStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure ibdsTeacherCalcFields(DataSet: TDataSet);
     procedure ibdsStudentCalcFields(DataSet: TDataSet);
-    procedure ibdsCurriculumRecordCalcFields(DataSet: TDataSet);
     procedure ibdsStudentPlanCalcFields(DataSet: TDataSet);
     procedure ibdsTeacherTMCalcFields(DataSet: TDataSet);
     procedure ibdsGroupingCalcFields(DataSet: TDataSet);
@@ -821,16 +788,14 @@ type
       Budget: Currency; SelfRepayment: Currency; Info: String): Integer;
     function AddFilial(ID: Integer; Code: Integer; Name: String; Info: String): Integer;
     function AddTariff(Grade: Integer; Salary: Currency; Info: String): Integer;
-    function AddCurriculum(ID: Integer; Name: String; Period: Integer): Integer;
-    procedure AddCurriculumCat(CurrID, ClassNum: Integer;  Category: Variant);
-    function AddCurrRec(ID, CurrID, SubjID, Group: Integer; Position: Variant): Integer;
-    procedure AddCurrRecTime(CurrID, CurrRecID, ClassNum: Integer; CTime: Variant);
+
+    function getQualificationID(name: String): Variant;
     function AddTeacher(ID, TabNum: Integer; Name: String; FilialID, SubjectID,
       EducationID, PostID: Integer; StageY, StageM, StageD: byte;
       StageDate, BirthDate, EnterDate, ReleaseDate: Variant;
       GradeID, ConcertID: Integer; Diploma, Address, Telephone: String; IDGradeAdd,
       IDGradeConcertAdd, IDTitle, IDCategory, IDCategoryConc,
-      CategoryDate, CategoryConcDate, QualificationID, Education2ID, Qualification2ID, Diploma2: Variant): Integer;
+      CategoryDate, CategoryConcDate, Qualification, Education2ID, Qualification2, Diploma2: Variant): Integer;
     function AddPost(ID: Integer; Name: String): Integer;
     function AddEducation(ID: Integer; Name: String): Integer;
     function AddTeacherAdding(ID, TeacherID: Integer; Name: String; Percent: word; Sum: double): Integer;
@@ -861,7 +826,9 @@ type
       ID: Variant; Name: String;
       MainSubjID, MainGrade, ConcGrade, PostID, EducationID, FilialID,
       State, StageB, StageE, BirthDB, BirthDE, EnterDB, EnterDE,
-      ReleaseDB, ReleaseDE, StageBM, StageEM, CatIDPed, CatIDConc, TitleID: Variant): Integer;
+      ReleaseDB, ReleaseDE, StageBM, StageEM, CatIDPed, CatIDConc, TitleID,
+      AgeB, AgeE: Variant
+    ): Integer;
     function AddLearnTimeGrid(ID: Variant; Financing: Integer; Name: string): integer;
     procedure AddLTGGrouping(LTG_ID: Integer; GroupingID: Integer);
     function AddLTGISubj(LTG_ID: Integer; ISubjID: Variant; ISubjName: String; Pos: Variant): Integer;
@@ -884,8 +851,6 @@ type
     procedure DelFilial(ID: Integer);
     procedure DelDepartment(ID: Integer);
     procedure DelSpecialization(ID: Integer);
-    procedure DelCurriculum(ID: Integer);
-    procedure DelCurrRec(ID: Integer; CurrID: Integer);
     procedure DelRepTabExt(RecTime: TDateTime);
     procedure DelRepTabExt2(RecTime: TDateTime);
     procedure DelGroupingSubj(GroupingID, GroupingSubjID: Integer);
@@ -905,9 +870,9 @@ type
     procedure ExtractAllGroup(GroupingID: integer);
     procedure ExtractSubjects(GroupingID: Integer);
     procedure Forming_Main_Tab(DaysQty: Integer);
-    procedure EditMainTab(ID, DaysQty: Integer;
-      b_y_t, b_o_t, b_c_t, s_y_t, s_o_t, s_c_t, beg_y_t, beg_c_t: double;
-      t_date: TDateTime);
+    procedure EditMainTab(ID: Integer;
+      b_y_t, b_o_t, b_c_t: double;
+      comments, swp_y_time, swp_o_time, swp_c_time: variant);
     procedure AddSTFilterSpec(IDFilter, IDSpec: Integer);
     procedure ClearStudentFilterSpec(IDFilter: Integer);
     procedure TableBookmarkRefresh(TableName: string; BookMark: string);
@@ -930,6 +895,7 @@ type
       pIDFieldName: string;
       pID:          integer
     );
+    function GetSysdate: TDateTime;
 
     procedure OpenDB;
     procedure CloseDB;
@@ -952,6 +918,7 @@ type
     property ConstController: TConstController read FConstController;
     property CalendarController: TCalendarController read FCalendarController;
     property DBWorker: TDBWorker read FDBWorker;
+    property SysDate: TDateTime read GetSysdate;
   end;
 
   TQueriedClass = class
@@ -1071,9 +1038,10 @@ type
     procedure storeDay(day: TDateTime; isHoliDay: boolean);
     function  isDayStored(day: TDateTime): boolean;
   public
-    procedure refresh;
+    procedure refresh(onMonth: TDateTime);
     procedure setHoliDay(day: TDateTime);
     procedure setWorkDay(day: TDateTime);
+    procedure reverseDay(day: TDateTime);
   end;
 
   TDBWorker = class(TQueriedClass)
@@ -1098,50 +1066,6 @@ begin
 end;
 
 { TDM }
-
-function TDM.AddCurriculum(ID: Integer; Name: String; Period: Integer): Integer;
-begin
-  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
-
-  result := 0;
-  ibqProc.SQL.Clear;
-  ibqProc.SQL.Append('EXECUTE PROCEDURE ADD_CURRICULUM(' +
-    ':ID, :Name, :Period)');
-  ibqProc.Params[0].AsInteger := ID;
-  ibqProc.Params[1].AsString := Name;
-  ibqProc.Params[2].AsInteger := Period;
-  try
-    ibqProc.ExecSQL;
-    Result := ibqProc.Current.Vars[0].AsInteger;
-  except
-    ibqProc.Transaction.Rollback;
-  end;
-
-  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
-end;
-
-function TDM.AddCurrRec(ID, CurrID, SubjID, Group: Integer; Position: Variant): Integer;
-begin
-  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
-
-  result := 0;
-  ibqProc.SQL.Clear;
-  ibqProc.SQL.Append('EXECUTE PROCEDURE ADD_CURR_REC(' +
-    ':curr_id, :id, :subj_id, :group_qty, :pos)');
-  ibqProc.Params[0].AsInteger := CurrID;
-  ibqProc.Params[1].AsInteger := ID;
-  ibqProc.Params[2].AsInteger := SubjID;
-  ibqProc.Params[3].AsInteger := Group;
-  ibqProc.Params[4].Value := Position;
-  try
-    ibqProc.ExecSQL;
-    Result := ibqProc.Current.Vars[0].AsInteger;
-  except
-    ibqProc.Transaction.Rollback;
-  end;
-
-  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
-end;
 
 function TDM.AddDepartment(ID, Code: Integer; Name: String; YearQty: Integer; Info: String): integer;
 begin
@@ -1364,11 +1288,15 @@ function TDM.AddTeacher(ID, TabNum: Integer; Name: String; FilialID, SubjectID,
   EducationID, PostID: Integer; StageY, StageM, StageD: byte;
   StageDate, BirthDate, EnterDate, ReleaseDate: Variant; GradeID, ConcertID: Integer; Diploma,
   Address, Telephone: String; IDGradeAdd, IDGradeConcertAdd, IDTitle, IDCategory, IDCategoryConc,
-  CategoryDate, CategoryConcDate, QualificationID, Education2ID, Qualification2ID, Diploma2: Variant): Integer;
+  CategoryDate, CategoryConcDate, Qualification, Education2ID, Qualification2, Diploma2: Variant): Integer;
+var
+  qID, q2ID: Integer;
 begin
   if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
 
   result := 0;
+  qID := getQualificationID(Qualification);
+  q2ID := getQualificationID(Qualification2);
   ibqProc.SQL.Clear;
   ibqProc.SQL.Append('EXECUTE PROCEDURE ADD_TEACHER(' +
     ':P0, :P1, :P2, :P3, :P4, :P5, :P6, :P7, :P8, :P9, :P10, :P11, :P12, :P13, ' +
@@ -1400,9 +1328,9 @@ begin
   ibqProc.Params[23].Value := IDCategoryConc;
   ibqProc.Params[24].Value := CategoryDate;
   ibqProc.Params[25].Value := CategoryConcDate;
-  ibqProc.Params[26].Value := QualificationID;
+  ibqProc.Params[26].Value := qID;
   ibqProc.Params[27].Value := Education2ID;
-  ibqProc.Params[28].Value := Qualification2ID;
+  ibqProc.Params[28].Value := q2ID;
   ibqProc.Params[29].Value := Diploma2;
   try
     ibqProc.ExecSQL;
@@ -1467,35 +1395,7 @@ begin
   FConstController := TConstController.Create(ibTransaction);
   FCalendarController := TCalendarController.Create(ibTransaction);
   FDBWorker := TDBWorker.Create(ibTransaction);
-  FCalendarController.refresh;
-end;
-
-procedure TDM.DelCurriculum(ID: Integer);
-begin
-  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
-
-  ibqProc.SQL.Clear;
-  ibqProc.SQL.Append('EXECUTE PROCEDURE DELETE_CURRICULUM(:P1)');
-
-  ibqProc.Params[0].AsInteger := ID;
-  ibqProc.ExecSQL;
-
-  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
-end;
-
-procedure TDM.DelCurrRec(ID: Integer; CurrID: Integer);
-begin
-  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
-
-  ibqProc.SQL.Clear;
-  ibqProc.SQL.Append('EXECUTE PROCEDURE DELETE_CURRICULUM_RECORD(' +
-    ':P1, :P2)');
-
-  ibqProc.Params[0].AsInteger := ID;
-  ibqProc.Params[1].AsInteger := CurrID;
-  ibqProc.ExecSQL;
-
-  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+  FCalendarController.refresh(SysDate);
 end;
 
 procedure TDM.DelDepartment(ID: Integer);
@@ -1737,26 +1637,6 @@ begin
       ibdsStudentCategoryStr.Value := 'ст.'
     else
       ibdsStudentCategoryStr.Value := '';
-end;
-
-procedure TDM.ibdsCurriculumRecordCalcFields(DataSet: TDataSet);
-begin
-  if DM.ibdsCurriculum.RecordCount <> 0 then
-  begin
-    if DM.ibdsCurriculumRecordSubjCode.Value <> 1 then
-    begin
-      DM.ibdsCurriculumRecordOT.Value := ibdsCurriculumRecordSUMOT.Value;
-      DM.ibdsCurriculumRecordYT.Value := ibdsCurriculumRecordSUMT.Value -
-        ibdsCurriculumRecordSUMOT.Value;
-      DM.ibdsCurriculumRecordCT.Value := 0;
-    end
-    else
-    begin
-      DM.ibdsCurriculumRecordCT.Value := ibdsCurriculumRecordSUMT.Value;
-      DM.ibdsCurriculumRecordYT.Value := 0;
-      DM.ibdsCurriculumRecordOT.Value := 0;
-    end;
-  end;
 end;
 
 procedure TDM.ibdsStudentPlanCalcFields(DataSet: TDataSet);
@@ -2135,27 +2015,23 @@ begin
   if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
 end;
 
-procedure TDM.EditMainTab(ID, DaysQty: Integer; b_y_t, b_o_t, b_c_t, s_y_t,
-  s_o_t, s_c_t, beg_y_t, beg_c_t: double; t_date: TDateTime);
+procedure TDM.EditMainTab(ID: Integer; b_y_t, b_o_t, b_c_t: double;
+  comments, swp_y_time, swp_o_time, swp_c_time: variant);
 begin
   if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
 
   ibqProc.SQL.Clear;
-  ibqProc.SQL.Append('EXECUTE PROCEDURE EDIT_MAIN_TAB(:P0, :P1,' +
-  ' :P2, :P3, :P4, :P5, :P6, :P7, :P8, :P9, :P10)');
+  ibqProc.SQL.Append('EXECUTE PROCEDURE EDIT_MAIN_TAB(:teacher_id, :time_y,' +
+  ' :time_o, :time_c, :comments, :time_y_swp, :time_o_swp, :time_c_swp)');
 
-  ibqProc.Params[0].AsInteger := ID;
-  ibqProc.Params[1].AsInteger := DaysQty;
-  ibqProc.Params[2].AsFloat := b_y_t;
-  ibqProc.Params[3].AsFloat := b_o_t;
-  ibqProc.Params[4].AsFloat := b_c_t;
-  ibqProc.Params[5].AsFloat := s_y_t;
-  ibqProc.Params[6].AsFloat := s_o_t;
-  ibqProc.Params[7].AsFloat := s_c_t;
-  ibqProc.Params[8].AsFloat := beg_y_t;
-  ibqProc.Params[9].AsFloat := beg_c_t;
-  ibqProc.Params[6].AsFloat := s_o_t;
-  ibqProc.Params[10].AsDate := t_date;
+  ibqProc.ParamByName('teacher_id').AsInteger := ID;
+  ibqProc.ParamByName('time_y').AsFloat := b_y_t;
+  ibqProc.ParamByName('time_o').AsFloat := b_o_t;
+  ibqProc.ParamByName('time_c').AsFloat := b_c_t;
+  ibqProc.ParamByName('comments').Value := comments;
+  ibqProc.ParamByName('time_y_swp').Value := swp_y_time;
+  ibqProc.ParamByName('time_o_swp').Value := swp_o_time;
+  ibqProc.ParamByName('time_c_swp').Value := swp_c_time;
 
   try
     ibqProc.ExecSQL;
@@ -2166,50 +2042,9 @@ begin
   if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
 end;
 
-procedure TDM.AddCurriculumCat(CurrID, ClassNum: Integer;
-  Category: Variant);
-begin
-  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
 
-  ibqProc.SQL.Clear;
-  ibqProc.SQL.Append('EXECUTE PROCEDURE ADD_CURR_CAT(:curr_id, :class_num,' +
-  ' :cat)');
 
-  ibqProc.Params[0].AsInteger := CurrID;
-  ibqProc.Params[1].AsInteger := ClassNum;
-  ibqProc.Params[2].Value := Category;
 
-  try
-    ibqProc.ExecSQL;
-  except
-    ibqProc.Transaction.Rollback;
-  end;
-
-  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
-end;
-
-procedure TDM.AddCurrRecTime(CurrID, CurrRecID, ClassNum: Integer;
-  CTime: Variant);
-begin
-  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
-
-  ibqProc.SQL.Clear;
-  ibqProc.SQL.Append('EXECUTE PROCEDURE ADD_CURR_REC_TIME(' +
-    ' :curr_id, :curr_rec_id, :class_num, :c_time)');
-
-  ibqProc.Params[0].AsInteger := CurrID;
-  ibqProc.Params[1].AsInteger := CurrRecID;
-  ibqProc.Params[2].AsInteger := ClassNum;
-  ibqProc.Params[3].Value := CTime;
-
-  try
-    ibqProc.ExecSQL;
-  except
-    ibqProc.Transaction.Rollback;
-  end;
-
-  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
-end;
 
 function TDM.AddRepTabExt(RecTime: Variant; TeacherName: String;
   TabMonth: TDateTime; y_t, o_t, c_t, y_t_ood, o_t_ood, c_t_ood,
@@ -2480,7 +2315,9 @@ end;
 function TDM.AddTeacherFilter(ID: Variant; Name: String; MainSubjID,
   MainGrade, ConcGrade, PostID, EducationID, FilialID, State, StageB,
   StageE, BirthDB, BirthDE, EnterDB, EnterDE, ReleaseDB,
-  ReleaseDE, StageBM, StageEM, CatIDPed, CatIDConc, TitleID: Variant): Integer;
+  ReleaseDE, StageBM, StageEM, CatIDPed, CatIDConc, TitleID,
+  AgeB, AgeE: Variant
+): Integer;
 begin
 if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
 
@@ -2491,7 +2328,7 @@ if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
     ':in_state, :in_stage_b, :in_stage_e, :in_birth_d_b, :in_birth_d_e, ' +
     ':in_enter_d_b, :in_enter_d_e, :in_release_d_b, :in_release_d_e, ' +
     ':in_stage_b_m, :in_stage_e_m, ' +
-    ':in_cat_id_ped, :in_cat_id_conc, :in_title_id);');
+    ':in_cat_id_ped, :in_cat_id_conc, :in_title_id, :in_age_b, :in_age_e);');
 
   ibqProc.ParamByName('in_id').Value := ID;
   ibqProc.ParamByName('in_name').Value := Name;
@@ -2515,6 +2352,8 @@ if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
   ibqProc.ParamByName('in_cat_id_ped').Value := CatIDPed;
   ibqProc.ParamByName('in_cat_id_conc').Value := CatIDConc;
   ibqProc.ParamByName('in_title_id').Value := TitleID;
+  ibqProc.ParamByName('in_age_b').Value := AgeB;
+  ibqProc.ParamByName('in_age_e').Value := AgeE;
 
   try
     ibqProc.ExecSQL;
@@ -3006,6 +2845,52 @@ begin
     ibqProc.Transaction.Rollback;
     raise;
   end;
+
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
+
+function TDM.getQualificationID(name: String): Variant;
+begin
+  if length(name) = 0 then
+  begin
+    result := Null;
+  end;
+
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+
+  ibqProc.SQL.Clear;
+  ibqProc.SQL.Append('EXECUTE PROCEDURE get_qualification_id (:p_name)');
+  ibqProc.ParamByName('p_name').Value := name;
+  try
+    ibqProc.ExecSQL;
+    Result := ibqProc.Current.Vars[0].AsInteger;
+  except
+    ibqProc.Transaction.Rollback;
+    raise;
+  end;
+
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
+
+function TDM.GetSysdate: TDateTime;
+begin
+  if length(name) = 0 then
+  begin
+    result := Null;
+  end;
+
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+
+  ibqProc.SQL.Clear;
+  ibqProc.SQL.Append('select system_date from constants');
+  try
+    ibqProc.Open;
+    Result := ibqProc.FieldByName('system_date').AsDateTime
+  except
+    ibqProc.Transaction.Rollback;
+    raise;
+  end;
+  ibqProc.Close;
 
   if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
 end;
@@ -3977,19 +3862,36 @@ begin
   if FQuery.Transaction.InTransaction then FQuery.Transaction.Commit;
 end;
 
-procedure TCalendarController.refresh;
+procedure TCalendarController.refresh(onMonth: TDateTime);
 var
   day: TDateTime;
   i: integer;
   endDay: Integer;
 begin
-  day := StartOfTheMonth(Date);
+  day := StartOfTheMonth(onMonth);
   endDay := DaysInMonth(day);
   for i := 0 to endDay - 1 do
   begin
     if not isDayStored(day + i) then
-      storeDay(day + i, DayOfTheWeek(day + i) in [6, 7]);
+      storeDay(day + i, DayOfTheWeek(day + i) in [7]);
   end;
+end;
+
+procedure TCalendarController.reverseDay(day: TDateTime);
+begin
+  if FQuery.Transaction.InTransaction then FQuery.Transaction.Commit;
+
+  FQuery.SQL.Clear;
+  FQuery.SQL.Append('update calendar c set c.is_holiday = case when c.is_holiday = ''Y'' then null else ''Y'' end where c.the_day = :p_day;');
+  FQuery.ParamByName('p_day').Value := day;
+  try
+    FQuery.ExecSQL;
+  except
+    FQuery.Transaction.Rollback;
+    raise;
+  end;;
+
+  if FQuery.Transaction.InTransaction then FQuery.Transaction.Commit;
 end;
 
 procedure TCalendarController.setHoliDay(day: TDateTime);

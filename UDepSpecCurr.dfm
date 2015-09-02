@@ -1,6 +1,6 @@
 object fmDepSpec: TfmDepSpec
   Left = 293
-  Top = 179
+  Top = 181
   Width = 987
   Height = 575
   HelpContext = 14
@@ -64,7 +64,6 @@ object fmDepSpec: TfmDepSpec
           item
             Expanded = False
             FieldName = 'Info'
-            Width = 64
             Visible = True
           end>
       end
@@ -305,19 +304,16 @@ object fmDepSpec: TfmDepSpec
           item
             Expanded = False
             FieldName = 'Budget'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'Self_Repayment'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'Info'
-            Width = 64
             Visible = True
           end>
       end
@@ -559,12 +555,12 @@ object fmDepSpec: TfmDepSpec
         item
           Expanded = False
           FieldName = 'Name'
-          Width = 245
+          Width = 244
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'PERIOD'
+          FieldName = 'PERIOD_FOR_PRINT'
           Visible = True
         end>
     end
@@ -3043,7 +3039,6 @@ object fmDepSpec: TfmDepSpec
     Top = 80
   end
   object dsCurr: TDataSource
-    DataSet = DM.ibdsCurriculum
     Left = 200
     Top = 104
   end

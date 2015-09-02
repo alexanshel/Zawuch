@@ -1,6 +1,6 @@
 object fmRepTab: TfmRepTab
-  Left = 80
-  Top = 100
+  Left = 81
+  Top = 91
   HelpContext = 32
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle

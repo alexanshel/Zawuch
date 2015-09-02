@@ -2,8 +2,8 @@ object DM: TDM
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Left = 475
-  Top = 136
+  Left = 554
+  Top = 228
   Height = 632
   Width = 713
   object ibDatabase: TIBDatabase
@@ -18,127 +18,10 @@ object DM: TDM
     Top = 8
   end
   object ibTransaction: TIBTransaction
+    Active = True
     DefaultDatabase = ibDatabase
     Left = 96
     Top = 8
-  end
-  object ibdsCurriculum: TIBDataSet
-    Database = ibDatabase
-    Transaction = ibReadTransaction
-    RefreshSQL.Strings = (
-      'select * from VIEW_CURRICULUM where "ID"=:"ID"')
-    SelectSQL.Strings = (
-      'select * from VIEW_CURRICULUM order by pos')
-    Left = 456
-    Top = 8
-    object ibdsCurriculumID: TIntegerField
-      FieldKind = fkInternalCalc
-      FieldName = 'ID'
-      Origin = '"VIEW_CURRICULUM"."ID"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumNAME: TIBStringField
-      DisplayLabel = #1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077
-      DisplayWidth = 25
-      FieldKind = fkInternalCalc
-      FieldName = 'Name'
-      Origin = '"VIEW_CURRICULUM"."NAME"'
-      ProviderFlags = []
-      ReadOnly = True
-      Size = 30
-    end
-    object ibdsCurriculumPERIOD: TSmallintField
-      DisplayLabel = #1055#1077#1088#1080#1086#1076
-      DisplayWidth = 5
-      FieldKind = fkInternalCalc
-      FieldName = 'PERIOD'
-      Origin = '"VIEW_CURRICULUM"."PERIOD"'
-      ProviderFlags = []
-      ReadOnly = True
-    end
-    object ibdsCurriculumCAT_0: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_0'
-      Origin = '"VIEW_CURRICULUM"."CAT_0"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_1: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_1'
-      Origin = '"VIEW_CURRICULUM"."CAT_1"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_2: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_2'
-      Origin = '"VIEW_CURRICULUM"."CAT_2"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_3: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_3'
-      Origin = '"VIEW_CURRICULUM"."CAT_3"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_4: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_4'
-      Origin = '"VIEW_CURRICULUM"."CAT_4"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_5: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_5'
-      Origin = '"VIEW_CURRICULUM"."CAT_5"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_6: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_6'
-      Origin = '"VIEW_CURRICULUM"."CAT_6"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_7: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_7'
-      Origin = '"VIEW_CURRICULUM"."CAT_7"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_8: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_8'
-      Origin = '"VIEW_CURRICULUM"."CAT_8"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
   end
   object ibdsDepartment: TIBDataSet
     Database = ibDatabase
@@ -174,7 +57,6 @@ object DM: TDM
       DisplayWidth = 15
       FieldKind = fkLookup
       FieldName = 'Curriculum'
-      LookupDataSet = ibdsCurriculum
       LookupKeyFields = 'ID'
       LookupResultField = 'Name'
       KeyFields = 'CurriculumID'
@@ -185,7 +67,6 @@ object DM: TDM
       DisplayWidth = 5
       FieldKind = fkLookup
       FieldName = 'Period'
-      LookupDataSet = ibdsCurriculum
       LookupKeyFields = 'ID'
       LookupResultField = 'Period'
       KeyFields = 'CurriculumID'
@@ -263,7 +144,6 @@ object DM: TDM
     end
   end
   object ibReadTransaction: TIBTransaction
-    Active = True
     DefaultDatabase = ibDatabase
     Params.Strings = (
       'read_committed'
@@ -338,7 +218,6 @@ object DM: TDM
       'SELECT * FROM "Filial" WHERE "ID"=:"ID"')
     SelectSQL.Strings = (
       'select * from "Filial"')
-    Active = True
     Left = 592
     Top = 64
     object ibdsFilialID: TIntegerField
@@ -406,7 +285,6 @@ object DM: TDM
       'Select * From "Subject" Where "ID"=:"ID"')
     SelectSQL.Strings = (
       'select * from "Subject" order by "Name"')
-    Active = True
     Left = 24
     Top = 64
     object ibdsSubjectID: TIntegerField
@@ -448,163 +326,6 @@ object DM: TDM
     Transaction = ibReadTransaction
     Left = 272
     Top = 8
-  end
-  object ibdsCurriculumRecord: TIBDataSet
-    Database = ibDatabase
-    Transaction = ibReadTransaction
-    OnCalcFields = ibdsCurriculumRecordCalcFields
-    RefreshSQL.Strings = (
-      
-        'select * from  VIEW_CURRICULUM_RECORDS where ("ID"=:"ID") and ("' +
-        'CurriculumID"=:"CurriculumID")')
-    SelectSQL.Strings = (
-      
-        'select * from  VIEW_CURRICULUM_RECORDS WHERE "CurriculumID"=:"ID' +
-        '" order by "Num"')
-    Left = 456
-    Top = 56
-    object ibdsCurriculumRecordID: TIntegerField
-      FieldName = 'ID'
-      Origin = '"Curriculum_Record"."ID"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-      Visible = False
-    end
-    object ibdsCurriculumRecordCurriculumID: TIntegerField
-      FieldName = 'CurriculumID'
-      Origin = '"Curriculum_Record"."CurriculumID"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-      Visible = False
-    end
-    object ibdsCurriculumRecordSubjectID: TIntegerField
-      FieldName = 'SubjectID'
-      Origin = '"Curriculum_Record"."SubjectID"'
-      Required = True
-      Visible = False
-    end
-    object ibdsCurriculumRecordSubjName: TStringField
-      DisplayWidth = 15
-      FieldKind = fkLookup
-      FieldName = 'SubjName'
-      LookupDataSet = ibdsSubject
-      LookupKeyFields = 'ID'
-      LookupResultField = 'Name'
-      KeyFields = 'SubjectID'
-      Size = 30
-      Lookup = True
-    end
-    object ibdsCurriculumRecordGroup: TIntegerField
-      DisplayWidth = 6
-      FieldName = 'Group'
-      Origin = '"Curriculum_Record"."Group"'
-    end
-    object ibdsCurriculumRecordTime0: TFloatField
-      DisplayWidth = 7
-      FieldName = 'Time0'
-      Origin = '"Curriculum_Record"."Time0"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsCurriculumRecordTime1: TFloatField
-      DisplayWidth = 7
-      FieldName = 'Time1'
-      Origin = '"Curriculum_Record"."Time1"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsCurriculumRecordTime2: TFloatField
-      DisplayWidth = 7
-      FieldName = 'Time2'
-      Origin = '"Curriculum_Record"."Time2"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsCurriculumRecordTime3: TFloatField
-      DisplayWidth = 7
-      FieldName = 'Time3'
-      Origin = '"Curriculum_Record"."Time3"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsCurriculumRecordTime4: TFloatField
-      DisplayWidth = 7
-      FieldName = 'Time4'
-      Origin = '"Curriculum_Record"."Time4"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsCurriculumRecordTime5: TFloatField
-      DisplayWidth = 7
-      FieldName = 'Time5'
-      Origin = '"Curriculum_Record"."Time5"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsCurriculumRecordTime6: TFloatField
-      DisplayWidth = 7
-      FieldName = 'Time6'
-      Origin = '"Curriculum_Record"."Time6"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsCurriculumRecordTime7: TFloatField
-      DisplayWidth = 7
-      FieldName = 'Time7'
-      Origin = '"Curriculum_Record"."Time7"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsCurriculumRecordTime8: TFloatField
-      DisplayWidth = 7
-      FieldName = 'Time8'
-      Origin = '"Curriculum_Record"."Time8"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsCurriculumRecordYT: TFloatField
-      DisplayWidth = 7
-      FieldKind = fkCalculated
-      FieldName = 'YT'
-      DisplayFormat = '0.00'
-      Calculated = True
-    end
-    object ibdsCurriculumRecordOT: TFloatField
-      DisplayWidth = 7
-      FieldKind = fkCalculated
-      FieldName = 'OT'
-      DisplayFormat = '0.00'
-      Calculated = True
-    end
-    object ibdsCurriculumRecordCT: TFloatField
-      DisplayWidth = 7
-      FieldKind = fkCalculated
-      FieldName = 'CT'
-      DisplayFormat = '0.00'
-      Calculated = True
-    end
-    object ibdsCurriculumRecordNum: TSmallintField
-      FieldName = 'Num'
-      Origin = '"Curriculum_Record"."Num"'
-      Visible = False
-    end
-    object ibdsCurriculumRecordSubjCode: TIntegerField
-      FieldKind = fkLookup
-      FieldName = 'SubjCode'
-      LookupDataSet = ibdsSubject
-      LookupKeyFields = 'ID'
-      LookupResultField = 'Code'
-      KeyFields = 'SubjectID'
-      Visible = False
-      Lookup = True
-    end
-    object ibdsCurriculumRecordSUMT: TFloatField
-      FieldKind = fkInternalCalc
-      FieldName = 'SUMT'
-      Origin = '"VIEW_CURRICULUM"."SUMT"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumRecordSUMOT: TFloatField
-      FieldKind = fkInternalCalc
-      FieldName = 'SUMOT'
-      Origin = '"VIEW_CURRICULUM"."SUMOT"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
   end
   object ibdsTeacher: TIBDataSet
     Database = ibDatabase
@@ -858,6 +579,22 @@ object DM: TDM
       Origin = '"V_TEACHER"."DIPLOMA_2"'
       Size = 256
     end
+    object ibdsTeacherQUALIFICATION_NAME: TIBStringField
+      FieldKind = fkInternalCalc
+      FieldName = 'QUALIFICATION_NAME'
+      Origin = '"V_TEACHER"."QUALIFICATION_NAME"'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 150
+    end
+    object ibdsTeacherQUALIFICATION_2_NAME: TIBStringField
+      FieldKind = fkInternalCalc
+      FieldName = 'QUALIFICATION_2_NAME'
+      Origin = '"V_TEACHER"."QUALIFICATION_2_NAME"'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 150
+    end
   end
   object ibdsEducation: TIBDataSet
     Database = ibDatabase
@@ -866,7 +603,6 @@ object DM: TDM
       'select * from "Education" where "ID"=:"ID"')
     SelectSQL.Strings = (
       'select * from "Education"')
-    Active = True
     Left = 592
     Top = 8
     object ibdsEducationID: TIntegerField
@@ -891,7 +627,6 @@ object DM: TDM
       'select * from "Post" where "ID"=:"ID"')
     SelectSQL.Strings = (
       'select * from "Post"')
-    Active = True
     Left = 656
     Top = 8
     object ibdsPostID: TIntegerField
@@ -1164,6 +899,12 @@ object DM: TDM
     object ibdsStudentSEX_NAME: TIBStringField
       FieldName = 'SEX_NAME'
       Origin = 'VIEW_STUDENT.SEX_NAME'
+      Size = 150
+    end
+    object ibdsStudentPERIOD_FOR_PRINT: TIBStringField
+      FieldName = 'PERIOD_FOR_PRINT'
+      Origin = '"VIEW_STUDENT"."PERIOD_FOR_PRINT"'
+      Visible = False
       Size = 150
     end
   end
@@ -1808,10 +1549,19 @@ object DM: TDM
     Database = ibDatabase
     Transaction = ibReadTransaction
     RefreshSQL.Strings = (
-      'select * from MAIN_TAB'
-      'where teacher_id=:teacher_id')
+      'select mt.*, vmt.precence_qty '
+      'from MAIN_TAB mt'
+      
+        '  left join V_MAIN_TAB_PART_1 vmt on vmt.teacher_id = mt.teacher' +
+        '_id'
+      'where mt.teacher_id=:teacher_id')
     SelectSQL.Strings = (
-      'select * from MAIN_TAB order by TEACHER_NAME')
+      'select mt.*, vmt.precence_qty '
+      'from MAIN_TAB mt'
+      
+        '  left join V_MAIN_TAB_PART_1 vmt on vmt.teacher_id = mt.teacher' +
+        '_id'
+      'order by TEACHER_NAME')
     Left = 624
     Top = 280
     object ibdsMainTabTEACHER_ID: TIntegerField
@@ -1834,12 +1584,6 @@ object DM: TDM
       Origin = '"MAIN_TAB"."TEACHER_NAME"'
       Size = 150
     end
-    object ibdsMainTabDAYS_QTY: TIntegerField
-      DisplayLabel = #1044#1085#1080
-      DisplayWidth = 5
-      FieldName = 'DAYS_QTY'
-      Origin = '"MAIN_TAB"."DAYS_QTY"'
-    end
     object ibdsMainTabB_Y_TIME: TFloatField
       DisplayLabel = #1073'. '#1084#1083'.'
       DisplayWidth = 7
@@ -1861,51 +1605,34 @@ object DM: TDM
       Origin = '"MAIN_TAB"."B_C_TIME"'
       DisplayFormat = '0.00'
     end
-    object ibdsMainTabS_Y_TIME: TFloatField
-      DisplayLabel = #1089'. '#1084#1083'.'
-      DisplayWidth = 7
-      FieldName = 'S_Y_TIME'
-      Origin = '"MAIN_TAB"."S_Y_TIME"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsMainTabS_O_TIME: TFloatField
-      DisplayLabel = #1089'. '#1089#1090'.'
-      DisplayWidth = 7
-      FieldName = 'S_O_TIME'
-      Origin = '"MAIN_TAB"."S_O_TIME"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsMainTabS_C_TIME: TFloatField
-      DisplayLabel = #1089'. '#1082#1085'.'
-      DisplayWidth = 7
-      FieldName = 'S_C_TIME'
-      Origin = '"MAIN_TAB"."S_C_TIME"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsMainTabBEGIN_Y_TIME: TFloatField
-      DisplayLabel = #1087#1086#1076#1075'. '#1084#1083'.'
-      DisplayWidth = 7
-      FieldName = 'BEGIN_Y_TIME'
-      Origin = '"MAIN_TAB"."BEGIN_Y_TIME"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsMainTabBEGIN_C_TIME: TFloatField
-      DisplayWidth = 7
-      FieldName = 'BEGIN_C_TIME'
-      Origin = '"MAIN_TAB"."BEGIN_C_TIME"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsMainTabT_DATE: TDateField
-      DisplayLabel = #1044#1072#1090#1072
-      DisplayWidth = 8
-      FieldName = 'T_DATE'
-      Origin = '"MAIN_TAB"."T_DATE"'
-      DisplayFormat = 'mm.yyyy'
-    end
     object ibdsMainTabSIGN: TIntegerField
       FieldName = 'SIGN'
       Origin = '"MAIN_TAB"."SIGN"'
       Visible = False
+    end
+    object ibdsMainTabCOMMENTS: TIBStringField
+      FieldName = 'COMMENTS'
+      Origin = '"MAIN_TAB"."COMMENTS"'
+      Size = 256
+    end
+    object ibdsMainTabSWP_Y_TIME: TFloatField
+      FieldName = 'SWP_Y_TIME'
+      Origin = '"MAIN_TAB"."SWP_Y_TIME"'
+    end
+    object ibdsMainTabSWP_O_TIME: TFloatField
+      FieldName = 'SWP_O_TIME'
+      Origin = '"MAIN_TAB"."SWP_O_TIME"'
+    end
+    object ibdsMainTabSWP_C_TIME: TFloatField
+      FieldName = 'SWP_C_TIME'
+      Origin = '"MAIN_TAB"."SWP_C_TIME"'
+    end
+    object ibdsMainTabPRECENCE_QTY: TLargeintField
+      FieldKind = fkInternalCalc
+      FieldName = 'PRECENCE_QTY'
+      Origin = '"V_MAIN_TAB_PART_1"."PRECENCE_QTY"'
+      ProviderFlags = []
+      ReadOnly = True
     end
   end
   object ibdsRepTab: TIBDataSet
@@ -3317,6 +3044,14 @@ object DM: TDM
     object ibdsTeacherFilterSTAGE_E_M: TIntegerField
       FieldName = 'STAGE_E_M'
       Origin = '"VIEW_TEACHER_FILTER"."STAGE_E_M"'
+    end
+    object ibdsTeacherFilterAGE_B: TIntegerField
+      FieldName = 'AGE_B'
+      Origin = '"VIEW_TEACHER_FILTER"."AGE_B"'
+    end
+    object ibdsTeacherFilterAGE_E: TIntegerField
+      FieldName = 'AGE_E'
+      Origin = '"VIEW_TEACHER_FILTER"."AGE_E"'
     end
   end
   object ibds: TIBDataSet

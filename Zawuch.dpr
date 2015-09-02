@@ -85,7 +85,10 @@ uses
   uTeacherCat in 'uTeacherCat.pas' {fmTeacherCat},
   uTeacherCatEdit in 'uTeacherCatEdit.pas' {fmTeacherCatEdit},
   uTeacherAddings in 'uTeacherAddings.pas' {fmTeacherAddings},
-  uQualifications in 'uQualifications.pas' {fmQualifications};
+  uQualifications in 'uQualifications.pas' {fmQualifications},
+  uCalendar in 'uCalendar.pas' {fmCalendar},
+  uTeacherAbsentsEd in 'uTeacherAbsentsEd.pas' {fmTeacherAbsentsEd},
+  UTeacherAbsentClear in 'absents\UTeacherAbsentClear.pas' {fmTeacherAbsentsClear};
 
 {$R *.res}
 
@@ -98,6 +101,7 @@ begin
   end;
   Application.CreateForm(TfmMAIN, fmMAIN);
   Application.CreateForm(TdmImages, dmImages);
+  {
   Application.CreateForm(TfmCalcPackAdd, fmCalcPackAdd);
   Application.CreateForm(TfmCalcIndividualAdd, fmCalcIndividualAdd);
   Application.CreateForm(TfmCalcGroupAdd, fmCalcGroupAdd);
@@ -106,5 +110,6 @@ begin
   Application.CreateForm(TfmEdGSubject, fmEdGSubject);
   Application.CreateForm(TfmGroupingChoice, fmGroupingChoice);
   Application.CreateForm(TfmDepChoice, fmDepChoice);
+  }
   Application.Run;
 end.

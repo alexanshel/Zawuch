@@ -1,6 +1,6 @@
 object fmMAIN: TfmMAIN
-  Left = 276
-  Top = 405
+  Left = 352
+  Top = 528
   AutoScroll = False
   Caption = #1047#1072#1074#1091#1095
   ClientHeight = 113
@@ -1438,6 +1438,9 @@ object fmMAIN: TfmMAIN
                 Caption = '-'
               end
               item
+                Action = aCalendar
+              end
+              item
                 Action = aTeacherCat
               end
               item
@@ -1462,15 +1465,6 @@ object fmMAIN: TfmMAIN
             Items = <
               item
                 Action = aMainTab
-              end
-              item
-                Action = aReplaceTab
-              end
-              item
-                Action = aOnetimeClockTab
-              end
-              item
-                Action = aAbsenceTab
               end
               item
                 Action = aFactCurriculum
@@ -1614,6 +1608,10 @@ object fmMAIN: TfmMAIN
     object aQualifications: TAction
       Caption = #1042#1080#1076#1099' '#1082#1074#1072#1083#1080#1092#1080#1082#1072#1094#1080#1081
       OnExecute = aQualificationsExecute
+    end
+    object aCalendar: TAction
+      Caption = #1050#1072#1083#1077#1085#1076#1072#1088#1100
+      OnExecute = aCalendarExecute
     end
   end
 end

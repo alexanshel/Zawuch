@@ -1,8 +1,8 @@
 object fmEdTeacher: TfmEdTeacher
-  Left = 300
-  Top = 41
-  Width = 827
-  Height = 798
+  Left = 322
+  Top = 37
+  Width = 721
+  Height = 755
   Caption = #1055#1088#1077#1087#1086#1076#1072#1074#1072#1090#1077#1083#1100
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -19,11 +19,11 @@ object fmEdTeacher: TfmEdTeacher
   TextHeight = 20
   object GroupBox1: TGroupBox
     Left = 0
-    Top = 599
-    Width = 819
+    Top = 554
+    Width = 713
     Height = 111
     Hint = #1044#1086#1073#1072#1074#1080#1090#1100
-    Align = alBottom
+    Align = alTop
     TabOrder = 0
     object Label15: TLabel
       Left = 8
@@ -291,7 +291,7 @@ object fmEdTeacher: TfmEdTeacher
   object GroupBox2: TGroupBox
     Left = 0
     Top = 0
-    Width = 819
+    Width = 713
     Height = 201
     Align = alTop
     Caption = #1054#1089#1085#1086#1074#1085#1099#1077' '#1076#1072#1085#1085#1099#1077
@@ -304,7 +304,7 @@ object fmEdTeacher: TfmEdTeacher
       Caption = #1040#1076#1088#1077#1089
     end
     object Label1: TLabel
-      Left = 674
+      Left = 570
       Top = 24
       Width = 119
       Height = 20
@@ -313,7 +313,7 @@ object fmEdTeacher: TfmEdTeacher
     object edName: TLabeledEdit
       Left = 88
       Top = 48
-      Width = 573
+      Width = 473
       Height = 28
       EditLabel.Width = 50
       EditLabel.Height = 20
@@ -323,7 +323,7 @@ object fmEdTeacher: TfmEdTeacher
     object mAddress: TMemo
       Left = 426
       Top = 99
-      Width = 383
+      Width = 279
       Height = 94
       TabOrder = 3
     end
@@ -382,7 +382,7 @@ object fmEdTeacher: TfmEdTeacher
       OnKeyPress = edTabNumKeyPress
     end
     object edBirthDate: TDateEdit
-      Left = 672
+      Left = 568
       Top = 48
       Width = 137
       Height = 28
@@ -405,28 +405,28 @@ object fmEdTeacher: TfmEdTeacher
   end
   object GroupBox5: TGroupBox
     Left = 0
-    Top = 390
-    Width = 819
-    Height = 209
-    Align = alBottom
+    Top = 417
+    Width = 713
+    Height = 137
+    Align = alTop
     TabOrder = 2
     object Label11: TLabel
-      Left = 15
-      Top = 16
+      Left = 375
+      Top = 72
       Width = 62
       Height = 20
       Caption = #1060#1080#1083#1080#1072#1083
     end
     object Label12: TLabel
       Left = 16
-      Top = 72
+      Top = 16
       Width = 86
       Height = 20
       Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
     end
     object Label13: TLabel
       Left = 16
-      Top = 128
+      Top = 72
       Width = 70
       Height = 20
       Caption = #1055#1088#1077#1076#1084#1077#1090
@@ -452,8 +452,8 @@ object fmEdTeacher: TfmEdTeacher
       ParentFont = False
     end
     object edFilial: TComboEdit
-      Left = 16
-      Top = 40
+      Left = 376
+      Top = 96
       Width = 321
       Height = 28
       DirectInput = False
@@ -503,7 +503,7 @@ object fmEdTeacher: TfmEdTeacher
     end
     object edPost: TComboEdit
       Left = 16
-      Top = 96
+      Top = 40
       Width = 321
       Height = 28
       DirectInput = False
@@ -553,7 +553,7 @@ object fmEdTeacher: TfmEdTeacher
     end
     object edSubject: TComboEdit
       Left = 16
-      Top = 152
+      Top = 96
       Width = 321
       Height = 28
       DirectInput = False
@@ -625,9 +625,9 @@ object fmEdTeacher: TfmEdTeacher
   object Panel1: TPanel
     Left = 0
     Top = 201
-    Width = 819
-    Height = 189
-    Align = alClient
+    Width = 713
+    Height = 216
+    Align = alTop
     TabOrder = 3
     object Label10: TLabel
       Left = 8
@@ -637,94 +637,109 @@ object fmEdTeacher: TfmEdTeacher
       Caption = #1054#1073#1088#1072#1079#1086#1074#1072#1085#1080#1077
     end
     object Label3: TLabel
-      Left = 424
-      Top = 8
+      Left = 8
+      Top = 64
       Width = 60
       Height = 20
       Caption = #1044#1080#1087#1083#1086#1084
     end
     object Label7: TLabel
-      Left = 192
+      Left = 200
       Top = 8
       Width = 115
       Height = 20
       Caption = #1050#1074#1072#1083#1080#1092#1080#1082#1072#1094#1080#1103
     end
+    object Label8: TLabel
+      Left = 8
+      Top = 112
+      Width = 101
+      Height = 20
+      Caption = #1054#1073#1088#1072#1079#1086#1074#1072#1085#1080#1077
+    end
+    object Label14: TLabel
+      Left = 200
+      Top = 112
+      Width = 115
+      Height = 20
+      Caption = #1050#1074#1072#1083#1080#1092#1080#1082#1072#1094#1080#1103
+    end
+    object Label20: TLabel
+      Left = 8
+      Top = 168
+      Width = 60
+      Height = 20
+      Caption = #1044#1080#1087#1083#1086#1084
+    end
     object mDiploma: TMemo
-      Left = 424
-      Top = 30
-      Width = 385
-      Height = 51
-      TabOrder = 0
+      Left = 72
+      Top = 62
+      Width = 633
+      Height = 43
+      TabOrder = 2
     end
     object cbEducation2: TJvDBLookupCombo
       Left = 8
-      Top = 94
-      Width = 177
+      Top = 134
+      Width = 185
       Height = 27
       DisplayEmpty = #1085#1077' '#1091#1082#1072#1079#1072#1085#1086
       LookupField = 'ID'
       LookupDisplay = 'Name'
       LookupSource = dsEducation
-      TabOrder = 1
-    end
-    object cbQualification: TJvDBLookupCombo
-      Left = 192
-      Top = 30
-      Width = 225
-      Height = 27
-      DisplayEmpty = #1085#1077' '#1091#1082#1072#1079#1072#1085#1072
-      LookupField = 'ID'
-      LookupDisplay = 'NAME'
-      LookupSource = dsQualification
-      TabOrder = 2
-    end
-    object cbQualification2: TJvDBLookupCombo
-      Left = 192
-      Top = 94
-      Width = 225
-      Height = 27
-      DisplayEmpty = #1085#1077' '#1091#1082#1072#1079#1072#1085#1072
-      LookupField = 'ID'
-      LookupDisplay = 'NAME'
-      LookupSource = dsQualification
       TabOrder = 3
     end
     object mDiploma2: TMemo
-      Left = 424
-      Top = 94
-      Width = 385
-      Height = 51
-      TabOrder = 4
+      Left = 72
+      Top = 166
+      Width = 633
+      Height = 43
+      TabOrder = 5
     end
     object cbEducation: TJvDBLookupCombo
       Left = 8
       Top = 30
-      Width = 177
+      Width = 185
       Height = 27
       DisplayEmpty = #1085#1077' '#1091#1082#1072#1079#1072#1085#1086
       LookupField = 'ID'
       LookupDisplay = 'Name'
       LookupSource = dsEducation
-      TabOrder = 5
+      TabOrder = 0
+    end
+    object cbQualification: TJvDBLookupEdit
+      Left = 200
+      Top = 30
+      Width = 505
+      Height = 28
+      LookupDisplay = 'NAME'
+      LookupField = 'ID'
+      LookupSource = dsQualification
+      TabOrder = 1
+    end
+    object cbQualification2: TJvDBLookupEdit
+      Left = 200
+      Top = 134
+      Width = 505
+      Height = 28
+      LookupDisplay = 'NAME'
+      LookupField = 'ID'
+      LookupSource = dsQualification
+      TabOrder = 4
     end
   end
   object Panel2: TPanel
     Left = 0
-    Top = 710
-    Width = 819
+    Top = 667
+    Width = 713
     Height = 54
     Align = alBottom
     TabOrder = 4
-    DesignSize = (
-      819
-      54)
     object btnOk: TBitBtn
-      Left = 698
+      Left = 132
       Top = 11
       Width = 113
       Height = 33
-      Anchors = [akTop, akRight]
       TabOrder = 0
       OnClick = btnOkClick
       Kind = bkOK
@@ -800,8 +815,8 @@ object fmEdTeacher: TfmEdTeacher
   end
   object dsQualification: TDataSource
     DataSet = ibdsQualification
-    Left = 192
-    Top = 337
+    Left = 536
+    Top = 353
   end
   object ibdsQualification: TIBDataSet
     Database = DM.ibDatabase
@@ -809,8 +824,8 @@ object fmEdTeacher: TfmEdTeacher
     SelectSQL.Strings = (
       'SELECT *'
       'FROM qualification')
-    Left = 224
-    Top = 337
+    Left = 560
+    Top = 353
     object ibdsQualificationID: TIntegerField
       FieldName = 'ID'
       Origin = '"QUALIFICATION"."ID"'
@@ -829,8 +844,8 @@ object fmEdTeacher: TfmEdTeacher
     SelectSQL.Strings = (
       'SELECT *'
       'FROM "Education"')
-    Left = 40
-    Top = 337
+    Left = 560
+    Top = 329
     object ibdsEducationID: TIntegerField
       FieldName = 'ID'
       Origin = '"Education"."ID"'
@@ -845,7 +860,12 @@ object fmEdTeacher: TfmEdTeacher
   end
   object dsEducation: TDataSource
     DataSet = ibdsEducation
-    Left = 8
-    Top = 337
+    Left = 536
+    Top = 329
+  end
+  object FormStorage1: TFormStorage
+    StoredValues = <>
+    Left = 208
+    Top = 176
   end
 end

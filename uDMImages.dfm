@@ -1,7 +1,7 @@
 object dmImages: TdmImages
   OldCreateOrder = False
   Left = 192
-  Top = 114
+  Top = 115
   Height = 320
   Width = 548
   object ilButtions: TImageList

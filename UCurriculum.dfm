@@ -1,12 +1,12 @@
 object fmCurriculum: TfmCurriculum
-  Left = 154
-  Top = 127
+  Left = 148
+  Top = 74
   HelpContext = 17
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = #1059#1095#1072#1073#1085#1099#1081' '#1087#1083#1072#1085
-  ClientHeight = 644
-  ClientWidth = 1079
+  ClientHeight = 787
+  ClientWidth = 1230
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -24,16 +24,16 @@ object fmCurriculum: TfmCurriculum
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1079
-    Height = 644
+    Width = 1230
+    Height = 787
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
     object Panel2: TPanel
       Left = 0
-      Top = 121
-      Width = 1079
-      Height = 523
+      Top = 177
+      Width = 1230
+      Height = 610
       Align = alClient
       BevelOuter = bvNone
       Color = clWindow
@@ -41,7 +41,7 @@ object fmCurriculum: TfmCurriculum
       object Panel7: TPanel
         Left = 0
         Top = 0
-        Width = 1079
+        Width = 1230
         Height = 48
         Align = alTop
         TabOrder = 0
@@ -55,7 +55,7 @@ object fmCurriculum: TfmCurriculum
           TabOrder = 0
         end
         object Panel4: TPanel
-          Left = 801
+          Left = 861
           Top = 0
           Width = 180
           Height = 17
@@ -304,7 +304,7 @@ object fmCurriculum: TfmCurriculum
           TabOrder = 22
         end
         object Panel20: TPanel
-          Left = 801
+          Left = 861
           Top = 17
           Width = 60
           Height = 32
@@ -319,7 +319,7 @@ object fmCurriculum: TfmCurriculum
           TabOrder = 23
         end
         object Panel30: TPanel
-          Left = 861
+          Left = 921
           Top = 17
           Width = 60
           Height = 32
@@ -334,7 +334,7 @@ object fmCurriculum: TfmCurriculum
           TabOrder = 24
         end
         object Panel31: TPanel
-          Left = 921
+          Left = 981
           Top = 17
           Width = 60
           Height = 32
@@ -349,7 +349,7 @@ object fmCurriculum: TfmCurriculum
           TabOrder = 25
         end
         object Panel32: TPanel
-          Left = 981
+          Left = 1041
           Top = 0
           Width = 18
           Height = 49
@@ -373,8 +373,8 @@ object fmCurriculum: TfmCurriculum
       end
       object Panel33: TPanel
         Left = 0
-        Top = 443
-        Width = 1079
+        Top = 530
+        Width = 1230
         Height = 80
         Align = alBottom
         TabOrder = 1
@@ -546,7 +546,7 @@ object fmCurriculum: TfmCurriculum
           TabOrder = 10
         end
         object pSumY: TPanel
-          Left = 801
+          Left = 861
           Top = 1
           Width = 60
           Height = 24
@@ -561,7 +561,7 @@ object fmCurriculum: TfmCurriculum
           TabOrder = 11
         end
         object pSumO: TPanel
-          Left = 861
+          Left = 921
           Top = 1
           Width = 60
           Height = 24
@@ -741,7 +741,7 @@ object fmCurriculum: TfmCurriculum
           TabOrder = 23
         end
         object pSumC: TPanel
-          Left = 921
+          Left = 981
           Top = 25
           Width = 60
           Height = 24
@@ -756,7 +756,7 @@ object fmCurriculum: TfmCurriculum
           TabOrder = 24
         end
         object Panel47: TPanel
-          Left = 801
+          Left = 861
           Top = 25
           Width = 120
           Height = 24
@@ -764,7 +764,7 @@ object fmCurriculum: TfmCurriculum
           TabOrder = 25
         end
         object Panel50: TPanel
-          Left = 922
+          Left = 981
           Top = 1
           Width = 60
           Height = 24
@@ -940,8 +940,8 @@ object fmCurriculum: TfmCurriculum
       object dbgCurrRec: TRxDBGrid
         Left = 0
         Top = 48
-        Width = 1079
-        Height = 395
+        Width = 1230
+        Height = 482
         Align = alClient
         DataSource = dsCurrRec
         Options = [dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
@@ -957,67 +957,73 @@ object fmCurriculum: TfmCurriculum
         Columns = <
           item
             Expanded = False
-            FieldName = 'SubjName'
+            FieldName = 'SUBJ_NAME'
             Width = 236
             Visible = True
           end
           item
             Expanded = False
-            FieldName = 'Group'
+            FieldName = 'GROUP_QTY'
             Width = 75
             Visible = True
           end
           item
             Expanded = False
-            FieldName = 'Time0'
+            FieldName = 'CLOCK_0'
             Width = 74
             Visible = True
           end
           item
             Expanded = False
-            FieldName = 'Time1'
+            FieldName = 'CLOCK_1'
             Width = 74
             Visible = True
           end
           item
             Expanded = False
-            FieldName = 'Time2'
+            FieldName = 'CLOCK_2'
             Width = 74
             Visible = True
           end
           item
             Expanded = False
-            FieldName = 'Time3'
+            FieldName = 'CLOCK_3'
             Width = 74
             Visible = True
           end
           item
             Expanded = False
-            FieldName = 'Time4'
+            FieldName = 'CLOCK_4'
             Width = 74
             Visible = True
           end
           item
             Expanded = False
-            FieldName = 'Time5'
+            FieldName = 'CLOCK_5'
             Width = 74
             Visible = True
           end
           item
             Expanded = False
-            FieldName = 'Time6'
+            FieldName = 'CLOCK_6'
             Width = 74
             Visible = True
           end
           item
             Expanded = False
-            FieldName = 'Time7'
+            FieldName = 'CLOCK_7'
             Width = 74
             Visible = True
           end
           item
             Expanded = False
-            FieldName = 'Time8'
+            FieldName = 'CLOCK_8'
+            Width = 74
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'CLOCK_9'
             Width = 74
             Visible = True
           end
@@ -1044,16 +1050,16 @@ object fmCurriculum: TfmCurriculum
     object Panel5: TPanel
       Left = 0
       Top = 0
-      Width = 1079
-      Height = 121
+      Width = 1230
+      Height = 177
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 1
       object Panel21: TPanel
         Left = 0
         Top = 0
-        Width = 693
-        Height = 121
+        Width = 600
+        Height = 177
         Align = alClient
         BevelOuter = bvNone
         BorderStyle = bsSingle
@@ -1061,7 +1067,7 @@ object fmCurriculum: TfmCurriculum
         object Panel6: TPanel
           Left = 0
           Top = 0
-          Width = 689
+          Width = 596
           Height = 40
           Align = alTop
           BevelOuter = bvLowered
@@ -1069,7 +1075,7 @@ object fmCurriculum: TfmCurriculum
           object btnAddCurr: TSpeedButton
             Left = 16
             Top = 3
-            Width = 185
+            Width = 161
             Height = 33
             Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1087#1083#1072#1085
             Flat = True
@@ -1082,9 +1088,9 @@ object fmCurriculum: TfmCurriculum
             OnClick = btnAddCurrClick
           end
           object btnEditCurr: TSpeedButton
-            Left = 232
+            Left = 192
             Top = 3
-            Width = 193
+            Width = 185
             Height = 33
             Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100' '#1087#1083#1072#1085
             Flat = True
@@ -1097,7 +1103,7 @@ object fmCurriculum: TfmCurriculum
             OnClick = btnEditCurrClick
           end
           object btnDelCurr: TSpeedButton
-            Left = 460
+            Left = 396
             Top = 3
             Width = 145
             Height = 33
@@ -1114,15 +1120,15 @@ object fmCurriculum: TfmCurriculum
         end
         object GroupBox1: TGroupBox
           Left = 1
-          Top = 48
-          Width = 664
+          Top = 104
+          Width = 592
           Height = 65
           Caption = #1055#1072#1085#1077#1083#1100' '#1091#1087#1088#1072#1074#1083#1077#1085#1080#1103' '#1089#1086#1089#1090#1072#1074#1086#1084' '#1091#1095#1077#1073#1085#1086#1075#1086' '#1087#1083#1072#1085#1072
           TabOrder = 1
           object btnAddSubj: TButton
             Left = 16
             Top = 26
-            Width = 169
+            Width = 161
             Height = 31
             Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1087#1088#1077#1076#1084#1077#1090
             TabOrder = 0
@@ -1130,9 +1136,9 @@ object fmCurriculum: TfmCurriculum
             OnClick = btnAddSubjClick
           end
           object btnEditSubj: TButton
-            Left = 201
+            Left = 193
             Top = 26
-            Width = 232
+            Width = 208
             Height = 31
             Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100' '#1087#1088#1077#1076#1084#1077#1090
             TabOrder = 1
@@ -1140,9 +1146,9 @@ object fmCurriculum: TfmCurriculum
             OnClick = btnEditSubjClick
           end
           object btnDelSubj: TButton
-            Left = 456
+            Left = 416
             Top = 26
-            Width = 193
+            Width = 161
             Height = 31
             Caption = #1059#1076#1072#1083#1080#1090#1100' '#1087#1088#1077#1076#1084#1077#1090
             TabOrder = 2
@@ -1152,10 +1158,10 @@ object fmCurriculum: TfmCurriculum
         end
       end
       object dbgCurr: TRxDBGrid
-        Left = 693
+        Left = 600
         Top = 0
-        Width = 345
-        Height = 121
+        Width = 589
+        Height = 177
         Align = alRight
         DataSource = dsCurr
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
@@ -1169,10 +1175,10 @@ object fmCurriculum: TfmCurriculum
         OnKeyPress = dbgCurrKeyPress
       end
       object Panel22: TPanel
-        Left = 1038
+        Left = 1189
         Top = 0
         Width = 41
-        Height = 121
+        Height = 177
         Align = alRight
         TabOrder = 2
         object btnCurMoveDown: TSpeedButton
@@ -1220,9 +1226,77 @@ object fmCurriculum: TfmCurriculum
       end
     end
   end
+  object Panel23: TPanel
+    Left = 801
+    Top = 177
+    Width = 60
+    Height = 17
+    BevelInner = bvLowered
+    Caption = '9'
+    TabOrder = 1
+  end
+  object pCat9: TPanel
+    Left = 801
+    Top = 194
+    Width = 60
+    Height = 32
+    BevelInner = bvLowered
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clHotLight
+    Font.Height = -16
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 2
+  end
+  object pYO9: TPanel
+    Left = 801
+    Top = 708
+    Width = 60
+    Height = 24
+    BevelInner = bvLowered
+    Caption = '0'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 3
+  end
+  object pC9: TPanel
+    Left = 801
+    Top = 732
+    Width = 60
+    Height = 24
+    BevelInner = bvLowered
+    Caption = '0'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -16
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 4
+  end
+  object pAll9: TPanel
+    Left = 801
+    Top = 756
+    Width = 60
+    Height = 24
+    BevelInner = bvLowered
+    Caption = '0'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 5
+  end
   object MainMenu1: TMainMenu
-    Left = 600
-    Top = 32
+    Left = 728
+    Top = 40
     object N2: TMenuItem
       Caption = #1054#1087#1077#1088#1072#1094#1080#1080
       object N3: TMenuItem
@@ -1278,12 +1352,302 @@ object fmCurriculum: TfmCurriculum
   end
   object dsCurr: TDataSource
     OnDataChange = dsCurrDataChange
-    Left = 560
-    Top = 32
+    Left = 816
+    Top = 40
   end
   object dsCurrRec: TDataSource
-    DataSet = DM.ibdsCurriculumRecord
+    DataSet = ibdsCurriculumRecord
     Left = 681
     Top = 296
+  end
+  object ibdsCurriculum: TIBDataSet
+    Database = DM.ibDatabase
+    Transaction = DM.ibTransaction
+    RefreshSQL.Strings = (
+      'select * from VIEW_CURRICULUM where "ID"=:"ID"')
+    SelectSQL.Strings = (
+      'select * from VIEW_CURRICULUM order by pos')
+    Left = 784
+    Top = 40
+    object ibdsCurriculumID: TIntegerField
+      FieldKind = fkInternalCalc
+      FieldName = 'ID'
+      Origin = '"VIEW_CURRICULUM"."ID"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurriculumNAME: TIBStringField
+      DisplayLabel = #1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077
+      DisplayWidth = 50
+      FieldKind = fkInternalCalc
+      FieldName = 'Name'
+      Origin = '"VIEW_CURRICULUM"."NAME"'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 150
+    end
+    object ibdsCurriculumPERIOD_FOR_PRINT: TIBStringField
+      DisplayLabel = #1055#1077#1088#1080#1086#1076
+      DisplayWidth = 5
+      FieldKind = fkInternalCalc
+      FieldName = 'PERIOD_FOR_PRINT'
+      Origin = '"VIEW_CURRICULUM"."PERIOD_FOR_PRINT"'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 150
+    end
+    object ibdsCurriculumPERIOD: TSmallintField
+      DisplayLabel = #1055#1077#1088#1080#1086#1076
+      DisplayWidth = 5
+      FieldKind = fkInternalCalc
+      FieldName = 'PERIOD'
+      Origin = '"VIEW_CURRICULUM"."PERIOD"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurriculumCAT_0: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkInternalCalc
+      FieldName = 'CAT_0'
+      Origin = '"VIEW_CURRICULUM"."CAT_0"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurriculumCAT_1: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkInternalCalc
+      FieldName = 'CAT_1'
+      Origin = '"VIEW_CURRICULUM"."CAT_1"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurriculumCAT_2: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkInternalCalc
+      FieldName = 'CAT_2'
+      Origin = '"VIEW_CURRICULUM"."CAT_2"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurriculumCAT_3: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkInternalCalc
+      FieldName = 'CAT_3'
+      Origin = '"VIEW_CURRICULUM"."CAT_3"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurriculumCAT_4: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkInternalCalc
+      FieldName = 'CAT_4'
+      Origin = '"VIEW_CURRICULUM"."CAT_4"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurriculumCAT_5: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkInternalCalc
+      FieldName = 'CAT_5'
+      Origin = '"VIEW_CURRICULUM"."CAT_5"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurriculumCAT_6: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkInternalCalc
+      FieldName = 'CAT_6'
+      Origin = '"VIEW_CURRICULUM"."CAT_6"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurriculumCAT_7: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkInternalCalc
+      FieldName = 'CAT_7'
+      Origin = '"VIEW_CURRICULUM"."CAT_7"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurriculumCAT_8: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkInternalCalc
+      FieldName = 'CAT_8'
+      Origin = '"VIEW_CURRICULUM"."CAT_8"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+  end
+  object ibdsCurriculumRecord: TIBDataSet
+    Database = DM.ibDatabase
+    Transaction = DM.ibTransaction
+    AutoCalcFields = False
+    SelectSQL.Strings = (
+      'select * from v_curriculum_rec'
+      'where curr_id=:id'
+      'order by num')
+    Left = 648
+    Top = 296
+    object ibdsCurriculumRecordID: TIntegerField
+      FieldKind = fkInternalCalc
+      FieldName = 'ID'
+      Origin = '"V_CURRICULUM_REC"."ID"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCURR_ID: TIntegerField
+      FieldKind = fkInternalCalc
+      FieldName = 'CURR_ID'
+      Origin = '"V_CURRICULUM_REC"."CURR_ID"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordNUM: TIntegerField
+      FieldKind = fkInternalCalc
+      FieldName = 'NUM'
+      Origin = '"V_CURRICULUM_REC"."NUM"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordSUBJ_ID: TIntegerField
+      FieldKind = fkInternalCalc
+      FieldName = 'SUBJ_ID'
+      Origin = '"V_CURRICULUM_REC"."SUBJ_ID"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordSUBJ_NAME: TIBStringField
+      FieldKind = fkInternalCalc
+      FieldName = 'SUBJ_NAME'
+      Origin = '"V_CURRICULUM_REC"."SUBJ_NAME"'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 150
+    end
+    object ibdsCurriculumRecordGROUP_QTY: TSmallintField
+      FieldKind = fkInternalCalc
+      FieldName = 'GROUP_QTY'
+      Origin = '"V_CURRICULUM_REC"."GROUP_QTY"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCLOCK_0: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CLOCK_0'
+      Origin = '"V_CURRICULUM_REC"."CLOCK_0"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCLOCK_1: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CLOCK_1'
+      Origin = '"V_CURRICULUM_REC"."CLOCK_1"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCLOCK_2: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CLOCK_2'
+      Origin = '"V_CURRICULUM_REC"."CLOCK_2"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCLOCK_3: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CLOCK_3'
+      Origin = '"V_CURRICULUM_REC"."CLOCK_3"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCLOCK_4: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CLOCK_4'
+      Origin = '"V_CURRICULUM_REC"."CLOCK_4"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCLOCK_5: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CLOCK_5'
+      Origin = '"V_CURRICULUM_REC"."CLOCK_5"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCLOCK_6: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CLOCK_6'
+      Origin = '"V_CURRICULUM_REC"."CLOCK_6"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCLOCK_7: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CLOCK_7'
+      Origin = '"V_CURRICULUM_REC"."CLOCK_7"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCLOCK_8: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CLOCK_8'
+      Origin = '"V_CURRICULUM_REC"."CLOCK_8"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCLOCK_9: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CLOCK_9'
+      Origin = '"V_CURRICULUM_REC"."CLOCK_9"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordYT: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'YT'
+      Origin = '"V_CURRICULUM_REC"."YT"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordOT: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'OT'
+      Origin = '"V_CURRICULUM_REC"."OT"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCT: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CT'
+      Origin = '"V_CURRICULUM_REC"."CT"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordSUBJ_CODE: TIntegerField
+      FieldName = 'SUBJ_CODE'
+      Origin = '"V_CURRICULUM_REC"."SUBJ_CODE"'
+    end
+  end
+  object ibqProc: TIBQuery
+    Database = DM.ibDatabase
+    Transaction = DM.ibTransaction
+    Left = 992
+    Top = 80
+  end
+  object ibSQL: TIBSQL
+    Database = DM.ibDatabase
+    Transaction = DM.ibTransaction
+    Left = 992
+    Top = 32
   end
 end

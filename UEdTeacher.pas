@@ -6,7 +6,8 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, Buttons, ComCtrls, Mask, DB, Grids, DBGrids,
   Menus, Spin, IniFiles, Placemnt, ToolEdit, IBCustomDataSet, JvExControls,
-  JvDBLookup;
+  JvDBLookup, JvExMask, JvToolEdit, JvDBLookupComboEdit, JvExStdCtrls,
+  JvCombobox, JvDBSearchComboBox, JvEdit, JvDBSearchEdit;
 
 type
   TfmEdTeacher = class(TForm)
@@ -66,8 +67,6 @@ type
     Label3: TLabel;
     Panel2: TPanel;
     cbEducation2: TJvDBLookupCombo;
-    cbQualification: TJvDBLookupCombo;
-    cbQualification2: TJvDBLookupCombo;
     Label7: TLabel;
     mDiploma2: TMemo;
     dsQualification: TDataSource;
@@ -79,6 +78,12 @@ type
     ibdsEducationID: TIntegerField;
     ibdsEducationName: TIBStringField;
     cbEducation: TJvDBLookupCombo;
+    cbQualification: TJvDBLookupEdit;
+    cbQualification2: TJvDBLookupEdit;
+    Label8: TLabel;
+    Label14: TLabel;
+    Label20: TLabel;
+    FormStorage1: TFormStorage;
     procedure FormCreate(Sender: TObject);
     procedure btnChoiceFilialClick(Sender: TObject);
     procedure btnChoicePostClick(Sender: TObject);
@@ -204,9 +209,9 @@ begin
     jdblcCategoryConc.KeyValue,
     d(edCatDate),
     d(edCatConcDate),
-    cbQualification.KeyValue ,
+    cbQualification.Text,
     cbEducation2.KeyValue,
-    cbQualification2.KeyValue,
+    cbQualification2.Text,
     mDiploma2.Text
   );
 
@@ -293,8 +298,8 @@ begin
     edFilial.Tag := DM.ibdsTeacherFilialID.Value;
     cbEducation.KeyValue := DM.ibdsTeacherEducationID.Value;
     cbEducation2.KeyValue := DM.ibdsTeacherEDUCATION_2_ID.Value;
-    cbQualification2.KeyValue := DM.ibdsTeacherQUALIFICATION_2_ID.Value;
-    cbQualification.KeyValue := DM.ibdsTeacherQUALIFICATION_ID.Value;
+    cbQualification2.Text := DM.ibdsTeacherQUALIFICATION_2_NAME.Value;
+    cbQualification.Text := DM.ibdsTeacherQUALIFICATION_NAME.Value;
     mDiploma2.Text := DM.ibdsTeacherDIPLOMA_2.Text;
     edReleaseDate.Text := DM.ibdsTeacherReleaseDate.AsString;
     edEnterDate.Text := DM.ibdsTeacherEnterDate.AsString;

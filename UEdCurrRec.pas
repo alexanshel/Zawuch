@@ -34,9 +34,10 @@ type
     cbGroup: TComboBox;
     Label10: TLabel;
     cbPos: TCheckBox;
-    FormPlacement1: TFormPlacement;
     edSubject: TComboEdit;
     RxLabel1: TRxLabel;
+    cbT9: TComboBox;
+    Label11: TLabel;
     procedure btnSubjectClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);

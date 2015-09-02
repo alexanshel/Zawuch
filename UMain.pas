@@ -48,6 +48,7 @@ type
     aClockCalculate: TAction;
     aTeacherCat: TAction;
     aQualifications: TAction;
+    aCalendar: TAction;
     procedure miSubjectsClick(Sender: TObject);
     procedure miDepSpecClick(Sender: TObject);
     procedure miCloseClick(Sender: TObject);
@@ -99,6 +100,7 @@ type
     procedure aClockCalculateExecute(Sender: TObject);
     procedure aTeacherCatExecute(Sender: TObject);
     procedure aQualificationsExecute(Sender: TObject);
+    procedure aCalendarExecute(Sender: TObject);
   private
     { Private declarations }
     procedure InitDefaultReportsParams;
@@ -117,7 +119,8 @@ uses UDM, USubject, UDepSpecCurr, UCurriculum, Unit2, UConst, UFilial,
   UStudentFilter, UTariffication, DateUtils, UTab, USetTeachers,
   URepCurriculum, URepTab, URepTabExt, UGroupExt, UPost, UEducation,
   UScriptRuner, UReportParams, ULeartTimeGrid, URepTabExt2, UDeptSpecTree,
-  uCalcIndClockRep, uClockCalculate, uTeacherCat, uQualifications;
+  uCalcIndClockRep, uClockCalculate, uTeacherCat, uQualifications,
+  uCalendar;
 
 {$R *.dfm}
 
@@ -517,6 +520,13 @@ begin
   fmQualifications := TfmQualifications.Create(Self);
   fmQualifications.ShowModal;
   fmQualifications.Release;
+end;
+
+procedure TfmMAIN.aCalendarExecute(Sender: TObject);
+begin
+  fmCalendar := TfmCalendar.Create(Self);
+  fmCalendar.ShowModal;
+  fmCalendar.Release;
 end;
 
 end.

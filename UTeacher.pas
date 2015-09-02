@@ -8,17 +8,81 @@ uses
   Mask, IBCustomDataSet, IBQuery, ComCtrls, URTReport, ShellAPI, RXDBCtrl,
   Placemnt, Clipbrd, ActnList, ToolWin, JvExDBGrids, JvDBGrid, ImgList,
   IBEvents, frxClass, frxExportRTF, frxDBSet, JvHtControls, JvExStdCtrls,
-  JvDBHTLabel, JvHLEditorPropertyForm;
+  JvDBHTLabel, JvHLEditorPropertyForm, frxExportXLS, frxExportXML;
 
 type
   TfmTeacher = class(TForm)
     MainMenu: TMainMenu;
     miClose: TMenuItem;
+    Panel1: TPanel;
+    Panel2: TPanel;
     dsTeacher: TDataSource;
+    Panel3: TPanel;
+    edSearch: TLabeledEdit;
+    btnAddTeacher: TSpeedButton;
+    btnEditTeacher: TSpeedButton;
+    btnDelTeacher: TSpeedButton;
     dsTeacherAdding: TDataSource;
+    btnFilter: TSpeedButton;
     dsTeacherTM: TDataSource;
+    PageControl: TPageControl;
+    TabSheet1: TTabSheet;
+    GroupBox4: TGroupBox;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label21: TLabel;
+    Label25: TLabel;
+    dbeYTB: TDBEdit;
+    dbeYTS: TDBEdit;
+    dbeOTB: TDBEdit;
+    dbeOTS: TDBEdit;
+    dbeCTB: TDBEdit;
+    dbeCTS: TDBEdit;
+    dbeSTB: TDBEdit;
+    dbeSTS: TDBEdit;
+    dbeST: TDBEdit;
+    GroupBox3: TGroupBox;
+    DBGrid2: TDBGrid;
+    Panel4: TPanel;
+    Label23: TLabel;
+    dbeAddSum: TDBEdit;
+    GroupBox5: TGroupBox;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label19: TLabel;
+    Label20: TLabel;
+    Label22: TLabel;
+    Label24: TLabel;
+    dbeYMB: TDBEdit;
+    dbeOMB: TDBEdit;
+    dbeYMS: TDBEdit;
+    dbeOMS: TDBEdit;
+    dbeCMS: TDBEdit;
+    dbeSMS: TDBEdit;
+    dbeCMB: TDBEdit;
+    dbeSMB: TDBEdit;
+    dbeSM: TDBEdit;
+    TabSheet2: TTabSheet;
+    Label1: TLabel;
+    dbmAddress: TDBMemo;
+    Label3: TLabel;
+    dbeTelephone: TDBEdit;
+    dbmDiploma: TDBMemo;
+    Label2: TLabel;
+    dbeStage: TDBEdit;
+    Label27: TLabel;
+    dbeStageDate: TDBEdit;
+    Label28: TLabel;
+    dbeTotalSum: TDBEdit;
+    Label26: TLabel;
     N1: TMenuItem;
     miRepN: TMenuItem;
+    stBar: TStatusBar;
+    dbgTeacher: TRxDBGrid;
     N2: TMenuItem;
     miAdd: TMenuItem;
     miEdit: TMenuItem;
@@ -43,8 +107,18 @@ type
     dsTitle: TDataSource;
     ibdsTitle: TIBDataSet;
     ImageList1: TImageList;
+    Label6: TLabel;
+    dbeBirthDate: TDBEdit;
+    dbeEnterDate: TDBEdit;
+    Label7: TLabel;
+    Label8: TLabel;
+    dbeRelease: TDBEdit;
     aTitleAdd: TAction;
     aTitleDel: TAction;
+    dbeTitle: TDBEdit;
+    dbeCategory: TDBEdit;
+    Label29: TLabel;
+    Label30: TLabel;
     ibdsTitleF_ID: TIntegerField;
     ibdsTitleF_NAME: TIBStringField;
     ibdsCategory: TIBDataSet;
@@ -55,6 +129,8 @@ type
     ibdsCategoryConc: TIBDataSet;
     IntegerField1: TIntegerField;
     IBStringField1: TIBStringField;
+    Label31: TLabel;
+    dbeCategoryConc: TDBEdit;
     IBEvents: TIBEvents;
     aPrintWithPerc: TAction;
     frxRTeacherPercents: TfrxReport;
@@ -62,6 +138,8 @@ type
     frxRTFExport: TfrxRTFExport;
     ibdsTeacherPercents: TIBDataSet;
     N6: TMenuItem;
+    dbeCatTDate: TDBEdit;
+    dbeCatCDate: TDBEdit;
     JvHLEdPropDlg1: TJvHLEdPropDlg;
     ibdsReports: TIBDataSet;
     ibdsReportsID: TIntegerField;
@@ -74,6 +152,25 @@ type
     frxDBDSReportWithCat: TfrxDBDataset;
     ibdsReportWithCat: TIBDataSet;
     miAddings: TMenuItem;
+    ibdsTeacherEducations: TIBDataSet;
+    frxDBDSTeacherEducations: TfrxDBDataset;
+    frxTeacherEducations: TfrxReport;
+    miEducation: TMenuItem;
+    ibdsTeacherStage: TIBDataSet;
+    frxDBDSTeacherStage: TfrxDBDataset;
+    frxTeacherStage: TfrxReport;
+    N7: TMenuItem;
+    miAbsents: TMenuItem;
+    frxMaterialStimulus: TfrxReport;
+    ibdsMaterialStimulus: TIBDataSet;
+    frxDSMaterialStimulus: TfrxDBDataset;
+    N8: TMenuItem;
+    miMaterialStimulusWord: TMenuItem;
+    miMaterialStimulusExcel: TMenuItem;
+    frxXMLExport: TfrxXMLExport;
+    frxXLSExport1: TfrxXLSExport;
+    ibdsMaterialStimulusXml: TIBDataSet;
+    ibdsMaterialStimulusXmlROW: TIBStringField;
     procedure miCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnAddTeacherClick(Sender: TObject);
@@ -110,6 +207,11 @@ type
     procedure miFioTitleClick(Sender: TObject);
     procedure aPrintWithCategoryExecute(Sender: TObject);
     procedure miAddingsClick(Sender: TObject);
+    procedure miEducationClick(Sender: TObject);
+    procedure miRepStageClick(Sender: TObject);
+    procedure miAbsentsClick(Sender: TObject);
+    procedure miMaterialStimulusWordClick(Sender: TObject);
+    procedure miMaterialStimulusExcelClick(Sender: TObject);
   private
     { Private declarations }
     procedure CheckBtn;
@@ -124,7 +226,8 @@ var
 
 implementation
 
-uses UDM, UEdTeacher, UTeacherFilter, UStRepFTParam, uTeacherAddings;
+uses UDM, UEdTeacher, UTeacherFilter, UStRepFTParam, uTeacherAddings,
+  uTeacherAbsents;
 
 {$R *.dfm}
 
@@ -149,7 +252,7 @@ begin
   DM.ibdsTeacherTM.DataSource := dsTeacher;
   ibdsTitle.Open;
   ibdsCategory.Open;
-  IBEvents.RegisterEvents;  
+  IBEvents.RegisterEvents;
   CheckBtn;
   isLookupMode := false;
 
@@ -1070,6 +1173,121 @@ begin
   fmTeacherAddings := TfmTeacherAddings.Create(Self, DM.ibdsTeacherID.Value);
   fmTeacherAddings.ShowModal;
   fmTeacherAddings.Release;
+end;
+
+procedure TfmTeacher.miEducationClick(Sender: TObject);
+const repFName = 'fr\TeacherEducations.fr3';
+begin
+  frxRTFExport.FileName := URTReport.getFreeFileName;
+  if not FileExists(repFName)  then
+  begin
+    frxTeacherEducations.SaveToFile(repFName);
+  end;
+  ibdsTeacherEducations.Close;
+  if btnFilter.Down then
+    ibdsTeacherEducations.ParamByName('filter_id').Value := 1
+  else
+    ibdsTeacherEducations.ParamByName('filter_id').Value := Null;
+  ibdsTeacherEducations.Open;
+  frxTeacherEducations.LoadFromFile(repFName);
+  frxTeacherEducations.PrepareReport;
+  frxTeacherEducations.Export(frxRTFExport);
+  ibdsTeacherEducations.Close;
+end;
+
+procedure TfmTeacher.miRepStageClick(Sender: TObject);
+const repFName = 'fr\TeacherStage.fr3';
+begin
+  frxRTFExport.FileName := URTReport.getFreeFileName;
+  if not FileExists(repFName)  then
+  begin
+    frxTeacherStage.SaveToFile(repFName);
+  end;
+  ibdsTeacherStage.Close;
+  if btnFilter.Down then
+    ibdsTeacherStage.ParamByName('filter_id').Value := 1
+  else
+    ibdsTeacherStage.ParamByName('filter_id').Value := Null;
+  ibdsTeacherStage.Open;
+  frxTeacherStage.LoadFromFile(repFName);
+  frxTeacherStage.PrepareReport;
+  frxTeacherStage.Export(frxRTFExport);
+  ibdsTeacherStage.Close;
+end;
+
+procedure TfmTeacher.miAbsentsClick(Sender: TObject);
+begin
+  if DM.ibdsTeacher.IsEmpty then exit;
+  fmTeacherAbsents := TfmTeacherAbsents.Create(Self, DM.ibdsTeacherID.Value);
+  fmTeacherAbsents.ShowModal;
+  fmTeacherAbsents.Release;
+end;
+
+procedure TfmTeacher.miMaterialStimulusWordClick(Sender: TObject);
+const repFName = 'fr\MaterialStimulus.fr3';
+begin
+  frxRTFExport.FileName := URTReport.getFreeFileName;
+  if not FileExists(repFName)  then
+  begin
+    frxTeacherEducations.SaveToFile(repFName);
+  end;
+  ibdsMaterialStimulus.Close;
+  ibdsMaterialStimulus.Open;
+
+  frxTeacherEducations.LoadFromFile(repFName);
+  frxTeacherEducations.PrepareReport;
+  frxTeacherEducations.Export(frxRTFExport);
+
+  ibdsMaterialStimulus.Close;
+end;
+
+procedure TfmTeacher.miMaterialStimulusExcelClick(Sender: TObject);
+const
+  FN_XSL   = 'MaterialStimulus.xsl';
+  FN_MSXSL = 'msxsl.exe';
+var
+  fileNameXSL, fileNameMSXSL, fileNameResult, fileNameData, command: AnsiString;
+  Strings: TStrings;
+begin
+  fileNameXSL := getXSLDir() + FN_XSL;
+  fileNameMSXSL := getXSLDir() + FN_MSXSL;
+
+  ibdsMaterialStimulusXml.Close;
+  ibdsMaterialStimulusXml.Open;
+  ibdsMaterialStimulusXml.First;
+  strings := TStringList.Create;
+  strings.Append('<data>');
+  while not ibdsMaterialStimulusXml.Eof do
+  begin
+    strings.append(ibdsMaterialStimulusXmlROW.Value);
+    ibdsMaterialStimulusXml.Next;
+  end;
+  ibdsMaterialStimulusXml.Close;
+  strings.Append('</data>');
+  fileNameData := URTReport.getFreeFileName('.xml');
+  try
+    strings.Text := UTF8Encode(strings.Text);
+    strings.SaveToFile(fileNameData);
+  finally
+    strings.Free;
+  end;
+
+  fileNameResult := URTReport.getFreeFileName('.xls');
+  command := quoteFileName(fileNameData)
+    + ' '
+    + quoteFileName(fileNameXSL)
+    + ' -o '
+    + quoteFileName(fileNameResult);
+  ShellExecute(
+    0,
+    'open',
+    PChar(quoteFileName(fileNameMSXSL)),
+    PChar(command),
+    nil,
+    SW_HIDE
+  );
+  Sleep(2000);
+  ShellExecute(0, nil, PChar(fileNameResult), nil, nil, SW_RESTORE);
 end;
 
 end.

@@ -1,6 +1,6 @@
 object fmRepTabExt2: TfmRepTabExt2
-  Left = 208
-  Top = 241
+  Left = 209
+  Top = 242
   Width = 940
   Height = 555
   HelpContext = 33

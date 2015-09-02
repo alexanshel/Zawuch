@@ -87,7 +87,10 @@ type
   function iFormat(V: Integer): string;
   function nl(v: Integer): Variant;
   function FIOToFInicials(V: string): String;
-  function getFreeFileName: String;
+  function getFreeFileName(ext: string = '.rtf'): String;
+  function getXSLDir: String;
+  function getTmpDir: String;
+  function quoteFileName(fileName: string): String;
 const
   mon: array[1..12] of string = ('Январь', 'Февраль', 'Март',
     'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь',
@@ -562,7 +565,7 @@ end;
     if V <> '' then Result := Result + V[1] + '.';
   end;
 
-  function getFreeFileName: String;
+  function getFreeFileName(ext: String = '.rtf'): String;
   var
     i: integer;
   begin
@@ -572,13 +575,29 @@ end;
         if not CreateDir(ExtractFilePath(Application.ExeName) + '\tmp') then
           raise Exception.Create('Невозможно создать директорию tmp');
       while FileExists(ExtractFilePath(Application.ExeName) +
-        'tmp\' + 'tmp' + IntToStr(i) + '.rtf') do inc(i);
+        'tmp\' + 'tmp' + IntToStr(i) + ext) do inc(i);
       result := ExtractFilePath(Application.ExeName) +
-        'tmp\' + 'tmp' + IntToStr(i) + '.rtf';
+        'tmp\' + 'tmp' + IntToStr(i) + ext;
     except
       MessageDlg('Невозможна запись в файл.', mtError, [mbOK], 0);
     end;
   end;
+
+  function getXSLDir: String;
+  begin
+    result := ExtractFilePath(ParamStr(0)) + 'xsl\';
+  end;
+
+  function getTmpDir: String;
+  begin
+    result := ExtractFilePath(ParamStr(0)) + 'tmp\';
+  end;
+
+  function quoteFileName(fileName: string): String;
+  begin
+    result := '"' + fileName + '"';
+  end;
+
 
 function TRTReport.getReportSql(sqlCode: String): String;
 var

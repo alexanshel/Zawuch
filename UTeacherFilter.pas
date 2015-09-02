@@ -36,8 +36,6 @@ type
     RxLabel6: TRxLabel;
     edFilial: TComboEdit;
     btnResetEduc: TSpeedButton;
-    edBirthDB: TDateEdit;
-    edBirthDE: TDateEdit;
     edEnterDB: TDateEdit;
     edEnterDE: TDateEdit;
     edRelDB: TDateEdit;
@@ -66,6 +64,8 @@ type
     clbTitle: TCheckListBox;
     clbPost: TCheckListBox;
     clbEdu: TCheckListBox;
+    edAgeB: TEdit;
+    edAgeE: TEdit;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure btnChMainSubjClick(Sender: TObject);
@@ -81,6 +81,7 @@ type
     procedure sbCatConcClearClick(Sender: TObject);
     procedure sbClearTitleClick(Sender: TObject);
     procedure cbTitleClick(Sender: TObject);
+    procedure btnRDBClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -131,14 +132,15 @@ begin
     I2V(edMainSubj.Tag), Null, Null,
     StringsIDsToCSV(clbPost), StringsIDsToCSV(clbEdu), I2V(edFilial.Tag),
     rgWorked.ItemIndex, edBStage.Text, edEStage.Text,
-    D2V(edBirthDB), D2V(edBirthDE),
+    Null, Null,
     D2V(edEnterDB), D2V(edEnterDE),
     D2V(edRelDB), D2V(edRelDE),
     edBStageM.Text,
     edEStageM.Text,
     StringsIDsToCSV(clbCatPed),
     StringsIDsToCSV(clbCatConc),
-    StringsIDsToCSV(clbTitle)
+    StringsIDsToCSV(clbTitle),
+    edAgeB.Text, edAgeE.Text
   );
   DM.ibdsTeacherFilter.Refresh;
 
@@ -242,8 +244,10 @@ begin
 
   rgWorked.ItemIndex := DM.ibdsTeacherFilterSTATE.Value;
 
-  edBirthDB.Text := DM.ibdsTeacherFilterBIRTH_D_B.Text;
-  edBirthDE.Text := DM.ibdsTeacherFilterBIRTH_D_E.Text;
+  //edBirthDB.Text := DM.ibdsTeacherFilterBIRTH_D_B.Text;
+  //edBirthDE.Text := DM.ibdsTeacherFilterBIRTH_D_E.Text;
+  edAgeB.Text := DM.ibdsTeacherFilterAGE_B.Text;
+  edAgeE.Text := DM.ibdsTeacherFilterAGE_E.Text;
 
   edEnterDB.Text := DM.ibdsTeacherFilterENTER_D_B.Text;
   edEnterDE.Text := DM.ibdsTeacherFilterENTER_D_E.Text;
@@ -352,6 +356,12 @@ var
 begin
   clbTitle.Enabled := not cbTitle.Checked;
   for i := 0 to clbTitle.Count - 1 do clbTitle.Checked[i] := cbTitle.Checked;
+end;
+
+procedure TfmTeacherFilter.btnRDBClick(Sender: TObject);
+begin
+  edAgeB.Text := '';
+  edAgeE.Text := '';
 end;
 
 end.

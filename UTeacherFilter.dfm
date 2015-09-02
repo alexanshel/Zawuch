@@ -1,8 +1,8 @@
 object fmTeacherFilter: TfmTeacherFilter
-  Left = 376
-  Top = 86
+  Left = 705
+  Top = 138
   Width = 775
-  Height = 672
+  Height = 684
   Caption = #1060#1080#1083#1100#1090#1088
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -451,7 +451,7 @@ object fmTeacherFilter: TfmTeacherFilter
   end
   object rgWorked: TRadioGroup
     Left = 384
-    Top = 488
+    Top = 512
     Width = 225
     Height = 105
     Caption = #1042#1099#1073#1088#1072#1090#1100
@@ -585,8 +585,8 @@ object fmTeacherFilter: TfmTeacherFilter
     end
   end
   object BitBtn1: TBitBtn
-    Left = 632
-    Top = 592
+    Left = 640
+    Top = 608
     Width = 89
     Height = 33
     Caption = #1054#1050
@@ -595,7 +595,7 @@ object fmTeacherFilter: TfmTeacherFilter
   end
   object cbOnOff: TCheckBox
     Left = 456
-    Top = 608
+    Top = 624
     Width = 169
     Height = 17
     Caption = #1074#1082#1083#1102#1095#1080#1090#1100' '#1092#1080#1083#1100#1090#1088
@@ -606,7 +606,7 @@ object fmTeacherFilter: TfmTeacherFilter
     Top = 400
     Width = 361
     Height = 73
-    Caption = #1044#1072#1090#1072' '#1088#1086#1078#1076#1077#1085#1080#1103
+    Caption = #1042#1086#1079#1088#1072#1089#1090
     Ctl3D = True
     ParentCtl3D = False
     TabOrder = 4
@@ -678,25 +678,24 @@ object fmTeacherFilter: TfmTeacherFilter
         2626262609290200001D3D0F2626262600153026262626262626230708001F28
         2626262626262626262626262626262626262630262626262626262626262626
         26262626262626262626}
-      OnClick = ResetDates
+      OnClick = btnRDBClick
     end
-    object edBirthDB: TDateEdit
-      Left = 32
-      Top = 29
-      Width = 121
+    object edAgeB: TEdit
+      Left = 48
+      Top = 32
+      Width = 81
       Height = 28
-      DefaultToday = True
-      NumGlyphs = 2
       TabOrder = 0
+      OnKeyPress = edEStageKeyPress
     end
-    object edBirthDE: TDateEdit
-      Left = 184
-      Top = 29
-      Width = 121
+    object edAgeE: TEdit
+      Left = 200
+      Top = 32
+      Width = 81
       Height = 28
-      DefaultToday = True
-      NumGlyphs = 2
       TabOrder = 1
+      Text = 'Edit1'
+      OnKeyPress = edEStageKeyPress
     end
   end
   object GroupBox3: TGroupBox

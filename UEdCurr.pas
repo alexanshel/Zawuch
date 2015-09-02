@@ -27,6 +27,9 @@ type
     Panel3: TPanel;
     btnCancel: TBitBtn;
     btnOK: TBitBtn;
+    edPeriodForPrint: TEdit;
+    Label1: TLabel;
+    rgCat9: TRadioGroup;
     procedure edNameChange(Sender: TObject);
   private
     { Private declarations }

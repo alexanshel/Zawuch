@@ -529,14 +529,19 @@ begin
     (fmEdCurr.Components[i + 6] as TRadioGroup).Enabled := true;
   if fmEdCurr.ShowModal = mrOK then
   begin
-    id := DM.AddCurriculum(0, fmEdCurr.edName.Text, fmEdCurr.cbPeriod.ItemIndex + 1);
+    id := DM.AddCurriculum(
+      0,
+      fmEdCurr.edName.Text,
+      fmEdCurr.cbPeriod.ItemIndex + 1,
+      fmEdCurr.edPeriodForPrint.Text
+    );
     DM.AddCurriculumCat(id, 0, Preo(fmEdCurr.rgCat0.ItemIndex));
     DM.AddCurriculumCat(id, 1, Preo(fmEdCurr.rgCat1.ItemIndex));
     DM.AddCurriculumCat(id, 2, Preo(fmEdCurr.rgCat2.ItemIndex));
     DM.AddCurriculumCat(id, 3, Preo(fmEdCurr.rgCat3.ItemIndex));
     DM.AddCurriculumCat(id, 4, Preo(fmEdCurr.rgCat4.ItemIndex));
     DM.AddCurriculumCat(id, 5, Preo(fmEdCurr.rgCat5.ItemIndex));
-    DM.AddCurriculumCat(id, 6, Preo(fmEdCurr.rgCat3.ItemIndex));
+    DM.AddCurriculumCat(id, 6, Preo(fmEdCurr.rgCat6.ItemIndex));
     DM.AddCurriculumCat(id, 7, Preo(fmEdCurr.rgCat7.ItemIndex));
     DM.AddCurriculumCat(id, 8, Preo(fmEdCurr.rgCat8.ItemIndex));
     DM.ibdsCurriculum.Close;
@@ -575,8 +580,12 @@ begin
   fmEdCurr.edName.Text := DM.ibdsCurriculumName.Value;
   if fmEdCurr.ShowModal = mrOK then
   begin
-    DM.AddCurriculum(DM.ibdsCurriculumID.Value,
-      fmEdCurr.edName.Text, fmEdCurr.cbPeriod.ItemIndex + 1);
+    DM.AddCurriculum(
+      DM.ibdsCurriculumID.Value,
+      fmEdCurr.edName.Text,
+      fmEdCurr.cbPeriod.ItemIndex + 1,
+      fmEdCurr.edPeriodForPrint.Text
+    );
     for i := 6 to 7 + 7 do
     begin
       if (fmEdCurr.Components[i] as TRadioGroup).Tag = 1 then

@@ -1,6 +1,6 @@
 object fmStudent: TfmStudent
-  Left = 248
-  Top = 109
+  Left = 252
+  Top = 132
   Width = 865
   Height = 694
   HelpContext = 12

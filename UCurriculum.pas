@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Grids, ExtCtrls, DB, DBGrids, DBCtrls, dbcgrids, Menus,
-  AxCtrls, OleCtrls, VCF1, Buttons, RXDBCtrl, URTReport, ShellApi;
+  AxCtrls, OleCtrls, VCF1, Buttons, RXDBCtrl, URTReport, ShellApi,
+  IBCustomDataSet, IBQuery, IBSQL;
 
 type
   TfmCurriculum = class(TForm)
@@ -111,6 +112,48 @@ type
     Panel22: TPanel;
     btnCurMoveDown: TSpeedButton;
     btnCurMoveUp: TSpeedButton;
+    Panel23: TPanel;
+    pCat9: TPanel;
+    ibdsCurriculum: TIBDataSet;
+    ibdsCurriculumID: TIntegerField;
+    ibdsCurriculumNAME: TIBStringField;
+    ibdsCurriculumPERIOD_FOR_PRINT: TIBStringField;
+    ibdsCurriculumPERIOD: TSmallintField;
+    ibdsCurriculumCAT_0: TLargeintField;
+    ibdsCurriculumCAT_1: TLargeintField;
+    ibdsCurriculumCAT_2: TLargeintField;
+    ibdsCurriculumCAT_3: TLargeintField;
+    ibdsCurriculumCAT_4: TLargeintField;
+    ibdsCurriculumCAT_5: TLargeintField;
+    ibdsCurriculumCAT_6: TLargeintField;
+    ibdsCurriculumCAT_7: TLargeintField;
+    ibdsCurriculumCAT_8: TLargeintField;
+    ibdsCurriculumRecord: TIBDataSet;
+    pYO9: TPanel;
+    pC9: TPanel;
+    pAll9: TPanel;
+    ibqProc: TIBQuery;
+    ibSQL: TIBSQL;
+    ibdsCurriculumRecordID: TIntegerField;
+    ibdsCurriculumRecordCURR_ID: TIntegerField;
+    ibdsCurriculumRecordNUM: TIntegerField;
+    ibdsCurriculumRecordSUBJ_ID: TIntegerField;
+    ibdsCurriculumRecordSUBJ_NAME: TIBStringField;
+    ibdsCurriculumRecordGROUP_QTY: TSmallintField;
+    ibdsCurriculumRecordCLOCK_0: TFloatField;
+    ibdsCurriculumRecordCLOCK_1: TFloatField;
+    ibdsCurriculumRecordCLOCK_2: TFloatField;
+    ibdsCurriculumRecordCLOCK_3: TFloatField;
+    ibdsCurriculumRecordCLOCK_4: TFloatField;
+    ibdsCurriculumRecordCLOCK_5: TFloatField;
+    ibdsCurriculumRecordCLOCK_6: TFloatField;
+    ibdsCurriculumRecordCLOCK_7: TFloatField;
+    ibdsCurriculumRecordCLOCK_8: TFloatField;
+    ibdsCurriculumRecordCLOCK_9: TFloatField;
+    ibdsCurriculumRecordYT: TFloatField;
+    ibdsCurriculumRecordOT: TFloatField;
+    ibdsCurriculumRecordCT: TFloatField;
+    ibdsCurriculumRecordSUBJ_CODE: TIntegerField;
     procedure miExitClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -137,6 +180,19 @@ type
     procedure CheckBtn;
     procedure Calc;
     procedure Resize;
+
+    function AddCurriculum(
+      ID: Integer;
+      Name: String;
+      Period: Integer;
+      PeriodForPrint: String
+    ): Integer;
+    function AddCurrRec(ID, CurrID, SubjID, Group: Integer; Position: Variant): Integer;
+
+    procedure AddCurriculumCat(CurrID, ClassNum: Integer;  Category: Variant);
+    procedure AddCurrRecTime(CurrID, CurrRecID, ClassNum: Integer; CTime: Variant);
+    procedure DelCurriculum(ID: Integer);
+    procedure DelCurrRec(ID: Integer; CurrID: Integer);
   public
     { Public declarations }
     InChoiceMode: boolean;
@@ -144,12 +200,145 @@ type
 
 var
   fmCurriculum: TfmCurriculum;
+const
+  MAX_CLASS_QTY: Integer = 9;
 
 implementation
 
-uses UDM, UEdCurr, UEdCurrRec, IBSQL, UCurrParam;
+uses UDM, UEdCurr, UEdCurrRec, UCurrParam, StrUtils;
 
 {$R *.dfm}
+
+//------------------------------------------------------------------------------
+// CRUD
+//------------------------------------------------------------------------------
+function TfmCurriculum.AddCurriculum(
+  ID: Integer;
+  Name: String;
+  Period: Integer;
+  PeriodForPrint: String
+): Integer;
+begin
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+
+  result := 0;
+  ibqProc.SQL.Clear;
+  ibqProc.SQL.Append('EXECUTE PROCEDURE ADD_CURRICULUM(' +
+    ':ID, :Name, :Period, :PeriodForPrint)');
+  ibqProc.Params[0].AsInteger := ID;
+  ibqProc.Params[1].AsString := Name;
+  ibqProc.Params[2].AsInteger := Period;
+  ibqProc.Params[3].AsString := IfThen(PeriodForPrint = '', IntToStr(Period), PeriodForPrint);
+  try
+    ibqProc.ExecSQL;
+    Result := ibqProc.Current.Vars[0].AsInteger;
+  except
+    ibqProc.Transaction.Rollback;
+  end;
+
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
+
+function TfmCurriculum.AddCurrRec(ID, CurrID, SubjID, Group: Integer; Position: Variant): Integer;
+begin
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+
+  result := 0;
+  ibqProc.SQL.Clear;
+  ibqProc.SQL.Append('EXECUTE PROCEDURE ADD_CURR_REC(' +
+    ':curr_id, :id, :subj_id, :group_qty, :pos)');
+  ibqProc.Params[0].AsInteger := CurrID;
+  ibqProc.Params[1].AsInteger := ID;
+  ibqProc.Params[2].AsInteger := SubjID;
+  ibqProc.Params[3].AsInteger := Group;
+  ibqProc.Params[4].Value := Position;
+  try
+    ibqProc.ExecSQL;
+    Result := ibqProc.Current.Vars[0].AsInteger;
+  except
+    ibqProc.Transaction.Rollback;
+  end;
+
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
+
+procedure TfmCurriculum.AddCurriculumCat(CurrID, ClassNum: Integer;
+  Category: Variant);
+begin
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+
+  ibqProc.SQL.Clear;
+  ibqProc.SQL.Append('EXECUTE PROCEDURE ADD_CURR_CAT(:curr_id, :class_num,' +
+  ' :cat)');
+
+  ibqProc.Params[0].AsInteger := CurrID;
+  ibqProc.Params[1].AsInteger := ClassNum;
+  ibqProc.Params[2].Value := Category;
+
+  try
+    ibqProc.ExecSQL;
+  except
+    ibqProc.Transaction.Rollback;
+  end;
+
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
+
+procedure TfmCurriculum.AddCurrRecTime(CurrID, CurrRecID, ClassNum: Integer;
+  CTime: Variant);
+begin
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+
+  ibqProc.SQL.Clear;
+  ibqProc.SQL.Append('EXECUTE PROCEDURE ADD_CURR_REC_TIME(' +
+    ' :curr_id, :curr_rec_id, :class_num, :c_time)');
+
+  ibqProc.Params[0].AsInteger := CurrID;
+  ibqProc.Params[1].AsInteger := CurrRecID;
+  ibqProc.Params[2].AsInteger := ClassNum;
+  ibqProc.Params[3].Value := CTime;
+
+  try
+    ibqProc.ExecSQL;
+  except
+    ibqProc.Transaction.Rollback;
+  end;
+
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
+
+procedure TfmCurriculum.DelCurriculum(ID: Integer);
+begin
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+
+  ibqProc.SQL.Clear;
+  ibqProc.SQL.Append('EXECUTE PROCEDURE DELETE_CURRICULUM(:P1)');
+
+  ibqProc.Params[0].AsInteger := ID;
+  ibqProc.ExecSQL;
+
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
+
+procedure TfmCurriculum.DelCurrRec(ID: Integer; CurrID: Integer);
+begin
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+
+  ibqProc.SQL.Clear;
+  ibqProc.SQL.Append('EXECUTE PROCEDURE DELETE_CURRICULUM_RECORD(' +
+    ':P1, :P2)');
+
+  ibqProc.Params[0].AsInteger := ID;
+  ibqProc.Params[1].AsInteger := CurrID;
+  ibqProc.ExecSQL;
+
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
+
+
+//------------------------------------------------------------------------------
+// END CRUD
+//------------------------------------------------------------------------------
 
 procedure TfmCurriculum.miExitClick(Sender: TObject);
 begin
@@ -158,12 +347,12 @@ end;
 
 procedure TfmCurriculum.FormCreate(Sender: TObject);
 begin
-  dsCurr.DataSet := DM.ibdsCurriculum;
-  DM.ibdsCurriculumRecord.Close;
-  CurrRecSQL := DM.ibdsCurriculumRecord.SelectSQL;
-  DM.ibdsCurriculumRecord.DataSource := dsCurr;
-  DM.ibdsCurriculumRecord.Open;
-  dsCurrRec.DataSet := DM.ibdsCurriculumRecord;
+  dsCurr.DataSet := ibdsCurriculum;
+  ibdsCurriculumRecord.Close;
+  CurrRecSQL := ibdsCurriculumRecord.SelectSQL;
+  ibdsCurriculumRecord.DataSource := dsCurr;
+  ibdsCurriculumRecord.Open;
+  dsCurrRec.DataSet := ibdsCurriculumRecord;
   CheckBtn;
   InChoiceMode := false;
   Resize;
@@ -172,10 +361,10 @@ end;
 procedure TfmCurriculum.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
-  DM.ibdsCurriculumRecord.Close;
-  DM.ibdsCurriculumRecord.DataSource := nil;
-  DM.ibdsCurriculumRecord.SelectSQL := CurrRecSQL;
-  DM.ibdsCurriculumRecord.Open;
+  ibdsCurriculumRecord.Close;
+  ibdsCurriculumRecord.DataSource := nil;
+  ibdsCurriculumRecord.SelectSQL := CurrRecSQL;
+  ibdsCurriculumRecord.Open;
   dsCurr.DataSet := nil;
 end;
 
@@ -192,23 +381,25 @@ var
   end;
 begin
   fmEdCurr := TfmEdCurr.Create(Self);
-  for i := 0 to 8 do
-    (fmEdCurr.Components[i + 6] as TRadioGroup).Enabled := true;
+  for i := 0 to MAX_CLASS_QTY do
+    (fmEdCurr.FindComponent('rgCat' + IntToStr(i)) as TRadioGroup).Enabled := true;
   if fmEdCurr.ShowModal = mrOK then
   begin
-    id := DM.AddCurriculum(0, fmEdCurr.edName.Text, fmEdCurr.cbPeriod.ItemIndex + 1);
-    DM.AddCurriculumCat(id, 0, Preo(fmEdCurr.rgCat0.ItemIndex));
-    DM.AddCurriculumCat(id, 1, Preo(fmEdCurr.rgCat1.ItemIndex));
-    DM.AddCurriculumCat(id, 2, Preo(fmEdCurr.rgCat2.ItemIndex));
-    DM.AddCurriculumCat(id, 3, Preo(fmEdCurr.rgCat3.ItemIndex));
-    DM.AddCurriculumCat(id, 4, Preo(fmEdCurr.rgCat4.ItemIndex));
-    DM.AddCurriculumCat(id, 5, Preo(fmEdCurr.rgCat5.ItemIndex));
-    DM.AddCurriculumCat(id, 6, Preo(fmEdCurr.rgCat3.ItemIndex));
-    DM.AddCurriculumCat(id, 7, Preo(fmEdCurr.rgCat7.ItemIndex));
-    DM.AddCurriculumCat(id, 8, Preo(fmEdCurr.rgCat8.ItemIndex));
-    DM.ibdsCurriculum.Close;
-    DM.ibdsCurriculum.Open;
-    DM.ibdsCurriculum.Locate('ID', VarArrayOf([id]), []);
+    id := AddCurriculum(
+      0,
+      fmEdCurr.edName.Text,
+      fmEdCurr.cbPeriod.ItemIndex + 1,
+      fmEdCurr.edPeriodForPrint.Text
+    );
+    for i := 0 to MAX_CLASS_QTY do
+      AddCurriculumCat(
+        id,
+        i,
+        Preo((fmEdCurr.FindComponent('rgCat' + IntToStr(i)) as TRadioGroup).ItemIndex)
+      );
+    ibdsCurriculum.Close;
+    ibdsCurriculum.Open;
+    ibdsCurriculum.Locate('ID', VarArrayOf([id]), []);
     CheckBtn;
   end;
   fmEdCurr.Release;
@@ -218,6 +409,8 @@ end;
 procedure TfmCurriculum.btnEditCurrClick(Sender: TObject);
 var
   i: Integer;
+  field: TField;
+  radioGroup: TRadioGroup;
   function P(i: Integer): Variant;
   begin
     case i of
@@ -227,46 +420,55 @@ var
     end;
   end;
 begin
-  if DM.ibdsCurriculum.IsEmpty then Exit;
+  if ibdsCurriculum.IsEmpty then Exit;
   fmEdCurr := TfmEdCurr.Create(Self);
 
-  for i := 6 to 7 + 7 do
+  for i := 0 to MAX_CLASS_QTY do
   begin
-    //(fmEdCurr.Components[i] as TRadioGroup).Enabled := true;
-    if DM.ibdsCurriculum.Fields[i - 3].IsNull then
-      (fmEdCurr.Components[i] as TRadioGroup).ItemIndex := 0
+    radioGroup := fmEdCurr.FindComponent('rgCat' + IntToStr(i)) as TRadioGroup;
+    field := ibdsCurriculum.FieldByName('CAT_' + IntToStr(i));
+    if field.IsNull then
+      radioGroup.ItemIndex := 0
     else
-      (fmEdCurr.Components[i] as TRadioGroup).ItemIndex :=
-        DM.ibdsCurriculum.Fields[i - 3].AsInteger + 1;
+      radioGroup.ItemIndex := field.AsInteger + 1;
   end;
 
-  fmEdCurr.cbPeriod.ItemIndex := DM.ibdsCurriculumPeriod.Value - 1;
-  fmEdCurr.edName.Text := DM.ibdsCurriculumName.Value;
+  fmEdCurr.cbPeriod.ItemIndex := ibdsCurriculumPeriod.Value - 1;
+  fmEdCurr.edPeriodForPrint.Text := ibdsCurriculumPERIOD_FOR_PRINT.Value;
+  fmEdCurr.edName.Text := ibdsCurriculumName.Value;
   if fmEdCurr.ShowModal = mrOK then
   begin
-    DM.AddCurriculum(DM.ibdsCurriculumID.Value,
-      fmEdCurr.edName.Text, fmEdCurr.cbPeriod.ItemIndex + 1);
-    for i := 6 to 7 + 7 do
+    AddCurriculum(
+      ibdsCurriculumID.Value,
+      fmEdCurr.edName.Text,
+      fmEdCurr.cbPeriod.ItemIndex + 1,
+      fmEdCurr.edPeriodForPrint.Text
+    );
+    for i := 0 to MAX_CLASS_QTY do
     begin
-      if (fmEdCurr.Components[i] as TRadioGroup).Tag = 1 then
-        DM.AddCurriculumCat(DM.ibdsCurriculumID.Value, i - 6,
-          P((fmEdCurr.Components[i] as TRadioGroup).ItemIndex));
+      radioGroup := fmEdCurr.FindComponent('rgCat' + IntToStr(i)) as TRadioGroup;
+      if radioGroup.Tag = 1 then
+        AddCurriculumCat(
+          ibdsCurriculumID.Value,
+          i,
+          P(radioGroup.ItemIndex)
+        );
     end;
-    DM.ibdsCurriculum.Refresh;
+    ibdsCurriculum.Refresh;
   end;
-  DM.ibdsCurriculumRecord.Close;
-  DM.ibdsCurriculumRecord.Open;
+  ibdsCurriculumRecord.Close;
+  ibdsCurriculumRecord.Open;
   fmEdCurr.Release;
   Calc;
 end;
 
 procedure TfmCurriculum.CheckBtn;
 begin
-  btnDelCurr.Enabled := DM.ibdsCurriculum.RecordCount <> 0;
+  btnDelCurr.Enabled := ibdsCurriculum.RecordCount <> 0;
   btnEditCurr.Enabled := btnDelCurr.Enabled;
   btnAddSubj.Enabled := btnDelCurr.Enabled;
 
-  btnDelSubj.Enabled := DM.ibdsCurriculumRecord.RecordCount <> 0;
+  btnDelSubj.Enabled := ibdsCurriculumRecord.RecordCount <> 0;
   btnEditSubj.Enabled := btnDelSubj.Enabled;
 end;
 
@@ -280,9 +482,9 @@ var
   end;
 begin
   fmEdCurrRec := TfmEdCurrRec.Create(Self);
-  for i := 0 to 8 do
+  for i := 0 to MAX_CLASS_QTY do
   begin
-    if not DM.ibdsCurriculum.Fields[i + 3].IsNull then
+    if not ibdsCurriculum.FieldByName('CAT_' + IntToStr(i)).IsNull then
       (fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Enabled := true;
     (fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Text := '0,00';
   end;
@@ -290,22 +492,31 @@ begin
   if fmEdCurrRec.ShowModal = mrOk then
   begin
     if fmEdCurrRec.cbPos.Checked then
-      id := DM.AddCurrRec(0, DM.ibdsCurriculumID.Value,
+      id := AddCurrRec(0, ibdsCurriculumID.Value,
         fmEdCurrRec.SubjectID, StrToInt(fmEdCurrRec.cbGroup.Text),
-        DM.ibdsCurriculumRecordNum.Value)
+        ibdsCurriculumRecordNum.Value)
     else
-      id := DM.AddCurrRec(0, DM.ibdsCurriculumID.Value,
-        fmEdCurrRec.SubjectID, StrToInt(fmEdCurrRec.cbGroup.Text), null);
-    for i := 0 to 8 do
+      id := AddCurrRec(
+        0,
+        ibdsCurriculumID.Value,
+        fmEdCurrRec.SubjectID,
+        StrToInt(fmEdCurrRec.cbGroup.Text),
+        null
+      );
+    for i := 0 to MAX_CLASS_QTY do
     begin
       if (fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Enabled then
-        DM.AddCurrRecTime(DM.ibdsCurriculumID.Value, id,
-          i, T2V((fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Text));
+        AddCurrRecTime(
+          ibdsCurriculumID.Value,
+          id,
+          i,
+          T2V((fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Text)
+        );
     end;
-    DM.ibdsCurriculumRecord.Close;
-    DM.ibdsCurriculumRecord.Open;
-    DM.ibdsCurriculumRecord.Locate('ID', VarArrayOf([id]), []);
-    DM.ibdsCurriculum.Refresh;
+    ibdsCurriculumRecord.Close;
+    ibdsCurriculumRecord.Open;
+    ibdsCurriculumRecord.Locate('ID', VarArrayOf([id]), []);
+    ibdsCurriculum.Refresh;
     CheckBtn;
   end;
   fmEdCurrRec.Release;
@@ -316,7 +527,7 @@ procedure TfmCurriculum.dbgCurrRecDrawColumnCell(Sender: TObject;
   const Rect: TRect; DataCol: Integer; Column: TColumn;
   State: TGridDrawState);
 begin
-  if DM.ibdsCurriculumRecordSubjCode.Value = 1 then
+  if ibdsCurriculumRecordSUBJ_CODE.Value = 1 then
     dbgCurrRec.Canvas.Font.Color := clBlue
   else
     dbgCurrRec.Canvas.Font.Color := clBlack;
@@ -335,34 +546,43 @@ var
   end;
 
 begin
-  if DM.ibdsCurriculumRecord.IsEmpty then Exit;
+  if ibdsCurriculumRecord.IsEmpty then Exit;
   fmEdCurrRec := TfmEdCurrRec.Create(Self);
-  fmEdCurrRec.SubjectID := DM.ibdsCurriculumRecordSubjectID.Value;
-  fmEdCurrRec.edSubject.Text := DM.ibdsCurriculumRecordSubjName.Value;
-  fmEdCurrRec.cbGroup.Text := DM.ibdsCurriculumRecordGroup.AsString;
+  fmEdCurrRec.SubjectID := ibdsCurriculumRecordSUBJ_ID.Value;
+  fmEdCurrRec.edSubject.Text := ibdsCurriculumRecordSUBJ_NAME.Value;
+  fmEdCurrRec.cbGroup.Text := ibdsCurriculumRecordGROUP_QTY.AsString;
   fmEdCurrRec.cbPos.Visible := false;
 
-  for i := 0 to 8 do
+  for i := 0 to MAX_CLASS_QTY do
   begin
     (fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Text :=
-      Format('%.2f', [DM.ibdsCurriculumRecord.FieldByName('Time' + IntToStr(i)).AsFloat]);
-    if not DM.ibdsCurriculum.FieldByName('CAT_' + IntToStr(i)).IsNull then
+      Format('%.2f', [ibdsCurriculumRecord.FieldByName('CLOCK' + IntToStr(i)).AsFloat]);
+    if not ibdsCurriculum.FieldByName('CAT_' + IntToStr(i)).IsNull then
       (fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Enabled := true;
   end;
 
   if fmEdCurrRec.ShowModal = mrOk then
   begin
-    DM.AddCurrRec(DM.ibdsCurriculumRecordID.Value, DM.ibdsCurriculumID.Value,
-      fmEdCurrRec.SubjectID, StrToInt(fmEdCurrRec.cbGroup.Text), null);
-    for i := 0 to 8 do
+    AddCurrRec(
+      ibdsCurriculumRecordID.Value,
+      ibdsCurriculumID.Value,
+      fmEdCurrRec.SubjectID,
+      StrToInt(fmEdCurrRec.cbGroup.Text),
+      null
+    );
+    for i := 0 to MAX_CLASS_QTY do
     begin
       if (fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Enabled and
         ((fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Tag = 1) then
-        DM.AddCurrRecTime(DM.ibdsCurriculumID.Value, DM.ibdsCurriculumRecordID.Value,
-          i, T2V((fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Text));
+        AddCurrRecTime(
+          ibdsCurriculumID.Value,
+          ibdsCurriculumRecordID.Value,
+          i,
+          T2V((fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Text)
+        );
     end;
-    DM.ibdsCurriculumRecord.Refresh;
-    DM.ibdsCurriculum.Refresh;
+    ibdsCurriculumRecord.Refresh;
+    ibdsCurriculum.Refresh;
   end;
   fmEdCurrRec.Release;
   Calc;
@@ -370,28 +590,28 @@ end;
 
 procedure TfmCurriculum.btnDelSubjClick(Sender: TObject);
 begin
-  if DM.ibdsCurriculumRecord.IsEmpty then Exit;
+  if ibdsCurriculumRecord.IsEmpty then Exit;
 
   if MessageDlg('Вы действительно ходите удалить предмет' + #13 + #10 +
-    DM.ibdsCurriculumRecordSubjName.Value,mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+    ibdsCurriculumRecordSUBJ_NAME.Value,mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
-    DM.DelCurrRec(DM.ibdsCurriculumRecordID.Value, DM.ibdsCurriculumID.Value);
-    DM.ibdsCurriculumRecord.Close;
-    DM.ibdsCurriculumRecord.Open;
+    DelCurrRec(ibdsCurriculumRecordID.Value, ibdsCurriculumID.Value);
+    ibdsCurriculumRecord.Close;
+    ibdsCurriculumRecord.Open;
   end;
-  DM.ibdsCurriculum.Refresh;
+  ibdsCurriculum.Refresh;
   Calc;
 end;
 
 procedure TfmCurriculum.btnDelCurrClick(Sender: TObject);
 begin
-  if DM.ibdsCurriculum.IsEmpty then Exit;
+  if ibdsCurriculum.IsEmpty then Exit;
   if MessageDlg('Вы действительно хотите удалить учебный план "' +
-    DM.ibdsCurriculumName.Value + '"?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+    ibdsCurriculumName.Value + '"?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
-    DM.DelCurriculum(DM.ibdsCurriculumID.Value);
-    DM.ibdsCurriculum.Close;
-    DM.ibdsCurriculum.Open;
+    DelCurriculum(ibdsCurriculumID.Value);
+    ibdsCurriculum.Close;
+    ibdsCurriculum.Open;
   end;
   Calc;
 end;
@@ -403,34 +623,41 @@ const
 var
   i: Integer;
   c: double;
+  field: TField;
+  sIdx: String;
+  panel: TPanel;
 begin
-  if DM.ibdsCurriculum.RecordCount <> 0 then
+  if ibdsCurriculum.RecordCount <> 0 then
   begin
 
     //заполняем категории
-    for i := 0 to 8 do
+    for i := 0 to MAX_CLASS_QTY do
     begin
-      if DM.ibdsCurriculum.Fields[i + 3].IsNull then
-        (Components[i + 17] as TPanel).Caption := ''
+      sIdx := IntToStr(i);
+      field := ibdsCurriculum.FieldByName('CAT_' + sIdx);
+      panel := FindComponent('pCat' + sIdx) as TPanel;
+      if field.IsNull then
+        panel.Caption := ''
       else
       begin
-        (Components[i + 17] as TPanel).Caption := v[DM.ibdsCurriculum.Fields[i + 3].AsInteger];
-        (Components[i + 17] as TPanel).Font.Color := col[DM.ibdsCurriculum.Fields[i + 3].AsInteger];
+        panel.Caption := v[field.AsInteger];
+        panel.Font.Color := col[field.AsInteger];
       end;
     end;
     //for i := i to 8 do (Components[i + 21] as TPanel).Caption := '';
 
-    DM.ibSQL.Close;
-    DM.ibSQL.SQL.Clear;
-    DM.ibSQL.SQL.Append('SELECT * FROM CURR_SUM(' + DM.ibdsCurriculumID.AsString + ');');
-    DM.ibSQL.ExecQuery;
-    pGr.Caption := DM.ibSQL.Fields[0].AsString;
-    pGrC.Caption := DM.ibSQL.Fields[1].AsString;
-    PGrAll.Caption := DM.ibSQL.Fields[2].AsString;
+    ibSQL.Close;
+    ibSQL.SQL.Clear;
+    ibSQL.SQL.Append('select * from v_curriculum_sum where id = :id');
+    //ibSQL.Params. ibdsCurriculumID.AsString
+    ibSQL.ExecQuery;
+    pGr.Caption := ibSQL.Fields[0].AsString;
+    pGrC.Caption := ibSQL.Fields[1].AsString;
+    PGrAll.Caption := ibSQL.Fields[2].AsString;
 
-    for i := 0 to 8 do
+    for i := 0 to MAX_CLASS_QTY do
       (Components[i + 38 - 4] as TPanel).Caption :=
-        Format('%.2f', [DM.ibSQL.Fields[i + 3].AsDouble]);
+        Format('%.2f', [ibSQL.Fields[i + 3].AsDouble]);
 
     c := 0;
     for i := 0 to 8 do c := c + DM.ibSQL.Fields[i + 11].AsDouble;
@@ -480,7 +707,7 @@ var
     else Result := Format('%.2f', [Value]);
   end;
 begin
-  LocateReportParam('Curriculum', #5#30#7#15#15#15#15#15#15#15#15#15#15#15);
+  LocateReportParam('Curriculum', #5#30#7#15#15#15#15#15#15#15#15#15#15#15#15);
 
   S := DM.ibdsReportParamSIZES_1.Value;
   P[0] := Ord(S[1])*57;
@@ -495,61 +722,62 @@ begin
   rep.AddText('\tx14000\tab\b Лист \chpgn\par}');
 
   rep.AddPar('\qc ' + 'ТИПОВОЙ УЧЕБНЫЙ ПЛАН');
-  rep.AddPar('\qc ' + DM.ibdsCurriculumNAME.Value);
+  rep.AddPar('\qc ' + ibdsCurriculumNAME.Value);
 
   rep.ParSet12Arial;
 
   rep.CreateMergeHeader([P[0], P[2], P[3], P[4], P[5], P[6], P[7], P[8],
-    P[9], P[10], P[11], P[14]], [0], []);
-  rep.AddRow(['\qc №', '\ql Класс ->', '\qc 0', '1', '2', '3', '4', '5', '6', '7', '8',
+    P[9], P[10], P[11], P[14], P[15]], [0], []);
+  rep.AddRow(['\qc №', '\ql Класс ->', '\qc 0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
     'Всего']);
 
   rep.Complete2MergeHeader([P[0], P[2], P[3], P[4], P[5], P[6], P[7], P[8],
     P[9], P[10], P[11], P[12], P[13], P[14]], [0],
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], []);
   rep.AddRow(['', '\ql Категория ->', '\qc ' +
-    Cat(DM.ibdsCurriculumCAT_0.AsVariant), Cat(DM.ibdsCurriculumCAT_0.AsVariant),
-    Cat(DM.ibdsCurriculumCAT_0.AsVariant), Cat(DM.ibdsCurriculumCAT_0.AsVariant),
-    Cat(DM.ibdsCurriculumCAT_0.AsVariant), Cat(DM.ibdsCurriculumCAT_0.AsVariant),
-    Cat(DM.ibdsCurriculumCAT_0.AsVariant), Cat(DM.ibdsCurriculumCAT_0.AsVariant),
-    Cat(DM.ibdsCurriculumCAT_0.AsVariant), 'мл.', 'ст.', 'конц.']);
+    Cat(ibdsCurriculumCAT_0.AsVariant), Cat(ibdsCurriculumCAT_0.AsVariant),
+    Cat(ibdsCurriculumCAT_0.AsVariant), Cat(ibdsCurriculumCAT_0.AsVariant),
+    Cat(ibdsCurriculumCAT_0.AsVariant), Cat(ibdsCurriculumCAT_0.AsVariant),
+    Cat(ibdsCurriculumCAT_0.AsVariant), Cat(ibdsCurriculumCAT_0.AsVariant),
+    Cat(ibdsCurriculumCAT_0.AsVariant), 'мл.', 'ст.', 'конц.']);
 
   rep.CompleteMergeHeader(P, [0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], []);
   rep.AddRow(['', '\ql Предмет', 'Гр.', '', '', '', '', '', '', '', '', '', '', '', '']);
   rep.CreateTable(P, []);
   rep.ParSet12Times;
 
-  BM := DM.ibdsCurriculumRecord.GetBookmark;
-  DM.ibdsCurriculumRecord.DisableControls;
-  DM.ibdsCurriculumRecord.First;
+  BM := ibdsCurriculumRecord.GetBookmark;
+  ibdsCurriculumRecord.DisableControls;
+  ibdsCurriculumRecord.First;
   i := 0;
 
-  while not DM.ibdsCurriculumRecord.Eof do
+  while not ibdsCurriculumRecord.Eof do
   begin
     inc(i);
     rep.AddRow(['\qc ' + IntToStr(i),
-      '\ql ' + DM.ibdsCurriculumRecordSubjName.Value,
-      '\qc ' + DM.ibdsCurriculumRecordGroup.AsString,
+      '\ql ' + ibdsCurriculumRecordSUBJ_NAME.Value,
+      '\qc ' + ibdsCurriculumRecordGROUP_QTY.AsString,
       '\qr ' +
-      dFormat(DM.ibdsCurriculumRecordTime0.Value),
-      dFormat(DM.ibdsCurriculumRecordTime1.Value),
-      dFormat(DM.ibdsCurriculumRecordTime2.Value),
-      dFormat(DM.ibdsCurriculumRecordTime3.Value),
-      dFormat(DM.ibdsCurriculumRecordTime4.Value),
-      dFormat(DM.ibdsCurriculumRecordTime5.Value),
-      dFormat(DM.ibdsCurriculumRecordTime6.Value),
-      dFormat(DM.ibdsCurriculumRecordTime7.Value),
-      dFormat(DM.ibdsCurriculumRecordTime8.Value),
-      dFormat(DM.ibdsCurriculumRecordYT.Value),
-      dFormat(DM.ibdsCurriculumRecordOT.Value),
-      dFormat(DM.ibdsCurriculumRecordCT.Value)]);
-    DM.ibdsCurriculumRecord.Next;
+      dFormat(ibdsCurriculumRecordCLOCK_0.Value),
+      dFormat(ibdsCurriculumRecordCLOCK_1.Value),
+      dFormat(ibdsCurriculumRecordCLOCK_2.Value),
+      dFormat(ibdsCurriculumRecordCLOCK_3.Value),
+      dFormat(ibdsCurriculumRecordCLOCK_4.Value),
+      dFormat(ibdsCurriculumRecordCLOCK_5.Value),
+      dFormat(ibdsCurriculumRecordCLOCK_6.Value),
+      dFormat(ibdsCurriculumRecordCLOCK_7.Value),
+      dFormat(ibdsCurriculumRecordCLOCK_8.Value),
+      dFormat(ibdsCurriculumRecordCLOCK_9.Value),
+      dFormat(ibdsCurriculumRecordYT.Value),
+      dFormat(ibdsCurriculumRecordOT.Value),
+      dFormat(ibdsCurriculumRecordCT.Value)]);
+    ibdsCurriculumRecord.Next;
   end;
 
-  DM.ibSQL.Close;
-  DM.ibSQL.SQL.Clear;
-  DM.ibSQL.SQL.Append('SELECT * FROM CURR_SUM(' + DM.ibdsCurriculumID.AsString + ');');
-  DM.ibSQL.ExecQuery;
+  ibSQL.Close;
+  ibSQL.SQL.Clear;
+  ibSQL.SQL.Append('SELECT * FROM CURR_SUM(' + DM.ibdsCurriculumID.AsString + ');');
+  ibSQL.ExecQuery;
 
   rep.AddRow(['', '\ql ВСЕГО', '\qr',
     dFormat(DM.ibSQL.Fields[21].AsDouble),
@@ -604,7 +832,7 @@ begin
   begin
     Columns[0].Width := Panel9.Width - 1;
     Columns[1].Width := Panel10.Width - 1;
-    for i := 2 to 10 do
+    for i := 2 to 11 do
       Columns[i].Width := pCat0.Width - 1;
     Columns[11].Width := Panel20.Width - 1;
     Columns[12].Width := Panel30.Width - 1;

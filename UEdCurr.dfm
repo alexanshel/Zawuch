@@ -1,7 +1,7 @@
 object fmEdCurr: TfmEdCurr
-  Left = 125
-  Top = 268
-  Width = 742
+  Left = 266
+  Top = 286
+  Width = 821
   Height = 296
   Caption = #1059#1095#1077#1073#1085#1099#1081' '#1087#1083#1072#1085
   Color = clBtnFace
@@ -16,14 +16,14 @@ object fmEdCurr: TfmEdCurr
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 734
+    Width = 813
     Height = 81
     Align = alTop
     TabOrder = 0
     object edName: TLabeledEdit
       Left = 16
-      Top = 32
-      Width = 201
+      Top = 36
+      Width = 377
       Height = 28
       EditLabel.Width = 113
       EditLabel.Height = 20
@@ -32,19 +32,25 @@ object fmEdCurr: TfmEdCurr
       OnEnter = edNameChange
     end
     object GroupBox1: TGroupBox
-      Left = 240
+      Left = 400
       Top = 8
-      Width = 145
-      Height = 57
+      Width = 329
+      Height = 65
       Caption = #1055#1077#1088#1080#1086#1076' '#1086#1073#1091#1095#1077#1085#1080#1103
       TabOrder = 1
+      object Label1: TLabel
+        Left = 104
+        Top = 31
+        Width = 92
+        Height = 20
+        Caption = #1076#1083#1103' '#1087#1077#1095#1072#1090#1080':'
+      end
       object cbPeriod: TComboBox
         Left = 10
-        Top = 21
+        Top = 28
         Width = 73
         Height = 28
         ItemHeight = 20
-        ItemIndex = 6
         TabOrder = 0
         Text = '7'
         OnEnter = edNameChange
@@ -55,21 +61,30 @@ object fmEdCurr: TfmEdCurr
           '4'
           '5'
           '6'
-          '7')
+          '7'
+          '8'
+          '9')
+      end
+      object edPeriodForPrint: TEdit
+        Left = 200
+        Top = 28
+        Width = 121
+        Height = 28
+        TabOrder = 1
       end
     end
   end
   object Panel1: TPanel
     Left = 0
     Top = 81
-    Width = 734
+    Width = 813
     Height = 120
     Align = alTop
     TabOrder = 1
     object GroupBox2: TGroupBox
       Left = 1
       Top = 1
-      Width = 732
+      Width = 811
       Height = 118
       Align = alClient
       Caption = #1050#1072#1090#1077#1075#1086#1088#1080#1080
@@ -200,12 +215,26 @@ object fmEdCurr: TfmEdCurr
         TabOrder = 8
         OnEnter = edNameChange
       end
+      object rgCat9: TRadioGroup
+        Left = 728
+        Top = 24
+        Width = 70
+        Height = 80
+        Caption = '9 '#1082#1083#1072#1089#1089
+        ItemIndex = 0
+        Items.Strings = (
+          '----'
+          #1084#1083'.'
+          #1089#1090'.')
+        TabOrder = 9
+        OnEnter = edNameChange
+      end
     end
   end
   object Panel3: TPanel
     Left = 0
     Top = 201
-    Width = 734
+    Width = 813
     Height = 61
     Align = alClient
     TabOrder = 2
@@ -228,6 +257,7 @@ object fmEdCurr: TfmEdCurr
     end
   end
   object FormPlacement1: TFormPlacement
+    Options = [fpPosition]
     Left = 296
     Top = 208
   end

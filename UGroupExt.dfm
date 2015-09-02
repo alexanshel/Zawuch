@@ -1,8 +1,8 @@
 object fmGroupExt: TfmGroupExt
-  Left = 13
-  Top = 67
-  Width = 1007
-  Height = 570
+  Left = 267
+  Top = 228
+  Width = 1262
+  Height = 604
   HelpContext = 2
   ActiveControl = dbgTeacherGroup
   Caption = #1056#1072#1089#1095#1077#1090' '#1075#1088#1091#1087#1087
@@ -24,7 +24,7 @@ object fmGroupExt: TfmGroupExt
   object Panel9: TPanel
     Left = 0
     Top = 0
-    Width = 999
+    Width = 1254
     Height = 49
     Align = alTop
     Font.Charset = DEFAULT_CHARSET
@@ -54,7 +54,7 @@ object fmGroupExt: TfmGroupExt
       Top = 8
       Width = 409
       Height = 33
-      Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100' '#1089#1086#1074#1086#1082#1091#1087#1085#1086#1089#1090#1080' '#1086#1090#1076#1077#1083#1077#1085#1080#1081
+      Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100' '#1085#1072#1073#1086#1088#1099' '#1075#1088#1091#1087#1087#1086#1074#1099#1093' '#1087#1088#1077#1076#1084#1077#1090#1086#1074
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clMaroon
@@ -68,15 +68,15 @@ object fmGroupExt: TfmGroupExt
   object Panel7: TPanel
     Left = 0
     Top = 49
-    Width = 999
-    Height = 467
+    Width = 1254
+    Height = 501
     Align = alClient
     Caption = 'Panel7'
     TabOrder = 1
     object Panel10: TPanel
       Left = 1
       Top = 1
-      Width = 997
+      Width = 1252
       Height = 48
       Align = alTop
       Caption = #1055#1088#1077#1087#1086#1076#1072#1074#1072#1090#1077#1083#1080' '#1080' '#1080#1093' '#1075#1088#1091#1087#1087#1099
@@ -100,8 +100,8 @@ object fmGroupExt: TfmGroupExt
     object dbgTeacherGroup: TRxDBGrid
       Left = 1
       Top = 49
-      Width = 997
-      Height = 398
+      Width = 1252
+      Height = 432
       Align = alClient
       DataSource = dsTeacherGroup
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
@@ -124,6 +124,7 @@ object fmGroupExt: TfmGroupExt
         item
           Expanded = False
           FieldName = 'GROUPING_NAME'
+          Title.Caption = #1053#1072#1073#1086#1088' '#1075#1088'. '#1087#1088#1077#1076#1084#1077#1090#1086#1074
           Width = 201
           Visible = True
         end
@@ -189,8 +190,8 @@ object fmGroupExt: TfmGroupExt
     end
     object SB: TStatusBar
       Left = 1
-      Top = 447
-      Width = 997
+      Top = 481
+      Width = 1252
       Height = 19
       Panels = <
         item
