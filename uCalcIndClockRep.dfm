@@ -1,6 +1,6 @@
 object fmCalcIndClockRep: TfmCalcIndClockRep
-  Left = 355
-  Top = 192
+  Left = 207
+  Top = 123
   Width = 753
   Height = 522
   Caption = #1056#1072#1095#1077#1090' '#1091#1095#1077#1073#1085#1099#1093' '#1080#1085#1076#1080#1074#1080#1076#1091#1072#1083#1100#1085#1099#1093' '#1095#1072#1089#1086#1074
@@ -29,22 +29,22 @@ object fmCalcIndClockRep: TfmCalcIndClockRep
         ImageIndex = -1
         MinHeight = 27
         Text = #1054#1090#1076#1077#1083#1077#1085#1080#1077
-        Width = 291
+        Width = 306
       end
       item
         Break = False
         Control = cbZeroClassInOne
         ImageIndex = -1
         MinHeight = 23
-        Width = 452
+        Width = 437
       end>
     EdgeBorders = []
     FixedSize = True
     FixedOrder = True
     object cbZeroClassInOne: TCheckBox
-      Left = 302
+      Left = 317
       Top = 2
-      Width = 439
+      Width = 424
       Height = 23
       Action = aZeroSumWithOne
       TabOrder = 0
@@ -52,7 +52,7 @@ object fmCalcIndClockRep: TfmCalcIndClockRep
     object jvdblcbCurriculum: TJvDBLookupCombo
       Left = 95
       Top = 0
-      Width = 192
+      Width = 207
       Height = 27
       LookupField = 'ID'
       LookupDisplay = 'DEPT_NAME'

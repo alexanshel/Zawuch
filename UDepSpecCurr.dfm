@@ -304,19 +304,16 @@ object fmDepSpec: TfmDepSpec
           item
             Expanded = False
             FieldName = 'Budget'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'Self_Repayment'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'Info'
-            Width = 64
             Visible = True
           end>
       end
@@ -622,13 +619,13 @@ object fmDepSpec: TfmDepSpec
     end
   end
   object dsDepartment: TDataSource
-    DataSet = ibdsDepartment
+    DataSet = DM.ibdsDepartment
     OnDataChange = dsDepartmentDataChange
     Left = 640
     Top = 192
   end
   object dsSpecialization: TDataSource
-    DataSet = ibdsSpecialization
+    DataSet = DM.ibdsSpecialization
     Left = 640
     Top = 400
   end
@@ -1720,7 +1717,7 @@ object fmDepSpec: TfmDepSpec
           ParentFont = False
         end
         object Memo29: TfrxMemoView
-          Top = 56.692950000000000000
+          Top = 56.692949999999990000
           Width = 113.385900000000000000
           Height = 52.913420000000000000
           DisplayFormat.DecimalSeparator = ','
@@ -1992,7 +1989,7 @@ object fmDepSpec: TfmDepSpec
         end
         object Memo45: TfrxMemoView
           Left = 113.385900000000000000
-          Top = 56.692950000000000000
+          Top = 56.692949999999990000
           Width = 60.472438500000000000
           Height = 26.456710000000000000
           DisplayFormat.DecimalSeparator = ','
@@ -2028,7 +2025,7 @@ object fmDepSpec: TfmDepSpec
         end
         object Memo47: TfrxMemoView
           Left = 173.858380000000000000
-          Top = 56.692950000000000000
+          Top = 56.692949999999990000
           Width = 60.472438500000000000
           Height = 26.456710000000000000
           DisplayFormat.DecimalSeparator = ','
@@ -2064,7 +2061,7 @@ object fmDepSpec: TfmDepSpec
         end
         object Memo65: TfrxMemoView
           Left = 721.890230000000000000
-          Top = 56.692950000000000000
+          Top = 56.692949999999990000
           Width = 64.251968500000000000
           Height = 52.913420000000000000
           DisplayFormat.DecimalSeparator = ','
@@ -2082,7 +2079,7 @@ object fmDepSpec: TfmDepSpec
         end
         object Memo49: TfrxMemoView
           Left = 234.330860000000000000
-          Top = 56.692950000000000000
+          Top = 56.692949999999990000
           Width = 60.472438500000000000
           Height = 26.456710000000000000
           DisplayFormat.DecimalSeparator = ','
@@ -2118,7 +2115,7 @@ object fmDepSpec: TfmDepSpec
         end
         object Memo51: TfrxMemoView
           Left = 294.803340000000000000
-          Top = 56.692950000000000000
+          Top = 56.692949999999990000
           Width = 60.472438500000000000
           Height = 26.456710000000000000
           DisplayFormat.DecimalSeparator = ','
@@ -2154,7 +2151,7 @@ object fmDepSpec: TfmDepSpec
         end
         object Memo53: TfrxMemoView
           Left = 355.275820000000000000
-          Top = 56.692950000000000000
+          Top = 56.692949999999990000
           Width = 60.472438500000000000
           Height = 26.456710000000000000
           DisplayFormat.DecimalSeparator = ','
@@ -2190,7 +2187,7 @@ object fmDepSpec: TfmDepSpec
         end
         object Memo55: TfrxMemoView
           Left = 415.748300000000000000
-          Top = 56.692950000000000000
+          Top = 56.692949999999990000
           Width = 60.472438500000000000
           Height = 26.456710000000000000
           DisplayFormat.DecimalSeparator = ','
@@ -2226,7 +2223,7 @@ object fmDepSpec: TfmDepSpec
         end
         object Memo57: TfrxMemoView
           Left = 476.220780000000000000
-          Top = 56.692950000000000000
+          Top = 56.692949999999990000
           Width = 60.472438500000000000
           Height = 26.456710000000000000
           DisplayFormat.DecimalSeparator = ','
@@ -2262,7 +2259,7 @@ object fmDepSpec: TfmDepSpec
         end
         object Memo59: TfrxMemoView
           Left = 536.693260000000000000
-          Top = 56.692950000000000000
+          Top = 56.692949999999990000
           Width = 60.472438500000000000
           Height = 26.456710000000000000
           DisplayFormat.DecimalSeparator = ','
@@ -2298,7 +2295,7 @@ object fmDepSpec: TfmDepSpec
         end
         object Memo61: TfrxMemoView
           Left = 597.165740000000000000
-          Top = 56.692950000000000000
+          Top = 56.692949999999990000
           Width = 60.472438500000000000
           Height = 26.456710000000000000
           DisplayFormat.DecimalSeparator = ','
@@ -2334,7 +2331,7 @@ object fmDepSpec: TfmDepSpec
         end
         object Memo63: TfrxMemoView
           Left = 657.638220000000000000
-          Top = 56.692950000000000000
+          Top = 56.692949999999990000
           Width = 64.251968500000000000
           Height = 26.456710000000000000
           DisplayFormat.DecimalSeparator = ','
@@ -2370,7 +2367,7 @@ object fmDepSpec: TfmDepSpec
         end
         object Memo66: TfrxMemoView
           Left = 850.394250000000000000
-          Top = 56.692950000000000000
+          Top = 56.692949999999990000
           Width = 64.251968500000000000
           Height = 52.913420000000000000
           DisplayFormat.DecimalSeparator = ','
@@ -2388,7 +2385,7 @@ object fmDepSpec: TfmDepSpec
         end
         object Memo67: TfrxMemoView
           Left = 786.142240000000000000
-          Top = 56.692950000000000000
+          Top = 56.692949999999990000
           Width = 64.251968500000000000
           Height = 26.456710000000000000
           DisplayFormat.DecimalSeparator = ','
@@ -2424,7 +2421,7 @@ object fmDepSpec: TfmDepSpec
         end
         object Memo69: TfrxMemoView
           Left = 978.898270000000000000
-          Top = 56.692950000000000000
+          Top = 56.692949999999990000
           Width = 64.251968500000000000
           Height = 52.913420000000000000
           DisplayFormat.DecimalSeparator = ','
@@ -2442,7 +2439,7 @@ object fmDepSpec: TfmDepSpec
         end
         object Memo70: TfrxMemoView
           Left = 914.646260000000000000
-          Top = 56.692950000000000000
+          Top = 56.692949999999990000
           Width = 64.251968500000000000
           Height = 26.456710000000000000
           DisplayFormat.DecimalSeparator = ','
@@ -3077,185 +3074,6 @@ object fmDepSpec: TfmDepSpec
       ProviderFlags = []
       ReadOnly = True
       Size = 150
-    end
-  end
-  object ibdsDepartment: TIBDataSet
-    Database = DM.ibDatabase
-    Transaction = DM.ibReadTransaction
-    RefreshSQL.Strings = (
-      'select * from v_department where id=:id')
-    SelectSQL.Strings = (
-      'select * from v_department'
-      'where curr_id=:id')
-    DataSource = dsCurr
-    Left = 608
-    Top = 192
-    object ibdsDepartmentID: TIntegerField
-      FieldName = 'ID'
-      Origin = '"Department"."ID"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-      Visible = False
-    end
-    object ibdsDepartmentCode: TIntegerField
-      DisplayLabel = #1050#1086#1076
-      DisplayWidth = 4
-      FieldName = 'Code'
-      Origin = '"Department"."Code"'
-      Visible = False
-    end
-    object ibdsDepartmentName: TIBStringField
-      DisplayLabel = #1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077
-      FieldName = 'Name'
-      Origin = '"Department"."Name"'
-      Size = 30
-    end
-    object ibdsDepartmentInfo: TIBStringField
-      DisplayLabel = #1055#1088#1080#1084#1077#1095#1072#1085#1080#1077
-      DisplayWidth = 20
-      FieldName = 'Info'
-      Origin = '"Department"."Info"'
-      Size = 50
-    end
-    object ibdsDepartmentCURR_ID: TIntegerField
-      FieldName = 'CURR_ID'
-      Origin = '"V_DEPARTMENT"."CURR_ID"'
-    end
-    object ibdsDepartmentCurriculum: TIBStringField
-      FieldName = 'CURR_NAME'
-      Origin = '"V_DEPARTMENT"."CURR_NAME"'
-      Size = 150
-    end
-    object ibdsDepartmentPeriod: TSmallintField
-      FieldName = 'CURR_PERIOD'
-      Origin = '"V_DEPARTMENT"."CURR_PERIOD"'
-    end
-  end
-  object ibdsSpecialization: TIBDataSet
-    Database = DM.ibDatabase
-    Transaction = DM.ibReadTransaction
-    RefreshSQL.Strings = (
-      'select * from "Specialization" where "ID"=:"ID"')
-    SelectSQL.Strings = (
-      
-        'select * from "Specialization" where "DepartmentID"=:id order by' +
-        ' pos')
-    DataSource = dsDepartment
-    Left = 608
-    Top = 400
-    object ibdsSpecializationID: TIntegerField
-      FieldName = 'ID'
-      Origin = '"Specialization"."ID"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-      Visible = False
-    end
-    object ibdsSpecializationDepartmentID: TIntegerField
-      FieldName = 'DepartmentID'
-      Origin = '"Specialization"."DepartmentID"'
-      Visible = False
-    end
-    object ibdsSpecializationCode: TIntegerField
-      DisplayLabel = #1050#1086#1076
-      DisplayWidth = 4
-      FieldName = 'Code'
-      Origin = '"Specialization"."Code"'
-    end
-    object ibdsSpecializationName: TIBStringField
-      DisplayLabel = #1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077
-      DisplayWidth = 30
-      FieldName = 'Name'
-      Origin = '"Specialization"."Name"'
-      Size = 30
-    end
-    object ibdsSpecializationBudget: TFloatField
-      DisplayLabel = #1041#1102#1076#1078#1077#1090
-      DisplayWidth = 7
-      FieldName = 'Budget'
-      Origin = '"Specialization"."Budget"'
-      currency = True
-    end
-    object ibdsSpecializationSelf_Repayment: TFloatField
-      DisplayLabel = #1057#1072#1084#1086#1086#1082#1091#1087'.'
-      DisplayWidth = 7
-      FieldName = 'Self_Repayment'
-      Origin = '"Specialization"."Self_Repayment"'
-      currency = True
-    end
-    object ibdsSpecializationInfo: TIBStringField
-      DisplayLabel = #1055#1088#1080#1084#1077#1095#1072#1085#1080#1077
-      DisplayWidth = 30
-      FieldName = 'Info'
-      Origin = '"Specialization"."Info"'
-      Size = 50
-    end
-  end
-  object ibqProc: TIBQuery
-    Database = DM.ibDatabase
-    Transaction = DM.ibTransaction
-    Left = 56
-    Top = 104
-  end
-  object ibdsDepartmentIBDataSet: TIBDataSet
-    Database = DM.ibDatabase
-    Transaction = DM.ibReadTransaction
-    RefreshSQL.Strings = (
-      'select * from v_department where id=:id')
-    SelectSQL.Strings = (
-      'select * from v_department'
-      'where curr_id=:id')
-    DataSource = dsCurr
-    Left = 584
-    Top = 144
-    object ibdsDepartmentIntegerField: TIntegerField
-      FieldName = 'ID'
-      Origin = '"Department"."ID"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-      Visible = False
-    end
-    object ibdsDepartmentIntegerField2: TIntegerField
-      DisplayLabel = #1050#1086#1076
-      DisplayWidth = 4
-      FieldName = 'Code'
-      Origin = '"Department"."Code"'
-      Visible = False
-    end
-    object ibdsDepartmentIBStringField: TIBStringField
-      DisplayLabel = #1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077
-      FieldName = 'Name'
-      Origin = '"Department"."Name"'
-      Size = 30
-    end
-    object ibdsDepartmentStringField: TStringField
-      DisplayLabel = #1059#1095#1077#1073#1085#1099#1081' '#1087#1083#1072#1085
-      DisplayWidth = 15
-      FieldKind = fkLookup
-      FieldName = 'Curriculum'
-      LookupKeyFields = 'ID'
-      LookupResultField = 'Name'
-      KeyFields = 'CurriculumID'
-      Lookup = True
-    end
-    object ibdsDepartmentIBStringField2: TIBStringField
-      DisplayLabel = #1055#1088#1080#1084#1077#1095#1072#1085#1080#1077
-      DisplayWidth = 20
-      FieldName = 'Info'
-      Origin = '"Department"."Info"'
-      Size = 50
-    end
-    object ibdsDepartmentIntegerField3: TIntegerField
-      FieldName = 'CURR_ID'
-      Origin = '"V_DEPARTMENT"."CURR_ID"'
-    end
-    object ibdsDepartmentIBStringField3: TIBStringField
-      FieldName = 'CURR_NAME'
-      Origin = '"V_DEPARTMENT"."CURR_NAME"'
-      Size = 150
-    end
-    object ibdsDepartmentSmallintField: TSmallintField
-      FieldName = 'CURR_PERIOD'
-      Origin = '"V_DEPARTMENT"."CURR_PERIOD"'
     end
   end
 end

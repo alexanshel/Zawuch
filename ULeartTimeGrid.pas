@@ -94,7 +94,7 @@ var
 
 implementation
 
-uses UdmLTG, UEdLTG, UEdLTGSubj, UCurrRepParam, UDM;
+uses UDM, UEdLTG, UEdLTGSubj, UCurrRepParam;
 
 {$R *.dfm}
 
@@ -105,18 +105,18 @@ end;
 
 procedure TfmLearnTimeGrid.FormCreate(Sender: TObject);
 begin
-  dmLTG.ibdsLTGSubject.Close;
-  dmLTG.ibdsLTGSubject.Open;
-  dsLTG.DataSet := dmLTG.ibdsLTG;
-  dmLTG.ibdsLTGSubject.DataSource := dsLTG;
-  dsLTGRec.DataSet := dmLTG.ibdsLTGSubject;
+  DM.ibdsLTGSubject.Close;
+  DM.ibdsLTGSubject.Open;
+  dsLTG.DataSet := DM.ibdsLTG;
+  DM.ibdsLTGSubject.DataSource := dsLTG;
+  dsLTGRec.DataSet := DM.ibdsLTGSubject;
 end;
 
 procedure TfmLearnTimeGrid.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
   dsLTGRec.DataSet := nil;
-  dmLTG.ibdsLTGSubject.DataSource := nil;
+  DM.ibdsLTGSubject.DataSource := nil;
   dsLTG.DataSet := nil;
 end;
 
@@ -127,11 +127,11 @@ begin
   fmEdLTG := TfmEdLTG.Create(Self);
   if fmEdLTG.ShowModal = mrOK then
   begin
-    id := dmLTG.AddLearnTimeGrid(Null, Ord(fmEdLTG.cbSelfRep.Checked),
+    id := DM.AddLearnTimeGrid(Null, Ord(fmEdLTG.cbSelfRep.Checked),
       fmEdLTG.edLTGName.Text);
-    dmLTG.ibdsLTG.Close;
-    dmLTG.ibdsLTG.Open;
-    dmLTG.ibdsLTG.Locate('ID', VarArrayOf([id]), []);
+    DM.ibdsLTG.Close;
+    DM.ibdsLTG.Open;
+    DM.ibdsLTG.Locate('ID', VarArrayOf([id]), []);
   end;
   fmEdLTG.Release;
 end;
@@ -141,13 +141,13 @@ var
   id: Integer;
 begin
   fmEdLTG := TfmEdLTG.Create(Self);
-  fmEdLTG.edLTGName.Text := dmLTG.ibdsLTGNAME.Value;
-  fmEdLTG.cbSelfRep.Checked := Boolean(dmLTG.ibdsLTGFINANCING_ID.Value);
+  fmEdLTG.edLTGName.Text := DM.ibdsLTGNAME.Value;
+  fmEdLTG.cbSelfRep.Checked := Boolean(DM.ibdsLTGFINANCING_ID.Value);
   if fmEdLTG.ShowModal = mrOK then
   begin
-    dmLTG.AddLearnTimeGrid(dmLTG.ibdsLTGID.Value, Ord(fmEdLTG.cbSelfRep.Checked),
+    DM.AddLearnTimeGrid(DM.ibdsLTGID.Value, Ord(fmEdLTG.cbSelfRep.Checked),
       fmEdLTG.edLTGName.Text);
-    dmLTG.ibdsLTG.Refresh;
+    DM.ibdsLTG.Refresh;
   end;
   fmEdLTG.Release;
 end;
@@ -158,15 +158,15 @@ begin
     , 'Удаление', MB_YESNO) = ID_YES
   then
   begin
-    dmLTG.DelLTG(dmLTG.ibdsLTGID.Value);
-    dmLTG.ibdsLTG.Close;
-    dmLTG.ibdsLTG.Open;
+    DM.DelLTG(DM.ibdsLTGID.Value);
+    DM.ibdsLTG.Close;    
+    DM.ibdsLTG.Open;
   end;
 end;
 
 procedure TfmLearnTimeGrid.aCheckBtnExecute(Sender: TObject);
 begin
-  aEditLTG.Enabled := not dmLTG.ibdsLTG.IsEmpty;
+  aEditLTG.Enabled := not DM.ibdsLTG.IsEmpty;
   aDelLTG.Enabled := aEditLTG.Enabled;
   aSetupSubj.Enabled := aEditLTG.Enabled;
 end;
@@ -180,20 +180,20 @@ procedure TfmLearnTimeGrid.aSetupSubjExecute(Sender: TObject);
 var
   id: integer;
 begin
-  fmEdLTGSubj := TfmEdLTGSubj.Create(Self, dmLTG.ibdsLTGID.Value);
+  fmEdLTGSubj := TfmEdLTGSubj.Create(Self, DM.ibdsLTGID.Value);
   fmEdLTGSubj.ShowModal;
   fmEdLTGSubj.Release;
-  dmLTG.ibdsLTGSubject.DisableControls;
-  dmLTG.ibdsLTGSubject.Close;
-  dmLTG.ibdsLTGSubject.Open;
-  dmLTG.ibdsLTGSubject.EnableControls;
+  DM.ibdsLTGSubject.DisableControls;
+  DM.ibdsLTGSubject.Close;
+  DM.ibdsLTGSubject.Open;
+  DM.ibdsLTGSubject.EnableControls;  
 end;
 
 procedure TfmLearnTimeGrid.dbgLTGRecordDrawColumnCell(Sender: TObject;
   const Rect: TRect; DataCol: Integer; Column: TColumn;
   State: TGridDrawState);
 begin
-  if dmLTG.ibdsLTGSubjectSUBJ_CODE.Value = 1 then
+  if DM.ibdsLTGSubjectSUBJ_CODE.Value = 1 then
     dbgLTGRecord.Canvas.Font.Color := clBlue
   else
     dbgLTGRecord.Canvas.Font.Color := clBlack;
@@ -240,7 +240,7 @@ begin
   rep.AddText(DM.ibdsConstPASPORT_NAME.Value + '  ' + DM.ibdsFilialName.Value);
   rep.AddText('\tx14000\tab\b Лист \chpgn\par}');
   rep.ParSet(fArial, 12, [fstBold]);
-  rep.AddPar('\line \qc' + dmLTG.ibdsLTGNAME.Value);
+  rep.AddPar('\line \qc' + DM.ibdsLTGNAME.Value);
 
   rep.ParSetLongTableHead;
 
@@ -255,19 +255,19 @@ begin
     P[9], P[10], P[11], P[12], P[13], P[14], P[15], P[16], P[17], P[18], P[19]],
     [0], [17, 18], []);
 
-  dmLTG.ibdsLTGReport.Close;
-  dmLTG.ibdsLTGReport.ParamByName('LTG_ID').Value := dmLTG.ibdsLTGID.Value;
-  dmLTG.ibdsLTGReport.Open;
+  DM.ibdsLTGReport.Close;
+  DM.ibdsLTGReport.ParamByName('LTG_ID').Value := DM.ibdsLTGID.Value;
+  DM.ibdsLTGReport.Open;
 
   rep.AddRow(['', 'Кол-во уч-ся ->',
-    dmLTG.ibdsLTGReportQ_0.AsString, dmLTG.ibdsLTGReportQ_1.AsString,
-    dmLTG.ibdsLTGReportQ_2.AsString, dmLTG.ibdsLTGReportQ_3.AsString,
-    dmLTG.ibdsLTGReportQ_4.AsString, dmLTG.ibdsLTGReportQ_5.AsString,
-    dmLTG.ibdsLTGReportQ_6.AsString, dmLTG.ibdsLTGReportQ_7.AsString,
-    dmLTG.ibdsLTGReportQ_8.AsString,
-    dmLTG.ibdsLTGReportQ_ALL_Y.AsString, dmLTG.ibdsLTGReportQ_ALL_O.AsString,
-    dmLTG.ibdsLTGReportQ_ALL_C.AsString, dmLTG.ibdsLTGReportQ_V_Y.AsString,
-    dmLTG.ibdsLTGReportQ_V_O.AsString, dmLTG.ibdsLTGReportQ_V_C.AsString,
+    DM.ibdsLTGReportQ_0.AsString, DM.ibdsLTGReportQ_1.AsString,
+    DM.ibdsLTGReportQ_2.AsString, DM.ibdsLTGReportQ_3.AsString,
+    DM.ibdsLTGReportQ_4.AsString, DM.ibdsLTGReportQ_5.AsString,
+    DM.ibdsLTGReportQ_6.AsString, DM.ibdsLTGReportQ_7.AsString,
+    DM.ibdsLTGReportQ_8.AsString,
+    DM.ibdsLTGReportQ_ALL_Y.AsString, DM.ibdsLTGReportQ_ALL_O.AsString,
+    DM.ibdsLTGReportQ_ALL_C.AsString, DM.ibdsLTGReportQ_V_Y.AsString,
+    DM.ibdsLTGReportQ_V_O.AsString, DM.ibdsLTGReportQ_V_C.AsString,
     'мл.', 'ст.']);
   rep.Complete2MergeHeader([P[0], P[2], P[3], P[4], P[5], P[6], P[7], P[8],
     P[9], P[10], P[11], P[12], P[13], P[14], P[15], P[16], P[17], P[18], P[19]],
@@ -275,21 +275,21 @@ begin
     [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], []
   );
 
-  dmLTG.ibdsLTGCurr.Close;
-  dmLTG.ibdsLTGCurr.ParamByName('LTG_ID').Value := dmLTG.ibdsLTGID.Value;
-  dmLTG.ibdsLTGCurr.Open;
-  dmLTG.ibdsLTGCurr.First;
-  dmLTG.ibdsCurrCat.Close;
-  dmLTG.ibdsCurrCat.ParamByName('CURR_ID').Value := dmLTG.ibdsLTGCurrCURR_ID.Value;
-  dmLTG.ibdsCurrCat.Open;
-  dmLTG.ibdsCurrCat.First;
+  DM.ibdsLTGCurr.Close;
+  DM.ibdsLTGCurr.ParamByName('LTG_ID').Value := DM.ibdsLTGID.Value;
+  DM.ibdsLTGCurr.Open;
+  DM.ibdsLTGCurr.First;
+  DM.ibdsCurrCat.Close;
+  DM.ibdsCurrCat.ParamByName('CURR_ID').Value := DM.ibdsLTGCurrCURR_ID.Value;
+  DM.ibdsCurrCat.Open;
+  DM.ibdsCurrCat.First;
 
   rep.AddRow(['', 'Категория ->',
-    dmLTG.ibdsCurrCatC_NAME_0.Value, dmLTG.ibdsCurrCatC_NAME_1.Value,
-    dmLTG.ibdsCurrCatC_NAME_2.Value, dmLTG.ibdsCurrCatC_NAME_3.Value,
-    dmLTG.ibdsCurrCatC_NAME_4.Value, dmLTG.ibdsCurrCatC_NAME_5.Value,
-    dmLTG.ibdsCurrCatC_NAME_6.Value, dmLTG.ibdsCurrCatC_NAME_7.Value,
-    dmLTG.ibdsCurrCatC_NAME_8.Value, 'мл.', 'ст.', 'конц.',
+    DM.ibdsCurrCatCat0.Value, DM.ibdsCurrCatCat1.Value,
+    DM.ibdsCurrCatCat2.Value, DM.ibdsCurrCatCat3.Value,
+    DM.ibdsCurrCatCat4.Value, DM.ibdsCurrCatCat5.Value,
+    DM.ibdsCurrCatCat6.Value, DM.ibdsCurrCatCat7.Value,
+    DM.ibdsCurrCatCat8.Value, 'мл.', 'ст.', 'конц.',
     'мл.', 'ст.', 'конц.', '', '']
   );
   rep.CompleteMergeHeader(P,
@@ -305,69 +305,69 @@ begin
   DecimalSeparator := ',';
   CurrencyDecimals := 2;
 
-  dmLTG.ibdsLTGReportRecI.Close;
-  dmLTG.ibdsLTGReportRecI.ParamByName('LTG_ID').Value := dmLTG.ibdsLTGID.Value;
-  dmLTG.ibdsLTGReportRecI.Open;
-  dmLTG.ibdsLTGReportRecI.First;
+  DM.ibdsLTGReportRecI.Close;
+  DM.ibdsLTGReportRecI.ParamByName('LTG_ID').Value := DM.ibdsLTGID.Value;
+  DM.ibdsLTGReportRecI.Open;
+  DM.ibdsLTGReportRecI.First;
 
-  dmLTG.ibdsLTGReportRecG.Close;
-  dmLTG.ibdsLTGReportRecG.ParamByName('LTG_ID').Value := dmLTG.ibdsLTGID.Value;
-  dmLTG.ibdsLTGReportRecG.Open;
-  dmLTG.ibdsLTGReportRecG.First;
+  DM.ibdsLTGReportRecG.Close;
+  DM.ibdsLTGReportRecG.ParamByName('LTG_ID').Value := DM.ibdsLTGID.Value;
+  DM.ibdsLTGReportRecG.Open;
+  DM.ibdsLTGReportRecG.First;
 
   i := 0;
-  while not dmLTG.ibdsLTGReportRecI.Eof do
+  while not DM.ibdsLTGReportRecI.Eof do
   begin
     inc(i);
     rep.AddRow(['\qr ' + IntToStr(i),
-      '\ql ' + dmLTG.ibdsLTGReportRecISUBJECT_NAME.Value + '\par\qr Учащихся',
-      dmLTG.ibdsLTGReportRecIGROUP_QTY.AsString,
-      dFormat(dmLTG.ibdsLTGReportRecIT_0.Value) + '\par ' + dmLTG.ibdsLTGReportRecIQTY_0.AsString,
-      dFormat(dmLTG.ibdsLTGReportRecIT_1.Value) + '\par ' + dmLTG.ibdsLTGReportRecIQTY_1.AsString,
-      dFormat(dmLTG.ibdsLTGReportRecIT_2.Value) + '\par ' + dmLTG.ibdsLTGReportRecIQTY_2.AsString,
-      dFormat(dmLTG.ibdsLTGReportRecIT_3.Value) + '\par ' + dmLTG.ibdsLTGReportRecIQTY_3.AsString,
-      dFormat(dmLTG.ibdsLTGReportRecIT_4.Value) + '\par ' + dmLTG.ibdsLTGReportRecIQTY_4.AsString,
-      dFormat(dmLTG.ibdsLTGReportRecIT_5.Value) + '\par ' + dmLTG.ibdsLTGReportRecIQTY_5.AsString,
-      dFormat(dmLTG.ibdsLTGReportRecIT_6.Value) + '\par ' + dmLTG.ibdsLTGReportRecIQTY_6.AsString,
-      dFormat(dmLTG.ibdsLTGReportRecIT_7.Value) + '\par ' + dmLTG.ibdsLTGReportRecIQTY_7.AsString,
-      dFormat(dmLTG.ibdsLTGReportRecIT_8.Value) + '\par ' + dmLTG.ibdsLTGReportRecIQTY_8.AsString,
-      dFormat(dmLTG.ibdsLTGReportRecIT_ALL_Y.Value),
-      dFormat(dmLTG.ibdsLTGReportRecIT_ALL_O.Value),
-      dFormat(dmLTG.ibdsLTGReportRecIT_ALL_C.Value),
-      dFormat(dmLTG.ibdsLTGReportRecIT_V_Y.Value),
-      dFormat(dmLTG.ibdsLTGReportRecIT_V_O.Value),
-      dFormat(dmLTG.ibdsLTGReportRecIT_V_C.Value),
+      '\ql ' + DM.ibdsLTGReportRecISUBJECT_NAME.Value + '\par\qr Учащихся',
+      DM.ibdsLTGReportRecIGROUP_QTY.AsString,
+      dFormat(DM.ibdsLTGReportRecIT_0.Value) + '\par ' + DM.ibdsLTGReportRecIQTY_0.AsString,
+      dFormat(DM.ibdsLTGReportRecIT_1.Value) + '\par ' + DM.ibdsLTGReportRecIQTY_1.AsString,
+      dFormat(DM.ibdsLTGReportRecIT_2.Value) + '\par ' + DM.ibdsLTGReportRecIQTY_2.AsString,
+      dFormat(DM.ibdsLTGReportRecIT_3.Value) + '\par ' + DM.ibdsLTGReportRecIQTY_3.AsString,
+      dFormat(DM.ibdsLTGReportRecIT_4.Value) + '\par ' + DM.ibdsLTGReportRecIQTY_4.AsString,
+      dFormat(DM.ibdsLTGReportRecIT_5.Value) + '\par ' + DM.ibdsLTGReportRecIQTY_5.AsString,
+      dFormat(DM.ibdsLTGReportRecIT_6.Value) + '\par ' + DM.ibdsLTGReportRecIQTY_6.AsString,
+      dFormat(DM.ibdsLTGReportRecIT_7.Value) + '\par ' + DM.ibdsLTGReportRecIQTY_7.AsString,
+      dFormat(DM.ibdsLTGReportRecIT_8.Value) + '\par ' + DM.ibdsLTGReportRecIQTY_8.AsString,
+      dFormat(DM.ibdsLTGReportRecIT_ALL_Y.Value),
+      dFormat(DM.ibdsLTGReportRecIT_ALL_O.Value),
+      dFormat(DM.ibdsLTGReportRecIT_ALL_C.Value),
+      dFormat(DM.ibdsLTGReportRecIT_V_Y.Value),
+      dFormat(DM.ibdsLTGReportRecIT_V_O.Value),
+      dFormat(DM.ibdsLTGReportRecIT_V_C.Value),
       '',
       ''
     ]);
-    dmLTG.ibdsLTGReportRecI.Next;
+    DM.ibdsLTGReportRecI.Next;
   end;
   
-  while not dmLTG.ibdsLTGReportRecG.Eof do
+  while not DM.ibdsLTGReportRecG.Eof do
   begin
     inc(i);
     rep.AddRow(['\qr ' + IntToStr(i),
-      '\ql ' + dmLTG.ibdsLTGReportRecGSUBJECT_NAME.Value + '\par\qr Групп',
-      dmLTG.ibdsLTGReportRecGGROUP_QTY.AsString,
-      dFormat(dmLTG.ibdsLTGReportRecGT_0.Value) + '\par ' + dmLTG.ibdsLTGReportRecGQTY_0.AsString,
-      dFormat(dmLTG.ibdsLTGReportRecGT_1.Value) + '\par ' + dmLTG.ibdsLTGReportRecGQTY_1.AsString,
-      dFormat(dmLTG.ibdsLTGReportRecGT_2.Value) + '\par ' + dmLTG.ibdsLTGReportRecGQTY_2.AsString,
-      dFormat(dmLTG.ibdsLTGReportRecGT_3.Value) + '\par ' + dmLTG.ibdsLTGReportRecGQTY_3.AsString,
-      dFormat(dmLTG.ibdsLTGReportRecGT_4.Value) + '\par ' + dmLTG.ibdsLTGReportRecGQTY_4.AsString,
-      dFormat(dmLTG.ibdsLTGReportRecGT_5.Value) + '\par ' + dmLTG.ibdsLTGReportRecGQTY_5.AsString,
-      dFormat(dmLTG.ibdsLTGReportRecGT_6.Value) + '\par ' + dmLTG.ibdsLTGReportRecGQTY_6.AsString,
-      dFormat(dmLTG.ibdsLTGReportRecGT_7.Value) + '\par ' + dmLTG.ibdsLTGReportRecGQTY_7.AsString,
-      dFormat(dmLTG.ibdsLTGReportRecGT_8.Value) + '\par ' + dmLTG.ibdsLTGReportRecGQTY_8.AsString,
-      dFormat(dmLTG.ibdsLTGReportRecGT_ALL_Y.Value),
-      dFormat(dmLTG.ibdsLTGReportRecGT_ALL_O.Value),
-      dFormat(dmLTG.ibdsLTGReportRecGT_ALL_C.Value),
-      dFormat(dmLTG.ibdsLTGReportRecGT_V_Y.Value),
-      dFormat(dmLTG.ibdsLTGReportRecGT_V_O.Value),
-      dFormat(dmLTG.ibdsLTGReportRecGT_V_C.Value),
-      iFormat(dmLTG.ibdsLTGReportRecGG_QTY_Y.Value),
-      iFormat(dmLTG.ibdsLTGReportRecGG_QTY_O.Value)
+      '\ql ' + DM.ibdsLTGReportRecGSUBJECT_NAME.Value + '\par\qr Групп',
+      DM.ibdsLTGReportRecGGROUP_QTY.AsString,
+      dFormat(DM.ibdsLTGReportRecGT_0.Value) + '\par ' + DM.ibdsLTGReportRecGQTY_0.AsString,
+      dFormat(DM.ibdsLTGReportRecGT_1.Value) + '\par ' + DM.ibdsLTGReportRecGQTY_1.AsString,
+      dFormat(DM.ibdsLTGReportRecGT_2.Value) + '\par ' + DM.ibdsLTGReportRecGQTY_2.AsString,
+      dFormat(DM.ibdsLTGReportRecGT_3.Value) + '\par ' + DM.ibdsLTGReportRecGQTY_3.AsString,
+      dFormat(DM.ibdsLTGReportRecGT_4.Value) + '\par ' + DM.ibdsLTGReportRecGQTY_4.AsString,
+      dFormat(DM.ibdsLTGReportRecGT_5.Value) + '\par ' + DM.ibdsLTGReportRecGQTY_5.AsString,
+      dFormat(DM.ibdsLTGReportRecGT_6.Value) + '\par ' + DM.ibdsLTGReportRecGQTY_6.AsString,
+      dFormat(DM.ibdsLTGReportRecGT_7.Value) + '\par ' + DM.ibdsLTGReportRecGQTY_7.AsString,
+      dFormat(DM.ibdsLTGReportRecGT_8.Value) + '\par ' + DM.ibdsLTGReportRecGQTY_8.AsString,
+      dFormat(DM.ibdsLTGReportRecGT_ALL_Y.Value),
+      dFormat(DM.ibdsLTGReportRecGT_ALL_O.Value),
+      dFormat(DM.ibdsLTGReportRecGT_ALL_C.Value),
+      dFormat(DM.ibdsLTGReportRecGT_V_Y.Value),
+      dFormat(DM.ibdsLTGReportRecGT_V_O.Value),
+      dFormat(DM.ibdsLTGReportRecGT_V_C.Value),
+      iFormat(DM.ibdsLTGReportRecGG_QTY_Y.Value),
+      iFormat(DM.ibdsLTGReportRecGG_QTY_O.Value)
     ]);
-    dmLTG.ibdsLTGReportRecG.Next;
+    DM.ibdsLTGReportRecG.Next;
   end;
 
   rep.CreateTable([P[2], P[3], P[4], P[5], P[6], P[7], P[8], P[9],
@@ -375,58 +375,58 @@ begin
 
   rep.AddRow([
     'Всего',
-    dFormat(dmLTG.ibdsLTGReportT_0.Value),
-    dFormat(dmLTG.ibdsLTGReportT_1.Value),
-    dFormat(dmLTG.ibdsLTGReportT_2.Value),
-    dFormat(dmLTG.ibdsLTGReportT_3.Value),
-    dFormat(dmLTG.ibdsLTGReportT_4.Value),
-    dFormat(dmLTG.ibdsLTGReportT_5.Value),
-    dFormat(dmLTG.ibdsLTGReportT_6.Value),
-    dFormat(dmLTG.ibdsLTGReportT_7.Value),
-    dFormat(dmLTG.ibdsLTGReportT_8.Value),
-    dFormat(dmLTG.ibdsLTGReportT_A_Y.Value),
-    dFormat(dmLTG.ibdsLTGReportT_A_O.Value),
-    dFormat(dmLTG.ibdsLTGReportT_A_C.Value),
+    dFormat(DM.ibdsLTGReportT_0.Value),
+    dFormat(DM.ibdsLTGReportT_1.Value),
+    dFormat(DM.ibdsLTGReportT_2.Value),
+    dFormat(DM.ibdsLTGReportT_3.Value),
+    dFormat(DM.ibdsLTGReportT_4.Value),
+    dFormat(DM.ibdsLTGReportT_5.Value),
+    dFormat(DM.ibdsLTGReportT_6.Value),
+    dFormat(DM.ibdsLTGReportT_7.Value),
+    dFormat(DM.ibdsLTGReportT_8.Value),
+    dFormat(DM.ibdsLTGReportT_A_Y.Value),
+    dFormat(DM.ibdsLTGReportT_A_O.Value),
+    dFormat(DM.ibdsLTGReportT_A_C.Value),
     '', '', '',
-    iFormat(dmLTG.ibdsLTGReportG_Y.Value),
-    iFormat(dmLTG.ibdsLTGReportG_O.Value)
+    iFormat(DM.ibdsLTGReportG_Y.Value),
+    iFormat(DM.ibdsLTGReportG_O.Value)
   ]);
 
   rep.AddRow([
     'Нерасперделённые часы',
-    dFormat(dmLTG.ibdsLTGReportT_V_0.Value),
-    dFormat(dmLTG.ibdsLTGReportT_V_1.Value),
-    dFormat(dmLTG.ibdsLTGReportT_V_2.Value),
-    dFormat(dmLTG.ibdsLTGReportT_V_3.Value),
-    dFormat(dmLTG.ibdsLTGReportT_V_4.Value),
-    dFormat(dmLTG.ibdsLTGReportT_V_5.Value),
-    dFormat(dmLTG.ibdsLTGReportT_V_6.Value),
-    dFormat(dmLTG.ibdsLTGReportT_V_7.Value),
-    dFormat(dmLTG.ibdsLTGReportT_V_8.Value),
-    dFormat(dmLTG.ibdsLTGReportT_V_Y.Value),
-    dFormat(dmLTG.ibdsLTGReportT_V_O.Value),
-    dFormat(dmLTG.ibdsLTGReportT_V_C.Value),
-    dFormat(dmLTG.ibdsLTGReportT_V_Y.Value),
-    dFormat(dmLTG.ibdsLTGReportT_V_O.Value),
-    dFormat(dmLTG.ibdsLTGReportT_V_C.Value),
+    dFormat(DM.ibdsLTGReportT_V_0.Value),
+    dFormat(DM.ibdsLTGReportT_V_1.Value),
+    dFormat(DM.ibdsLTGReportT_V_2.Value),
+    dFormat(DM.ibdsLTGReportT_V_3.Value),
+    dFormat(DM.ibdsLTGReportT_V_4.Value),
+    dFormat(DM.ibdsLTGReportT_V_5.Value),
+    dFormat(DM.ibdsLTGReportT_V_6.Value),
+    dFormat(DM.ibdsLTGReportT_V_7.Value),
+    dFormat(DM.ibdsLTGReportT_V_8.Value),
+    dFormat(DM.ibdsLTGReportT_V_Y.Value),
+    dFormat(DM.ibdsLTGReportT_V_O.Value),
+    dFormat(DM.ibdsLTGReportT_V_C.Value),
+    dFormat(DM.ibdsLTGReportT_V_Y.Value),
+    dFormat(DM.ibdsLTGReportT_V_O.Value),
+    dFormat(DM.ibdsLTGReportT_V_C.Value),
     '', ''
   ]);
 
 
   rep.AddRow([
     'Итого',
-    dFormat(dmLTG.ibdsLTGReportt_t_0.Value),
-    dFormat(dmLTG.ibdsLTGReportt_t_1.Value),
-    dFormat(dmLTG.ibdsLTGReportt_t_2.Value),
-    dFormat(dmLTG.ibdsLTGReportt_t_3.Value),
-    dFormat(dmLTG.ibdsLTGReportt_t_4.Value),
-    dFormat(dmLTG.ibdsLTGReportt_t_5.Value),
-    dFormat(dmLTG.ibdsLTGReportt_t_6.Value),
-    dFormat(dmLTG.ibdsLTGReportt_t_7.Value),
-    dFormat(dmLTG.ibdsLTGReportt_t_8.Value),
-    dFormat(dmLTG.ibdsLTGReportt_t_y.Value),
-    dFormat(dmLTG.ibdsLTGReportt_t_o.Value),
-    dFormat(dmLTG.ibdsLTGReportt_t_c.Value),
+    dFormat(DM.ibdsLTGReportt_t_0.Value),
+    dFormat(DM.ibdsLTGReportt_t_1.Value),
+    dFormat(DM.ibdsLTGReportt_t_2.Value),
+    dFormat(DM.ibdsLTGReportt_t_3.Value),
+    dFormat(DM.ibdsLTGReportt_t_4.Value),
+    dFormat(DM.ibdsLTGReportt_t_5.Value),
+    dFormat(DM.ibdsLTGReportt_t_6.Value),
+    dFormat(DM.ibdsLTGReportt_t_7.Value),
+    dFormat(DM.ibdsLTGReportt_t_8.Value),
+    dFormat(DM.ibdsLTGReportt_t_y.Value),
+    dFormat(DM.ibdsLTGReportt_t_o.Value),
+    dFormat(DM.ibdsLTGReportt_t_c.Value),
     '', '', '', '', ''
   ]);
   rep.AddText('\pard ');

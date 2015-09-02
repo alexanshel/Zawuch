@@ -154,8 +154,6 @@ type
     ibdsCurriculumRecordOT: TFloatField;
     ibdsCurriculumRecordCT: TFloatField;
     ibdsCurriculumRecordSUBJ_CODE: TIntegerField;
-    ibdsCurriculumPOS: TIntegerField;
-    ibdsCurriculumCAT_9: TLargeintField;
     procedure miExitClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -225,7 +223,8 @@ begin
 
   result := 0;
   ibqProc.SQL.Clear;
-  ibqProc.SQL.Append('EXECUTE PROCEDURE ADD_CURRICULUM(:ID, :Name, :Period, :PeriodForPrint)');
+  ibqProc.SQL.Append('EXECUTE PROCEDURE ADD_CURRICULUM(' +
+    ':ID, :Name, :Period, :PeriodForPrint)');
   ibqProc.Params[0].AsInteger := ID;
   ibqProc.Params[1].AsString := Name;
   ibqProc.Params[2].AsInteger := Period;
@@ -348,10 +347,12 @@ end;
 
 procedure TfmCurriculum.FormCreate(Sender: TObject);
 begin
+  dsCurr.DataSet := ibdsCurriculum;
   ibdsCurriculumRecord.Close;
   CurrRecSQL := ibdsCurriculumRecord.SelectSQL;
+  ibdsCurriculumRecord.DataSource := dsCurr;
   ibdsCurriculumRecord.Open;
-  ibdsCurriculum.Open;
+  dsCurrRec.DataSet := ibdsCurriculumRecord;
   CheckBtn;
   InChoiceMode := false;
   Resize;
@@ -455,8 +456,8 @@ begin
     end;
     ibdsCurriculum.Refresh;
   end;
-  //ibdsCurriculumRecord.Close;
-  //ibdsCurriculumRecord.Open;
+  ibdsCurriculumRecord.Close;
+  ibdsCurriculumRecord.Open;
   fmEdCurr.Release;
   Calc;
 end;
@@ -555,7 +556,7 @@ begin
   for i := 0 to MAX_CLASS_QTY do
   begin
     (fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Text :=
-      Format('%.2f', [ibdsCurriculumRecord.FieldByName('CLOCK_' + IntToStr(i)).AsFloat]);
+      Format('%.2f', [ibdsCurriculumRecord.FieldByName('CLOCK' + IntToStr(i)).AsFloat]);
     if not ibdsCurriculum.FieldByName('CAT_' + IntToStr(i)).IsNull then
       (fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Enabled := true;
   end;
@@ -838,11 +839,11 @@ begin
   begin
     Columns[0].Width := Panel9.Width - 1;
     Columns[1].Width := Panel10.Width - 1;
-    for i := 2 to 12 do
+    for i := 2 to 11 do
       Columns[i].Width := pCat0.Width - 1;
-    Columns[12].Width := Panel20.Width - 1;
-    Columns[13].Width := Panel30.Width - 1;
-    Columns[14].Width := Panel31.Width - 1;
+    Columns[11].Width := Panel20.Width - 1;
+    Columns[12].Width := Panel30.Width - 1;
+    Columns[13].Width := Panel31.Width - 1;
   end;
 end;
 

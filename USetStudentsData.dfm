@@ -1,6 +1,6 @@
 object fmSetStudentsData: TfmSetStudentsData
-  Left = 662
-  Top = 241
+  Left = 177
+  Top = 106
   Width = 709
   Height = 517
   Caption = #1059#1089#1090#1072#1085#1086#1074#1082#1072' '#1076#1072#1085#1085#1099#1093

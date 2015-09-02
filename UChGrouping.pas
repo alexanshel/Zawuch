@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, UDM, UdmLTG, StdCtrls, Buttons, DBCtrls, ExtCtrls, DB, Placemnt;
+  Dialogs, UDM, StdCtrls, Buttons, DBCtrls, ExtCtrls, DB, Placemnt;
 
 type
   TfmChGrouping = class(TForm)
@@ -35,15 +35,15 @@ implementation
 
 procedure TfmChGrouping.FormCreate(Sender: TObject);
 begin
-  dmLTG.ibds.Close;
-  dmLTG.ibds.SelectSQL.Text :=
+  DM.ibds.Close;
+  DM.ibds.SelectSQL.Text :=
     'select G.id, G.name from grouping G ' +
-    'where G.financing_id = ' + dmLTG.ibdsLTGFINANCING_ID.AsString +
+    'where G.financing_id = ' + DM.ibdsLTGFINANCING_ID.AsString +
     ' and not exists ' +
     ' (select l.grouping_id from ltg_grouping L where G.ID = L.grouping_ID)';
-  dmLTG.ibds.Open;
-  dmLTG.ibds.FetchAll;
-  dsGrouping.DataSet := dmLTG.ibds;
+  DM.ibds.Open;
+  DM.ibds.FetchAll;
+  dsGrouping.DataSet := DM.ibds;
   cbGrouping.ListField := 'NAME';
   cbGrouping.KeyField := 'ID';
 end;
@@ -58,7 +58,7 @@ begin
     Exit;
   end;
   dsGrouping.DataSet := nil;
-  dmLTG.ibds.Close;
+  DM.ibds.Close;
 end;
 
 procedure TfmChGrouping.btnOKClick(Sender: TObject);

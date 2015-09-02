@@ -272,28 +272,4 @@ object fmEdGrouping: TfmEdGrouping
     Left = 472
     Top = 145
   end
-  object ibdsDepartment: TIBDataSet
-    Database = DM.ibDatabase
-    Transaction = DM.ibReadTransaction
-    RefreshSQL.Strings = (
-      'select * from v_department where id=:id')
-    SelectSQL.Strings = (
-      'select * from v_department')
-    Left = 608
-    Top = 192
-    object ibdsDepartmentID: TIntegerField
-      FieldName = 'ID'
-      Origin = '"V_DEPARTMENT"."ID"'
-    end
-    object ibdsDepartmentNAME: TIBStringField
-      FieldName = 'NAME'
-      Origin = '"V_DEPARTMENT"."NAME"'
-      Size = 150
-    end
-    object ibdsDepartmentINFO: TIBStringField
-      FieldName = 'INFO'
-      Origin = '"V_DEPARTMENT"."INFO"'
-      Size = 255
-    end
-  end
 end

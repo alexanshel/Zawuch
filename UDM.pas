@@ -21,7 +21,19 @@ type
   TDM = class(TDataModule)
     ibDatabase: TIBDatabase;
     ibTransaction: TIBTransaction;
+    ibdsDepartment: TIBDataSet;
+    ibdsSpecialization: TIBDataSet;
     ibReadTransaction: TIBTransaction;
+    ibdsDepartmentID: TIntegerField;
+    ibdsDepartmentCode: TIntegerField;
+    ibdsDepartmentInfo: TIBStringField;
+    ibdsSpecializationID: TIntegerField;
+    ibdsSpecializationDepartmentID: TIntegerField;
+    ibdsSpecializationCode: TIntegerField;
+    ibdsSpecializationName: TIBStringField;
+    ibdsSpecializationBudget: TFloatField;
+    ibdsSpecializationSelf_Repayment: TFloatField;
+    ibdsSpecializationInfo: TIBStringField;
     ibdsFilial: TIBDataSet;
     ibdsFilialID: TIntegerField;
     ibdsFilialCode: TIntegerField;
@@ -35,6 +47,9 @@ type
     ibdsTariffSalary: TFloatField;
     ibdsTariffInfo: TIBStringField;
     ibSQL: TIBSQL;
+    ibdsDepartmentCurriculumID: TIntegerField;
+    ibdsDepartmentCurriculum: TStringField;
+    ibdsDepartmentPeriod: TIntegerField;
     ibdsTeacher: TIBDataSet;
     ibdsTeacherID: TIntegerField;
     ibdsTeacherName: TIBStringField;
@@ -106,6 +121,7 @@ type
     ibdsConstPASPORT_NAME: TIBStringField;
     ibdsConstPASPORT_DIRECTOR_SIGN: TIBStringField;
     ibdsConstPASPORT_TARIFFICATION_SIGN: TIBStringField;
+    ibdsDepartmentName: TIBStringField;
     ibdsSubjectName: TIBStringField;
     ibdsFilialName: TIBStringField;
     ibdsEducationName: TIBStringField;
@@ -334,6 +350,180 @@ type
     ibdsT: TIBDataSet;
     ibdsTREPORT_NAME: TIBStringField;
     ibdsTPARAMS: TMemoField;
+    ibdsLTG: TIBDataSet;
+    ibdsLTGSubject: TIBDataSet;
+    ibdsLTGID: TIntegerField;
+    ibdsLTGFINANCING_ID: TIntegerField;
+    ibdsLTGFinancing: TStringField;
+    ibdsLTGNAME: TIBStringField;
+    ibdsLTGGrouping: TIBDataSet;
+    ibdsLTGGroupingLTG_ID: TIntegerField;
+    ibdsLTGGroupingGROUPING_ID: TIntegerField;
+    ibdsLTGGroupingGROUPING_NAME: TIBStringField;
+    ibdsLTGISubject: TIBDataSet;
+    ibdsLTGISubjectLTG_ID: TIntegerField;
+    ibdsLTGISubjectID: TIntegerField;
+    ibdsLTGISubjectPOS: TIntegerField;
+    ibdsLTGISubjectNAME: TIBStringField;
+    ibdsCurrISubj: TIBDataSet;
+    ibdsCurrISubjCURR_ID: TIntegerField;
+    ibdsCurrISubjCR_ID: TIntegerField;
+    ibdsCurrISubjS_ID: TIntegerField;
+    ibdsCurrISubjName: TIBStringField;
+    ibdsCurrISubjCode: TIntegerField;
+    ibdsLTGISubjCurr: TIBDataSet;
+    ibdsLTGISubjCurrLTG_ID: TIntegerField;
+    ibdsLTGISubjCurrLTG_I_SUBJ_ID: TIntegerField;
+    ibdsLTGISubjCurrSUBJ_NAME: TIBStringField;
+    ibdsLTGISubjCurrCURR_ID: TIntegerField;
+    ibdsLTGISubjCurrCURR_NAME: TIBStringField;
+    ibdsLTGISubjCurrCURR_REC_ID: TIntegerField;
+    ibdsLTGSubjectLTG_ID: TIntegerField;
+    ibdsLTGSubjectSUBJ_ID: TIntegerField;
+    ibdsLTGSubjectSUBJ_NAME: TIBStringField;
+    ibdsLTGSubjectGR_QTY: TIntegerField;
+    ibdsLTGSubjectSUBJ_CODE: TIntegerField;
+    ibdsLTGReport: TIBDataSet;
+    ibdsLTGReportRecI: TIBDataSet;
+    ibdsLTGReportQ_0: TIntegerField;
+    ibdsLTGReportQ_1: TIntegerField;
+    ibdsLTGReportQ_2: TIntegerField;
+    ibdsLTGReportQ_3: TIntegerField;
+    ibdsLTGReportQ_4: TIntegerField;
+    ibdsLTGReportQ_5: TIntegerField;
+    ibdsLTGReportQ_6: TIntegerField;
+    ibdsLTGReportQ_7: TIntegerField;
+    ibdsLTGReportQ_8: TIntegerField;
+    ibdsLTGReportQ_ALL_Y: TIntegerField;
+    ibdsLTGReportQ_ALL_O: TIntegerField;
+    ibdsLTGReportQ_ALL_C: TIntegerField;
+    ibdsLTGReportQ_V_Y: TIntegerField;
+    ibdsLTGReportQ_V_O: TIntegerField;
+    ibdsLTGReportQ_V_C: TIntegerField;
+    ibdsLTGReportT_V_0: TFloatField;
+    ibdsLTGReportT_V_1: TFloatField;
+    ibdsLTGReportT_V_2: TFloatField;
+    ibdsLTGReportT_V_3: TFloatField;
+    ibdsLTGReportT_V_4: TFloatField;
+    ibdsLTGReportT_V_5: TFloatField;
+    ibdsLTGReportT_V_6: TFloatField;
+    ibdsLTGReportT_V_7: TFloatField;
+    ibdsLTGReportT_V_8: TFloatField;
+    ibdsLTGReportT_0: TFloatField;
+    ibdsLTGReportT_1: TFloatField;
+    ibdsLTGReportT_2: TFloatField;
+    ibdsLTGReportT_3: TFloatField;
+    ibdsLTGReportT_4: TFloatField;
+    ibdsLTGReportT_5: TFloatField;
+    ibdsLTGReportT_6: TFloatField;
+    ibdsLTGReportT_7: TFloatField;
+    ibdsLTGReportT_8: TFloatField;
+    ibdsLTGReportT_A_Y: TFloatField;
+    ibdsLTGReportT_A_O: TFloatField;
+    ibdsLTGReportT_A_C: TFloatField;
+    ibdsLTGReportT_V_Y: TFloatField;
+    ibdsLTGReportT_V_O: TFloatField;
+    ibdsLTGReportT_V_C: TFloatField;
+    ibdsLTGReportG_Y: TIntegerField;
+    ibdsLTGReportG_O: TIntegerField;
+    ibdsLTGReportRecG: TIBDataSet;
+    ibdsLTGReportRecILTG_SUBJ_ID: TIntegerField;
+    ibdsLTGReportRecILTG_SUBJ_POS: TIntegerField;
+    ibdsLTGReportRecISUBJECT_NAME: TIBStringField;
+    ibdsLTGReportRecISUBJECT_CODE: TIntegerField;
+    ibdsLTGReportRecIGROUP_QTY: TIntegerField;
+    ibdsLTGReportRecIQTY_0: TIntegerField;
+    ibdsLTGReportRecIQTY_1: TIntegerField;
+    ibdsLTGReportRecIQTY_2: TIntegerField;
+    ibdsLTGReportRecIQTY_3: TIntegerField;
+    ibdsLTGReportRecIQTY_4: TIntegerField;
+    ibdsLTGReportRecIQTY_5: TIntegerField;
+    ibdsLTGReportRecIQTY_6: TIntegerField;
+    ibdsLTGReportRecIQTY_7: TIntegerField;
+    ibdsLTGReportRecIQTY_8: TIntegerField;
+    ibdsLTGReportRecIT_0: TFloatField;
+    ibdsLTGReportRecIT_1: TFloatField;
+    ibdsLTGReportRecIT_2: TFloatField;
+    ibdsLTGReportRecIT_3: TFloatField;
+    ibdsLTGReportRecIT_4: TFloatField;
+    ibdsLTGReportRecIT_5: TFloatField;
+    ibdsLTGReportRecIT_6: TFloatField;
+    ibdsLTGReportRecIT_7: TFloatField;
+    ibdsLTGReportRecIT_8: TFloatField;
+    ibdsLTGReportRecIT_ALL_Y: TFloatField;
+    ibdsLTGReportRecIT_ALL_O: TFloatField;
+    ibdsLTGReportRecIT_ALL_C: TFloatField;
+    ibdsLTGReportRecIT_V_Y: TFloatField;
+    ibdsLTGReportRecIT_V_O: TFloatField;
+    ibdsLTGReportRecIT_V_C: TFloatField;
+    ibdsLTGReportRecIQTY_Y: TIntegerField;
+    ibdsLTGReportRecIQTY_O: TIntegerField;
+    ibdsLTGReportRecIQTY_C: TIntegerField;
+    ibdsLTGReportRecIQTY_V_Y: TIntegerField;
+    ibdsLTGReportRecIQTY_V_O: TIntegerField;
+    ibdsLTGReportRecIQTY_V_C: TIntegerField;
+    ibdsLTGReportRecIT_V_0: TFloatField;
+    ibdsLTGReportRecIT_V_1: TFloatField;
+    ibdsLTGReportRecIT_V_2: TFloatField;
+    ibdsLTGReportRecIT_V_3: TFloatField;
+    ibdsLTGReportRecIT_V_4: TFloatField;
+    ibdsLTGReportRecIT_V_5: TFloatField;
+    ibdsLTGReportRecIT_V_6: TFloatField;
+    ibdsLTGReportRecIT_V_7: TFloatField;
+    ibdsLTGReportRecIT_V_8: TFloatField;
+    ibdsLTGReportRecGG_SUBJ_ID: TIntegerField;
+    ibdsLTGReportRecGSUBJECT_NAME: TIBStringField;
+    ibdsLTGReportRecGSUBJECT_CODE: TIntegerField;
+    ibdsLTGReportRecGGROUP_QTY: TIntegerField;
+    ibdsLTGReportRecGQTY_0: TIntegerField;
+    ibdsLTGReportRecGQTY_1: TIntegerField;
+    ibdsLTGReportRecGQTY_2: TIntegerField;
+    ibdsLTGReportRecGQTY_3: TIntegerField;
+    ibdsLTGReportRecGQTY_4: TIntegerField;
+    ibdsLTGReportRecGQTY_5: TIntegerField;
+    ibdsLTGReportRecGQTY_6: TIntegerField;
+    ibdsLTGReportRecGQTY_7: TIntegerField;
+    ibdsLTGReportRecGQTY_8: TIntegerField;
+    ibdsLTGReportRecGT_0: TFloatField;
+    ibdsLTGReportRecGT_1: TFloatField;
+    ibdsLTGReportRecGT_2: TFloatField;
+    ibdsLTGReportRecGT_3: TFloatField;
+    ibdsLTGReportRecGT_4: TFloatField;
+    ibdsLTGReportRecGT_5: TFloatField;
+    ibdsLTGReportRecGT_6: TFloatField;
+    ibdsLTGReportRecGT_7: TFloatField;
+    ibdsLTGReportRecGT_8: TFloatField;
+    ibdsLTGReportRecGT_ALL_Y: TFloatField;
+    ibdsLTGReportRecGT_ALL_O: TFloatField;
+    ibdsLTGReportRecGT_ALL_C: TFloatField;
+    ibdsLTGReportRecGT_V_Y: TFloatField;
+    ibdsLTGReportRecGT_V_O: TFloatField;
+    ibdsLTGReportRecGT_V_C: TFloatField;
+    ibdsLTGReportRecGT_V_0: TFloatField;
+    ibdsLTGReportRecGT_V_1: TFloatField;
+    ibdsLTGReportRecGT_V_2: TFloatField;
+    ibdsLTGReportRecGT_V_3: TFloatField;
+    ibdsLTGReportRecGT_V_4: TFloatField;
+    ibdsLTGReportRecGT_V_5: TFloatField;
+    ibdsLTGReportRecGT_V_6: TFloatField;
+    ibdsLTGReportRecGT_V_7: TFloatField;
+    ibdsLTGReportRecGT_V_8: TFloatField;
+    ibdsLTGReportRecGG_QTY_Y: TIntegerField;
+    ibdsLTGReportRecGG_QTY_O: TIntegerField;
+    ibdsLTGCurr: TIBDataSet;
+    ibdsLTGCurrCURR_ID: TIntegerField;
+    ibdsLTGReportT_T_0: TFloatField;
+    ibdsLTGReportT_T_1: TFloatField;
+    ibdsLTGReportT_T_2: TFloatField;
+    ibdsLTGReportT_T_3: TFloatField;
+    ibdsLTGReportT_T_4: TFloatField;
+    ibdsLTGReportT_T_5: TFloatField;
+    ibdsLTGReportT_T_6: TFloatField;
+    ibdsLTGReportT_T_7: TFloatField;
+    ibdsLTGReportT_T_8: TFloatField;
+    ibdsLTGReportT_T_Y: TFloatField;
+    ibdsLTGReportT_T_O: TFloatField;
+    ibdsLTGReportT_T_C: TFloatField;
     ibdsGroupingSubjGROUPING_ID: TIntegerField;
     ibdsGroupingSubjGR_SUBJ_ID: TIntegerField;
     ibdsGroupingSubjGR_SUBJ_NAME: TIBStringField;
@@ -468,7 +658,12 @@ type
     procedure ibdsTeacherGroupSubjCalcFields(DataSet: TDataSet);
     procedure ibdsTarifficationRecCalcFields(DataSet: TDataSet);
     procedure ibdsGroupingDeptCalcFields(DataSet: TDataSet);
+    procedure ibdsCurrCatCalcFields(DataSet: TDataSet);
+    procedure ibdsCurrReportCalcFields(DataSet: TDataSet);
     procedure ibdsTeacherGroupClssCalcFields(DataSet: TDataSet);
+    procedure ibdsLTGSubjectCalcFields(DataSet: TDataSet);
+    procedure ibdsLTGCalcFields(DataSet: TDataSet);
+    procedure ibdsLTGReportCalcFields(DataSet: TDataSet);
     procedure DataModuleDestroy(Sender: TObject);
   private
     procedure TableBookmarkIU(TableName, BookMark: string);
@@ -476,7 +671,9 @@ type
   public
     { Public declarations }
     function AddSubject(ID: Integer; Code: Integer; Name: String; Info: String; ShortName: String): Integer;
-
+    function AddDepartment(ID: Integer; Code:Integer; Name: String; YearQty: Integer; Info: String): Integer;
+    function AddSpecialization(ID:Integer; DepID: Integer; Code: Integer; Name: String;
+      Budget: Currency; SelfRepayment: Currency; Info: String): Integer;
     function AddFilial(ID: Integer; Code: Integer; Name: String; Info: String): Integer;
     function AddTariff(Grade: Integer; Salary: Currency; Info: String): Integer;
 
@@ -520,10 +717,10 @@ type
       ReleaseDB, ReleaseDE, StageBM, StageEM, CatIDPed, CatIDConc, TitleID,
       AgeB, AgeE: Variant
     ): Integer;
-
-
-
-
+    function AddLearnTimeGrid(ID: Variant; Financing: Integer; Name: string): integer;
+    procedure AddLTGGrouping(LTG_ID: Integer; GroupingID: Integer);
+    function AddLTGISubj(LTG_ID: Integer; ISubjID: Variant; ISubjName: String; Pos: Variant): Integer;
+    procedure AddLTGISubjCurr(LTG_ID, ISubjID, CurrID, CurrRecID: Integer);
     procedure SaveReportParam(ID: Integer; Sizes: String);
     function AddReportParam(ID, Name, PageOrient, MLeft, MRight, MTop, MBottom,
       Sizes1, Sizes2, Sizes3, Qty1, Qty2, Qty3: Variant): Integer;
@@ -540,11 +737,16 @@ type
     procedure DelTariff(ID: Integer);
     procedure DelSubject(ID: Integer);
     procedure DelFilial(ID: Integer);
-
+    procedure DelDepartment(ID: Integer);
+    procedure DelSpecialization(ID: Integer);
     procedure DelRepTabExt(RecTime: TDateTime);
     procedure DelRepTabExt2(RecTime: TDateTime);
     procedure DelGroupingSubj(GroupingID, GroupingSubjID: Integer);
     procedure DelGroupingSubjCurr(GroupingID, GroupingSubjID: Integer);
+    procedure DelLTG(ID: Integer);
+    procedure DelLTGGrouping(LTG_ID, GroupingID: Integer);
+    procedure DelLTGISubj(LTG_ID, ISubjID: Integer);
+    procedure DelLTGISubjCurr(LTG_ID, ISubjID, CurrID, CurrRecID: Integer);
     procedure ChangeConstants(
       YTCoef, OTCoef, CTCoef: Double; Code, Name, DirectorSign, TarifficationSign, TabSign: String
     );
@@ -753,7 +955,29 @@ end;
 
 { TDM }
 
+function TDM.AddDepartment(ID, Code: Integer; Name: String; YearQty: Integer; Info: String): integer;
+begin
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
 
+  result := 0;
+  ibqProc.SQL.Clear;
+  ibqProc.SQL.Append('EXECUTE PROCEDURE ADD_DEPARTMENT(:P0, :P1, :P2, :P3, :P4)');
+
+  ibqProc.Params[0].AsInteger := ID;
+  ibqProc.Params[1].AsInteger := Code;
+  ibqProc.Params[2].AsString := Name;
+  ibqProc.Params[3].AsInteger := YearQty;
+  ibqProc.Params[4].AsString := Info;
+
+  try
+    ibqProc.ExecSQL;
+    Result := ibqProc.Current.Vars[0].AsInteger;
+  except
+    ibqProc.Transaction.Rollback;
+  end;
+
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
 
 function TDM.AddEducation(ID: Integer; Name: String): Integer;
 begin
@@ -818,6 +1042,33 @@ begin
   end;
 
   if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
+
+function TDM.AddSpecialization(ID, DepID, Code: Integer; Name: String; Budget,
+  SelfRepayment: Currency; Info: String): Integer;
+begin
+if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+
+  result := 0;
+  ibqProc.SQL.Clear;
+  ibqProc.SQL.Append('EXECUTE PROCEDURE ADD_SPECIALIZATION(' +
+  ':P0, :P1, :P2, :P3, :P4, :P5, :P6)');
+
+  ibqProc.Params[0].AsInteger := ID;
+  ibqProc.Params[1].AsInteger := DepID;
+  ibqProc.Params[2].AsInteger := Code;
+  ibqProc.Params[3].AsString := Name;
+  ibqProc.Params[4].AsFloat := Budget;
+  ibqProc.Params[5].AsFloat := SelfRepayment;
+  ibqProc.Params[6].AsString := Info;
+  try
+    ibqProc.ExecSQL;
+    Result := ibqProc.Current.Vars[0].AsInteger;
+  except
+    ibqProc.Transaction.Rollback;
+  end;
+
+if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
 end;
 
 function TDM.AddStudent(ID, Code: Integer; Name: String; SpecID, FilialID, FinancingID, MasterID,
@@ -1035,7 +1286,22 @@ begin
   FCalendarController.refresh(SysDate);
 end;
 
+procedure TDM.DelDepartment(ID: Integer);
+begin
+if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
 
+  ibqProc.SQL.Clear;
+  ibqProc.SQL.Append('EXECUTE PROCEDURE DELETE_DEPARTMENT(:P0)');
+
+  ibqProc.Params[0].AsInteger := ID;
+  try
+    ibqProc.ExecSQL;
+  except
+    ibqProc.Transaction.Rollback;
+  end;
+
+if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
 
 procedure TDM.DelEducation(ID: Integer);
 begin
@@ -1077,6 +1343,23 @@ if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
 
   ibqProc.SQL.Clear;
   ibqProc.SQL.Append('EXECUTE PROCEDURE DELETE_POST(:P0)');
+
+  ibqProc.Params[0].AsInteger := ID;
+  try
+    ibqProc.ExecSQL;
+  except
+    ibqProc.Transaction.Rollback;
+  end;
+
+if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
+
+procedure TDM.DelSpecialization(ID: Integer);
+begin
+if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+
+  ibqProc.SQL.Clear;
+  ibqProc.SQL.Append('EXECUTE PROCEDURE DELETE_SPECIALIZATION(:P0)');
 
   ibqProc.Params[0].AsInteger := ID;
   try
@@ -1265,12 +1548,7 @@ begin
   for i := 0 to ComponentCount - 1 do
     if Components[i] is TIBDataSet then
       if (Components[i] as TIBDataSet).Tag > -1 then
-        try
-          (Components[i] as TIBDataSet).Open;
-        except
-          ShowMessage('Ошибка при открытии: ' + (Components[i] as TIBDataSet).Name);
-          raise;
-        end;
+        (Components[i] as TIBDataSet).Open;
 end;
 
 procedure TDM.ibdsTeacherTMCalcFields(DataSet: TDataSet);
@@ -1822,6 +2100,20 @@ if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
   if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
 end;
 
+procedure TDM.ibdsCurrReportCalcFields(DataSet: TDataSet);
+var
+  i: integer;
+begin
+  for i := 0 to 11 do
+    if ibdsCurrReport.Fields[15 + i].IsNull and
+      ibdsCurrReport.Fields[27 + i].IsNull
+    then ibdsCurrReport.Fields[39 + i].Value := Null
+    else
+      ibdsCurrReport.Fields[39 + i].AsFloat :=
+        ibdsCurrReport.Fields[15 + i].AsFloat +
+        ibdsCurrReport.Fields[27 + i].AsFloat;
+end;
+
 procedure TDM.SaveReportParam(ID: Integer; Sizes: String);
 begin
 if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
@@ -2009,6 +2301,193 @@ if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
   end;
 
   if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
+
+procedure TDM.ibdsLTGSubjectCalcFields(DataSet: TDataSet);
+begin
+//
+end;
+
+function TDM.AddLearnTimeGrid(ID: Variant; Financing: Integer;
+  Name: string): integer;
+begin
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+
+  ibqProc.SQL.Text := 'EXECUTE PROCEDURE ' +
+    'ADD_LEARN_TIME_GRID(:ID, :FINANCING_ID, :NAME);';
+  ibqProc.ParamByName('ID').Value := ID;
+  ibqProc.ParamByName('FINANCING_ID').AsInteger := Financing;
+  ibqProc.ParamByName('NAME').AsString := Name;
+
+  try
+    ibqProc.ExecSQL;
+    Result := ibqProc.Current.Vars[0].AsInteger;
+  except
+    ibqProc.Transaction.Rollback;
+  end;
+
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
+
+procedure TDM.ibdsLTGCalcFields(DataSet: TDataSet);
+begin
+  if ibdsLTGFINANCING_ID.Value = 0 then
+    ibdsLTGFinancing.Value := 'Б'
+  else
+    ibdsLTGFinancing.Value := 'C';
+end;
+
+procedure TDM.DelLTG(ID: Integer);
+begin
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+
+  ibqProc.SQL.Text := 'DELETE FROM LEARN_TIME_GRID WHERE ID = :IN_ID';
+  ibqProc.ParamByName('IN_ID').AsInteger := ID;
+
+  try
+    ibqProc.ExecSQL;
+  except
+    ibqProc.Transaction.Rollback;
+  end;
+
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
+
+procedure TDM.AddLTGGrouping(LTG_ID, GroupingID: Integer);
+begin
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+
+  ibqProc.SQL.Text :=
+    'EXECUTE PROCEDURE ADD_LTG_GROUPING(:LTG_ID, :GR_ID)';
+  ibqProc.ParamByName('LTG_ID').AsInteger := LTG_ID;
+  ibqProc.ParamByName('GR_ID').AsInteger := GroupingID;
+
+  try
+    ibqProc.ExecSQL;
+  except
+    ibqProc.Transaction.Rollback;
+  end;
+
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
+
+procedure TDM.DelLTGGrouping(LTG_ID, GroupingID: Integer);
+begin
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+
+  ibqProc.SQL.Text := 'DELETE FROM LTG_GROUPING LG ' +
+    'WHERE LG.LTG_ID = :L_ID and LG.GROUPING_ID = :GR_ID';
+
+  ibqProc.ParamByName('L_ID').AsInteger := LTG_ID;
+  ibqProc.ParamByName('GR_ID').AsInteger := GroupingID;
+
+  try
+    ibqProc.ExecSQL;
+  except
+    ibqProc.Transaction.Rollback;
+  end;
+
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
+
+function TDM.AddLTGISubj(LTG_ID: Integer; ISubjID: Variant;
+  ISubjName: String; Pos: Variant): Integer;
+begin
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+
+  ibqProc.SQL.Text := 'EXECUTE PROCEDURE ADD_LTG_I_SUBJECT(' +
+    ':LTG_ID, :I_S_ID, :I_S_NAME, :POS)';
+
+  ibqProc.ParamByName('LTG_ID').AsInteger := LTG_ID;
+  ibqProc.ParamByName('I_S_ID').Value := ISubjID;
+  ibqProc.ParamByName('I_S_NAME').AsString := ISubjName;
+  ibqProc.ParamByName('POS').Value := Pos;
+
+  try
+    ibqProc.ExecSQL;
+    Result := ibqProc.Current.Vars[0].AsInteger;
+  except
+    ibqProc.Transaction.Rollback;
+  end;
+
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
+
+procedure TDM.DelLTGISubj(LTG_ID, ISubjID: Integer);
+begin
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+
+  ibqProc.SQL.Text := 'DELETE FROM LTG_I_SUBJECT LIS WHERE ' +
+    'LIS.LTG_ID = :LTG_ID and LIS.ID = :I_S_ID';
+
+  ibqProc.ParamByName('LTG_ID').AsInteger := LTG_ID;
+  ibqProc.ParamByName('I_S_ID').AsInteger := ISubjID;
+
+  try
+    ibqProc.ExecSQL;
+  except
+    ibqProc.Transaction.Rollback;
+  end;
+
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
+
+procedure TDM.AddLTGISubjCurr(LTG_ID, ISubjID, CurrID, CurrRecID: Integer);
+begin
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+
+  ibqProc.SQL.Text := 'EXECUTE PROCEDURE ADD_LTG_I_SUBJ_CURR(' +
+    ':LTG_ID, :I_S_ID, :CURR_ID, :CR_ID)';
+
+  ibqProc.ParamByName('LTG_ID').AsInteger := LTG_ID;
+  ibqProc.ParamByName('I_S_ID').AsInteger := ISubjID;
+  ibqProc.ParamByName('CURR_ID').AsInteger := CurrID;
+  ibqProc.ParamByName('CR_ID').AsInteger := CurrRecID;
+
+  try
+    ibqProc.ExecSQL;
+  except
+    ibqProc.Transaction.Rollback;
+  end;
+
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
+
+procedure TDM.DelLTGISubjCurr(LTG_ID, ISubjID, CurrID, CurrRecID: Integer);
+begin
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+
+  ibqProc.SQL.Text := 'DELETE FROM LTG_I_SUBJ_CURR LISC WHERE ' +
+    'LISC.LTG_ID = :LTG_ID and LISC.LTG_I_SUBJ_ID = :I_S_ID and ' +
+    'LISC.CURR_ID = :CURR_ID and LISC.CURR_REC_ID = :CR_ID';
+
+  ibqProc.ParamByName('LTG_ID').AsInteger := LTG_ID;
+  ibqProc.ParamByName('I_S_ID').AsInteger := ISubjID;
+  ibqProc.ParamByName('CURR_ID').AsInteger := CurrID;
+  ibqProc.ParamByName('CR_ID').AsInteger := CurrRecID;
+
+  try
+    ibqProc.ExecSQL;
+  except
+    ibqProc.Transaction.Rollback;
+  end;
+
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+end;
+
+procedure TDM.ibdsLTGReportCalcFields(DataSet: TDataSet);
+var i: Integer;
+begin
+  for i := 0 to 8 do
+    ibdsLTGReport.FieldByName('T_T_' + IntToStr(i)).AsFloat :=
+      ibdsLTGReport.FieldByName('T_V_' + IntToStr(i)).AsFloat +
+      ibdsLTGReport.FieldByName('T_' + IntToStr(i)).AsFloat;
+  ibdsLTGReportT_T_Y.Value :=
+    ibdsLTGReportT_V_Y.Value + ibdsLTGReportT_A_Y.Value;
+  ibdsLTGReportT_T_O.Value :=
+    ibdsLTGReportT_V_O.Value + ibdsLTGReportT_A_O.Value;
+  ibdsLTGReportT_T_C.Value :=
+    ibdsLTGReportT_V_C.Value + ibdsLTGReportT_A_C.Value;
 end;
 
 function TDM.AddRepTabExt2(RecTime: Variant; TeacherName: String;
