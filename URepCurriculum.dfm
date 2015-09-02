@@ -1,6 +1,6 @@
 object fmRepCurriculum: TfmRepCurriculum
-  Left = 63
-  Top = 41
+  Left = 364
+  Top = 157
   Width = 958
   Height = 666
   HelpContext = 34
@@ -388,6 +388,7 @@ object fmRepCurriculum: TfmRepCurriculum
           Expanded = False
           FieldName = 'G_QTY_Y'
           Title.Color = clWindow
+          Width = 64
           Visible = True
         end
         item
@@ -395,6 +396,7 @@ object fmRepCurriculum: TfmRepCurriculum
           Expanded = False
           FieldName = 'G_QTY_O'
           Title.Color = clWindow
+          Width = 64
           Visible = True
         end>
     end
@@ -565,56 +567,71 @@ object fmRepCurriculum: TfmRepCurriculum
           Columns = <
             item
               Expanded = False
-              FieldName = 'Cat0'
+              FieldName = 'C_NAME_0'
+              Title.Caption = #1050#1083#1072#1089#1089' 0'
               Width = 91
               Visible = True
             end
             item
               Expanded = False
-              FieldName = 'Cat1'
+              FieldName = 'C_NAME_1'
+              Title.Caption = #1050#1083#1072#1089#1089' 1'
               Width = 91
               Visible = True
             end
             item
               Expanded = False
-              FieldName = 'Cat2'
+              FieldName = 'C_NAME_2'
+              Title.Caption = #1050#1083#1072#1089#1089' 2'
               Width = 91
               Visible = True
             end
             item
               Expanded = False
-              FieldName = 'Cat3'
+              FieldName = 'C_NAME_3'
+              Title.Caption = #1050#1083#1072#1089#1089' 3'
               Width = 91
               Visible = True
             end
             item
               Expanded = False
-              FieldName = 'Cat4'
+              FieldName = 'C_NAME_4'
+              Title.Caption = #1050#1083#1072#1089#1089' 4'
               Width = 91
               Visible = True
             end
             item
               Expanded = False
-              FieldName = 'Cat5'
+              FieldName = 'C_NAME_5'
+              Title.Caption = #1050#1083#1072#1089#1089' 5'
               Width = 91
               Visible = True
             end
             item
               Expanded = False
-              FieldName = 'Cat6'
+              FieldName = 'C_NAME_6'
+              Title.Caption = #1050#1083#1072#1089#1089' 6'
               Width = 91
               Visible = True
             end
             item
               Expanded = False
-              FieldName = 'Cat7'
+              FieldName = 'C_NAME_7'
+              Title.Caption = #1050#1083#1072#1089#1089' 7'
               Width = 91
               Visible = True
             end
             item
               Expanded = False
-              FieldName = 'Cat8'
+              FieldName = 'C_NAME_8'
+              Title.Caption = #1050#1083#1072#1089#1089' 8'
               Width = 91
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'C_NAME_9'
+              Title.Caption = #1050#1083#1072#1089#1089' 9'
               Visible = True
             end>
         end
@@ -695,41 +712,49 @@ object fmRepCurriculum: TfmRepCurriculum
             item
               Expanded = False
               FieldName = 't_t_1'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 't_t_2'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 't_t_3'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 't_t_4'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 't_t_5'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 't_t_6'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 't_t_7'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 't_t_8'
+              Width = 64
               Visible = True
             end>
         end
@@ -756,41 +781,49 @@ object fmRepCurriculum: TfmRepCurriculum
             item
               Expanded = False
               FieldName = 'T_V_1'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_V_2'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_V_3'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_V_4'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_V_5'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_V_6'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_V_7'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_V_8'
+              Width = 64
               Visible = True
             end>
         end
@@ -817,81 +850,97 @@ object fmRepCurriculum: TfmRepCurriculum
             item
               Expanded = False
               FieldName = 'T_1'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_2'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_3'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_4'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_5'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_6'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_7'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_8'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_A_Y'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_A_O'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_A_C'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_V_Y'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_V_O'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_V_C'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'G_Y'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'G_O'
+              Width = 64
               Visible = True
             end>
         end
@@ -922,17 +971,839 @@ object fmRepCurriculum: TfmRepCurriculum
     end
   end
   object dsCurr: TDataSource
-    Left = 528
-    Top = 208
+    DataSet = ibdsCurrReport
+    Left = 464
+    Top = 248
   end
   object dsCurrRec: TDataSource
-    DataSet = DM.ibdsCurrReportRec
+    DataSet = ibdsCurrReportRec
     Left = 464
     Top = 288
   end
   object dsCurrCat: TDataSource
-    DataSet = DM.ibdsCurrCat
-    Left = 537
-    Top = 130
+    DataSet = ibdsCurrCat
+    Left = 465
+    Top = 328
+  end
+  object ibdsCurriculum: TIBDataSet
+    Database = DM.ibDatabase
+    Transaction = DM.ibTransaction
+    RefreshSQL.Strings = (
+      'select * from V_CURRICULUM where "ID"=:"ID"')
+    SelectSQL.Strings = (
+      'select * from V_CURRICULUM order by pos')
+    Left = 584
+    Top = 256
+    object ibdsCurriculumID: TIntegerField
+      FieldKind = fkInternalCalc
+      FieldName = 'ID'
+      Origin = '"VIEW_CURRICULUM"."ID"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurriculumNAME: TIBStringField
+      DisplayLabel = #1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077
+      DisplayWidth = 50
+      FieldKind = fkInternalCalc
+      FieldName = 'Name'
+      Origin = '"VIEW_CURRICULUM"."NAME"'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 150
+    end
+    object ibdsCurriculumPERIOD_FOR_PRINT: TIBStringField
+      DisplayLabel = #1055#1077#1088#1080#1086#1076
+      DisplayWidth = 5
+      FieldKind = fkInternalCalc
+      FieldName = 'PERIOD_FOR_PRINT'
+      Origin = '"VIEW_CURRICULUM"."PERIOD_FOR_PRINT"'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 150
+    end
+    object ibdsCurriculumPERIOD: TSmallintField
+      DisplayLabel = #1055#1077#1088#1080#1086#1076
+      DisplayWidth = 5
+      FieldKind = fkInternalCalc
+      FieldName = 'PERIOD'
+      Origin = '"VIEW_CURRICULUM"."PERIOD"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurriculumCAT_0: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkInternalCalc
+      FieldName = 'CAT_0'
+      Origin = '"VIEW_CURRICULUM"."CAT_0"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurriculumCAT_1: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkInternalCalc
+      FieldName = 'CAT_1'
+      Origin = '"VIEW_CURRICULUM"."CAT_1"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurriculumCAT_2: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkInternalCalc
+      FieldName = 'CAT_2'
+      Origin = '"VIEW_CURRICULUM"."CAT_2"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurriculumCAT_3: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkInternalCalc
+      FieldName = 'CAT_3'
+      Origin = '"VIEW_CURRICULUM"."CAT_3"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurriculumCAT_4: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkInternalCalc
+      FieldName = 'CAT_4'
+      Origin = '"VIEW_CURRICULUM"."CAT_4"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurriculumCAT_5: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkInternalCalc
+      FieldName = 'CAT_5'
+      Origin = '"VIEW_CURRICULUM"."CAT_5"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurriculumCAT_6: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkInternalCalc
+      FieldName = 'CAT_6'
+      Origin = '"VIEW_CURRICULUM"."CAT_6"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurriculumCAT_7: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkInternalCalc
+      FieldName = 'CAT_7'
+      Origin = '"VIEW_CURRICULUM"."CAT_7"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurriculumCAT_8: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkInternalCalc
+      FieldName = 'CAT_8'
+      Origin = '"VIEW_CURRICULUM"."CAT_8"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+  end
+  object DataSource1: TDataSource
+    Left = 816
+    Top = 40
+  end
+  object ibdsCurrReport: TIBDataSet
+    Tag = -1
+    SelectSQL.Strings = (
+      'select *'
+      'from proc_curr_report(:curr_id, :financing_id);')
+    Left = 432
+    Top = 248
+    object ibdsCurrReportQ_0: TIntegerField
+      FieldName = 'Q_0'
+      Origin = '"PROC_CURR_REPORT"."Q_0"'
+    end
+    object ibdsCurrReportQ_1: TIntegerField
+      FieldName = 'Q_1'
+      Origin = '"PROC_CURR_REPORT"."Q_1"'
+    end
+    object ibdsCurrReportQ_2: TIntegerField
+      FieldName = 'Q_2'
+      Origin = '"PROC_CURR_REPORT"."Q_2"'
+    end
+    object ibdsCurrReportQ_3: TIntegerField
+      FieldName = 'Q_3'
+      Origin = '"PROC_CURR_REPORT"."Q_3"'
+    end
+    object ibdsCurrReportQ_4: TIntegerField
+      FieldName = 'Q_4'
+      Origin = '"PROC_CURR_REPORT"."Q_4"'
+    end
+    object ibdsCurrReportQ_5: TIntegerField
+      FieldName = 'Q_5'
+      Origin = '"PROC_CURR_REPORT"."Q_5"'
+    end
+    object ibdsCurrReportQ_6: TIntegerField
+      FieldName = 'Q_6'
+      Origin = '"PROC_CURR_REPORT"."Q_6"'
+    end
+    object ibdsCurrReportQ_7: TIntegerField
+      FieldName = 'Q_7'
+      Origin = '"PROC_CURR_REPORT"."Q_7"'
+    end
+    object ibdsCurrReportQ_8: TIntegerField
+      FieldName = 'Q_8'
+      Origin = '"PROC_CURR_REPORT"."Q_8"'
+    end
+    object ibdsCurrReportQ_ALL_Y: TIntegerField
+      FieldName = 'Q_ALL_Y'
+      Origin = '"PROC_CURR_REPORT"."Q_ALL_Y"'
+    end
+    object ibdsCurrReportQ_ALL_O: TIntegerField
+      FieldName = 'Q_ALL_O'
+      Origin = '"PROC_CURR_REPORT"."Q_ALL_O"'
+    end
+    object ibdsCurrReportQ_ALL_C: TIntegerField
+      FieldName = 'Q_ALL_C'
+      Origin = '"PROC_CURR_REPORT"."Q_ALL_C"'
+    end
+    object ibdsCurrReportQ_V_Y: TIntegerField
+      FieldName = 'Q_V_Y'
+      Origin = '"PROC_CURR_REPORT"."Q_V_Y"'
+    end
+    object ibdsCurrReportQ_V_O: TIntegerField
+      FieldName = 'Q_V_O'
+      Origin = '"PROC_CURR_REPORT"."Q_V_O"'
+    end
+    object ibdsCurrReportQ_V_C: TIntegerField
+      FieldName = 'Q_V_C'
+      Origin = '"PROC_CURR_REPORT"."Q_V_C"'
+    end
+    object ibdsCurrReportT_V_0: TFloatField
+      FieldName = 'T_V_0'
+      Origin = '"PROC_CURR_REPORT"."T_V_0"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_V_1: TFloatField
+      FieldName = 'T_V_1'
+      Origin = '"PROC_CURR_REPORT"."T_V_1"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_V_2: TFloatField
+      FieldName = 'T_V_2'
+      Origin = '"PROC_CURR_REPORT"."T_V_2"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_V_3: TFloatField
+      FieldName = 'T_V_3'
+      Origin = '"PROC_CURR_REPORT"."T_V_3"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_V_4: TFloatField
+      FieldName = 'T_V_4'
+      Origin = '"PROC_CURR_REPORT"."T_V_4"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_V_5: TFloatField
+      FieldName = 'T_V_5'
+      Origin = '"PROC_CURR_REPORT"."T_V_5"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_V_6: TFloatField
+      FieldName = 'T_V_6'
+      Origin = '"PROC_CURR_REPORT"."T_V_6"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_V_7: TFloatField
+      FieldName = 'T_V_7'
+      Origin = '"PROC_CURR_REPORT"."T_V_7"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_V_8: TFloatField
+      FieldName = 'T_V_8'
+      Origin = '"PROC_CURR_REPORT"."T_V_8"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_V_Y: TFloatField
+      FieldName = 'T_V_Y'
+      Origin = '"PROC_CURR_REPORT"."T_V_Y"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_V_O: TFloatField
+      FieldName = 'T_V_O'
+      Origin = '"PROC_CURR_REPORT"."T_V_O"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_V_C: TFloatField
+      FieldName = 'T_V_C'
+      Origin = '"PROC_CURR_REPORT"."T_V_C"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_0: TFloatField
+      FieldName = 'T_0'
+      Origin = '"PROC_CURR_REPORT"."T_0"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_1: TFloatField
+      FieldName = 'T_1'
+      Origin = '"PROC_CURR_REPORT"."T_1"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_2: TFloatField
+      FieldName = 'T_2'
+      Origin = '"PROC_CURR_REPORT"."T_2"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_3: TFloatField
+      FieldName = 'T_3'
+      Origin = '"PROC_CURR_REPORT"."T_3"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_4: TFloatField
+      FieldName = 'T_4'
+      Origin = '"PROC_CURR_REPORT"."T_4"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_5: TFloatField
+      FieldName = 'T_5'
+      Origin = '"PROC_CURR_REPORT"."T_5"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_6: TFloatField
+      FieldName = 'T_6'
+      Origin = '"PROC_CURR_REPORT"."T_6"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_7: TFloatField
+      FieldName = 'T_7'
+      Origin = '"PROC_CURR_REPORT"."T_7"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_8: TFloatField
+      FieldName = 'T_8'
+      Origin = '"PROC_CURR_REPORT"."T_8"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_A_Y: TFloatField
+      FieldName = 'T_A_Y'
+      Origin = '"PROC_CURR_REPORT"."T_A_Y"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_A_O: TFloatField
+      FieldName = 'T_A_O'
+      Origin = '"PROC_CURR_REPORT"."T_A_O"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportT_A_C: TFloatField
+      FieldName = 'T_A_C'
+      Origin = '"PROC_CURR_REPORT"."T_A_C"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportt_t_0: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 't_t_0'
+      DisplayFormat = '0.00'
+      Calculated = True
+    end
+    object ibdsCurrReportt_t_1: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 't_t_1'
+      DisplayFormat = '0.00'
+      Calculated = True
+    end
+    object ibdsCurrReportt_t_2: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 't_t_2'
+      DisplayFormat = '0.00'
+      Calculated = True
+    end
+    object ibdsCurrReportt_t_3: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 't_t_3'
+      DisplayFormat = '0.00'
+      Calculated = True
+    end
+    object ibdsCurrReportt_t_4: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 't_t_4'
+      DisplayFormat = '0.00'
+      Calculated = True
+    end
+    object ibdsCurrReportt_t_5: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 't_t_5'
+      DisplayFormat = '0.00'
+      Calculated = True
+    end
+    object ibdsCurrReportt_t_6: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 't_t_6'
+      DisplayFormat = '0.00'
+      Calculated = True
+    end
+    object ibdsCurrReportt_t_7: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 't_t_7'
+      DisplayFormat = '0.00'
+      Calculated = True
+    end
+    object ibdsCurrReportt_t_8: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 't_t_8'
+      DisplayFormat = '0.00'
+      Calculated = True
+    end
+    object ibdsCurrReportt_t_y: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 't_t_y'
+      DisplayFormat = '0.00'
+      Calculated = True
+    end
+    object ibdsCurrReportt_t_o: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 't_t_o'
+      DisplayFormat = '0.00'
+      Calculated = True
+    end
+    object ibdsCurrReportt_t_c: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 't_t_c'
+      DisplayFormat = '0.00'
+      Calculated = True
+    end
+    object ibdsCurrReportG_Y: TIntegerField
+      FieldName = 'G_Y'
+      Origin = '"PROC_CURR_REPORT"."G_Y"'
+    end
+    object ibdsCurrReportG_O: TIntegerField
+      FieldName = 'G_O'
+      Origin = '"PROC_CURR_REPORT"."G_O"'
+    end
+  end
+  object ibdsCurrReportRec: TIBDataSet
+    Tag = -1
+    SelectSQL.Strings = (
+      'select *'
+      'from proc_curr_rec_report(:curr_id, :financing_id)'
+      'order by curr_rec_num')
+    Left = 432
+    Top = 288
+    object ibdsCurrReportRecCURR_REC_ID: TIntegerField
+      FieldName = 'CURR_REC_ID'
+      Origin = '"PROC_CURR_REC_REPORT"."CURR_REC_ID"'
+      Visible = False
+    end
+    object ibdsCurrReportRecCURR_REC_NUM: TIntegerField
+      FieldName = 'CURR_REC_NUM'
+      Origin = '"PROC_CURR_REC_REPORT"."CURR_REC_NUM"'
+      Visible = False
+    end
+    object ibdsCurrReportRecSUBJECT_NAME: TIBStringField
+      DisplayLabel = #1055#1088#1077#1076#1084#1077#1090
+      DisplayWidth = 25
+      FieldName = 'SUBJECT_NAME'
+      Origin = '"PROC_CURR_REC_REPORT"."SUBJECT_NAME"'
+      Size = 30
+    end
+    object ibdsCurrReportRecSUBJECT_CODE: TIntegerField
+      FieldName = 'SUBJECT_CODE'
+      Origin = '"PROC_CURR_REC_REPORT"."SUBJECT_CODE"'
+      Visible = False
+    end
+    object ibdsCurrReportRecGROUP_QTY: TIntegerField
+      DisplayLabel = #1043#1088'.'
+      DisplayWidth = 3
+      FieldName = 'GROUP_QTY'
+      Origin = '"PROC_CURR_REC_REPORT"."GROUP_QTY"'
+    end
+    object ibdsCurrReportRecT_0: TFloatField
+      DisplayLabel = #1042#1088'. 0'
+      DisplayWidth = 5
+      FieldName = 'T_0'
+      Origin = '"PROC_CURR_REC_REPORT"."T_0"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportRecQTY_0: TIntegerField
+      DisplayLabel = #1082'-'#1074#1086
+      DisplayWidth = 3
+      FieldName = 'QTY_0'
+      Origin = '"PROC_CURR_REC_REPORT"."QTY_0"'
+    end
+    object ibdsCurrReportRecT_1: TFloatField
+      DisplayLabel = #1042#1088'. 1'
+      DisplayWidth = 5
+      FieldName = 'T_1'
+      Origin = '"PROC_CURR_REC_REPORT"."T_1"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportRecQTY_1: TIntegerField
+      DisplayLabel = #1082'-'#1074#1086
+      DisplayWidth = 3
+      FieldName = 'QTY_1'
+      Origin = '"PROC_CURR_REC_REPORT"."QTY_1"'
+    end
+    object ibdsCurrReportRecT_2: TFloatField
+      DisplayLabel = #1042#1088'. 2'
+      DisplayWidth = 5
+      FieldName = 'T_2'
+      Origin = '"PROC_CURR_REC_REPORT"."T_2"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportRecQTY_2: TIntegerField
+      DisplayLabel = #1082'-'#1074#1086
+      DisplayWidth = 3
+      FieldName = 'QTY_2'
+      Origin = '"PROC_CURR_REC_REPORT"."QTY_2"'
+    end
+    object ibdsCurrReportRecT_3: TFloatField
+      DisplayLabel = #1042#1088'. 3'
+      DisplayWidth = 5
+      FieldName = 'T_3'
+      Origin = '"PROC_CURR_REC_REPORT"."T_3"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportRecQTY_3: TIntegerField
+      DisplayLabel = #1082'-'#1074#1086
+      DisplayWidth = 3
+      FieldName = 'QTY_3'
+      Origin = '"PROC_CURR_REC_REPORT"."QTY_3"'
+    end
+    object ibdsCurrReportRecT_4: TFloatField
+      DisplayLabel = #1042#1088'. 4'
+      DisplayWidth = 5
+      FieldName = 'T_4'
+      Origin = '"PROC_CURR_REC_REPORT"."T_4"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportRecQTY_4: TIntegerField
+      DisplayLabel = #1082'-'#1074#1086
+      DisplayWidth = 3
+      FieldName = 'QTY_4'
+      Origin = '"PROC_CURR_REC_REPORT"."QTY_4"'
+    end
+    object ibdsCurrReportRecT_5: TFloatField
+      DisplayLabel = #1042#1088'. 5'
+      DisplayWidth = 5
+      FieldName = 'T_5'
+      Origin = '"PROC_CURR_REC_REPORT"."T_5"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportRecQTY_5: TIntegerField
+      DisplayLabel = #1082'-'#1074#1086
+      DisplayWidth = 3
+      FieldName = 'QTY_5'
+      Origin = '"PROC_CURR_REC_REPORT"."QTY_5"'
+    end
+    object ibdsCurrReportRecT_6: TFloatField
+      DisplayLabel = #1042#1088'. 6'
+      DisplayWidth = 5
+      FieldName = 'T_6'
+      Origin = '"PROC_CURR_REC_REPORT"."T_6"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportRecQTY_6: TIntegerField
+      DisplayLabel = #1082'-'#1074#1086
+      DisplayWidth = 3
+      FieldName = 'QTY_6'
+      Origin = '"PROC_CURR_REC_REPORT"."QTY_6"'
+    end
+    object ibdsCurrReportRecT_7: TFloatField
+      DisplayLabel = #1042#1088'. 7'
+      DisplayWidth = 5
+      FieldName = 'T_7'
+      Origin = '"PROC_CURR_REC_REPORT"."T_7"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportRecQTY_7: TIntegerField
+      DisplayLabel = #1082'-'#1074#1086
+      DisplayWidth = 3
+      FieldName = 'QTY_7'
+      Origin = '"PROC_CURR_REC_REPORT"."QTY_7"'
+    end
+    object ibdsCurrReportRecT_8: TFloatField
+      DisplayLabel = #1042#1088'. 8'
+      DisplayWidth = 5
+      FieldName = 'T_8'
+      Origin = '"PROC_CURR_REC_REPORT"."T_8"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportRecQTY_8: TIntegerField
+      DisplayLabel = #1082'-'#1074#1086
+      DisplayWidth = 3
+      FieldName = 'QTY_8'
+      Origin = '"PROC_CURR_REC_REPORT"."QTY_8"'
+    end
+    object ibdsCurrReportRecT_ALL_Y: TFloatField
+      DisplayLabel = #1042#1089#1077#1075#1086' '#1084#1083'.'
+      DisplayWidth = 5
+      FieldName = 'T_ALL_Y'
+      Origin = '"PROC_CURR_REC_REPORT"."T_ALL_Y"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportRecT_ALL_O: TFloatField
+      DisplayLabel = #1042#1089#1077#1075#1086' '#1089#1090'.'
+      DisplayWidth = 5
+      FieldName = 'T_ALL_O'
+      Origin = '"PROC_CURR_REC_REPORT"."T_ALL_O"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportRecT_ALL_C: TFloatField
+      DisplayLabel = #1042#1089#1077#1075#1086' '#1082#1086#1085#1094'.'
+      DisplayWidth = 5
+      FieldName = 'T_ALL_C'
+      Origin = '"PROC_CURR_REC_REPORT"."T_ALL_C"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportRecT_V_Y: TFloatField
+      DisplayLabel = #1053#1077#1088#1072#1089#1087'. '#1084#1083'.'
+      FieldName = 'T_V_Y'
+      Origin = '"PROC_CURR_REC_REPORT"."T_V_Y"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportRecT_V_O: TFloatField
+      DisplayLabel = #1053#1077#1088#1072#1089#1087'. '#1089#1090'.'
+      FieldName = 'T_V_O'
+      Origin = '"PROC_CURR_REC_REPORT"."T_V_O"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportRecT_V_C: TFloatField
+      DisplayLabel = #1053#1077#1088#1072#1089#1087'. '#1082#1086#1085#1094'.'
+      FieldName = 'T_V_C'
+      Origin = '"PROC_CURR_REC_REPORT"."T_V_C"'
+      DisplayFormat = '0.00'
+    end
+    object ibdsCurrReportRecG_QTY_Y: TIntegerField
+      DisplayLabel = #1050'-'#1074#1086' '#1075#1088'. '#1084#1083'.'
+      FieldName = 'G_QTY_Y'
+      Origin = '"PROC_CURR_REC_REPORT"."G_QTY_Y"'
+    end
+    object ibdsCurrReportRecG_QTY_O: TIntegerField
+      DisplayLabel = #1050'-'#1074#1086' '#1075#1088'. '#1089#1090'.'
+      FieldName = 'G_QTY_O'
+      Origin = '"PROC_CURR_REC_REPORT"."G_QTY_O"'
+    end
+    object ibdsCurrReportRecQTY_Y: TIntegerField
+      FieldName = 'QTY_Y'
+      Origin = '"PROC_CURR_REC_REPORT"."QTY_Y"'
+      Visible = False
+    end
+    object ibdsCurrReportRecQTY_O: TIntegerField
+      FieldName = 'QTY_O'
+      Origin = '"PROC_CURR_REC_REPORT"."QTY_O"'
+      Visible = False
+    end
+    object ibdsCurrReportRecQTY_C: TIntegerField
+      FieldName = 'QTY_C'
+      Origin = '"PROC_CURR_REC_REPORT"."QTY_C"'
+      Visible = False
+    end
+    object ibdsCurrReportRecQTY_V_Y: TIntegerField
+      FieldName = 'QTY_V_Y'
+      Origin = '"PROC_CURR_REC_REPORT"."QTY_V_Y"'
+      Visible = False
+    end
+    object ibdsCurrReportRecQTY_V_O: TIntegerField
+      FieldName = 'QTY_V_O'
+      Origin = '"PROC_CURR_REC_REPORT"."QTY_V_O"'
+      Visible = False
+    end
+    object ibdsCurrReportRecQTY_V_C: TIntegerField
+      FieldName = 'QTY_V_C'
+      Origin = '"PROC_CURR_REC_REPORT"."QTY_V_C"'
+      Visible = False
+    end
+  end
+  object ibdsCurrCat: TIBDataSet
+    Tag = -1
+    Database = DM.ibDatabase
+    Transaction = DM.ibTransaction
+    SelectSQL.Strings = (
+      'select * '
+      'from V_CURRICULUM_CAT VCC'
+      'where VCC.id = :curr_id')
+    Left = 432
+    Top = 328
+    object ibdsCurrCatID: TIntegerField
+      FieldKind = fkInternalCalc
+      FieldName = 'ID'
+      Origin = '"V_CURRICULUM_CAT"."ID"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurrCatC_0: TLargeintField
+      FieldKind = fkInternalCalc
+      FieldName = 'C_0'
+      Origin = '"VIEW_CURR_CAT"."C_0"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurrCatC_1: TLargeintField
+      FieldKind = fkInternalCalc
+      FieldName = 'C_1'
+      Origin = '"VIEW_CURR_CAT"."C_1"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurrCatC_2: TLargeintField
+      FieldKind = fkInternalCalc
+      FieldName = 'C_2'
+      Origin = '"VIEW_CURR_CAT"."C_2"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurrCatC_3: TLargeintField
+      FieldKind = fkInternalCalc
+      FieldName = 'C_3'
+      Origin = '"VIEW_CURR_CAT"."C_3"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurrCatC_4: TLargeintField
+      FieldKind = fkInternalCalc
+      FieldName = 'C_4'
+      Origin = '"VIEW_CURR_CAT"."C_4"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurrCatC_5: TLargeintField
+      FieldKind = fkInternalCalc
+      FieldName = 'C_5'
+      Origin = '"VIEW_CURR_CAT"."C_5"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurrCatC_6: TLargeintField
+      FieldKind = fkInternalCalc
+      FieldName = 'C_6'
+      Origin = '"VIEW_CURR_CAT"."C_6"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurrCatC_7: TLargeintField
+      FieldKind = fkInternalCalc
+      FieldName = 'C_7'
+      Origin = '"VIEW_CURR_CAT"."C_7"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurrCatC_8: TLargeintField
+      FieldKind = fkInternalCalc
+      FieldName = 'C_8'
+      Origin = '"VIEW_CURR_CAT"."C_8"'
+      ProviderFlags = []
+      ReadOnly = True
+      Visible = False
+    end
+    object ibdsCurrCatC_9: TLargeintField
+      FieldKind = fkInternalCalc
+      FieldName = 'C_9'
+      Origin = '"V_CURRICULUM_CAT"."C_9"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurrCatC_NAME_0: TIBStringField
+      FieldKind = fkInternalCalc
+      FieldName = 'C_NAME_0'
+      Origin = '"V_CURRICULUM_CAT"."C_NAME_0"'
+      ProviderFlags = []
+      ReadOnly = True
+      FixedChar = True
+      Size = 2
+    end
+    object ibdsCurrCatC_NAME_1: TIBStringField
+      FieldKind = fkInternalCalc
+      FieldName = 'C_NAME_1'
+      Origin = '"V_CURRICULUM_CAT"."C_NAME_1"'
+      ProviderFlags = []
+      ReadOnly = True
+      FixedChar = True
+      Size = 2
+    end
+    object ibdsCurrCatC_NAME_2: TIBStringField
+      FieldKind = fkInternalCalc
+      FieldName = 'C_NAME_2'
+      Origin = '"V_CURRICULUM_CAT"."C_NAME_2"'
+      ProviderFlags = []
+      ReadOnly = True
+      FixedChar = True
+      Size = 2
+    end
+    object ibdsCurrCatC_NAME_3: TIBStringField
+      FieldKind = fkInternalCalc
+      FieldName = 'C_NAME_3'
+      Origin = '"V_CURRICULUM_CAT"."C_NAME_3"'
+      ProviderFlags = []
+      ReadOnly = True
+      FixedChar = True
+      Size = 2
+    end
+    object ibdsCurrCatC_NAME_4: TIBStringField
+      FieldKind = fkInternalCalc
+      FieldName = 'C_NAME_4'
+      Origin = '"V_CURRICULUM_CAT"."C_NAME_4"'
+      ProviderFlags = []
+      ReadOnly = True
+      FixedChar = True
+      Size = 2
+    end
+    object ibdsCurrCatC_NAME_5: TIBStringField
+      FieldKind = fkInternalCalc
+      FieldName = 'C_NAME_5'
+      Origin = '"V_CURRICULUM_CAT"."C_NAME_5"'
+      ProviderFlags = []
+      ReadOnly = True
+      FixedChar = True
+      Size = 2
+    end
+    object ibdsCurrCatC_NAME_6: TIBStringField
+      FieldKind = fkInternalCalc
+      FieldName = 'C_NAME_6'
+      Origin = '"V_CURRICULUM_CAT"."C_NAME_6"'
+      ProviderFlags = []
+      ReadOnly = True
+      FixedChar = True
+      Size = 2
+    end
+    object ibdsCurrCatC_NAME_7: TIBStringField
+      FieldKind = fkInternalCalc
+      FieldName = 'C_NAME_7'
+      Origin = '"V_CURRICULUM_CAT"."C_NAME_7"'
+      ProviderFlags = []
+      ReadOnly = True
+      FixedChar = True
+      Size = 2
+    end
+    object ibdsCurrCatC_NAME_8: TIBStringField
+      FieldKind = fkInternalCalc
+      FieldName = 'C_NAME_8'
+      Origin = '"V_CURRICULUM_CAT"."C_NAME_8"'
+      ProviderFlags = []
+      ReadOnly = True
+      FixedChar = True
+      Size = 2
+    end
+    object ibdsCurrCatC_NAME_9: TIBStringField
+      FieldKind = fkInternalCalc
+      FieldName = 'C_NAME_9'
+      Origin = '"V_CURRICULUM_CAT"."C_NAME_9"'
+      ProviderFlags = []
+      ReadOnly = True
+      FixedChar = True
+      Size = 2
+    end
   end
 end

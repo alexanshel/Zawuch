@@ -38,7 +38,7 @@ type
     btnResClass: TSpeedButton;
     rgChangeMethod: TRadioGroup;
     FormPlacement1: TFormPlacement;
-    procedure btnChDeptClick(Sender: TObject);
+    //procedure btnChDeptClick(Sender: TObject);
     procedure btnResDeptClick(Sender: TObject);
     procedure btnChSpecClick(Sender: TObject);
     procedure btnResSpecClick(Sender: TObject);
@@ -67,21 +67,6 @@ uses UDM, UDepSpecCurr, UTeacher, UFilial;
 
 {$R *.dfm}
 
-procedure TfmSetStudentsData.btnChDeptClick(Sender: TObject);
-begin
-  fmDepSpec := TfmDepSpec.Create(Self);
-  fmDepSpec.isLookupMode := true;
-  DM.ibdsDepartment.Locate('ID', edDept.Tag, []);
-  fmDepSpec.selectedSpecID := Null;
-  fmDepSpec.selectedDepID  := edDept.Tag;
-  fmDepSpec.selectedCurrID := DM.ibdsDepartmentCurriculumID.Value;
-  fmDepSpec.ShowModal;
-  edDept.Tag := fmDepSpec.selectedDepID;
-  edDept.Text := fmDepSpec.selectedDepName;
-  btnResSpecClick(Sender);
-  fmDepSpec.Release;
-end;
-
 procedure TfmSetStudentsData.btnResDeptClick(Sender: TObject);
 begin
   edDept.Tag := -1;
@@ -92,10 +77,7 @@ procedure TfmSetStudentsData.btnChSpecClick(Sender: TObject);
 begin
   fmDepSpec := TfmDepSpec.Create(Self);
   fmDepSpec.isLookupMode := true;
-  DM.ibdsDepartment.Locate('ID', edDept.Tag, []);
   fmDepSpec.selectedSpecID := edSpec.Tag;
-  fmDepSpec.selectedDepID  := edDept.Tag;
-  fmDepSpec.selectedCurrID := DM.ibdsDepartmentCurriculumID.Value;
   fmDepSpec.ShowModal;
   edDept.Tag :=  fmDepSpec.selectedDepID;
   edDept.Text := fmDepSpec.selectedDepName;

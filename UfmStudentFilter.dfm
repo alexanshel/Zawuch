@@ -1392,9 +1392,7 @@ object fmStudentFilter: TfmStudentFilter
     Height = 28
     Style = csDropDownList
     ItemHeight = 20
-    ItemIndex = 0
     TabOrder = 13
-    Text = #1085#1072#1080#1073#1086#1083#1100#1096'.'
     OnChange = cbEClassChange
     Items.Strings = (
       #1085#1072#1080#1073#1086#1083#1100#1096'.'
@@ -1406,7 +1404,8 @@ object fmStudentFilter: TfmStudentFilter
       '5'
       '6'
       '7'
-      '8')
+      '8'
+      '9')
   end
   object cbPeriod: TComboBox
     Left = 184

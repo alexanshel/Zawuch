@@ -7,7 +7,7 @@ uses
   Dialogs, Menus, StdCtrls, ExtCtrls, DB, Grids, DBGrids, Buttons, DBCtrls,
   Mask, URTReport, ShellAPI, ComCtrls, AppEvnts, RXDBCtrl, Clipbrd,
   Placemnt, JvExStdCtrls, JvButton, JvCtrls, ActnList, XPStyleActnCtrls,
-  ActnMan, frxClass, frxDBSet, IBEvents;
+  ActnMan, frxClass, frxDBSet, IBEvents, IBCustomDataSet;
 
 type
   TfmStudent = class(TForm)
@@ -87,6 +87,28 @@ type
     miPrintOnDeptForTeacherSubj: TMenuItem;
     miPrintFoTeacher: TMenuItem;
     IBEvents: TIBEvents;
+    ibdsCurriculumRecord: TIBDataSet;
+    ibdsCurriculumRecordID: TIntegerField;
+    ibdsCurriculumRecordCURR_ID: TIntegerField;
+    ibdsCurriculumRecordNUM: TIntegerField;
+    ibdsCurriculumRecordSUBJ_ID: TIntegerField;
+    ibdsCurriculumRecordSUBJ_NAME: TIBStringField;
+    ibdsCurriculumRecordGROUP_QTY: TSmallintField;
+    ibdsCurriculumRecordCLOCK_0: TFloatField;
+    ibdsCurriculumRecordCLOCK_1: TFloatField;
+    ibdsCurriculumRecordCLOCK_2: TFloatField;
+    ibdsCurriculumRecordCLOCK_3: TFloatField;
+    ibdsCurriculumRecordCLOCK_4: TFloatField;
+    ibdsCurriculumRecordCLOCK_5: TFloatField;
+    ibdsCurriculumRecordCLOCK_6: TFloatField;
+    ibdsCurriculumRecordCLOCK_7: TFloatField;
+    ibdsCurriculumRecordCLOCK_8: TFloatField;
+    ibdsCurriculumRecordCLOCK_9: TFloatField;
+    ibdsCurriculumRecordYT: TFloatField;
+    ibdsCurriculumRecordOT: TFloatField;
+    ibdsCurriculumRecordCT: TFloatField;
+    ibdsCurriculumRecordSUBJ_CODE: TIntegerField;
+    dsCurrRec: TDataSource;
     procedure miExitClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -379,15 +401,14 @@ begin
   DM.ibdsStudent.DisableControls;
 
   DM.ibdsStudent.First;
-  CID := DM.ibdsDepartment.Lookup('ID', VarArrayOf([DM.ibdsStudentDepartmentID.Value]), 'CurriculumID');
+  CID := DM.ibdsStudentCURRICULUMID.Value;
   ClsNotEq := false;
   Cls := DM.ibdsStudentCLASS.Value;
   while not DM.ibdsStudent.Eof do
   begin
     ClsNotEq := ClsNotEq or (DM.ibdsStudentCLASS.Value <> Cls);
-    if CID <> DM.ibdsDepartment.Lookup('ID',
-      VarArrayOf([DM.ibdsStudentDepartmentID.Value]), 'CurriculumID') then
-    break;
+    if CID <> DM.ibdsStudentCURRICULUMID.Value then
+      break;                                     
     DM.ibdsStudent.Next;
   end;
   if not DM.ibdsStudent.Eof then
@@ -401,22 +422,21 @@ begin
         mtWarning, [mbYes, mbNo], 0) = mrYes then
       begin
         fmSetTeachers := TfmSetTeachers.Create(Self);
-        DM.ibdsCurriculumRecord.Params[0].AsInteger := CID;
-        DM.ibdsCurriculumRecord.Close;
-        DM.ibdsCurriculumRecord.Open;
-        DM.ibdsCurriculumRecord.FetchAll;
-        DM.ibdsCurriculumRecord.First;
-        while not DM.ibdsCurriculumRecord.Eof do
+        ibdsCurriculumRecord.ParamByName('ID').AsInteger := CID;
+        ibdsCurriculumRecord.Close;
+        ibdsCurriculumRecord.Open;
+        ibdsCurriculumRecord.FetchAll;
+        ibdsCurriculumRecord.First;
+        while not ibdsCurriculumRecord.Eof do
         begin
           with fmSetTeachers.VLE do
           begin
-            InsertRow(DM.ibdsCurriculumRecordSubjName.Value, '----', true);
+            InsertRow(ibdsCurriculumRecordSUBJ_NAME.Value, '----', true);
             ItemProps[RowCount - 2].EditStyle := esEllipsis;
-            Strings.Objects[RowCount - 2] :=
-               USetTeachers.TInf.Create(DM.ibdsCurriculumRecordID.Value, -1, false);
+            Strings.Objects[RowCount - 2] := USetTeachers.TInf.Create(ibdsCurriculumRecordID.Value, -1, false);
             ItemProps[RowCount - 2].ReadOnly := true;
           end;
-          DM.ibdsCurriculumRecord.Next;
+          ibdsCurriculumRecord.Next;
         end;
         if fmSetTeachers.ShowModal = mrOK then
         begin
@@ -429,9 +449,12 @@ begin
               DM.ibdsStudent.First;
               while not DM.ibdsStudent.Eof do
               begin
-                DM.AddStudentPlan((fmSetTeachers.VLE.Strings.Objects[i] as USetTeachers.TInf).CRID,
-                  DM.ibdsStudentID.Value, Integer((fmSetTeachers.VLE.Strings.Objects[i] as USetTeachers.TInf).use),
-                  (fmSetTeachers.VLE.Strings.Objects[i] as USetTeachers.TInf).tid);
+                DM.AddStudentPlan(
+                  (fmSetTeachers.VLE.Strings.Objects[i] as USetTeachers.TInf).CRID,
+                  DM.ibdsStudentID.Value,
+                  Integer((fmSetTeachers.VLE.Strings.Objects[i] as USetTeachers.TInf).use),
+                  (fmSetTeachers.VLE.Strings.Objects[i] as USetTeachers.TInf).tid
+                );
                 DM.ibdsStudent.Next;
               end;
             end; //if
@@ -444,24 +467,24 @@ begin
     begin
       //Если все проверки пройдены формируем список предметов
       fmSetTeachers := TfmSetTeachers.Create(Self);
-      DM.ibdsCurriculumRecord.Params[0].AsInteger := CID;
-      DM.ibdsCurriculumRecord.Close;
-      DM.ibdsCurriculumRecord.Open;
-      DM.ibdsCurriculumRecord.FetchAll;
-      DM.ibdsCurriculumRecord.First;
-      while not DM.ibdsCurriculumRecord.Eof do
+      ibdsCurriculumRecord.Params[0].AsInteger := CID;
+      ibdsCurriculumRecord.Close;
+      ibdsCurriculumRecord.Open;
+      ibdsCurriculumRecord.FetchAll;
+      ibdsCurriculumRecord.First;
+      while not ibdsCurriculumRecord.Eof do
       begin
-        if DM.ibdsCurriculumRecord.Fields[5+DM.ibdsStudentCLASS.Value].AsFloat <> 0 then
+        if ibdsCurriculumRecord.FieldByName('CLOCK_' + DM.ibdsStudentCLASS.AsString).AsFloat <> 0 then
         begin
           with fmSetTeachers.VLE do
           begin
-            InsertRow(DM.ibdsCurriculumRecordSubjName.Value, '----', true);
+            InsertRow(ibdsCurriculumRecordSUBJ_NAME.Value, '----', true);
             ItemProps[RowCount - 2].EditStyle := esEllipsis;
-            Strings.Objects[RowCount - 2] := USetTeachers.TInf.Create(DM.ibdsCurriculumRecordID.Value, -1, false);
+            Strings.Objects[RowCount - 2] := USetTeachers.TInf.Create(ibdsCurriculumRecordID.Value, -1, false);
             ItemProps[RowCount - 2].ReadOnly := true;
           end;
         end;
-        DM.ibdsCurriculumRecord.Next;
+        ibdsCurriculumRecord.Next;
       end;
       if fmSetTeachers.ShowModal = mrOK then
       begin

@@ -1,6 +1,6 @@
 object fmEdLTGISubj: TfmEdLTGISubj
-  Left = 117
-  Top = 85
+  Left = 355
+  Top = 178
   Width = 771
   Height = 573
   Caption = #1048#1085#1076#1080#1074#1080#1076#1091#1072#1083#1100#1085#1099#1081' '#1087#1088#1077#1076#1084#1077#1090
@@ -86,6 +86,7 @@ object fmEdLTGISubj: TfmEdLTGISubj
         Top = 161
         Width = 351
         Height = 3
+        ControlFirst = dbgCurr
         Align = alTop
       end
     end

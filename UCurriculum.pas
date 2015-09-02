@@ -154,6 +154,8 @@ type
     ibdsCurriculumRecordOT: TFloatField;
     ibdsCurriculumRecordCT: TFloatField;
     ibdsCurriculumRecordSUBJ_CODE: TIntegerField;
+    ibdsCurriculumPOS: TIntegerField;
+    ibdsCurriculumCAT_9: TLargeintField;
     procedure miExitClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -223,8 +225,7 @@ begin
 
   result := 0;
   ibqProc.SQL.Clear;
-  ibqProc.SQL.Append('EXECUTE PROCEDURE ADD_CURRICULUM(' +
-    ':ID, :Name, :Period, :PeriodForPrint)');
+  ibqProc.SQL.Append('EXECUTE PROCEDURE ADD_CURRICULUM(:ID, :Name, :Period, :PeriodForPrint)');
   ibqProc.Params[0].AsInteger := ID;
   ibqProc.Params[1].AsString := Name;
   ibqProc.Params[2].AsInteger := Period;
@@ -347,12 +348,10 @@ end;
 
 procedure TfmCurriculum.FormCreate(Sender: TObject);
 begin
-  dsCurr.DataSet := ibdsCurriculum;
   ibdsCurriculumRecord.Close;
   CurrRecSQL := ibdsCurriculumRecord.SelectSQL;
-  ibdsCurriculumRecord.DataSource := dsCurr;
   ibdsCurriculumRecord.Open;
-  dsCurrRec.DataSet := ibdsCurriculumRecord;
+  ibdsCurriculum.Open;
   CheckBtn;
   InChoiceMode := false;
   Resize;
@@ -456,8 +455,8 @@ begin
     end;
     ibdsCurriculum.Refresh;
   end;
-  ibdsCurriculumRecord.Close;
-  ibdsCurriculumRecord.Open;
+  //ibdsCurriculumRecord.Close;
+  //ibdsCurriculumRecord.Open;
   fmEdCurr.Release;
   Calc;
 end;
@@ -556,7 +555,7 @@ begin
   for i := 0 to MAX_CLASS_QTY do
   begin
     (fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Text :=
-      Format('%.2f', [ibdsCurriculumRecord.FieldByName('CLOCK' + IntToStr(i)).AsFloat]);
+      Format('%.2f', [ibdsCurriculumRecord.FieldByName('CLOCK_' + IntToStr(i)).AsFloat]);
     if not ibdsCurriculum.FieldByName('CAT_' + IntToStr(i)).IsNull then
       (fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Enabled := true;
   end;
@@ -622,18 +621,28 @@ const
   col: array[0..1] of TColor = (clGreen, clRed);
 var
   i: Integer;
-  c: double;
+  yoSum, cSum: double;
   field: TField;
   sIdx: String;
   panel: TPanel;
 begin
   if ibdsCurriculum.RecordCount <> 0 then
   begin
+    ibSQL.Close;
+    ibSQL.SQL.Clear;
+    ibSQL.SQL.Append('select * from v_curriculum_sum where id = :id');
+    ibSQL.ParamByName('id').AsString := ibdsCurriculumID.AsString;
+    ibSQL.ExecQuery;
 
-    //заполняем категории
+    pGr.Caption := ibSQL.FieldByName('GR_YO').AsString;
+    pGrC.Caption := ibSQL.FieldByName('GR_C').AsString;
+    PGrAll.Caption := ibSQL.FieldByName('GR_ALL').AsString;
+
     for i := 0 to MAX_CLASS_QTY do
     begin
       sIdx := IntToStr(i);
+
+      //выводим категории
       field := ibdsCurriculum.FieldByName('CAT_' + sIdx);
       panel := FindComponent('pCat' + sIdx) as TPanel;
       if field.IsNull then
@@ -643,36 +652,27 @@ begin
         panel.Caption := v[field.AsInteger];
         panel.Font.Color := col[field.AsInteger];
       end;
+
+      // выводим итоговоые суммы
+      yoSum := ibSQL.FieldByName('T' + sIdx + 'YO').AsDouble;
+      cSum  := ibSQL.FieldByName('T' + sIdx + 'C').AsDouble;
+
+      panel := FindComponent('pYO' + sIdx) as TPanel;
+      if panel <> nil then
+        panel.Caption := Format('%.2f', [yoSum]);
+
+      panel := FindComponent('pC' + sIdx) as TPanel;
+      if panel <> nil then
+        panel.Caption := Format('%.2f', [cSum]);
+
+      panel := FindComponent('pAll' + sIdx) as TPanel;
+      if panel <> nil then
+        panel.Caption := Format('%.2f', [yoSum + cSum]);
     end;
-    //for i := i to 8 do (Components[i + 21] as TPanel).Caption := '';
 
-    ibSQL.Close;
-    ibSQL.SQL.Clear;
-    ibSQL.SQL.Append('select * from v_curriculum_sum where id = :id');
-    //ibSQL.Params. ibdsCurriculumID.AsString
-    ibSQL.ExecQuery;
-    pGr.Caption := ibSQL.Fields[0].AsString;
-    pGrC.Caption := ibSQL.Fields[1].AsString;
-    PGrAll.Caption := ibSQL.Fields[2].AsString;
-
-    for i := 0 to MAX_CLASS_QTY do
-      (Components[i + 38 - 4] as TPanel).Caption :=
-        Format('%.2f', [ibSQL.Fields[i + 3].AsDouble]);
-
-    c := 0;
-    for i := 0 to 8 do c := c + DM.ibSQL.Fields[i + 11].AsDouble;
-
-    for i := 0 to 8 do
-      (Components[i + 51 - 4] as TPanel).Caption :=
-       Format('%.2f', [DM.ibSQL.Fields[i + 12].AsDouble]);
-
-    for i := 0 to 8 do
-      (Components[i + 65 - 4] as TPanel).Caption :=
-      Format('%.2f', [DM.ibSQL.Fields[i + 21].AsDouble]);
-
-    pSumY.Caption := Format('%.2f', [DM.ibSQL.Fields[30].AsDouble]);
-    pSumO.Caption := Format('%.2f', [DM.ibSQL.Fields[31].AsDouble]);
-    pSumC.Caption := Format('%.2f', [DM.ibSQL.Fields[32].AsDouble]);
+    pSumY.Caption := Format('%.2f', [ibSQL.FieldByName('YT_SUM').AsDouble]);
+    pSumO.Caption := Format('%.2f', [ibSQL.FieldByName('OT_SUM').AsDouble]);
+    pSumC.Caption := Format('%.2f', [ibSQL.FieldByName('CT_SUM').AsDouble]);
   end;
 end;
 
@@ -687,7 +687,7 @@ begin
 end;
 
 procedure TfmCurriculum.miWordClick(Sender: TObject);
-const FIELD_QTY = 15;
+const FIELD_QTY = 16;
 var
   rep: TRTReport;
   P: array[0 .. FIELD_QTY - 1] of Integer; //positions
@@ -726,14 +726,13 @@ begin
 
   rep.ParSet12Arial;
 
-  rep.CreateMergeHeader([P[0], P[2], P[3], P[4], P[5], P[6], P[7], P[8],
-    P[9], P[10], P[11], P[14], P[15]], [0], []);
-  rep.AddRow(['\qc №', '\ql Класс ->', '\qc 0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-    'Всего']);
+  rep.CreateMergeHeader(
+             [P[0],    P[2],           P[3],    P[4], P[5], P[6], P[7], P[8], P[9], P[10], P[11], P[14], P[15]], [0], []);
+  rep.AddRow(['\qc №', '\ql Класс ->', '\qc 0', '1',  '2',  '3',  '4',  '5',  '6',  '7',   '8',   '9',   'Всего']);
 
-  rep.Complete2MergeHeader([P[0], P[2], P[3], P[4], P[5], P[6], P[7], P[8],
-    P[9], P[10], P[11], P[12], P[13], P[14]], [0],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], []);
+  rep.Complete2MergeHeader(
+             [P[0],    P[2],           P[3],    P[4], P[5], P[6], P[7], P[8], P[9], P[10], P[11], P[12], P[13], P[14]], [0],
+             [1,       2,              3,       4,    5,    6,    7,    8,    9,    10,    11,    12,    13], []);
   rep.AddRow(['', '\ql Категория ->', '\qc ' +
     Cat(ibdsCurriculumCAT_0.AsVariant), Cat(ibdsCurriculumCAT_0.AsVariant),
     Cat(ibdsCurriculumCAT_0.AsVariant), Cat(ibdsCurriculumCAT_0.AsVariant),
@@ -776,27 +775,34 @@ begin
 
   ibSQL.Close;
   ibSQL.SQL.Clear;
-  ibSQL.SQL.Append('SELECT * FROM CURR_SUM(' + DM.ibdsCurriculumID.AsString + ');');
+  ibSQL.SQL.Append('select * from v_curriculum_sum where id = :id');
+  ibSQL.ParamByName('id').AsString := ibdsCurriculumID.AsString;
   ibSQL.ExecQuery;
 
+  //ID,
+  //T0YO, T1YO, T2YO, T3YO, T4YO, T5YO, T6YO, T7YO, T8YO, T9YO,
+  //T0C, T1C, T2C, T3C, T4C, T5C, T6C, T7C, T8C, T9C,
+  //YT_SUM, OT_SUM, CT_SUM, GR_YO, GR_C, GR_ALL
+
   rep.AddRow(['', '\ql ВСЕГО', '\qr',
-    dFormat(DM.ibSQL.Fields[21].AsDouble),
-    dFormat(DM.ibSQL.Fields[22].AsDouble),
-    dFormat(DM.ibSQL.Fields[23].AsDouble),
-    dFormat(DM.ibSQL.Fields[24].AsDouble),
-    dFormat(DM.ibSQL.Fields[25].AsDouble),
-    dFormat(DM.ibSQL.Fields[26].AsDouble),
-    dFormat(DM.ibSQL.Fields[27].AsDouble),
-    dFormat(DM.ibSQL.Fields[28].AsDouble),
-    dFormat(DM.ibSQL.Fields[29].AsDouble),
-    dFormat(DM.ibSQL.Fields[30].AsDouble),
-    dFormat(DM.ibSQL.Fields[31].AsDouble),
-    dFormat(DM.ibSQL.Fields[32].AsDouble)
+    dFormat(ibSQL.FieldByName('T0A').AsDouble),
+    dFormat(ibSQL.FieldByName('T1A').AsDouble),
+    dFormat(ibSQL.FieldByName('T2A').AsDouble),
+    dFormat(ibSQL.FieldByName('T3A').AsDouble),
+    dFormat(ibSQL.FieldByName('T4A').AsDouble),
+    dFormat(ibSQL.FieldByName('T5A').AsDouble),
+    dFormat(ibSQL.FieldByName('T6A').AsDouble),
+    dFormat(ibSQL.FieldByName('T7A').AsDouble),
+    dFormat(ibSQL.FieldByName('T8A').AsDouble),
+    dFormat(ibSQL.FieldByName('T9A').AsDouble),
+    dFormat(ibSQL.FieldByName('YT_SUM').AsDouble),
+    dFormat(ibSQL.FieldByName('OT_SUM').AsDouble),
+    dFormat(ibSQL.FieldByName('CT_SUM').AsDouble)
   ]);
 
-  DM.ibdsCurriculumRecord.GotoBookmark(BM);
-  DM.ibdsCurriculumRecord.FreeBookmark(BM);
-  DM.ibdsCurriculumRecord.EnableControls;
+  ibdsCurriculumRecord.GotoBookmark(BM);
+  ibdsCurriculumRecord.FreeBookmark(BM);
+  ibdsCurriculumRecord.EnableControls;
 
   rep.SaveAndExecuteReport(Handle, 'Учебный план');
 end;
@@ -832,11 +838,11 @@ begin
   begin
     Columns[0].Width := Panel9.Width - 1;
     Columns[1].Width := Panel10.Width - 1;
-    for i := 2 to 11 do
+    for i := 2 to 12 do
       Columns[i].Width := pCat0.Width - 1;
-    Columns[11].Width := Panel20.Width - 1;
-    Columns[12].Width := Panel30.Width - 1;
-    Columns[13].Width := Panel31.Width - 1;
+    Columns[12].Width := Panel20.Width - 1;
+    Columns[13].Width := Panel30.Width - 1;
+    Columns[14].Width := Panel31.Width - 1;
   end;
 end;
 
@@ -844,22 +850,22 @@ procedure TfmCurriculum.btnCurMoveUpClick(Sender: TObject);
 var
   id: Integer;
 begin
-  id := dm.ibdsCurriculumID.Value;
+  id := ibdsCurriculumID.Value;
   dm.ChangePosition('"CURRICULUM"', Null, id, -1);
-  dm.ibdsCurriculum.Close;
-  dm.ibdsCurriculum.Open;
-  dm.ibdsCurriculum.Locate('id', id, []);
+  ibdsCurriculum.Close;
+  ibdsCurriculum.Open;
+  ibdsCurriculum.Locate('id', id, []);
 end;
 
 procedure TfmCurriculum.btnCurMoveDownClick(Sender: TObject);
 var
   id: Integer;
 begin
-  id := dm.ibdsCurriculumID.Value;
+  id := ibdsCurriculumID.Value;
   dm.ChangePosition('"CURRICULUM"', Null, id, 1);
-  dm.ibdsCurriculum.Close;
-  dm.ibdsCurriculum.Open;
-  dm.ibdsCurriculum.Locate('id', id, []);
+  ibdsCurriculum.Close;
+  ibdsCurriculum.Open;
+  ibdsCurriculum.Locate('id', id, []);
 end;
 
 end.

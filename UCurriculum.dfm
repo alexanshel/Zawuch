@@ -1,6 +1,6 @@
 object fmCurriculum: TfmCurriculum
-  Left = 148
-  Top = 74
+  Left = 260
+  Top = 128
   HelpContext = 17
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
@@ -369,6 +369,20 @@ object fmCurriculum: TfmCurriculum
           Font.Style = []
           ParentFont = False
           TabOrder = 27
+        end
+        object pCat9: TPanel
+          Left = 801
+          Top = 17
+          Width = 60
+          Height = 32
+          BevelInner = bvLowered
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clHotLight
+          Font.Height = -16
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 28
         end
       end
       object Panel33: TPanel
@@ -936,6 +950,51 @@ object fmCurriculum: TfmCurriculum
           ParentFont = False
           TabOrder = 37
         end
+        object pC9: TPanel
+          Left = 801
+          Top = 25
+          Width = 60
+          Height = 24
+          BevelInner = bvLowered
+          Caption = '0'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlue
+          Font.Height = -16
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 38
+        end
+        object pYO9: TPanel
+          Left = 801
+          Top = 1
+          Width = 60
+          Height = 24
+          BevelInner = bvLowered
+          Caption = '0'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 39
+        end
+        object pAll9: TPanel
+          Left = 801
+          Top = 49
+          Width = 60
+          Height = 24
+          BevelInner = bvLowered
+          Caption = '0'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 40
+        end
       end
       object dbgCurrRec: TRxDBGrid
         Left = 0
@@ -1173,6 +1232,17 @@ object fmCurriculum: TfmCurriculum
         TitleFont.Style = []
         OnDblClick = dbgCurrDblClick
         OnKeyPress = dbgCurrKeyPress
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'Name'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'PERIOD_FOR_PRINT'
+            Visible = True
+          end>
       end
       object Panel22: TPanel
         Left = 1189
@@ -1235,65 +1305,6 @@ object fmCurriculum: TfmCurriculum
     Caption = '9'
     TabOrder = 1
   end
-  object pCat9: TPanel
-    Left = 801
-    Top = 194
-    Width = 60
-    Height = 32
-    BevelInner = bvLowered
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clHotLight
-    Font.Height = -16
-    Font.Name = 'MS Sans Serif'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 2
-  end
-  object pYO9: TPanel
-    Left = 801
-    Top = 708
-    Width = 60
-    Height = 24
-    BevelInner = bvLowered
-    Caption = '0'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'MS Sans Serif'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 3
-  end
-  object pC9: TPanel
-    Left = 801
-    Top = 732
-    Width = 60
-    Height = 24
-    BevelInner = bvLowered
-    Caption = '0'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clBlue
-    Font.Height = -16
-    Font.Name = 'MS Sans Serif'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 4
-  end
-  object pAll9: TPanel
-    Left = 801
-    Top = 756
-    Width = 60
-    Height = 24
-    BevelInner = bvLowered
-    Caption = '0'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'MS Sans Serif'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 5
-  end
   object MainMenu1: TMainMenu
     Left = 728
     Top = 40
@@ -1351,6 +1362,7 @@ object fmCurriculum: TfmCurriculum
     end
   end
   object dsCurr: TDataSource
+    DataSet = ibdsCurriculum
     OnDataChange = dsCurrDataChange
     Left = 816
     Top = 40
@@ -1362,11 +1374,11 @@ object fmCurriculum: TfmCurriculum
   end
   object ibdsCurriculum: TIBDataSet
     Database = DM.ibDatabase
-    Transaction = DM.ibTransaction
+    Transaction = DM.ibReadTransaction
     RefreshSQL.Strings = (
-      'select * from VIEW_CURRICULUM where "ID"=:"ID"')
+      'select * from V_CURRICULUM where "ID"=:"ID"')
     SelectSQL.Strings = (
-      'select * from VIEW_CURRICULUM order by pos')
+      'select * from V_CURRICULUM order by pos')
     Left = 784
     Top = 40
     object ibdsCurriculumID: TIntegerField
@@ -1488,15 +1500,33 @@ object fmCurriculum: TfmCurriculum
       ReadOnly = True
       Visible = False
     end
+    object ibdsCurriculumPOS: TIntegerField
+      FieldKind = fkInternalCalc
+      FieldName = 'POS'
+      Origin = '"V_CURRICULUM"."POS"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumCAT_9: TLargeintField
+      FieldKind = fkInternalCalc
+      FieldName = 'CAT_9'
+      Origin = '"V_CURRICULUM"."CAT_9"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
   end
   object ibdsCurriculumRecord: TIBDataSet
     Database = DM.ibDatabase
-    Transaction = DM.ibTransaction
-    AutoCalcFields = False
+    Transaction = DM.ibReadTransaction
+    RefreshSQL.Strings = (
+      'select * from v_curriculum_rec'
+      'where curr_id =  :curr_id and id = :id'
+      'order by num')
     SelectSQL.Strings = (
       'select * from v_curriculum_rec'
       'where curr_id=:id'
       'order by num')
+    DataSource = dsCurr
     Left = 648
     Top = 296
     object ibdsCurriculumRecordID: TIntegerField
@@ -1548,6 +1578,7 @@ object fmCurriculum: TfmCurriculum
       Origin = '"V_CURRICULUM_REC"."CLOCK_0"'
       ProviderFlags = []
       ReadOnly = True
+      DisplayFormat = '0.00'
     end
     object ibdsCurriculumRecordCLOCK_1: TFloatField
       FieldKind = fkInternalCalc
@@ -1555,6 +1586,7 @@ object fmCurriculum: TfmCurriculum
       Origin = '"V_CURRICULUM_REC"."CLOCK_1"'
       ProviderFlags = []
       ReadOnly = True
+      DisplayFormat = '0.00'
     end
     object ibdsCurriculumRecordCLOCK_2: TFloatField
       FieldKind = fkInternalCalc
@@ -1562,6 +1594,7 @@ object fmCurriculum: TfmCurriculum
       Origin = '"V_CURRICULUM_REC"."CLOCK_2"'
       ProviderFlags = []
       ReadOnly = True
+      DisplayFormat = '0.00'
     end
     object ibdsCurriculumRecordCLOCK_3: TFloatField
       FieldKind = fkInternalCalc
@@ -1569,6 +1602,7 @@ object fmCurriculum: TfmCurriculum
       Origin = '"V_CURRICULUM_REC"."CLOCK_3"'
       ProviderFlags = []
       ReadOnly = True
+      DisplayFormat = '0.00'
     end
     object ibdsCurriculumRecordCLOCK_4: TFloatField
       FieldKind = fkInternalCalc
@@ -1576,6 +1610,7 @@ object fmCurriculum: TfmCurriculum
       Origin = '"V_CURRICULUM_REC"."CLOCK_4"'
       ProviderFlags = []
       ReadOnly = True
+      DisplayFormat = '0.00'
     end
     object ibdsCurriculumRecordCLOCK_5: TFloatField
       FieldKind = fkInternalCalc
@@ -1583,6 +1618,7 @@ object fmCurriculum: TfmCurriculum
       Origin = '"V_CURRICULUM_REC"."CLOCK_5"'
       ProviderFlags = []
       ReadOnly = True
+      DisplayFormat = '0.00'
     end
     object ibdsCurriculumRecordCLOCK_6: TFloatField
       FieldKind = fkInternalCalc
@@ -1590,6 +1626,7 @@ object fmCurriculum: TfmCurriculum
       Origin = '"V_CURRICULUM_REC"."CLOCK_6"'
       ProviderFlags = []
       ReadOnly = True
+      DisplayFormat = '0.00'
     end
     object ibdsCurriculumRecordCLOCK_7: TFloatField
       FieldKind = fkInternalCalc
@@ -1597,6 +1634,7 @@ object fmCurriculum: TfmCurriculum
       Origin = '"V_CURRICULUM_REC"."CLOCK_7"'
       ProviderFlags = []
       ReadOnly = True
+      DisplayFormat = '0.00'
     end
     object ibdsCurriculumRecordCLOCK_8: TFloatField
       FieldKind = fkInternalCalc
@@ -1604,6 +1642,7 @@ object fmCurriculum: TfmCurriculum
       Origin = '"V_CURRICULUM_REC"."CLOCK_8"'
       ProviderFlags = []
       ReadOnly = True
+      DisplayFormat = '0.00'
     end
     object ibdsCurriculumRecordCLOCK_9: TFloatField
       FieldKind = fkInternalCalc
@@ -1611,6 +1650,7 @@ object fmCurriculum: TfmCurriculum
       Origin = '"V_CURRICULUM_REC"."CLOCK_9"'
       ProviderFlags = []
       ReadOnly = True
+      DisplayFormat = '0.00'
     end
     object ibdsCurriculumRecordYT: TFloatField
       FieldKind = fkInternalCalc
@@ -1618,6 +1658,7 @@ object fmCurriculum: TfmCurriculum
       Origin = '"V_CURRICULUM_REC"."YT"'
       ProviderFlags = []
       ReadOnly = True
+      DisplayFormat = '0.00'
     end
     object ibdsCurriculumRecordOT: TFloatField
       FieldKind = fkInternalCalc
@@ -1625,6 +1666,7 @@ object fmCurriculum: TfmCurriculum
       Origin = '"V_CURRICULUM_REC"."OT"'
       ProviderFlags = []
       ReadOnly = True
+      DisplayFormat = '0.00'
     end
     object ibdsCurriculumRecordCT: TFloatField
       FieldKind = fkInternalCalc
@@ -1632,6 +1674,7 @@ object fmCurriculum: TfmCurriculum
       Origin = '"V_CURRICULUM_REC"."CT"'
       ProviderFlags = []
       ReadOnly = True
+      DisplayFormat = '0.00'
     end
     object ibdsCurriculumRecordSUBJ_CODE: TIntegerField
       FieldName = 'SUBJ_CODE'
@@ -1646,7 +1689,7 @@ object fmCurriculum: TfmCurriculum
   end
   object ibSQL: TIBSQL
     Database = DM.ibDatabase
-    Transaction = DM.ibTransaction
+    Transaction = DM.ibReadTransaction
     Left = 992
     Top = 32
   end

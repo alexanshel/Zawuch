@@ -1,6 +1,6 @@
 object fmLearnTimeGrid: TfmLearnTimeGrid
-  Left = 222
-  Top = 180
+  Left = 297
+  Top = 239
   Width = 664
   Height = 540
   Caption = #1057#1077#1090#1082#1072' '#1091#1095#1077#1073#1085#1099#1093' '#1095#1072#1089#1086#1074
@@ -1310,7 +1310,7 @@ object fmLearnTimeGrid: TfmLearnTimeGrid
           VAlign = vaCenter
         end
         object Memo21: TfrxMemoView
-          Top = 94.488250000000030000
+          Top = 94.488250000000050000
           Width = 49.133890000000000000
           Height = 37.795300000000000000
           DisplayFormat.DecimalSeparator = ','

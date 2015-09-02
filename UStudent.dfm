@@ -926,4 +926,158 @@ object fmStudent: TfmStudent
     Left = 416
     Top = 128
   end
+  object ibdsCurriculumRecord: TIBDataSet
+    Database = DM.ibDatabase
+    Transaction = DM.ibTransaction
+    AutoCalcFields = False
+    SelectSQL.Strings = (
+      'select * from v_curriculum_rec'
+      'where curr_id=:id'
+      'order by num')
+    Left = 584
+    Top = 288
+    object ibdsCurriculumRecordID: TIntegerField
+      FieldKind = fkInternalCalc
+      FieldName = 'ID'
+      Origin = '"V_CURRICULUM_REC"."ID"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCURR_ID: TIntegerField
+      FieldKind = fkInternalCalc
+      FieldName = 'CURR_ID'
+      Origin = '"V_CURRICULUM_REC"."CURR_ID"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordNUM: TIntegerField
+      FieldKind = fkInternalCalc
+      FieldName = 'NUM'
+      Origin = '"V_CURRICULUM_REC"."NUM"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordSUBJ_ID: TIntegerField
+      FieldKind = fkInternalCalc
+      FieldName = 'SUBJ_ID'
+      Origin = '"V_CURRICULUM_REC"."SUBJ_ID"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordSUBJ_NAME: TIBStringField
+      FieldKind = fkInternalCalc
+      FieldName = 'SUBJ_NAME'
+      Origin = '"V_CURRICULUM_REC"."SUBJ_NAME"'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 150
+    end
+    object ibdsCurriculumRecordGROUP_QTY: TSmallintField
+      FieldKind = fkInternalCalc
+      FieldName = 'GROUP_QTY'
+      Origin = '"V_CURRICULUM_REC"."GROUP_QTY"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCLOCK_0: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CLOCK_0'
+      Origin = '"V_CURRICULUM_REC"."CLOCK_0"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCLOCK_1: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CLOCK_1'
+      Origin = '"V_CURRICULUM_REC"."CLOCK_1"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCLOCK_2: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CLOCK_2'
+      Origin = '"V_CURRICULUM_REC"."CLOCK_2"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCLOCK_3: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CLOCK_3'
+      Origin = '"V_CURRICULUM_REC"."CLOCK_3"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCLOCK_4: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CLOCK_4'
+      Origin = '"V_CURRICULUM_REC"."CLOCK_4"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCLOCK_5: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CLOCK_5'
+      Origin = '"V_CURRICULUM_REC"."CLOCK_5"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCLOCK_6: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CLOCK_6'
+      Origin = '"V_CURRICULUM_REC"."CLOCK_6"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCLOCK_7: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CLOCK_7'
+      Origin = '"V_CURRICULUM_REC"."CLOCK_7"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCLOCK_8: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CLOCK_8'
+      Origin = '"V_CURRICULUM_REC"."CLOCK_8"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCLOCK_9: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CLOCK_9'
+      Origin = '"V_CURRICULUM_REC"."CLOCK_9"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordYT: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'YT'
+      Origin = '"V_CURRICULUM_REC"."YT"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordOT: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'OT'
+      Origin = '"V_CURRICULUM_REC"."OT"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordCT: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'CT'
+      Origin = '"V_CURRICULUM_REC"."CT"'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ibdsCurriculumRecordSUBJ_CODE: TIntegerField
+      FieldName = 'SUBJ_CODE'
+      Origin = '"V_CURRICULUM_REC"."SUBJ_CODE"'
+    end
+  end
+  object dsCurrRec: TDataSource
+    DataSet = ibdsCurriculumRecord
+    Left = 617
+    Top = 288
+  end
 end
