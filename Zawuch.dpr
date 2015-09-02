@@ -88,7 +88,8 @@ uses
   uQualifications in 'uQualifications.pas' {fmQualifications},
   uCalendar in 'uCalendar.pas' {fmCalendar},
   uTeacherAbsentsEd in 'uTeacherAbsentsEd.pas' {fmTeacherAbsentsEd},
-  UTeacherAbsentClear in 'absents\UTeacherAbsentClear.pas' {fmTeacherAbsentsClear};
+  UTeacherAbsentClear in 'absents\UTeacherAbsentClear.pas' {fmTeacherAbsentsClear},
+  UdmLTG in 'LTG\UdmLTG.pas' {dmLTG: TDataModule};
 
 {$R *.res}
 
@@ -96,6 +97,7 @@ begin
   Application.Initialize;
   try
     Application.CreateForm(TDM, DM);
+  Application.CreateForm(TdmLTG, dmLTG);
   except
     Exit;
   end;

@@ -401,15 +401,14 @@ begin
   DM.ibdsStudent.DisableControls;
 
   DM.ibdsStudent.First;
-  CID := DM.ibdsDepartment.Lookup('ID', VarArrayOf([DM.ibdsStudentDepartmentID.Value]), 'CurriculumID');
+  CID := DM.ibdsStudentCURRICULUMID.Value;
   ClsNotEq := false;
   Cls := DM.ibdsStudentCLASS.Value;
   while not DM.ibdsStudent.Eof do
   begin
     ClsNotEq := ClsNotEq or (DM.ibdsStudentCLASS.Value <> Cls);
-    if CID <> DM.ibdsDepartment.Lookup('ID',
-      VarArrayOf([DM.ibdsStudentDepartmentID.Value]), 'CurriculumID') then
-    break;
+    if CID <> DM.ibdsStudentCURRICULUMID.Value then
+      break;                                     
     DM.ibdsStudent.Next;
   end;
   if not DM.ibdsStudent.Eof then

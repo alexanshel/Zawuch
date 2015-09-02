@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Grids, ValEdit, StdCtrls, Buttons, ExtCtrls, DB, IniFiles,
-  Placemnt, RXSplit;
+  Placemnt, RXSplit, IBCustomDataSet;
 
 type
   TfmEdGrouping = class(TForm)
@@ -26,6 +26,10 @@ type
     cbFinancing: TCheckBox;
     RxSplitter1: TRxSplitter;
     FormStorage1: TFormStorage;
+    ibdsDepartment: TIBDataSet;
+    ibdsDepartmentID: TIntegerField;
+    ibdsDepartmentNAME: TIBStringField;
+    ibdsDepartmentINFO: TIBStringField;
     procedure FormCreate(Sender: TObject);
     procedure btnAddOneClick(Sender: TObject);
     procedure btnDelOneClick(Sender: TObject);
@@ -60,23 +64,15 @@ var
 begin
   btnOkClicked := false;
 
-  DM.ibdsDepartment.First;
-  while not DM.ibdsDepartment.Eof do
+  ibdsDepartment.Open;
+  while not ibdsDepartment.Eof do
   begin
-    lbL.Items.AddObject(DM.ibdsDepartmentName.AsString + ' (' +
-     DM.ibdsDepartmentInfo.Value + ')',
-      TObject(DM.ibdsDepartmentID.Value));
-    DM.ibdsDepartment.Next;
+    lbL.Items.AddObject(
+      ibdsDepartmentNAME.AsString + ' (' + ibdsDepartmentINFO.Value + ')',
+      TObject(ibdsDepartmentID.Value)
+    );
+    ibdsDepartment.Next;
   end;
-  {DM.ibdsDeptNotGrouping.Params[0].AsBoolean := cbFinancing.Checked;
-  DM.ibdsDeptNotGrouping.Close;
-  DM.ibdsDeptNotGrouping.Open;
-  while Not DM.ibdsDeptNotGrouping.Eof do
-  begin
-    lbL.Items.AddObject(DM.ibdsDeptNotGroupingName.AsString,
-      TObject(DM.ibdsDeptNotGroupingID.Value));
-    DM.ibdsDeptNotGrouping.Next;
-  end;      }
 end;
 
 procedure TfmEdGrouping.btnAddOneClick(Sender: TObject);

@@ -238,20 +238,19 @@ end;
 procedure TfmRepCurriculum.cbCurrChange(Sender: TObject);
 begin
   //GroupingID := Integer(cbCurr.Items.Objects[cbCurr.ItemIndex]);
-  DM.ibdsCurrReport.Params[0].Value :=
+  ibdsCurrReport.Params[0].Value :=
     Integer(cbCurr.Items.Objects[cbCurr.ItemIndex]);
-  DM.ibdsCurrReport.Params[1].Value := cbFinancing.ItemIndex;
-  DM.ibdsCurrReport.Close;
-  DM.ibdsCurrReport.Open;
-  DM.ibdsCurrReportRec.Params[0].Value :=
+  ibdsCurrReport.Params[1].Value := cbFinancing.ItemIndex;
+  ibdsCurrReport.Close;
+  ibdsCurrReport.Open;
+  ibdsCurrReportRec.Params[0].Value := Integer(cbCurr.Items.Objects[cbCurr.ItemIndex]);
+  ibdsCurrReportRec.Params[1].Value := cbFinancing.ItemIndex;
+  ibdsCurrReportRec.Close;
+  ibdsCurrReportRec.Open;
+  ibdsCurrCat.Params[0].Value :=
     Integer(cbCurr.Items.Objects[cbCurr.ItemIndex]);
-  DM.ibdsCurrReportRec.Params[1].Value := cbFinancing.ItemIndex;
-  DM.ibdsCurrReportRec.Close;
-  DM.ibdsCurrReportRec.Open;
-  DM.ibdsCurrCat.Params[0].Value :=
-    Integer(cbCurr.Items.Objects[cbCurr.ItemIndex]);
-  DM.ibdsCurrCat.Close;
-  DM.ibdsCurrCat.Open;
+  ibdsCurrCat.Close;
+  ibdsCurrCat.Open;
 end;
 
 procedure TfmRepCurriculum.miExitClick(Sender: TObject);
@@ -322,12 +321,13 @@ var
   end;
   function gr: String;
   begin
-    if DM.ibdsCurrReportRecGROUP_QTY.Value = 1 then
+    if ibdsCurrReportRecGROUP_QTY.Value = 1 then
       result := 'Учащихся'
     else
       result := 'Групп';
   end;
 begin
+  //TODO: доделать отчёт + 9 класс серверную и клиентскую через XSL шаблон
   LocateReportParam('CurriculumReport',
     #3#24#4#15#15#15#15#15#15#15#15#15#20#20#20#20#20#20#12#12);
 
@@ -353,24 +353,29 @@ begin
 
 
   rep.CreateMergeHeader(
-    [P[0], P[2], P[3], P[4], P[5], P[6], P[7], P[8], P[9], P[10], P[11],
-     P[14], P[17], P[19]], [0], []);
-  rep.AddRow(['№', 'Классы ->', '0', '1', '2', '3', '4', '5', '6', '7', '8',
-    'Всего часов', 'Нераспред. часов', 'Кол-во гр.']);
+    [P[0], P[2], P[3], P[4], P[5], P[6], P[7], P[8], P[9], P[10], P[11], P[14], P[17], P[19]],
+    [0],
+    []
+  );
+  rep.AddRow(
+    ['№', 'Классы ->', '0', '1', '2', '3', '4', '5', '6', '7', '8', 'Всего часов', 'Нераспред. часов', 'Кол-во гр.']);
 
-  rep.Complete2MergeHeader([P[0], P[2], P[3], P[4], P[5], P[6], P[7], P[8],
-    P[9], P[10], P[11], P[12], P[13], P[14], P[15], P[16], P[17], P[18], P[19]],
-    [0], [17, 18], []);
+  rep.Complete2MergeHeader(
+    [P[0], P[2], P[3], P[4], P[5], P[6], P[7], P[8], P[9], P[10], P[11], P[12], P[13], P[14], P[15], P[16], P[17], P[18], P[19]],
+    [0],
+    [17, 18],
+    []
+  );
 
   rep.AddRow(['', 'Кол-во уч-ся ->',
-    DM.ibdsCurrReportQ_0.AsString, DM.ibdsCurrReportQ_1.AsString,
-    DM.ibdsCurrReportQ_2.AsString, DM.ibdsCurrReportQ_3.AsString,
-    DM.ibdsCurrReportQ_4.AsString, DM.ibdsCurrReportQ_5.AsString,
-    DM.ibdsCurrReportQ_6.AsString, DM.ibdsCurrReportQ_7.AsString,
-    DM.ibdsCurrReportQ_8.AsString,
-    DM.ibdsCurrReportQ_ALL_Y.AsString, DM.ibdsCurrReportQ_ALL_O.AsString,
-    DM.ibdsCurrReportQ_ALL_C.AsString, DM.ibdsCurrReportQ_V_Y.AsString,
-    DM.ibdsCurrReportQ_V_O.AsString, DM.ibdsCurrReportQ_V_C.AsString,
+    ibdsCurrReportQ_0.AsString, ibdsCurrReportQ_1.AsString,
+    ibdsCurrReportQ_2.AsString, ibdsCurrReportQ_3.AsString,
+    ibdsCurrReportQ_4.AsString, ibdsCurrReportQ_5.AsString,
+    ibdsCurrReportQ_6.AsString, ibdsCurrReportQ_7.AsString,
+    ibdsCurrReportQ_8.AsString,
+    ibdsCurrReportQ_ALL_Y.AsString, ibdsCurrReportQ_ALL_O.AsString,
+    ibdsCurrReportQ_ALL_C.AsString, ibdsCurrReportQ_V_Y.AsString,
+    ibdsCurrReportQ_V_O.AsString, ibdsCurrReportQ_V_C.AsString,
     'мл.', 'ст.']);
   rep.Complete2MergeHeader([P[0], P[2], P[3], P[4], P[5], P[6], P[7], P[8],
     P[9], P[10], P[11], P[12], P[13], P[14], P[15], P[16], P[17], P[18], P[19]],
@@ -379,11 +384,11 @@ begin
   );
 
   rep.AddRow(['', 'Категория ->',
-    DM.ibdsCurrCatCat0.Value, DM.ibdsCurrCatCat1.Value,
-    DM.ibdsCurrCatCat2.Value, DM.ibdsCurrCatCat3.Value,
-    DM.ibdsCurrCatCat4.Value, DM.ibdsCurrCatCat5.Value,
-    DM.ibdsCurrCatCat6.Value, DM.ibdsCurrCatCat7.Value,
-    DM.ibdsCurrCatCat8.Value, 'мл.', 'ст.', 'конц.',
+    ibdsCurrCatC_NAME_0.Value, ibdsCurrCatC_NAME_1.Value,
+    ibdsCurrCatC_NAME_2.Value, ibdsCurrCatC_NAME_3.Value,
+    ibdsCurrCatC_NAME_4.Value, ibdsCurrCatC_NAME_5.Value,
+    ibdsCurrCatC_NAME_6.Value, ibdsCurrCatC_NAME_7.Value,
+    ibdsCurrCatC_NAME_8.Value, 'мл.', 'ст.', 'конц.',
     'мл.', 'ст.', 'конц.', '', '']
   );
   rep.CompleteMergeHeader(P,
@@ -399,35 +404,35 @@ begin
   DecimalSeparator := ',';
   CurrencyDecimals := 2;
 
-  DM.ibdsCurrReportRec.DisableControls;
-  BM := DM.ibdsCurrReportRec.GetBookmark;
-  DM.ibdsCurrReportRec.First;
+  ibdsCurrReportRec.DisableControls;
+  BM := ibdsCurrReportRec.GetBookmark;
+  ibdsCurrReportRec.First;
   i := 0;
-  while not DM.ibdsCurrReportRec.Eof do
+  while not ibdsCurrReportRec.Eof do
   begin
     inc(i);
     rep.AddRow(['\qr ' + IntToStr(i),
-      '\ql ' + DM.ibdsCurrReportRecSUBJECT_NAME.Value + '\par\qr ' + gr,
-      DM.ibdsCurrReportRecGROUP_QTY.AsString,
-      dFormat(DM.ibdsCurrReportRecT_0.Value) + '\par ' + DM.ibdsCurrReportRecQTY_0.AsString,
-      dFormat(DM.ibdsCurrReportRecT_1.Value) + '\par ' + DM.ibdsCurrReportRecQTY_1.AsString,
-      dFormat(DM.ibdsCurrReportRecT_2.Value) + '\par ' + DM.ibdsCurrReportRecQTY_2.AsString,
-      dFormat(DM.ibdsCurrReportRecT_3.Value) + '\par ' + DM.ibdsCurrReportRecQTY_3.AsString,
-      dFormat(DM.ibdsCurrReportRecT_4.Value) + '\par ' + DM.ibdsCurrReportRecQTY_4.AsString,
-      dFormat(DM.ibdsCurrReportRecT_5.Value) + '\par ' + DM.ibdsCurrReportRecQTY_5.AsString,
-      dFormat(DM.ibdsCurrReportRecT_6.Value) + '\par ' + DM.ibdsCurrReportRecQTY_6.AsString,
-      dFormat(DM.ibdsCurrReportRecT_7.Value) + '\par ' + DM.ibdsCurrReportRecQTY_7.AsString,
-      dFormat(DM.ibdsCurrReportRecT_8.Value) + '\par ' + DM.ibdsCurrReportRecQTY_8.AsString,
-      dFormat(DM.ibdsCurrReportRecT_ALL_Y.Value),
-      dFormat(DM.ibdsCurrReportRecT_ALL_O.Value),
-      dFormat(DM.ibdsCurrReportRecT_ALL_C.Value),
-      dFormat(DM.ibdsCurrReportRecT_V_Y.Value),
-      dFormat(DM.ibdsCurrReportRecT_V_O.Value),
-      dFormat(DM.ibdsCurrReportRecT_V_C.Value),
-      iFormat(DM.ibdsCurrReportRecG_QTY_Y.Value),
-      iFormat(DM.ibdsCurrReportRecG_QTY_O.Value)
+      '\ql ' + ibdsCurrReportRecSUBJECT_NAME.Value + '\par\qr ' + gr,
+      ibdsCurrReportRecGROUP_QTY.AsString,
+      dFormat(ibdsCurrReportRecT_0.Value) + '\par ' + ibdsCurrReportRecQTY_0.AsString,
+      dFormat(ibdsCurrReportRecT_1.Value) + '\par ' + ibdsCurrReportRecQTY_1.AsString,
+      dFormat(ibdsCurrReportRecT_2.Value) + '\par ' + ibdsCurrReportRecQTY_2.AsString,
+      dFormat(ibdsCurrReportRecT_3.Value) + '\par ' + ibdsCurrReportRecQTY_3.AsString,
+      dFormat(ibdsCurrReportRecT_4.Value) + '\par ' + ibdsCurrReportRecQTY_4.AsString,
+      dFormat(ibdsCurrReportRecT_5.Value) + '\par ' + ibdsCurrReportRecQTY_5.AsString,
+      dFormat(ibdsCurrReportRecT_6.Value) + '\par ' + ibdsCurrReportRecQTY_6.AsString,
+      dFormat(ibdsCurrReportRecT_7.Value) + '\par ' + ibdsCurrReportRecQTY_7.AsString,
+      dFormat(ibdsCurrReportRecT_8.Value) + '\par ' + ibdsCurrReportRecQTY_8.AsString,
+      dFormat(ibdsCurrReportRecT_ALL_Y.Value),
+      dFormat(ibdsCurrReportRecT_ALL_O.Value),
+      dFormat(ibdsCurrReportRecT_ALL_C.Value),
+      dFormat(ibdsCurrReportRecT_V_Y.Value),
+      dFormat(ibdsCurrReportRecT_V_O.Value),
+      dFormat(ibdsCurrReportRecT_V_C.Value),
+      iFormat(ibdsCurrReportRecG_QTY_Y.Value),
+      iFormat(ibdsCurrReportRecG_QTY_O.Value)
     ]);
-    DM.ibdsCurrReportRec.Next;
+    ibdsCurrReportRec.Next;
   end;
 
   rep.CreateTable([P[2], P[3], P[4], P[5], P[6], P[7], P[8], P[9],
@@ -435,66 +440,66 @@ begin
 
   rep.AddRow([
     'Всего',
-    dFormat(DM.ibdsCurrReportT_0.Value),
-    dFormat(DM.ibdsCurrReportT_1.Value),
-    dFormat(DM.ibdsCurrReportT_2.Value),
-    dFormat(DM.ibdsCurrReportT_3.Value),
-    dFormat(DM.ibdsCurrReportT_4.Value),
-    dFormat(DM.ibdsCurrReportT_5.Value),
-    dFormat(DM.ibdsCurrReportT_6.Value),
-    dFormat(DM.ibdsCurrReportT_7.Value),
-    dFormat(DM.ibdsCurrReportT_8.Value),
-    dFormat(DM.ibdsCurrReportT_A_Y.Value),
-    dFormat(DM.ibdsCurrReportT_A_O.Value),
-    dFormat(DM.ibdsCurrReportT_A_C.Value),
+    dFormat(ibdsCurrReportT_0.Value),
+    dFormat(ibdsCurrReportT_1.Value),
+    dFormat(ibdsCurrReportT_2.Value),
+    dFormat(ibdsCurrReportT_3.Value),
+    dFormat(ibdsCurrReportT_4.Value),
+    dFormat(ibdsCurrReportT_5.Value),
+    dFormat(ibdsCurrReportT_6.Value),
+    dFormat(ibdsCurrReportT_7.Value),
+    dFormat(ibdsCurrReportT_8.Value),
+    dFormat(ibdsCurrReportT_A_Y.Value),
+    dFormat(ibdsCurrReportT_A_O.Value),
+    dFormat(ibdsCurrReportT_A_C.Value),
     '', '', '',
-    iFormat(DM.ibdsCurrReportG_Y.Value),
-    iFormat(DM.ibdsCurrReportG_O.Value)
+    iFormat(ibdsCurrReportG_Y.Value),
+    iFormat(ibdsCurrReportG_O.Value)
   ]);
 
   rep.AddRow([
     'Нерасперделённые часы',
-    dFormat(DM.ibdsCurrReportT_V_0.Value),
-    dFormat(DM.ibdsCurrReportT_V_1.Value),
-    dFormat(DM.ibdsCurrReportT_V_2.Value),
-    dFormat(DM.ibdsCurrReportT_V_3.Value),
-    dFormat(DM.ibdsCurrReportT_V_4.Value),
-    dFormat(DM.ibdsCurrReportT_V_5.Value),
-    dFormat(DM.ibdsCurrReportT_V_6.Value),
-    dFormat(DM.ibdsCurrReportT_V_7.Value),
-    dFormat(DM.ibdsCurrReportT_V_8.Value),
-    dFormat(DM.ibdsCurrReportT_V_Y.Value),
-    dFormat(DM.ibdsCurrReportT_V_O.Value),
-    dFormat(DM.ibdsCurrReportT_V_C.Value),
-    dFormat(DM.ibdsCurrReportT_V_Y.Value),
-    dFormat(DM.ibdsCurrReportT_V_O.Value),
-    dFormat(DM.ibdsCurrReportT_V_C.Value),
+    dFormat(ibdsCurrReportT_V_0.Value),
+    dFormat(ibdsCurrReportT_V_1.Value),
+    dFormat(ibdsCurrReportT_V_2.Value),
+    dFormat(ibdsCurrReportT_V_3.Value),
+    dFormat(ibdsCurrReportT_V_4.Value),
+    dFormat(ibdsCurrReportT_V_5.Value),
+    dFormat(ibdsCurrReportT_V_6.Value),
+    dFormat(ibdsCurrReportT_V_7.Value),
+    dFormat(ibdsCurrReportT_V_8.Value),
+    dFormat(ibdsCurrReportT_V_Y.Value),
+    dFormat(ibdsCurrReportT_V_O.Value),
+    dFormat(ibdsCurrReportT_V_C.Value),
+    dFormat(ibdsCurrReportT_V_Y.Value),
+    dFormat(ibdsCurrReportT_V_O.Value),
+    dFormat(ibdsCurrReportT_V_C.Value),
     '', ''
   ]);
 
   rep.AddRow([
     'Итого',
-    dFormat(DM.ibdsCurrReportt_t_0.Value),
-    dFormat(DM.ibdsCurrReportt_t_1.Value),
-    dFormat(DM.ibdsCurrReportt_t_2.Value),
-    dFormat(DM.ibdsCurrReportt_t_3.Value),
-    dFormat(DM.ibdsCurrReportt_t_4.Value),
-    dFormat(DM.ibdsCurrReportt_t_5.Value),
-    dFormat(DM.ibdsCurrReportt_t_6.Value),
-    dFormat(DM.ibdsCurrReportt_t_7.Value),
-    dFormat(DM.ibdsCurrReportt_t_8.Value),
-    dFormat(DM.ibdsCurrReportt_t_y.Value),
-    dFormat(DM.ibdsCurrReportt_t_o.Value),
-    dFormat(DM.ibdsCurrReportt_t_c.Value),
+    dFormat(ibdsCurrReportt_t_0.Value),
+    dFormat(ibdsCurrReportt_t_1.Value),
+    dFormat(ibdsCurrReportt_t_2.Value),
+    dFormat(ibdsCurrReportt_t_3.Value),
+    dFormat(ibdsCurrReportt_t_4.Value),
+    dFormat(ibdsCurrReportt_t_5.Value),
+    dFormat(ibdsCurrReportt_t_6.Value),
+    dFormat(ibdsCurrReportt_t_7.Value),
+    dFormat(ibdsCurrReportt_t_8.Value),
+    dFormat(ibdsCurrReportt_t_y.Value),
+    dFormat(ibdsCurrReportt_t_o.Value),
+    dFormat(ibdsCurrReportt_t_c.Value),
     '', '', '', '', ''
   ]);
 
   rep.AddText('\pard ');
   rep.ParSet(fTimes, 12, [fstBold]);
   rep.AddPar('\line\line\line \qr Зам директора по учебной работе                   Кулясова Н.В.');
-  DM.ibdsCurrReportRec.GotoBookmark(BM);
-  DM.ibdsCurrReportRec.FreeBookmark(BM);
-  DM.ibdsCurrReportRec.EnableControls;
+  ibdsCurrReportRec.GotoBookmark(BM);
+  ibdsCurrReportRec.FreeBookmark(BM);
+  ibdsCurrReportRec.EnableControls;
   rep.SaveAndExecuteReport(Handle, 'Отчёт учебный план');
 end;
 
@@ -516,7 +521,7 @@ procedure TfmRepCurriculum.dbgCurrRecDrawColumnCell(Sender: TObject;
 begin
   if (DataCol > 0) and (Column.Field.AsFloat = 0) then
     dbgCurrRec.Canvas.Font.Color := dbgCurrRec.Canvas.Brush.Color;
-  if DM.ibdsCurrReportRecSUBJECT_CODE.Value = 1 then
+  if ibdsCurrReportRecSUBJECT_CODE.Value = 1 then
     dbgCurrRec.Canvas.Font.Color := clBlue;
 
   dbgCurrRec.DefaultDrawColumnCell(Rect, DataCol, Column, State);

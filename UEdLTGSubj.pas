@@ -75,7 +75,7 @@ var
 
 implementation
 
-uses UDM, UChGrouping, UEdLTGISubj;
+uses UdmLTG, UChGrouping, UEdLTGISubj;
 
 {$R *.dfm}
 
@@ -86,14 +86,14 @@ end;
 
 procedure TfmEdLTGSubj.FormCreate(Sender: TObject);
 begin
-  DM.ibdsLTGGrouping.Params[0].AsInteger := FLTG_ID;
-  DM.ibdsLTGGrouping.Close;
-  DM.ibdsLTGGrouping.Open;
-  dsGrouping.DataSet := DM.ibdsLTGGrouping;
-  DM.ibdsLTGISubject.Params[0].AsInteger := FLTG_ID;
-  DM.ibdsLTGISubject.Close;
-  DM.ibdsLTGISubject.Open;
-  dsISubj.DataSet := DM.ibdsLTGISubject;
+  dmLTG.ibdsLTGGrouping.Params[0].AsInteger := FLTG_ID;
+  dmLTG.ibdsLTGGrouping.Close;
+  dmLTG.ibdsLTGGrouping.Open;
+  dsGrouping.DataSet := dmLTG.ibdsLTGGrouping;
+  dmLTG.ibdsLTGISubject.Params[0].AsInteger := FLTG_ID;
+  dmLTG.ibdsLTGISubject.Close;
+  dmLTG.ibdsLTGISubject.Open;
+  dsISubj.DataSet := dmLTG.ibdsLTGISubject;
 end;
 
 procedure TfmEdLTGSubj.FormClose(Sender: TObject;
@@ -105,8 +105,8 @@ end;
 
 procedure TfmEdLTGSubj.aCheckBtnExecute(Sender: TObject);
 begin
-  aDelGrouping.Enabled := not DM.ibdsLTGGrouping.IsEmpty;
-  aEditISubj.Enabled := not DM.ibdsLTGISubject.IsEmpty;
+  aDelGrouping.Enabled := not dmLTG.ibdsLTGGrouping.IsEmpty;
+  aEditISubj.Enabled := not dmLTG.ibdsLTGISubject.IsEmpty;
   aDelISubj.Enabled := aEditISubj.Enabled;
   btnDown.Enabled := aEditISubj.Enabled and
     (dbgISubj.VisibleRowCount <> dbgISubj.Row);
@@ -129,10 +129,10 @@ begin
   fmChGrouping := TfmChGrouping.Create(Self);
   if fmChGrouping.ShowModal = mrOK then
   begin
-    DM.AddLTGGrouping(FLTG_ID, fmChGrouping.cbGrouping.KeyValue);
-    DM.ibdsLTGGrouping.Close;
-    DM.ibdsLTGGrouping.Open;
-    DM.ibdsLTGGrouping.Locate('GROUPING_ID', VarArrayOf([fmChGrouping.cbGrouping.KeyValue]), []);
+    dmLTG.AddLTGGrouping(FLTG_ID, fmChGrouping.cbGrouping.KeyValue);
+    dmLTG.ibdsLTGGrouping.Close;
+    dmLTG.ibdsLTGGrouping.Open;
+    dmLTG.ibdsLTGGrouping.Locate('GROUPING_ID', VarArrayOf([fmChGrouping.cbGrouping.KeyValue]), []);
   end;
   fmChGrouping.Release;
 end;
@@ -147,9 +147,9 @@ procedure TfmEdLTGSubj.aDelGroupingExecute(Sender: TObject);
 begin
   if Application.MessageBox('Вы действительно хотите удалить совокупность?', 'Удаление', MB_YESNO) = ID_YES
   then begin
-    DM.DelLTGGrouping(FLTG_ID, DM.ibdsLTGGroupingGROUPING_ID.Value);
-    DM.ibdsLTGGrouping.Close;
-    DM.ibdsLTGGrouping.Open;
+    dmLTG.DelLTGGrouping(FLTG_ID, dmLTG.ibdsLTGGroupingGROUPING_ID.Value);
+    dmLTG.ibdsLTGGrouping.Close;
+    dmLTG.ibdsLTGGrouping.Open;
   end;
 end;
 
@@ -163,20 +163,20 @@ begin
   fmEdLTGISubj := TfmEdLTGISubj.Create(Self);
   if fmEdLTGISubj.ShowModal = mrOK then
   begin
-    i_subj_id := DM.AddLTGISubj(DM.ibdsLTGID.Value, Null, fmEdLTGISubj.edSubjName.Text, Null);
-    DM.ibdsLTGISubjCurr.ParamByName('LTG_ID').AsInteger := DM.ibdsLTGID.Value;
-    DM.ibdsLTGISubjCurr.ParamByName('LTG_I_SUBJ_ID').AsInteger := i_subj_id;
+    i_subj_id := dmLTG.AddLTGISubj(dmLTG.ibdsLTGID.Value, Null, fmEdLTGISubj.edSubjName.Text, Null);
+    dmLTG.ibdsLTGISubjCurr.ParamByName('LTG_ID').AsInteger := dmLTG.ibdsLTGID.Value;
+    dmLTG.ibdsLTGISubjCurr.ParamByName('LTG_I_SUBJ_ID').AsInteger := i_subj_id;
     with fmEdLTGISubj do
     begin
       for i := 0 to Pred(lbISubj.Count) do
       begin
         inf := lbISubj.Items.Objects[i] as TInfo;
-        DM.AddLTGISubjCurr(DM.ibdsLTGID.Value, i_subj_id, inf.FCurrID, inf.FCurrRecID);
+        dmLTG.AddLTGISubjCurr(dmLTG.ibdsLTGID.Value, i_subj_id, inf.FCurrID, inf.FCurrRecID);
       end;
     end;
-    DM.ibdsLTGISubject.Close;
-    DM.ibdsLTGISubject.Open;
-    DM.ibdsLTGISubject.Locate('ID', VarArrayOf([i_subj_id]), []);
+    dmLTG.ibdsLTGISubject.Close;
+    dmLTG.ibdsLTGISubject.Open;
+    dmLTG.ibdsLTGISubject.Locate('ID', VarArrayOf([i_subj_id]), []);
   end;
   fmEdLTGISubj.Release;
 end;
@@ -188,58 +188,58 @@ var
   f_exist: boolean;
 begin
   fmEdLTGISubj := TfmEdLTGISubj.Create(Self);
-  DM.ibdsLTGISubjCurr.ParamByName('LTG_ID').AsInteger := DM.ibdsLTGID.Value;
-  DM.ibdsLTGISubjCurr.ParamByName('LTG_I_SUBJ_ID').AsInteger :=
-    DM.ibdsLTGISubjectID.Value;
-  DM.ibdsLTGISubjCurr.Close;
-  DM.ibdsLTGISubjCurr.Open;
-  DM.ibdsLTGISubjCurr.First;
-  fmEdLTGISubj.edSubjName.Text := DM.ibdsLTGISubjectNAME.Value;
-  while not DM.ibdsLTGISubjCurr.Eof do
+  dmLTG.ibdsLTGISubjCurr.ParamByName('LTG_ID').AsInteger := dmLTG.ibdsLTGID.Value;
+  dmLTG.ibdsLTGISubjCurr.ParamByName('LTG_I_SUBJ_ID').AsInteger :=
+    dmLTG.ibdsLTGISubjectID.Value;
+  dmLTG.ibdsLTGISubjCurr.Close;
+  dmLTG.ibdsLTGISubjCurr.Open;
+  dmLTG.ibdsLTGISubjCurr.First;
+  fmEdLTGISubj.edSubjName.Text := dmLTG.ibdsLTGISubjectNAME.Value;
+  while not dmLTG.ibdsLTGISubjCurr.Eof do
   begin
-    fmEdLTGISubj.lbISubj.AddItem(DM.ibdsLTGISubjCurrSUBJ_NAME.Value + ' (' +
-      DM.ibdsLTGISubjCurrCURR_NAME.Value + ')',
-      TInfo.Create(DM.ibdsLTGISubjCurrCURR_ID.Value, DM.ibdsLTGISubjCurrCURR_REC_ID.Value));
-    DM.ibdsLTGISubjCurr.Next;
+    fmEdLTGISubj.lbISubj.AddItem(dmLTG.ibdsLTGISubjCurrSUBJ_NAME.Value + ' (' +
+      dmLTG.ibdsLTGISubjCurrCURR_NAME.Value + ')',
+      TInfo.Create(dmLTG.ibdsLTGISubjCurrCURR_ID.Value, dmLTG.ibdsLTGISubjCurrCURR_REC_ID.Value));
+    dmLTG.ibdsLTGISubjCurr.Next;
   end;
 
   if fmEdLTGISubj.ShowModal = mrOK then
   begin
-    DM.AddLTGISubj(DM.ibdsLTGID.Value, DM.ibdsLTGISubjectID.Value,
-      fmEdLTGISubj.edSubjName.Text, DM.ibdsLTGISubjectPOS.Value);
+    dmLTG.AddLTGISubj(dmLTG.ibdsLTGID.Value, dmLTG.ibdsLTGISubjectID.Value,
+      fmEdLTGISubj.edSubjName.Text, dmLTG.ibdsLTGISubjectPOS.Value);
 
     with fmEdLTGISubj do
     begin
       for i := 0 to Pred(lbISubj.Count) do
       begin
         inf := lbISubj.Items.Objects[i] as TInfo;
-        DM.AddLTGISubjCurr(DM.ibdsLTGID.Value, DM.ibdsLTGISubjectID.Value,
+        dmLTG.AddLTGISubjCurr(dmLTG.ibdsLTGID.Value, dmLTG.ibdsLTGISubjectID.Value,
           inf.FCurrID, inf.FCurrRecID);
       end;
-      DM.ibdsLTGISubjCurr.Close;
-      DM.ibdsLTGISubjCurr.Open;
-      DM.ibdsLTGISubjCurr.First;
-      while not DM.ibdsLTGISubjCurr.Eof do
+      dmLTG.ibdsLTGISubjCurr.Close;
+      dmLTG.ibdsLTGISubjCurr.Open;
+      dmLTG.ibdsLTGISubjCurr.First;
+      while not dmLTG.ibdsLTGISubjCurr.Eof do
       begin
         f_exist := false;
         for i := 0 to Pred(lbISubj.Count) do
         begin
           inf := lbISubj.Items.Objects[i] as TInfo;
-          if (inf.FCurrID = DM.ibdsLTGISubjCurrCURR_ID.Value) and
-            (inf.FCurrRecID = DM.ibdsLTGISubjCurrCURR_REC_ID.Value)
+          if (inf.FCurrID = dmLTG.ibdsLTGISubjCurrCURR_ID.Value) and
+            (inf.FCurrRecID = dmLTG.ibdsLTGISubjCurrCURR_REC_ID.Value)
           then
           begin f_exist := true;
             break;
           end;
         end;
         if not f_exist then
-          DM.DelLTGISubjCurr(DM.ibdsLTGID.Value, DM.ibdsLTGISubjectID.Value,
-            DM.ibdsLTGISubjCurrCURR_ID.Value,
-            DM.ibdsLTGISubjCurrCURR_REC_ID.Value);
-        DM.ibdsLTGISubjCurr.Next;
+          dmLTG.DelLTGISubjCurr(dmLTG.ibdsLTGID.Value, dmLTG.ibdsLTGISubjectID.Value,
+            dmLTG.ibdsLTGISubjCurrCURR_ID.Value,
+            dmLTG.ibdsLTGISubjCurrCURR_REC_ID.Value);
+        dmLTG.ibdsLTGISubjCurr.Next;
       end;
     end;
-    DM.ibdsLTGISubject.Refresh;
+    dmLTG.ibdsLTGISubject.Refresh;
   end;
 
   fmEdLTGISubj.Release;
@@ -250,9 +250,9 @@ begin
   if Application.MessageBox('Вы действительно хотите удалить предмет',
     'Удаление', MB_YESNO) = ID_YES
   then begin
-    DM.DelLTGISubj(DM.ibdsLTGISubjectLTG_ID.Value, DM.ibdsLTGISubjectID.Value);
-    DM.ibdsLTGISubject.Close;
-    DM.ibdsLTGISubject.Open;
+    dmLTG.DelLTGISubj(dmLTG.ibdsLTGISubjectLTG_ID.Value, dmLTG.ibdsLTGISubjectID.Value);
+    dmLTG.ibdsLTGISubject.Close;
+    dmLTG.ibdsLTGISubject.Open;
   end;
 end;
 
@@ -261,31 +261,31 @@ var
   id: Integer;
 begin
   if dbgISubj.Row = 1 then Exit;
-  id := DM.AddLTGISubj(DM.ibdsLTGISubjectLTG_ID.Value,
-    DM.ibdsLTGISubjectID.Value, DM.ibdsLTGISubjectNAME.Value,
-    DM.ibdsLTGISubjectPOS.Value - 1);
-  DM.ibdsLTGISubject.Close;
-  DM.ibdsLTGISubject.Open;
-  DM.ibdsLTGISubject.Locate('ID', VarArrayOf([id]), []);
+  id := dmLTG.AddLTGISubj(dmLTG.ibdsLTGISubjectLTG_ID.Value,
+    dmLTG.ibdsLTGISubjectID.Value, dmLTG.ibdsLTGISubjectNAME.Value,
+    dmLTG.ibdsLTGISubjectPOS.Value - 1);
+  dmLTG.ibdsLTGISubject.Close;
+  dmLTG.ibdsLTGISubject.Open;
+  dmLTG.ibdsLTGISubject.Locate('ID', VarArrayOf([id]), []);
 end;
 
 procedure TfmEdLTGSubj.btnDownClick(Sender: TObject);
 var
   id: Integer;
 begin
-  id := DM.AddLTGISubj(DM.ibdsLTGISubjectLTG_ID.Value,
-    DM.ibdsLTGISubjectID.Value, DM.ibdsLTGISubjectNAME.Value,
-    DM.ibdsLTGISubjectPOS.Value + 1);
-  DM.ibdsLTGISubject.Close;
-  DM.ibdsLTGISubject.Open;
-  DM.ibdsLTGISubject.Locate('ID', VarArrayOf([id]), []);
+  id := dmLTG.AddLTGISubj(dmLTG.ibdsLTGISubjectLTG_ID.Value,
+    dmLTG.ibdsLTGISubjectID.Value, dmLTG.ibdsLTGISubjectNAME.Value,
+    dmLTG.ibdsLTGISubjectPOS.Value + 1);
+  dmLTG.ibdsLTGISubject.Close;
+  dmLTG.ibdsLTGISubject.Open;
+  dmLTG.ibdsLTGISubject.Locate('ID', VarArrayOf([id]), []);
 end;
 
 procedure TfmEdLTGSubj.dbgISubjDrawColumnCell(Sender: TObject;
   const Rect: TRect; DataCol: Integer; Column: TColumn;
   State: TGridDrawState);
 begin
-  if Trim(DM.ibdsLTGISubjectNAME.Value) = 'Концертмейстер' then
+  if Trim(dmLTG.ibdsLTGISubjectNAME.Value) = 'Концертмейстер' then
     dbgISubj.Canvas.Font.Color := clBlue;
   dbgISubj.DefaultDrawColumnCell(Rect, DataCol, Column, State);
 end;

@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, Buttons, Grids, DBGrids, RXDBCtrl, StdCtrls, ExtCtrls,
-  RXSplit, Placemnt;
+  RXSplit, Placemnt, IBCustomDataSet;
 
 type
   TfmEdLTGISubj = class(TForm)
@@ -51,27 +51,27 @@ var
 
 implementation
 
-uses UDM, Math;
+uses UdmLTG, Math;
 
 {$R *.dfm}
 
 procedure TfmEdLTGISubj.FormCreate(Sender: TObject);
 begin
-  dsCurr.DataSet := DM.ibdsCurriculum;
-  DM.ibdsCurrISubj.DataSource := dsCurr;
+  dsCurr.DataSet := dmLTG.ibdsCurriculum;
+  dmLTG.ibdsCurrISubj.DataSource := dsCurr;
 
-  dsCurrSubj.DataSet := DM.ibdsCurrISubj;
-  DM.ibdsCurriculum.Close;
-  DM.ibdsCurriculum.Open;
-  DM.ibdsCurrISubj.Close;
-  DM.ibdsCurrISubj.Open;
+  dsCurrSubj.DataSet := dmLTG.ibdsCurrISubj;
+  dmLTG.ibdsCurriculum.Close;
+  dmLTG.ibdsCurriculum.Open;
+  dmLTG.ibdsCurrISubj.Close;
+  dmLTG.ibdsCurrISubj.Open;
 end;
 
 procedure TfmEdLTGISubj.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
   dsCurrSubj := nil;
-  DM.ibdsCurrISubj.DataSource := nil;
+  dmLTG.ibdsCurrISubj.DataSource := nil;
   dsCurr := nil;
 end;
 
@@ -83,14 +83,14 @@ begin
   for i := 0 to Pred(lbISubj.Count) do
   begin
     inf := (lbISubj.Items.Objects[i] as TInfo);
-    if (inf.FCurrID = DM.ibdsCurriculumID.Value) and
-      (inf.FCurrRecID = DM.ibdsCurrISubjCR_ID.Value)
+    if (inf.FCurrID = dmLTG.ibdsCurrISubjCURR_ID.Value) and
+      (inf.FCurrRecID = dmLTG.ibdsCurrISubjCR_ID.Value)
     then Exit;
   end;
 
-  lbISubj.AddItem(DM.ibdsCurrISubjName.Value + ' (' + DM.ibdsCurriculumNAME.Value + ')',
-    TInfo.Create(DM.ibdsCurriculumID.Value, DM.ibdsCurrISubjCR_ID.Value));
-  if edSubjName.Text = '' then edSubjName.Text := DM.ibdsCurrISubjName.Value;
+  lbISubj.AddItem(dmLTG.ibdsCurrISubjName.Value + ' (' + dmLTG.ibdsCurriculumNAME.Value + ')',
+    TInfo.Create(dmLTG.ibdsCurriculumID.Value, dmLTG.ibdsCurrISubjCR_ID.Value));
+  if edSubjName.Text = '' then edSubjName.Text := dmLTG.ibdsCurrISubjName.Value;
 end;
 
 { TInfo }
@@ -113,7 +113,7 @@ procedure TfmEdLTGISubj.dbgCurrSubjDrawColumnCell(Sender: TObject;
   const Rect: TRect; DataCol: Integer; Column: TColumn;
   State: TGridDrawState);
 begin
-  if DM.ibdsCurrISubjCode.Value = 1 then
+  if dmLTG.ibdsCurrISubjCode.Value = 1 then
     dbgCurrSubj.Canvas.Font.Color := clBlue
   else
     dbgCurrSubj.Canvas.Font.Color := clBlack;
