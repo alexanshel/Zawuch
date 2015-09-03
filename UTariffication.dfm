@@ -1564,7 +1564,7 @@ object fmTariffication: TfmTariffication
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 39328.584333576400000000
-    ReportOptions.LastChange = 41686.853637847220000000
+    ReportOptions.LastChange = 42250.909726331020000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -1682,7 +1682,7 @@ object fmTariffication: TfmTariffication
         end
         object Memo20: TfrxMemoView
           Left = 22.677180000000000000
-          Width = 60.472480000000000000
+          Width = 79.370130000000000000
           Height = 18.897650000000000000
           StretchMode = smMaxHeight
           DataSet = frxdbdsTarriffication
@@ -1699,8 +1699,8 @@ object fmTariffication: TfmTariffication
           ParentFont = False
         end
         object Memo21: TfrxMemoView
-          Left = 83.149660000000000000
-          Width = 71.811070000000000000
+          Left = 132.283549999999900000
+          Width = 90.708720000000000000
           Height = 18.897650000000000000
           StretchMode = smMaxHeight
           DataSet = frxdbdsTarriffication
@@ -1719,8 +1719,8 @@ object fmTariffication: TfmTariffication
           WordBreak = True
         end
         object Memo22: TfrxMemoView
-          Left = 154.960730000000000000
-          Width = 86.929190000000000000
+          Left = 222.992269999999900000
+          Width = 109.606370000000000000
           Height = 18.897650000000000000
           StretchMode = smMaxHeight
           DataSet = frxdbdsTarriffication
@@ -1744,8 +1744,8 @@ object fmTariffication: TfmTariffication
           ParentFont = False
         end
         object Memo23: TfrxMemoView
-          Left = 241.889920000000000000
-          Width = 52.913420000000000000
+          Left = 332.598640000000000000
+          Width = 56.692950000000000000
           Height = 18.897650000000000000
           StretchMode = smMaxHeight
           DataSet = frxdbdsTarriffication
@@ -1767,7 +1767,7 @@ object fmTariffication: TfmTariffication
           ParentFont = False
         end
         object Memo24: TfrxMemoView
-          Left = 400.630180000000000000
+          Left = 498.897960000001000000
           Width = 45.354360000000000000
           Height = 18.897650000000000000
           StretchMode = smMaxHeight
@@ -1788,7 +1788,7 @@ object fmTariffication: TfmTariffication
           ParentFont = False
         end
         object Memo25: TfrxMemoView
-          Left = 472.441250000000000000
+          Left = 570.709030000001000000
           Width = 52.913420000000000000
           Height = 18.897650000000000000
           StretchMode = smMaxHeight
@@ -1815,7 +1815,7 @@ object fmTariffication: TfmTariffication
           ParentFont = False
         end
         object Memo27: TfrxMemoView
-          Left = 525.354670000000000000
+          Left = 623.622450000000000000
           Width = 41.574830000000000000
           Height = 18.897650000000000000
           StretchMode = smMaxHeight
@@ -1833,33 +1833,11 @@ object fmTariffication: TfmTariffication
           HAlign = haRight
           HideZeros = True
           Memo.UTF8 = (
-            '[ibqTarRecord."T_B_TIME_Y"]')
-          ParentFont = False
-        end
-        object Memo28: TfrxMemoView
-          Left = 566.929500000000000000
-          Width = 41.574830000000000000
-          Height = 18.897650000000000000
-          StretchMode = smMaxHeight
-          DataSet = frxdbdsTarriffication
-          DataSetName = 'ibqTariffication'
-          DisplayFormat.DecimalSeparator = '.'
-          DisplayFormat.FormatStr = '%2.2n'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haRight
-          HideZeros = True
-          Memo.UTF8 = (
-            '[ibqTarRecord."T_B_TIME_O"]')
+            '[<ibqTarRecord."T_B_TIME_Y">+<ibqTarRecord."T_B_TIME_O">]')
           ParentFont = False
         end
         object Memo29: TfrxMemoView
-          Left = 608.504330000000000000
+          Left = 665.197280000001000000
           Width = 41.574830000000000000
           Height = 18.897650000000000000
           StretchMode = smMaxHeight
@@ -1882,7 +1860,7 @@ object fmTariffication: TfmTariffication
           ParentFont = False
         end
         object Memo30: TfrxMemoView
-          Left = 650.079160000000000000
+          Left = 706.772110000000000000
           Width = 52.913420000000000000
           Height = 18.897650000000000000
           StretchMode = smMaxHeight
@@ -1900,29 +1878,7 @@ object fmTariffication: TfmTariffication
           HAlign = haRight
           HideZeros = True
           Memo.UTF8 = (
-            '[ibqTarRecord."SUM_Y"]')
-          ParentFont = False
-        end
-        object Memo31: TfrxMemoView
-          Left = 702.992580000000000000
-          Width = 56.692950000000000000
-          Height = 18.897650000000000000
-          StretchMode = smMaxHeight
-          DataSet = frxdbdsTarriffication
-          DataSetName = 'ibqTariffication'
-          DisplayFormat.DecimalSeparator = '.'
-          DisplayFormat.FormatStr = '%2.2n'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haRight
-          HideZeros = True
-          Memo.UTF8 = (
-            '[ibqTarRecord."SUM_O"]')
+            '[<ibqTarRecord."SUM_Y">+<ibqTarRecord."SUM_O">]')
           ParentFont = False
         end
         object Memo32: TfrxMemoView
@@ -1990,7 +1946,7 @@ object fmTariffication: TfmTariffication
           ParentFont = False
         end
         object Memo46: TfrxMemoView
-          Left = 445.984540000000000000
+          Left = 544.252320000001000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           StretchMode = smMaxHeight
@@ -2051,7 +2007,7 @@ object fmTariffication: TfmTariffication
           ParentFont = False
         end
         object Memo84: TfrxMemoView
-          Left = 359.055350000000000000
+          Left = 457.323130000001000000
           Width = 41.574830000000000000
           Height = 18.897650000000000000
           StretchMode = smMaxHeight
@@ -2078,8 +2034,8 @@ object fmTariffication: TfmTariffication
           ParentFont = False
         end
         object Memo86: TfrxMemoView
-          Left = 294.803340000000000000
-          Width = 64.252010000000000000
+          Left = 389.291590000000000000
+          Width = 68.031540000000000000
           Height = 18.897650000000000000
           StretchMode = smMaxHeight
           DataSet = frxdbdsTarriffication
@@ -2126,7 +2082,7 @@ object fmTariffication: TfmTariffication
         end
         object Memo2: TfrxMemoView
           Left = 22.677180000000000000
-          Width = 60.472480000000000000
+          Width = 79.370130000000000000
           Height = 185.196970000000000000
           DisplayFormat.DecimalSeparator = '.'
           Font.Charset = DEFAULT_CHARSET
@@ -2141,8 +2097,8 @@ object fmTariffication: TfmTariffication
           ParentFont = False
         end
         object Memo3: TfrxMemoView
-          Left = 83.149660000000000000
-          Width = 71.811070000000000000
+          Left = 132.283550000000000000
+          Width = 90.708720000000000000
           Height = 185.196970000000000000
           DisplayFormat.DecimalSeparator = '.'
           Font.Charset = DEFAULT_CHARSET
@@ -2160,8 +2116,8 @@ object fmTariffication: TfmTariffication
           WordBreak = True
         end
         object Memo4: TfrxMemoView
-          Left = 154.960730000000000000
-          Width = 86.929190000000000000
+          Left = 222.992269999999900000
+          Width = 109.606370000000000000
           Height = 185.196970000000000000
           DisplayFormat.DecimalSeparator = '.'
           Font.Charset = DEFAULT_CHARSET
@@ -2180,8 +2136,8 @@ object fmTariffication: TfmTariffication
           WordBreak = True
         end
         object Memo5: TfrxMemoView
-          Left = 241.889920000000000000
-          Width = 52.913420000000000000
+          Left = 332.598640000000000000
+          Width = 56.692950000000000000
           Height = 185.196970000000000000
           DisplayFormat.DecimalSeparator = '.'
           Font.Charset = DEFAULT_CHARSET
@@ -2199,7 +2155,7 @@ object fmTariffication: TfmTariffication
           ParentFont = False
         end
         object Memo6: TfrxMemoView
-          Left = 400.630180000000000000
+          Left = 498.897960000001000000
           Width = 45.354360000000000000
           Height = 185.196970000000000000
           DisplayFormat.DecimalSeparator = '.'
@@ -2217,7 +2173,7 @@ object fmTariffication: TfmTariffication
           ParentFont = False
         end
         object Memo7: TfrxMemoView
-          Left = 445.984540000000000000
+          Left = 544.252320000001000000
           Width = 26.456710000000000000
           Height = 185.196970000000000000
           DisplayFormat.DecimalSeparator = '.'
@@ -2233,7 +2189,7 @@ object fmTariffication: TfmTariffication
           ParentFont = False
         end
         object Memo8: TfrxMemoView
-          Left = 472.441250000000000000
+          Left = 570.709030000001000000
           Width = 52.913420000000000000
           Height = 185.196970000000000000
           DisplayFormat.DecimalSeparator = '.'
@@ -2246,14 +2202,14 @@ object fmTariffication: TfmTariffication
           HAlign = haCenter
           Memo.UTF8 = (
             
-              #1056#1115#1056#1108#1056#187#1056#176#1056#1169' ('#1056#1169#1056#1109#1056#187#1056#182#1056#1029#1056#1109#1057#1027#1057#8218#1056#1029#1056#1109#1056#8470' '#1056#1109#1056#1108#1056#187#1056#176#1056#1169') '#1057#1027#1057#8218#1056#176#1056#1030#1056#1108#1056#176' '#1056#183#1056#176 +
-              #1057#1026#1056#176#1056#177#1056#1109#1057#8218#1056#1029#1056#1109#1056#8470' '#1056#1111#1056#187#1056#176#1057#8218#1057#8249' '#1056#1030' '#1057#1027#1056#1109#1056#1109#1057#8218#1056#1030#1056#181#1057#8218#1057#1027#1057#8218#1056#1030#1056#1105#1056#1105' '#1057#1027' '#1056#1119#1056#1113#1056 +
-              #1032', '#1057#1027' '#1057#1107#1057#8225#1057#8216#1057#8218#1056#1109#1056#1112' 115 '#1057#1026#1057#1107#1056#177'.')
+              #1056#1115#1056#1108#1056#187#1056#176#1056#1169' ('#1056#1169#1056#1109#1056#187#1056#182#1056#1029#1056#1109#1057#1027#1057#8218#1056#1029#1056#1109#1056#8470' '#1056#1109#1056#1108#1056#187#1056#176#1056#1169'), '#1057#1027#1057#8218#1056#176#1056#1030#1056#1108#1056#176' '#1056#183#1056 +
+              #176#1057#1026#1056#176#1056#177#1056#1109#1057#8218#1056#1029#1056#1109#1056#8470' '#1056#1111#1056#187#1056#176#1057#8218#1057#8249' '#1056#1030' '#1057#1027#1056#1109#1056#1109#1057#8218#1056#1030#1056#181#1057#8218#1057#1027#1057#8218#1056#1030#1056#1105#1056#1105' '#1057#1027' '#1056#1119#1056#1113 +
+              #1056#1032', '#1057#1027' '#1057#1107#1057#8225#1057#8216#1057#8218#1056#1109#1056#1112' 115 '#1057#1026#1057#1107#1056#177'.')
           ParentFont = False
         end
         object Memo9: TfrxMemoView
-          Left = 525.354670000000000000
-          Width = 124.724490000000000000
+          Left = 623.622450000001000000
+          Width = 83.149660000000000000
           Height = 41.574830000000000000
           DisplayFormat.DecimalSeparator = '.'
           Font.Charset = DEFAULT_CHARSET
@@ -2268,7 +2224,7 @@ object fmTariffication: TfmTariffication
           ParentFont = False
         end
         object Memo10: TfrxMemoView
-          Left = 525.354670000000000000
+          Left = 623.622450000001000000
           Top = 41.574830000000020000
           Width = 41.574830000000000000
           Height = 143.622140000000000000
@@ -2282,32 +2238,12 @@ object fmTariffication: TfmTariffication
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            #1056#1112#1056#187#1056#176#1056#1169
-            #1057#8364#1056#1105#1056#181)
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo11: TfrxMemoView
-          Left = 566.929500000000000000
-          Top = 41.574830000000020000
-          Width = 41.574830000000000000
-          Height = 143.622140000000000000
-          DisplayFormat.DecimalSeparator = '.'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haCenter
-          Memo.UTF8 = (
-            #1057#1027#1057#8218#1056#176#1057#1026
-            #1057#8364#1056#1105#1056#181)
+            #1056#1111#1057#1026#1056#181#1056#1111#1056#1109#1056#1169#1056#176#1056#1030#1056#176#1057#8218#1056#181#1056#187#1057#1034#1057#1027#1056#1108#1056#1105#1056#181)
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo12: TfrxMemoView
-          Left = 608.504330000000000000
+          Left = 665.197280000001000000
           Top = 41.574830000000020000
           Width = 41.574830000000000000
           Height = 143.622140000000000000
@@ -2327,8 +2263,8 @@ object fmTariffication: TfmTariffication
           VAlign = vaCenter
         end
         object Memo13: TfrxMemoView
-          Left = 650.079160000000000000
-          Width = 166.299320000000000000
+          Left = 706.772110000000000000
+          Width = 109.606370000000000000
           Height = 41.574830000000000000
           DisplayFormat.DecimalSeparator = '.'
           Font.Charset = DEFAULT_CHARSET
@@ -2343,7 +2279,7 @@ object fmTariffication: TfmTariffication
           ParentFont = False
         end
         object Memo14: TfrxMemoView
-          Left = 650.079160000000000000
+          Left = 706.772110000000000000
           Top = 41.574830000000020000
           Width = 52.913420000000000000
           Height = 143.622140000000000000
@@ -2358,24 +2294,6 @@ object fmTariffication: TfmTariffication
           Memo.UTF8 = (
             #1056#1112#1056#187#1056#176#1056#1169
             #1057#8364#1056#1105#1056#181)
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo15: TfrxMemoView
-          Left = 702.992580000000000000
-          Top = 41.574830000000020000
-          Width = 56.692950000000000000
-          Height = 143.622140000000000000
-          DisplayFormat.DecimalSeparator = '.'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haCenter
-          Memo.UTF8 = (
-            #1057#1027#1057#8218#1056#176#1057#1026#1057#8364#1056#1105#1056#181)
           ParentFont = False
           VAlign = vaCenter
         end
@@ -2453,7 +2371,7 @@ object fmTariffication: TfmTariffication
         object Memo48: TfrxMemoView
           Left = 22.677180000000000000
           Top = 185.196970000000000000
-          Width = 60.472480000000000000
+          Width = 109.606370000000000000
           Height = 18.897650000000000000
           DisplayFormat.DecimalSeparator = '.'
           Font.Charset = DEFAULT_CHARSET
@@ -2469,9 +2387,9 @@ object fmTariffication: TfmTariffication
           VAlign = vaCenter
         end
         object Memo49: TfrxMemoView
-          Left = 83.149660000000000000
+          Left = 132.283549999999900000
           Top = 185.196970000000000000
-          Width = 71.811070000000000000
+          Width = 90.708720000000000000
           Height = 18.897650000000000000
           DisplayFormat.DecimalSeparator = '.'
           Font.Charset = DEFAULT_CHARSET
@@ -2487,9 +2405,9 @@ object fmTariffication: TfmTariffication
           VAlign = vaCenter
         end
         object Memo50: TfrxMemoView
-          Left = 154.960730000000000000
+          Left = 222.992269999999900000
           Top = 185.196970000000000000
-          Width = 86.929190000000000000
+          Width = 109.606370000000000000
           Height = 18.897650000000000000
           DisplayFormat.DecimalSeparator = '.'
           Font.Charset = DEFAULT_CHARSET
@@ -2505,9 +2423,9 @@ object fmTariffication: TfmTariffication
           VAlign = vaCenter
         end
         object Memo51: TfrxMemoView
-          Left = 241.889920000000000000
+          Left = 332.598640000000000000
           Top = 185.196970000000000000
-          Width = 52.913420000000000000
+          Width = 56.692950000000000000
           Height = 18.897650000000000000
           DisplayFormat.DecimalSeparator = '.'
           Font.Charset = DEFAULT_CHARSET
@@ -2523,7 +2441,7 @@ object fmTariffication: TfmTariffication
           VAlign = vaCenter
         end
         object Memo52: TfrxMemoView
-          Left = 359.055350000000000000
+          Left = 457.323130000001000000
           Top = 185.196970000000000000
           Width = 41.574830000000000000
           Height = 18.897650000000000000
@@ -2541,7 +2459,7 @@ object fmTariffication: TfmTariffication
           VAlign = vaCenter
         end
         object Memo53: TfrxMemoView
-          Left = 400.630180000000000000
+          Left = 498.897960000001000000
           Top = 185.196970000000000000
           Width = 45.354360000000000000
           Height = 18.897650000000000000
@@ -2559,7 +2477,7 @@ object fmTariffication: TfmTariffication
           VAlign = vaCenter
         end
         object Memo54: TfrxMemoView
-          Left = 445.984540000000000000
+          Left = 544.252320000001000000
           Top = 185.196970000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
@@ -2577,7 +2495,7 @@ object fmTariffication: TfmTariffication
           VAlign = vaCenter
         end
         object Memo55: TfrxMemoView
-          Left = 472.441250000000000000
+          Left = 570.709030000001000000
           Top = 185.196970000000000000
           Width = 52.913420000000000000
           Height = 18.897650000000000000
@@ -2595,7 +2513,7 @@ object fmTariffication: TfmTariffication
           VAlign = vaCenter
         end
         object Memo56: TfrxMemoView
-          Left = 525.354670000000000000
+          Left = 623.622450000001000000
           Top = 185.196970000000000000
           Width = 41.574830000000000000
           Height = 18.897650000000000000
@@ -2612,8 +2530,8 @@ object fmTariffication: TfmTariffication
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo57: TfrxMemoView
-          Left = 566.929500000000000000
+        object Memo58: TfrxMemoView
+          Left = 665.197280000001000000
           Top = 185.196970000000000000
           Width = 41.574830000000000000
           Height = 18.897650000000000000
@@ -2630,26 +2548,8 @@ object fmTariffication: TfmTariffication
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo58: TfrxMemoView
-          Left = 608.504330000000000000
-          Top = 185.196970000000000000
-          Width = 41.574830000000000000
-          Height = 18.897650000000000000
-          DisplayFormat.DecimalSeparator = '.'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haCenter
-          Memo.UTF8 = (
-            '13')
-          ParentFont = False
-          VAlign = vaCenter
-        end
         object Memo59: TfrxMemoView
-          Left = 650.079160000000000000
+          Left = 706.772110000000000000
           Top = 185.196970000000000000
           Width = 52.913420000000000000
           Height = 18.897650000000000000
@@ -2663,24 +2563,6 @@ object fmTariffication: TfmTariffication
           HAlign = haCenter
           Memo.UTF8 = (
             '14')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo60: TfrxMemoView
-          Left = 702.992580000000000000
-          Top = 185.196970000000000000
-          Width = 56.692950000000000000
-          Height = 18.897650000000000000
-          DisplayFormat.DecimalSeparator = '.'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haCenter
-          Memo.UTF8 = (
-            '15')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -2698,7 +2580,7 @@ object fmTariffication: TfmTariffication
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            '16')
+            '15')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -2716,7 +2598,7 @@ object fmTariffication: TfmTariffication
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            '20')
+            '19')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -2751,7 +2633,7 @@ object fmTariffication: TfmTariffication
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            '17')
+            '16')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -2769,7 +2651,7 @@ object fmTariffication: TfmTariffication
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            '18')
+            '17')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -2806,7 +2688,7 @@ object fmTariffication: TfmTariffication
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            '19')
+            '18')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -2827,7 +2709,7 @@ object fmTariffication: TfmTariffication
           ParentFont = False
         end
         object Memo82: TfrxMemoView
-          Left = 359.055350000000000000
+          Left = 457.323130000001000000
           Width = 41.574830000000000000
           Height = 185.196970000000000000
           DisplayFormat.DecimalSeparator = '.'
@@ -2840,14 +2722,14 @@ object fmTariffication: TfmTariffication
           HAlign = haCenter
           Memo.UTF8 = (
             
-              #1056#160#1056#176#1056#183#1056#1112#1056#181#1057#1026' '#1056#1109#1056#1108#1056#187#1056#176#1056#1169#1056#176' ('#1056#1169#1056#1109#1056#187#1056#182#1056#1029#1056#1109#1057#1027#1057#8218#1056#1029#1056#1109#1056#1110#1056#1109' '#1056#1109#1056#1108#1056#187#1056#176#1056#1169#1056#176 +
-              ') '#1057#1027#1057#8218#1056#176#1056#1030#1056#1108#1056#1105' '#1056#183#1056#176#1057#1026#1056#1109#1056#177#1056#1109#1057#8218#1056#1029#1056#1109#1056#8470' '#1056#1111#1056#187#1056#176#1057#8218#1057#8249', '#1057#1026#1057#1107#1056#177'.')
+              #1056#160#1056#176#1056#183#1056#1112#1056#181#1057#1026' '#1056#1109#1056#1108#1056#187#1056#176#1056#1169#1056#176' ('#1057#1027#1057#8218#1056#176#1056#1030#1056#1108#1056#176' '#1056#183#1056#176#1057#1026#1056#1109#1056#177#1056#1109#1057#8218#1056#1029#1056#1109#1056#8470' '#1056#1111#1056 +
+              #187#1056#176#1057#8218#1057#8249')')
           ParentFont = False
         end
         object Memo92: TfrxMemoView
-          Left = 294.803340000000000000
+          Left = 389.291590000000000000
           Top = 185.196970000000000000
-          Width = 64.252010000000000000
+          Width = 68.031540000000000000
           Height = 18.897650000000000000
           DisplayFormat.DecimalSeparator = '.'
           Font.Charset = DEFAULT_CHARSET
@@ -2863,8 +2745,8 @@ object fmTariffication: TfmTariffication
           VAlign = vaCenter
         end
         object Memo94: TfrxMemoView
-          Left = 294.803340000000000000
-          Width = 64.252010000000000000
+          Left = 389.291590000000000000
+          Width = 68.031540000000000000
           Height = 185.196970000000000000
           DisplayFormat.DecimalSeparator = '.'
           Font.Charset = DEFAULT_CHARSET
@@ -2887,7 +2769,7 @@ object fmTariffication: TfmTariffication
         Width = 1046.929810000000000000
         object Memo36: TfrxMemoView
           Top = 68.031539999999950000
-          Width = 525.354670000000000000
+          Width = 623.622450000000000000
           Height = 18.897650000000000000
           DisplayFormat.DecimalSeparator = '.'
           Font.Charset = DEFAULT_CHARSET
@@ -2897,12 +2779,12 @@ object fmTariffication: TfmTariffication
           Font.Style = []
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           Memo.UTF8 = (
-            #1056#152#1056#1118#1056#1115#1056#8220#1056#1115)
+            '4. '#1056#152#1056#1118#1056#1115#1056#8220#1056#1115)
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo37: TfrxMemoView
-          Left = 525.354670000000000000
+          Left = 623.622450000001000000
           Top = 68.031539999999950000
           Width = 41.574830000000000000
           Height = 18.897650000000000000
@@ -2922,35 +2804,12 @@ object fmTariffication: TfmTariffication
           Memo.UTF8 = (
             
               '[SUM(<ibqTarRecord."T_B_TIME_Y">) + <ibqTariffication."T_B_TIME_' +
-              'Y">]')
-          ParentFont = False
-        end
-        object Memo38: TfrxMemoView
-          Left = 566.929500000000000000
-          Top = 68.031539999999950000
-          Width = 41.574830000000000000
-          Height = 18.897650000000000000
-          DataSet = frxdbdsTarriffication
-          DataSetName = 'ibqTariffication'
-          DisplayFormat.DecimalSeparator = '.'
-          DisplayFormat.FormatStr = '%2.2n'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haRight
-          HideZeros = True
-          Memo.UTF8 = (
-            
-              '[SUM(<ibqTarRecord."T_B_TIME_O">) + <ibqTariffication."T_B_TIME_' +
-              'O">]')
+              'Y"> + SUM(<ibqTarRecord."T_B_TIME_O">) + <ibqTariffication."T_B_' +
+              'TIME_O">]')
           ParentFont = False
         end
         object Memo39: TfrxMemoView
-          Left = 608.504330000000000000
+          Left = 665.197280000001000000
           Top = 68.031539999999950000
           Width = 41.574830000000000000
           Height = 18.897650000000000000
@@ -2974,7 +2833,7 @@ object fmTariffication: TfmTariffication
           ParentFont = False
         end
         object Memo40: TfrxMemoView
-          Left = 650.079160000000000000
+          Left = 706.772110000000000000
           Top = 68.031539999999950000
           Width = 52.913420000000000000
           Height = 18.897650000000000000
@@ -2992,29 +2851,9 @@ object fmTariffication: TfmTariffication
           HAlign = haRight
           HideZeros = True
           Memo.UTF8 = (
-            '[SUM(<ibqTarRecord."SUM_Y">) + <ibqTariffication."VSUM_Y">]')
-          ParentFont = False
-        end
-        object Memo41: TfrxMemoView
-          Left = 702.992580000000000000
-          Top = 68.031539999999950000
-          Width = 56.692950000000000000
-          Height = 18.897650000000000000
-          DataSet = frxdbdsTarriffication
-          DataSetName = 'ibqTariffication'
-          DisplayFormat.DecimalSeparator = '.'
-          DisplayFormat.FormatStr = '%2.2n'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haRight
-          HideZeros = True
-          Memo.UTF8 = (
-            '[SUM(<ibqTarRecord."SUM_O">) + <ibqTariffication."VSUM_O">]')
+            
+              '[SUM(<ibqTarRecord."SUM_Y">) + <ibqTariffication."VSUM_Y">+SUM(<' +
+              'ibqTarRecord."SUM_O">) + <ibqTariffication."VSUM_O">]')
           ParentFont = False
         end
         object Memo42: TfrxMemoView
@@ -3077,7 +2916,7 @@ object fmTariffication: TfmTariffication
           VAlign = vaCenter
         end
         object Memo64: TfrxMemoView
-          Width = 525.354670000000000000
+          Width = 623.622450000000000000
           Height = 18.897650000000000000
           DisplayFormat.DecimalSeparator = '.'
           Font.Charset = DEFAULT_CHARSET
@@ -3094,7 +2933,7 @@ object fmTariffication: TfmTariffication
           VAlign = vaCenter
         end
         object Memo65: TfrxMemoView
-          Left = 525.354670000000000000
+          Left = 623.622450000000000000
           Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataSet = frxdbdsTarriffication
@@ -3113,34 +2952,11 @@ object fmTariffication: TfmTariffication
           Memo.UTF8 = (
             
               '[SUM(IIF(<ibqTarRecord."IS_FULL_TIME_TEACHER"> = 1,<ibqTarRecord' +
-              '."T_B_TIME_Y">, 0))]')
-          ParentFont = False
-        end
-        object Memo66: TfrxMemoView
-          Left = 566.929500000000000000
-          Width = 41.574830000000000000
-          Height = 18.897650000000000000
-          DataSet = frxdbdsTarriffication
-          DataSetName = 'ibqTariffication'
-          DisplayFormat.DecimalSeparator = '.'
-          DisplayFormat.FormatStr = '%2.2n'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haRight
-          HideZeros = True
-          Memo.UTF8 = (
-            
-              '[SUM(IIF(<ibqTarRecord."IS_FULL_TIME_TEACHER"> = 1,<ibqTarRecord' +
-              '."T_B_TIME_O">, 0))]')
+              '."T_B_TIME_Y"> + <ibqTarRecord."T_B_TIME_O">, 0))]')
           ParentFont = False
         end
         object Memo67: TfrxMemoView
-          Left = 608.504330000000000000
+          Left = 665.197280000001000000
           Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataSet = frxdbdsTarriffication
@@ -3163,7 +2979,7 @@ object fmTariffication: TfmTariffication
           ParentFont = False
         end
         object Memo68: TfrxMemoView
-          Left = 650.079160000000000000
+          Left = 706.772110000000000000
           Width = 52.913420000000000000
           Height = 18.897650000000000000
           DataSet = frxdbdsTarriffication
@@ -3182,30 +2998,7 @@ object fmTariffication: TfmTariffication
           Memo.UTF8 = (
             
               '[SUM(IIF(<ibqTarRecord."IS_FULL_TIME_TEACHER"> = 1,<ibqTarRecord' +
-              '."SUM_Y">, 0))]')
-          ParentFont = False
-        end
-        object Memo69: TfrxMemoView
-          Left = 702.992580000000000000
-          Width = 56.692950000000000000
-          Height = 18.897650000000000000
-          DataSet = frxdbdsTarriffication
-          DataSetName = 'ibqTariffication'
-          DisplayFormat.DecimalSeparator = '.'
-          DisplayFormat.FormatStr = '%2.2n'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haRight
-          HideZeros = True
-          Memo.UTF8 = (
-            
-              '[SUM(IIF(<ibqTarRecord."IS_FULL_TIME_TEACHER"> = 1,<ibqTarRecord' +
-              '."SUM_O">, 0))]')
+              '."SUM_Y"> + <ibqTarRecord."SUM_O">, 0))]')
           ParentFont = False
         end
         object Memo70: TfrxMemoView
@@ -3268,7 +3061,7 @@ object fmTariffication: TfmTariffication
         end
         object Memo73: TfrxMemoView
           Top = 37.795300000000000000
-          Width = 472.441250000000000000
+          Width = 570.709030000000000000
           Height = 30.236240000000000000
           DisplayFormat.DecimalSeparator = '.'
           Font.Charset = DEFAULT_CHARSET
@@ -3278,12 +3071,14 @@ object fmTariffication: TfmTariffication
           Font.Style = []
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           Memo.UTF8 = (
-            '3. '#1056#1116#1056#181#1057#1026#1056#176#1057#1027#1056#1111#1057#1026#1056#181#1056#1169#1056#181#1056#187#1057#8216#1056#1029#1056#1029#1056#176#1057#1039' '#1056#1029#1056#176#1056#1110#1057#1026#1057#1107#1056#183#1056#1108#1056#176':')
+            
+              '3. '#1056#1116#1056#181#1057#1026#1056#176#1057#1027#1056#1111#1057#1026#1056#181#1056#1169#1056#181#1056#187#1057#8216#1056#1029#1056#1029#1056#176#1057#1039' '#1057#1107#1057#8225#1056#181#1056#177#1056#1029#1056#176#1057#1039' '#1056#1029#1056#176#1056#1110#1057#1026#1057#1107#1056#183#1056 +
+              #1108#1056#176':')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo74: TfrxMemoView
-          Left = 525.354670000000000000
+          Left = 623.622450000001000000
           Top = 37.795300000000000000
           Width = 41.574830000000000000
           Height = 30.236240000000000000
@@ -3301,33 +3096,13 @@ object fmTariffication: TfmTariffication
           HAlign = haRight
           HideZeros = True
           Memo.UTF8 = (
-            '[<ibqTariffication."T_B_TIME_Y">]')
-          ParentFont = False
-        end
-        object Memo75: TfrxMemoView
-          Left = 566.929500000000000000
-          Top = 37.795300000000000000
-          Width = 41.574830000000000000
-          Height = 30.236240000000000000
-          DataSet = frxdbdsTarriffication
-          DataSetName = 'ibqTariffication'
-          DisplayFormat.DecimalSeparator = '.'
-          DisplayFormat.FormatStr = '%2.2n'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haRight
-          HideZeros = True
-          Memo.UTF8 = (
-            '[<ibqTariffication."T_B_TIME_O">]')
+            
+              '[<ibqTariffication."T_B_TIME_Y">+<ibqTariffication."T_B_TIME_O">' +
+              ']')
           ParentFont = False
         end
         object Memo76: TfrxMemoView
-          Left = 608.504330000000000000
+          Left = 665.197280000001000000
           Top = 37.795300000000000000
           Width = 41.574830000000000000
           Height = 30.236240000000000000
@@ -3350,7 +3125,7 @@ object fmTariffication: TfmTariffication
           ParentFont = False
         end
         object Memo77: TfrxMemoView
-          Left = 650.079160000000000000
+          Left = 706.772110000000000000
           Top = 37.795300000000000000
           Width = 52.913420000000000000
           Height = 30.236240000000000000
@@ -3368,29 +3143,7 @@ object fmTariffication: TfmTariffication
           HAlign = haRight
           HideZeros = True
           Memo.UTF8 = (
-            '[<ibqTariffication."VSUM_Y">]')
-          ParentFont = False
-        end
-        object Memo78: TfrxMemoView
-          Left = 702.992580000000000000
-          Top = 37.795300000000000000
-          Width = 56.692950000000000000
-          Height = 30.236240000000000000
-          DataSet = frxdbdsTarriffication
-          DataSetName = 'ibqTariffication'
-          DisplayFormat.DecimalSeparator = '.'
-          DisplayFormat.FormatStr = '%2.2n'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haRight
-          HideZeros = True
-          Memo.UTF8 = (
-            '[<ibqTariffication."VSUM_O">]')
+            '[<ibqTariffication."VSUM_Y">+<ibqTariffication."VSUM_O">]')
           ParentFont = False
         end
         object Memo79: TfrxMemoView
@@ -3452,7 +3205,7 @@ object fmTariffication: TfmTariffication
           VAlign = vaCenter
         end
         object Memo83: TfrxMemoView
-          Left = 472.441250000000000000
+          Left = 570.709030000001000000
           Top = 37.795300000000000000
           Width = 52.913420000000000000
           Height = 30.236240000000000000
@@ -3584,7 +3337,7 @@ object fmTariffication: TfmTariffication
         end
         object Memo113: TfrxMemoView
           Top = 18.897650000000000000
-          Width = 525.354670000000000000
+          Width = 623.622450000000000000
           Height = 18.897650000000000000
           DisplayFormat.DecimalSeparator = '.'
           Font.Charset = DEFAULT_CHARSET
@@ -3601,7 +3354,7 @@ object fmTariffication: TfmTariffication
           VAlign = vaCenter
         end
         object Memo114: TfrxMemoView
-          Left = 525.354670000000000000
+          Left = 623.622450000001000000
           Top = 18.897650000000000000
           Width = 41.574830000000000000
           Height = 18.897650000000000000
@@ -3621,35 +3374,11 @@ object fmTariffication: TfmTariffication
           Memo.UTF8 = (
             
               '[SUM(IIF(<ibqTarRecord."IS_FULL_TIME_TEACHER"> = 0,<ibqTarRecord' +
-              '."T_B_TIME_Y">, 0))]')
-          ParentFont = False
-        end
-        object Memo115: TfrxMemoView
-          Left = 566.929500000000000000
-          Top = 18.897650000000000000
-          Width = 41.574830000000000000
-          Height = 18.897650000000000000
-          DataSet = frxdbdsTarriffication
-          DataSetName = 'ibqTariffication'
-          DisplayFormat.DecimalSeparator = '.'
-          DisplayFormat.FormatStr = '%2.2n'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haRight
-          HideZeros = True
-          Memo.UTF8 = (
-            
-              '[SUM(IIF(<ibqTarRecord."IS_FULL_TIME_TEACHER"> = 0,<ibqTarRecord' +
-              '."T_B_TIME_O">, 0))]')
+              '."T_B_TIME_Y"> + <ibqTarRecord."T_B_TIME_O">, 0))]')
           ParentFont = False
         end
         object Memo116: TfrxMemoView
-          Left = 608.504330000000000000
+          Left = 665.197280000001000000
           Top = 18.897650000000000000
           Width = 41.574830000000000000
           Height = 18.897650000000000000
@@ -3673,7 +3402,7 @@ object fmTariffication: TfmTariffication
           ParentFont = False
         end
         object Memo117: TfrxMemoView
-          Left = 650.079160000000000000
+          Left = 706.772110000000000000
           Top = 18.897650000000000000
           Width = 52.913420000000000000
           Height = 18.897650000000000000
@@ -3693,31 +3422,7 @@ object fmTariffication: TfmTariffication
           Memo.UTF8 = (
             
               '[SUM(IIF(<ibqTarRecord."IS_FULL_TIME_TEACHER"> = 0,<ibqTarRecord' +
-              '."SUM_Y">, 0))]')
-          ParentFont = False
-        end
-        object Memo118: TfrxMemoView
-          Left = 702.992580000000000000
-          Top = 18.897650000000000000
-          Width = 56.692950000000000000
-          Height = 18.897650000000000000
-          DataSet = frxdbdsTarriffication
-          DataSetName = 'ibqTariffication'
-          DisplayFormat.DecimalSeparator = '.'
-          DisplayFormat.FormatStr = '%2.2n'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          HAlign = haRight
-          HideZeros = True
-          Memo.UTF8 = (
-            
-              '[SUM(IIF(<ibqTarRecord."IS_FULL_TIME_TEACHER"> = 0,<ibqTarRecord' +
-              '."SUM_O">, 0))]')
+              '."SUM_Y">+<ibqTarRecord."SUM_O">, 0))]')
           ParentFont = False
         end
         object Memo119: TfrxMemoView
@@ -3840,10 +3545,14 @@ object fmTariffication: TfmTariffication
               #1056#1118#1056#1106#1056#160#1056#152#1056#164#1056#152#1056#1113#1056#1106#1056#166#1056#152#1056#1115#1056#1116#1056#1116#1056#171#1056#8482' '#1056#1038#1056#1119#1056#152#1056#1038#1056#1115#1056#1113' '#1056#1119#1056#8226#1056#8221#1056#1106#1056#8220#1056#1115#1056#8220#1056#152#1056#167#1056#8226 +
               #1056#1038#1056#1113#1056#152#1056#1168' '#1056#160#1056#1106#1056#8216#1056#1115#1056#1118#1056#1116#1056#152#1056#1113#1056#1115#1056#8217
             #1056#1029#1056#176' "___"_________________________________  '#1056#1110#1056#1109#1056#1169#1056#176
-            ''
             
-              #1056#8221#1056#181#1057#8218#1057#1027#1056#1108#1056#1109#1056#8470' '#1057#8364#1056#1108#1056#1109#1056#187#1057#8249' '#1056#1105#1057#1027#1056#1108#1057#1107#1057#1027#1057#1027#1057#8218#1056#1030' '#1056#1105#1056#1112'. '#1056#8220'.'#1056#164'. '#1056#1119#1056#1109#1056#1029#1056#1109 +
-              #1056#1112#1056#176#1057#1026#1056#181#1056#1029#1056#1108#1056#1109' '#1056#1114#1056#1115' '#1056#1110#1056#1109#1057#1026#1056#1109#1056#1169' '#1056#1113#1057#1026#1056#176#1057#1027#1056#1029#1056#1109#1056#1169#1056#176#1057#1026)
+              #1056#1114#1057#1107#1056#1029#1056#1105#1057#8224#1056#1105#1056#1111#1056#176#1056#187#1057#1034#1056#1029#1056#1109#1056#1110#1056#1109' '#1056#1109#1056#177#1057#1026#1056#176#1056#183#1056#1109#1056#1030#1056#176#1057#8218#1056#181#1056#187#1057#1034#1056#1029#1056#1109#1056#1110#1056#1109' '#1057#1107 +
+              #1057#8225#1056#181#1057#1026#1056#181#1056#182#1056#1169#1056#181#1056#1029#1056#1105#1057#1039' '#1056#1169#1056#1109#1056#1111#1056#1109#1056#187#1056#1029#1056#1105#1057#8218#1056#181#1056#187#1057#1034#1056#1029#1056#1109#1056#1110#1056#1109' '#1056#1109#1056#177#1057#1026#1056#176#1056#183#1056#1109 +
+              #1056#1030#1056#176#1056#1029#1056#1105#1057#1039' '#1056#1169#1056#181#1057#8218#1056#181#1056#8470
+            
+              #1056#8221#1056#181#1057#8218#1057#1027#1056#1108#1056#176#1057#1039' '#1057#8364#1056#1108#1056#1109#1056#187#1056#176' '#1056#1105#1057#1027#1056#1108#1057#1107#1057#1027#1057#1027#1057#8218#1056#1030' '#1056#1105#1056#1112'. '#1056#8220'.'#1056#164'. '#1056#1119#1056#1109#1056#1029#1056#1109 +
+              #1056#1112#1056#176#1057#1026#1056#181#1056#1029#1056#1108#1056#1109' '#1056#1112#1057#1107#1056#1029#1056#1105#1057#8224#1056#1105#1056#1111#1056#176#1056#187#1057#1034#1056#1029#1056#1109#1056#1110#1056#1109' '#1056#1109#1056#177#1057#1026#1056#176#1056#183#1056#1109#1056#1030#1056#176#1056#1029#1056#1105 +
+              #1057#1039' '#1056#1110#1056#1109#1057#1026#1056#1109#1056#1169' '#1056#1113#1057#1026#1056#176#1057#1027#1056#1029#1056#1109#1056#1169#1056#176#1057#1026)
           ParentFont = False
         end
         object Memo45: TfrxMemoView
@@ -3863,15 +3572,13 @@ object fmTariffication: TfmTariffication
               #181#1056#1029#1056#1108#1056#1109
             #1056#1114#1056#1115' '#1056#1110#1056#1109#1057#1026#1056#1109#1056#1169' '#1056#1113#1057#1026#1056#176#1057#1027#1056#1029#1056#1109#1056#1169#1056#176#1057#1026
             ''
-            '_______________________   '#1056#8217'.'#1056#1106'. '#1056#1113#1056#1109#1056#1030#1056#176#1056#187#1056#181#1056#1030#1056#176
-            ''
-            '"____" __________________ 20___  '#1056#1110'.')
+            '_______________________   '#1056#8217'.'#1056#1106'. '#1056#1113#1056#1109#1056#1030#1056#176#1056#187#1056#181#1056#1030#1056#176)
           ParentFont = False
         end
       end
       object ReportSummary1: TfrxReportSummary
         Height = 257.008040000000000000
-        Top = 793.701300000000000000
+        Top = 793.701299999999900000
         Width = 1046.929810000000000000
         object Memo44: TfrxMemoView
           Top = 132.283550000000000000
@@ -3894,7 +3601,7 @@ object fmTariffication: TfmTariffication
               #1056#183#1056#1109#1056#1030#1056#176#1056#1029#1056#1105#1057#1039
             #1056#1110#1056#1109#1057#1026#1056#1109#1056#1169' '#1056#1113#1057#1026#1056#176#1057#1027#1056#1029#1056#1109#1056#1169#1056#176#1057#1026
             '________________________________'#1056#8226'.'#1056#8216'.'#1056#1038#1056#181#1057#1026#1056#187#1056#1105#1056#1029#1056#176
-            '"_______"________________________2014'#1056#1110'.')
+            '"_______"________________________2015'#1056#1110'.')
           ParentFont = False
         end
         object Memo95: TfrxMemoView

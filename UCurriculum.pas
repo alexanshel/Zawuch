@@ -707,9 +707,9 @@ var
     else Result := Format('%.2f', [Value]);
   end;
 begin
-  LocateReportParam('Curriculum', #5#30#7#15#15#15#15#15#15#15#15#15#15#15#15);
+  //LocateReportParam('Curriculum', #5#30#7#15#15#15#15#15#15#15#15#15#15#15#15);
 
-  S := DM.ibdsReportParamSIZES_1.Value;
+  S := #5#30#7#15#15#15#15#15#15#15#15#15#15#15#15;// DM.ibdsReportParamSIZES_1.Value;
   P[0] := Ord(S[1])*57;
   for i := 1 to FIELD_QTY - 1 do
     P[i] := P[i - 1] + Ord(S[i + 1]) * TWIPS_IN_MM;
@@ -731,17 +731,17 @@ begin
   rep.AddRow(['\qc №', '\ql Класс ->', '\qc 0', '1',  '2',  '3',  '4',  '5',  '6',  '7',   '8',   '9',   'Всего']);
 
   rep.Complete2MergeHeader(
-             [P[0],    P[2],           P[3],    P[4], P[5], P[6], P[7], P[8], P[9], P[10], P[11], P[12], P[13], P[14]], [0],
-             [1,       2,              3,       4,    5,    6,    7,    8,    9,    10,    11,    12,    13], []);
+             [P[0],    P[2],           P[3],    P[4], P[5], P[6], P[7], P[8], P[9], P[10], P[11], P[12], P[13], P[14], P[15]], [0],
+             [1,       2,              3,       4,    5,    6,    7,    8,    9,    10,    11,    12,    13,    14], []);
   rep.AddRow(['', '\ql Категория ->', '\qc ' +
-    Cat(ibdsCurriculumCAT_0.AsVariant), Cat(ibdsCurriculumCAT_0.AsVariant),
-    Cat(ibdsCurriculumCAT_0.AsVariant), Cat(ibdsCurriculumCAT_0.AsVariant),
-    Cat(ibdsCurriculumCAT_0.AsVariant), Cat(ibdsCurriculumCAT_0.AsVariant),
-    Cat(ibdsCurriculumCAT_0.AsVariant), Cat(ibdsCurriculumCAT_0.AsVariant),
-    Cat(ibdsCurriculumCAT_0.AsVariant), 'мл.', 'ст.', 'конц.']);
+    Cat(ibdsCurriculumCAT_0.AsVariant), Cat(ibdsCurriculumCAT_1.AsVariant),
+    Cat(ibdsCurriculumCAT_2.AsVariant), Cat(ibdsCurriculumCAT_3.AsVariant),
+    Cat(ibdsCurriculumCAT_4.AsVariant), Cat(ibdsCurriculumCAT_5.AsVariant),
+    Cat(ibdsCurriculumCAT_6.AsVariant), Cat(ibdsCurriculumCAT_7.AsVariant),
+    Cat(ibdsCurriculumCAT_8.AsVariant), Cat(ibdsCurriculumCAT_9.AsVariant), 'мл.', 'ст.', 'конц.']);
 
-  rep.CompleteMergeHeader(P, [0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], []);
-  rep.AddRow(['', '\ql Предмет', 'Гр.', '', '', '', '', '', '', '', '', '', '', '', '']);
+  rep.CompleteMergeHeader(P, [0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], []);
+  rep.AddRow(['', '\ql Предмет', 'Гр.', '', '', '', '', '', '', '', '', '', '', '', '', '']);
   rep.CreateTable(P, []);
   rep.ParSet12Times;
 
