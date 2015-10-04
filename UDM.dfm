@@ -7,8 +7,7 @@ object DM: TDM
   Height = 632
   Width = 713
   object ibDatabase: TIBDatabase
-    Connected = True
-    DatabaseName = 'localhost:C:\Projects\Zawuch\zawuch.FDB'
+    DatabaseName = 'localhost:C:\Projects\db\zawuch.fdb'
     Params.Strings = (
       'user_name=SYSDBA'
       'lc_ctype=WIN1251'
@@ -23,7 +22,6 @@ object DM: TDM
     Top = 8
   end
   object ibReadTransaction: TIBTransaction
-    Active = True
     DefaultDatabase = ibDatabase
     Params.Strings = (
       'read_committed'

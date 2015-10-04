@@ -50,9 +50,11 @@ object fmEdCurr: TfmEdCurr
         Top = 28
         Width = 73
         Height = 28
+        AutoComplete = False
         ItemHeight = 20
+        ItemIndex = 7
         TabOrder = 0
-        Text = '7'
+        Text = '8'
         OnEnter = edNameChange
         Items.Strings = (
           '1'
