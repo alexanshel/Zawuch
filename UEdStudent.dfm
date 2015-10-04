@@ -39,7 +39,7 @@ object fmEdStudent: TfmEdStudent
       Caption = #1040#1076#1088#1077#1089
     end
     object Label1: TLabel
-      Left = 176
+      Left = 464
       Top = 304
       Width = 45
       Height = 20
@@ -266,7 +266,7 @@ object fmEdStudent: TfmEdStudent
       end
     end
     object cbClass: TComboBox
-      Left = 176
+      Left = 464
       Top = 328
       Width = 65
       Height = 28
@@ -287,7 +287,7 @@ object fmEdStudent: TfmEdStudent
         '8')
     end
     object btnCancel: TBitBtn
-      Left = 424
+      Left = 752
       Top = 328
       Width = 97
       Height = 33
@@ -296,7 +296,7 @@ object fmEdStudent: TfmEdStudent
       Kind = bkCancel
     end
     object btnOk: TBitBtn
-      Left = 296
+      Left = 640
       Top = 328
       Width = 97
       Height = 33
@@ -415,7 +415,7 @@ object fmEdStudent: TfmEdStudent
     object edSpec: TComboEdit
       Left = 8
       Top = 328
-      Width = 145
+      Width = 441
       Height = 28
       DirectInput = False
       Glyph.Data = {

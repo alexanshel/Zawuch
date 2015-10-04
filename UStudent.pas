@@ -7,7 +7,7 @@ uses
   Dialogs, Menus, StdCtrls, ExtCtrls, DB, Grids, DBGrids, Buttons, DBCtrls,
   Mask, URTReport, ShellAPI, ComCtrls, AppEvnts, RXDBCtrl, Clipbrd,
   Placemnt, JvExStdCtrls, JvButton, JvCtrls, ActnList, XPStyleActnCtrls,
-  ActnMan, frxClass, frxDBSet, IBEvents, IBCustomDataSet;
+  ActnMan, frxClass, frxDBSet, IBEvents, IBCustomDataSet, frxExportRTF;
 
 type
   TfmStudent = class(TForm)
@@ -109,6 +109,12 @@ type
     ibdsCurriculumRecordCT: TFloatField;
     ibdsCurriculumRecordSUBJ_CODE: TIntegerField;
     dsCurrRec: TDataSource;
+    frxrForTeacher: TfrxReport;
+    frdbdsForTeacher: TfrxDBDataset;
+    ibdsRepForTeacher: TIBDataSet;
+    frxRTFExport: TfrxRTFExport;
+    ibdsRepForTeacherHeader: TIBDataSet;
+    frdbdsRepForTeacherHeader: TfrxDBDataset;
     procedure miExitClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -1368,53 +1374,7 @@ begin
 end;
 
 procedure TfmStudent.miPrintFoTeacherClick(Sender: TObject);
-const
-  FIELD_QTY = 11;
-var
-  rep: TRTReport;
-  //S: string[30];
-  P: array[0..FIELD_QTY - 1] of Integer;
-  s: TStrings;
-  i, k: integer;
-  Depts: TStrings;
-  DeptIDs: TStrings;
-  BM: TBookmark;
-  IsHeaderPrinted: boolean;
-  QtyY, QtyO: Integer;
-  TimeY, TimeO, TimeC:  Double;
-
-  function FIOToFInicials(V: string): String;
-  var
-    i: integer;
-  begin
-    V := Trim(V);
-    Result := Copy(V, 1, Pos(' ', V) - 1);
-    Delete(V, 1, Pos(' ', V));
-    V := TrimLeft(V);
-    if V <> '' then Result := Result + ' ' + V[1] + '.';
-    Delete(V, 1, Pos(' ', V));
-    V := TrimLeft(V);
-    if V <> '' then Result := Result + V[1] + '.';
-  end;
-  procedure PrintHeader;
-  begin
-    rep.ParSet(fTimes, 12, [fstBold]);
-    rep.ParSetTableHead;
-
-    rep.CreateTable(P, []);
-    rep.AddRow(['\b\qc №', 'Ф.И.О. учащегося (предмет)', 'Кл.', 'Специализация', 'Куратор' ,
-      '\fs14 гр. мл.', 'гр. ст.',
-      'мл. ч.', 'ст. ч.', 'конц. ч.', '\fs16 Примечание\fs20']);
-    rep.ParSet(fTimes, 11);
-    IsHeaderPrinted := true;
-  end;
 begin
-  QtyY := 0; QtyO := 0;
-  TimeY := 0; TimeO := 0; TimeC := 0;
-
-  s := TStringList.Create;
-  s.Delimiter := '|';
-
   DM.ibdsStudentFilter.Close;
   DM.ibdsStudentFilter.Open;
   if (not btnFilter.Down) or DM.ibdsStudentFilterTEACHER_ID_1.IsNull then
@@ -1422,122 +1382,16 @@ begin
     ShowMessage('Настройте и включите фильтр');
     Exit;
   end;
-  LocateReportParam('DeptStRepForTeacher', #7#30#5#20#30#15#15#15#15#15#45);
 
-  s.DelimitedText := DM.ibdsReportParamSIZES_1.Value;
-  P[0] := StrToInt(s[0])*TWIPS_IN_MM;
-  for i := 1 to FIELD_QTY - 1 do
-    P[i] := P[i - 1] + StrToInt(s[i]) * TWIPS_IN_MM;
-
-  FreeAndNil(s);
-  rep := TRTReport.Create('DeptStRepForTeacher');
-
-
-  rep.ParSet(fArial, 12, [fstBold]);
-  DM.ibdsTeacher.Locate('ID', VarArrayOf([DM.ibdsStudentFilterTEACHER_ID_1.Value]), []);
-  rep.AddText('\qc Преподаватель: ' + DM.ibdsTeacherName.Value);
-  rep.AddPar('');
-
-  PrintHeader;
-
-  k := 1;
-  DM.ibds.Close;
-  DM.ibds.SelectSQL.Clear;
-  DM.ibds.SelectSQL.Append(
-    ' SELECT vst.NAME, vst.CLASS, vst.PERIOD, vst.SPECIALIZATION, vst.CURATOR, TIME_Y, TIME_O, TIME_C, CLC.CLOCKS ' +
-    ' FROM get_filtred_student(1) fs ' +
-    '   LEFT JOIN VIEW_STUDENT vst ON vst.id = fs.id ' +
-    '   INNER JOIN V_STUDENT_CURATOR_CLOCK vscc ON ' +
-    '     fs.id = vscc.id_student ' +
-    '   LEFT JOIN GET_ST_I_SUBJ_CLOCKS_CSV(:t_id, fs.id) CLC ON 1 = 1 ' +
-    'WHERE vscc.ID_TEACHER = :t_id ' +
-    'ORDER BY vst.NAME '
+  ibdsRepForTeacher.Close;
+  ibdsRepForTeacherHeader.Close;
+  ibdsRepForTeacherHeader.Open;
+  ibdsRepForTeacher.Open;
+  URTReport.runFrxReportAndExport(
+    'fr\StudentsForTeacherInFlt.fr3',
+    frxrForTeacher,
+    frxRTFExport
   );
-    //    DM.ibds.ParamByName('st_id').AsInteger := DM.ibdsStudentID.Value;
-  DM.ibds.ParamByName('t_id').AsInteger := DM.ibdsStudentFilterTEACHER_ID_1.Value;
-  DM.ibds.Open;
-
-  while not DM.ibds.Eof do
-  begin
-    rep.AddRow([
-      '\fs20 ' + IntToStr(k),
-      DM.ibds.FieldByName('NAME').AsString,
-      DM.ibds.FieldByName('CLASS').AsString + '(' + DM.ibds.FieldByName('PERIOD').AsString + ')',
-      DM.ibds.FieldByName('SPECIALIZATION').AsString,
-      FIOToFInicials(DM.ibds.FieldByName('CURATOR').AsString),
-      '',
-      '',
-      '\qr ' + dFormat(DM.ibds.FieldByName('TIME_Y').AsFloat),
-      '\qr ' + dFormat(DM.ibds.FieldByName('TIME_O').AsFloat),
-      '\qr ' + dFormat(DM.ibds.FieldByName('TIME_C').AsFloat),
-      '\ql \fs16 ' + DM.ibds.FieldByName('CLOCKS').AsString
-    ]);
-    inc(k);
-    TimeY := TimeY + DM.ibds.FieldByName('TIME_Y').AsFloat;
-    TimeO := TimeO + DM.ibds.FieldByName('TIME_O').AsFloat;
-    TimeC := TimeC + DM.ibds.FieldByName('TIME_C').AsFloat;
-
-    DM.ibds.Next;
-    //rep.AddText('\pard ');
-  end;
-
-  DM.ibds.Close;
-  DM.ibds.SelectSQL.Clear;
-  DM.ibds.SelectSQL.Append(
-    ' SELECT gs.name, vtgt.class_num, vtgt.period, ' +
-    '    vtgt.qty_y, vtgt.qty_o, ' +
-    '    vtgt.time_y, vtgt.time_o, vtgt.time_c ' +
-    ' FROM v_teacher_group_time vtgt ' +
-    '   LEFT JOIN grouping_subj gs ON ' +
-    '     vtgt.id_grouping = gs.grouping_id AND ' +
-    '     vtgt.id_grouping_subj = gs.id ' +
-    ' WHERE vtgt.id_teacher = :t_id ' +
-    ' ORDER BY gs.name '
-  );
-    //DM.ibds.ParamByName('dept_id').AsInteger := Integer(Depts.Objects[i]);
-  DM.ibds.ParamByName('t_id').AsInteger := DM.ibdsStudentFilterTEACHER_ID_1.Value;
-  DM.ibds.Open;
-  DM.ibds.First;
-
-  while not DM.ibds.Eof do
-  begin
-    rep.AddRow([
-      '\fs20 ' + IntToStr(k),
-      DM.ibds.Fields[0].AsString,
-      DM.ibds.Fields[1].AsString + '(' + DM.ibds.Fields[2].AsString + ')',
-      '', '',
-      '\qr ' + DM.ibds.Fields[3].AsString,
-      DM.ibds.Fields[4].AsString,
-      dFormat(DM.ibds.Fields[5].AsFloat),
-      dFormat(DM.ibds.Fields[6].AsFloat),
-      dFormat(DM.ibds.Fields[7].AsFloat),
-      '\ql '
-    ]);
-    QtyY := QtyY + DM.ibds.Fields[3].AsInteger;
-    QtyO := QtyO + DM.ibds.Fields[4].AsInteger;
-    TimeY := TimeY + DM.ibds.Fields[5].AsFloat;
-    TimeO := TimeO + DM.ibds.Fields[6].AsFloat;
-    TimeC := TimeC + DM.ibds.Fields[7].AsFloat;
-    DM.ibds.Next;
-    inc(k);
-  end;
-
-    rep.AddRow([
-      IntToStr(k),
-      '\b ' + 'ИТОГО' + '\b0 ',
-      '',
-      '', '',
-      '\qr ' + iFormat(QtyY),
-      iFormat(QtyO),
-      dFormat(TimeY),
-      dFormat(TimeO),
-      dFormat(TimeC),
-      '\ql '
-    ]);
-
-  DM.ibds.Close;
-
-  rep.SaveAndExecuteReport(Handle, 'Отчет для педагога по ученикам');
 end;
 
 procedure TfmStudent.IBEventsEventAlert(Sender: TObject;

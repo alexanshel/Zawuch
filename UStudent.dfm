@@ -1,6 +1,6 @@
 object fmStudent: TfmStudent
-  Left = 252
-  Top = 132
+  Left = 308
+  Top = 191
   Width = 865
   Height = 694
   HelpContext = 12
@@ -1079,5 +1079,553 @@ object fmStudent: TfmStudent
     DataSet = ibdsCurriculumRecord
     Left = 617
     Top = 288
+  end
+  object frxrForTeacher: TfrxReport
+    Version = '4.0.11'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 42281.935714282400000000
+    ReportOptions.LastChange = 42282.063045405090000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 760
+    Top = 144
+    Datasets = <
+      item
+        DataSet = frdbdsForTeacher
+        DataSetName = 'frdbdsForTeacher'
+      end
+      item
+        DataSet = frdbdsRepForTeacherHeader
+        DataSetName = 'frdbdsForTeacherHeader'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      object Header1: TfrxHeader
+        Height = 94.488250000000000000
+        Top = 18.897650000000000000
+        Width = 793.701300000000000000
+        object Memo1: TfrxMemoView
+          Left = 253.228510000000000000
+          Top = 37.795300000000000000
+          Width = 411.968770000000000000
+          Height = 18.897650000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Memo.UTF8 = (
+            
+              #1056#1119#1057#1026#1056#181#1056#1111#1056#1109#1056#1169#1056#176#1056#1030#1056#176#1057#8218#1056#181#1056#187#1057#1034': [frdbdsForTeacherHeader."TEACHER_NAM' +
+              'E"]')
+          ParentFont = False
+        end
+        object Memo4: TfrxMemoView
+          Left = 37.795300000000000000
+          Top = 56.692949999999990000
+          Width = 26.456710000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            #1074#8222#8211)
+          ParentFont = False
+        end
+        object Memo5: TfrxMemoView
+          Left = 64.252010000000000000
+          Top = 56.692949999999990000
+          Width = 170.078850000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#164#1056#152#1056#1115' '#1057#1107#1057#8225#1056#176#1057#8240#1056#181#1056#1110#1056#1109#1057#1027#1057#1039
+            '('#1056#1111#1057#1026#1056#181#1056#1169#1056#1112#1056#181#1057#8218')')
+          ParentFont = False
+        end
+        object Memo6: TfrxMemoView
+          Left = 234.330860000000000000
+          Top = 56.692949999999990000
+          Width = 30.236240000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1113#1056#187'.')
+          ParentFont = False
+        end
+        object Memo8: TfrxMemoView
+          Left = 264.567100000000000000
+          Top = 56.692949999999990000
+          Width = 143.622140000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1038#1056#1111#1056#181#1057#8224#1056#1105#1056#176#1056#187#1056#1105#1056#183#1056#176#1057#8224#1056#1105#1057#1039)
+          ParentFont = False
+        end
+        object Memo10: TfrxMemoView
+          Left = 408.189240000000000000
+          Top = 56.692949999999990000
+          Width = 94.488250000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1113#1057#1107#1057#1026#1056#176#1057#8218#1056#1109#1057#1026)
+          ParentFont = False
+        end
+        object Memo12: TfrxMemoView
+          Left = 502.677490000000000000
+          Top = 56.692949999999990000
+          Width = 22.677180000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1110#1057#1026'.')
+          ParentFont = False
+        end
+        object Memo14: TfrxMemoView
+          Left = 525.354670000000000000
+          Top = 56.692949999999990000
+          Width = 34.015770000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1111#1056#181#1056#1169'. '#1057#8225'.')
+          ParentFont = False
+        end
+        object Memo15: TfrxMemoView
+          Left = 559.370440000000000000
+          Top = 56.692949999999990000
+          Width = 34.015770000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1108#1056#1109#1056#1029#1057#8224'. '#1057#8225'.')
+          ParentFont = False
+        end
+        object Memo16: TfrxMemoView
+          Left = 593.386210000000000000
+          Top = 56.692949999999990000
+          Width = 162.519790000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1119#1057#1026#1056#1105#1056#1112#1056#181#1057#8225#1056#176#1056#1029#1056#1105#1056#181)
+          ParentFont = False
+        end
+      end
+      object MasterData1: TfrxMasterData
+        Height = 18.897650000000000000
+        Top = 136.063080000000000000
+        Width = 793.701300000000000000
+        DataSet = frdbdsForTeacher
+        DataSetName = 'frdbdsForTeacher'
+        RowCount = 0
+        Stretched = True
+        object Memo3: TfrxMemoView
+          Left = 37.795300000000000000
+          Width = 26.456710000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[Line]')
+          ParentFont = False
+        end
+        object Memo2: TfrxMemoView
+          Left = 64.252010000000000000
+          Width = 170.078850000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataField = 'NAME'
+          DataSet = frdbdsForTeacher
+          DataSetName = 'frdbdsForTeacher'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            '[frdbdsForTeacher."NAME"]')
+          ParentFont = False
+        end
+        object Memo7: TfrxMemoView
+          Left = 234.330860000000000000
+          Width = 30.236240000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataField = 'CLASS_AND_PERIOD'
+          DataSet = frdbdsForTeacher
+          DataSetName = 'frdbdsForTeacher'
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            '[frdbdsForTeacher."CLASS_AND_PERIOD"]')
+          ParentFont = False
+        end
+        object Memo9: TfrxMemoView
+          Left = 264.567100000000000000
+          Width = 143.622140000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataSet = frdbdsForTeacher
+          DataSetName = 'frdbdsForTeacher'
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            '[frdbdsForTeacher."SPECIALIZATION"]')
+          ParentFont = False
+        end
+        object Memo11: TfrxMemoView
+          Left = 408.189240000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataField = 'CURATOR'
+          DataSet = frdbdsForTeacher
+          DataSetName = 'frdbdsForTeacher'
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            '[frdbdsForTeacher."CURATOR"]')
+          ParentFont = False
+        end
+        object Memo13: TfrxMemoView
+          Left = 502.677490000000000000
+          Width = 22.677180000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataField = 'QTY_P'
+          DataSet = frdbdsForTeacher
+          DataSetName = 'frdbdsForTeacher'
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frdbdsForTeacher."QTY_P"]')
+          ParentFont = False
+        end
+        object Memo17: TfrxMemoView
+          Left = 525.354670000000000000
+          Width = 34.015770000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataSet = frdbdsForTeacher
+          DataSetName = 'frdbdsForTeacher'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frdbdsForTeacher."TIME_P"]')
+          ParentFont = False
+        end
+        object Memo18: TfrxMemoView
+          Left = 559.370440000000000000
+          Width = 34.015770000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataField = 'TIME_C'
+          DataSet = frdbdsForTeacher
+          DataSetName = 'frdbdsForTeacher'
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haBlock
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frdbdsForTeacher."TIME_C"]')
+          ParentFont = False
+        end
+        object Memo19: TfrxMemoView
+          Left = 593.386210000000000000
+          Width = 162.519790000000000000
+          Height = 18.897650000000000000
+          StretchMode = smMaxHeight
+          DataField = 'CLOCKS'
+          DataSet = frdbdsForTeacher
+          DataSetName = 'frdbdsForTeacher'
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            '[frdbdsForTeacher."CLOCKS"]')
+          ParentFont = False
+        end
+      end
+      object Footer1: TfrxFooter
+        Height = 22.677180000000000000
+        Top = 177.637910000000000000
+        Width = 793.701300000000000000
+        object Memo20: TfrxMemoView
+          Left = 37.795300000000000000
+          Width = 26.456710000000000000
+          Height = 18.897650000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          ParentFont = False
+        end
+        object Memo21: TfrxMemoView
+          Left = 64.252010000000000000
+          Width = 438.425480000000000000
+          Height = 18.897650000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8 = (
+            #1056#152#1056#1118#1056#1115#1056#8220#1056#1115)
+          ParentFont = False
+        end
+        object Memo22: TfrxMemoView
+          Left = 502.677490000000000000
+          Width = 22.677180000000000000
+          Height = 18.897650000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[SUM(<frdbdsForTeacher."QTY_P">)]')
+          ParentFont = False
+        end
+        object Memo23: TfrxMemoView
+          Left = 525.354670000000000000
+          Width = 34.015770000000000000
+          Height = 18.897650000000000000
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[SUM(<frdbdsForTeacher."TIME_P">)]')
+          ParentFont = False
+        end
+        object Memo24: TfrxMemoView
+          Left = 559.370440000000000000
+          Width = 34.015770000000000000
+          Height = 18.897650000000000000
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[SUM(<frdbdsForTeacher."TIME_C">)]')
+          ParentFont = False
+        end
+        object Memo25: TfrxMemoView
+          Left = 593.386210000000000000
+          Width = 162.519790000000000000
+          Height = 18.897650000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          ParentFont = False
+        end
+      end
+    end
+  end
+  object frdbdsForTeacher: TfrxDBDataset
+    UserName = 'frdbdsForTeacher'
+    CloseDataSource = False
+    DataSet = ibdsRepForTeacher
+    Left = 728
+    Top = 128
+  end
+  object ibdsRepForTeacher: TIBDataSet
+    Database = DM.ibDatabase
+    Transaction = DM.ibTransaction
+    AutoCalcFields = False
+    SelectSQL.Strings = (
+      'select *'
+      'from v_r_for_teacher_by_students_flt'
+      '')
+    Active = True
+    Left = 696
+    Top = 128
+  end
+  object frxRTFExport: TfrxRTFExport
+    ShowDialog = False
+    UseFileCache = True
+    ShowProgress = True
+    OpenAfterExport = True
+    Wysiwyg = True
+    Creator = 'ASh'
+    SuppressPageHeadersFooters = True
+    HeaderFooterMode = hfText
+    Left = 792
+    Top = 144
+  end
+  object ibdsRepForTeacherHeader: TIBDataSet
+    Database = DM.ibDatabase
+    Transaction = DM.ibTransaction
+    AutoCalcFields = False
+    SelectSQL.Strings = (
+      'select teacher_name_1 teacher_name'
+      'from v_student_filter'
+      'where id = 1'
+      '')
+    Active = True
+    Left = 696
+    Top = 160
+  end
+  object frdbdsRepForTeacherHeader: TfrxDBDataset
+    UserName = 'frdbdsForTeacherHeader'
+    CloseDataSource = False
+    DataSet = ibdsRepForTeacherHeader
+    Left = 728
+    Top = 160
   end
 end

@@ -1,7 +1,7 @@
 unit URTReport;
 interface
 uses Classes, Dialogs, UDM, Variants, ShellAPI, Windows, Forms, ComCtrls,
-     IBCustomDataSet, IBQuery;
+     IBCustomDataSet, IBQuery, frxExportRTF, frxClass;
 const
   TWIPS_IN_MM = 57;
 type
@@ -91,6 +91,7 @@ type
   function getXSLDir: String;
   function getTmpDir: String;
   function quoteFileName(fileName: string): String;
+  procedure runFrxReportAndExport(fileName: String; frReport: TfrxReport; frExport: TfrxRTFExport);
 const
   mon: array[1..12] of string = ('Январь', 'Февраль', 'Март',
     'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь',
@@ -99,6 +100,68 @@ const
 implementation
 
 uses SysUtils, ConvUtils, Math, DB;
+
+
+  function FIOToFInicials(V: string): String;
+  var
+    i: integer;
+  begin
+    V := Trim(V);
+    Result := Copy(V, 1, Pos(' ', V) - 1);
+    Delete(V, 1, Pos(' ', V));
+    V := TrimLeft(V);
+    if V <> '' then Result := Result + ' ' + V[1] + '.';
+    Delete(V, 1, Pos(' ', V));
+    V := TrimLeft(V);
+    if V <> '' then Result := Result + V[1] + '.';
+  end;
+
+  function getFreeFileName(ext: String = '.rtf'): String;
+  var
+    i: integer;
+  begin
+    i := 0;
+    try
+      if not DirectoryExists(ExtractFilePath(Application.ExeName) + '\tmp') then
+        if not CreateDir(ExtractFilePath(Application.ExeName) + '\tmp') then
+          raise Exception.Create('Невозможно создать директорию tmp');
+      while FileExists(ExtractFilePath(Application.ExeName) +
+        'tmp\' + 'tmp' + IntToStr(i) + ext) do inc(i);
+      result := ExtractFilePath(Application.ExeName) +
+        'tmp\' + 'tmp' + IntToStr(i) + ext;
+    except
+      MessageDlg('Невозможна запись в файл.', mtError, [mbOK], 0);
+    end;
+  end;
+
+  function getXSLDir: String;
+  begin
+    result := ExtractFilePath(ParamStr(0)) + 'xsl\';
+  end;
+
+  function getTmpDir: String;
+  begin
+    result := ExtractFilePath(ParamStr(0)) + 'tmp\';
+  end;
+
+  function quoteFileName(fileName: string): String;
+  begin
+    result := '"' + fileName + '"';
+  end;
+
+  procedure runFrxReportAndExport(fileName: String; frReport: TfrxReport; frExport: TfrxRTFExport);
+  begin
+    frExport.FileName := getFreeFileName;
+
+    if not FileExists(fileName) then
+    begin
+      frReport.SaveToFile(fileName);
+    end;
+
+    frReport.LoadFromFile(fileName);
+    frReport.PrepareReport;
+    frReport.Export(frExport);
+  end;
 
 { TRTReport }
 
@@ -550,54 +613,6 @@ begin
   for i := 0 to High(SizesArray) do a[i] := a[i] * TWIPS_IN_MM;
   Complete2MergeHeader(a, MergeIndexes, Merge2Indexes, VertFieldsIndex);
 end;
-
-  function FIOToFInicials(V: string): String;
-  var
-    i: integer;
-  begin
-    V := Trim(V);
-    Result := Copy(V, 1, Pos(' ', V) - 1);
-    Delete(V, 1, Pos(' ', V));
-    V := TrimLeft(V);
-    if V <> '' then Result := Result + ' ' + V[1] + '.';
-    Delete(V, 1, Pos(' ', V));
-    V := TrimLeft(V);
-    if V <> '' then Result := Result + V[1] + '.';
-  end;
-
-  function getFreeFileName(ext: String = '.rtf'): String;
-  var
-    i: integer;
-  begin
-    i := 0;
-    try
-      if not DirectoryExists(ExtractFilePath(Application.ExeName) + '\tmp') then
-        if not CreateDir(ExtractFilePath(Application.ExeName) + '\tmp') then
-          raise Exception.Create('Невозможно создать директорию tmp');
-      while FileExists(ExtractFilePath(Application.ExeName) +
-        'tmp\' + 'tmp' + IntToStr(i) + ext) do inc(i);
-      result := ExtractFilePath(Application.ExeName) +
-        'tmp\' + 'tmp' + IntToStr(i) + ext;
-    except
-      MessageDlg('Невозможна запись в файл.', mtError, [mbOK], 0);
-    end;
-  end;
-
-  function getXSLDir: String;
-  begin
-    result := ExtractFilePath(ParamStr(0)) + 'xsl\';
-  end;
-
-  function getTmpDir: String;
-  begin
-    result := ExtractFilePath(ParamStr(0)) + 'tmp\';
-  end;
-
-  function quoteFileName(fileName: string): String;
-  begin
-    result := '"' + fileName + '"';
-  end;
-
 
 function TRTReport.getReportSql(sqlCode: String): String;
 var
