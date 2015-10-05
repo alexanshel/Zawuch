@@ -115,7 +115,7 @@ AutoIncBuild=1
 MajorVer=1
 MinorVer=0
 Release=1
-Build=70
+Build=71
 Debug=0
 PreRelease=0
 Special=0
@@ -126,7 +126,7 @@ CodePage=1251
 [Version Info Keys]
 CompanyName=ASh Software
 FileDescription=Программный комплекс "Завуч"
-FileVersion=1.0.1.70
+FileVersion=1.0.1.71
 InternalName=
 LegalCopyright=
 LegalTrademarks=

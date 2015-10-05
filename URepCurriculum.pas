@@ -205,6 +205,7 @@ uses UDM, IBSQL, UCurrRepParam;
 procedure TfmRepCurriculum.FormCreate(Sender: TObject);
 begin
   cbCurr.Clear;
+  ibdsCurriculum.Open;
   ibdsCurriculum.First;
   while not ibdsCurriculum.Eof do
   begin

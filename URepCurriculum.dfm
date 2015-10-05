@@ -388,7 +388,6 @@ object fmRepCurriculum: TfmRepCurriculum
           Expanded = False
           FieldName = 'G_QTY_Y'
           Title.Color = clWindow
-          Width = 64
           Visible = True
         end
         item
@@ -396,7 +395,6 @@ object fmRepCurriculum: TfmRepCurriculum
           Expanded = False
           FieldName = 'G_QTY_O'
           Title.Color = clWindow
-          Width = 64
           Visible = True
         end>
     end
@@ -406,7 +404,6 @@ object fmRepCurriculum: TfmRepCurriculum
       Width = 946
       Height = 97
       Align = alTop
-      Caption = 'Panel7'
       TabOrder = 1
       object Panel3: TPanel
         Left = 1
@@ -414,7 +411,6 @@ object fmRepCurriculum: TfmRepCurriculum
         Width = 392
         Height = 95
         Align = alLeft
-        Caption = 'Panel3'
         TabOrder = 0
         object Panel5: TPanel
           Left = 1
@@ -441,7 +437,6 @@ object fmRepCurriculum: TfmRepCurriculum
         Width = 552
         Height = 95
         Align = alClient
-        Caption = 'Panel4'
         TabOrder = 1
         object dbgCurr: TRxDBGrid
           Left = 1
@@ -643,7 +638,6 @@ object fmRepCurriculum: TfmRepCurriculum
       Width = 946
       Height = 118
       Align = alBottom
-      Caption = 'Panel8'
       TabOrder = 2
       object Panel2: TPanel
         Left = 1
@@ -651,7 +645,6 @@ object fmRepCurriculum: TfmRepCurriculum
         Width = 392
         Height = 116
         Align = alLeft
-        Caption = 'Panel2'
         TabOrder = 0
         object Panel9: TPanel
           Left = 1
@@ -687,7 +680,6 @@ object fmRepCurriculum: TfmRepCurriculum
         Width = 552
         Height = 116
         Align = alClient
-        Caption = 'Panel12'
         TabOrder = 1
         object dbgCurrTotal: TRxDBGrid
           Left = 1
@@ -712,49 +704,41 @@ object fmRepCurriculum: TfmRepCurriculum
             item
               Expanded = False
               FieldName = 't_t_1'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 't_t_2'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 't_t_3'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 't_t_4'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 't_t_5'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 't_t_6'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 't_t_7'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 't_t_8'
-              Width = 64
               Visible = True
             end>
         end
@@ -781,49 +765,41 @@ object fmRepCurriculum: TfmRepCurriculum
             item
               Expanded = False
               FieldName = 'T_V_1'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_V_2'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_V_3'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_V_4'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_V_5'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_V_6'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_V_7'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_V_8'
-              Width = 64
               Visible = True
             end>
         end
@@ -850,97 +826,81 @@ object fmRepCurriculum: TfmRepCurriculum
             item
               Expanded = False
               FieldName = 'T_1'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_2'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_3'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_4'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_5'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_6'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_7'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_8'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_A_Y'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_A_O'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_A_C'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_V_Y'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_V_O'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'T_V_C'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'G_Y'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'G_O'
-              Width = 64
               Visible = True
             end>
         end
@@ -1120,6 +1080,8 @@ object fmRepCurriculum: TfmRepCurriculum
   end
   object ibdsCurrReport: TIBDataSet
     Tag = -1
+    Database = DM.ibDatabase
+    Transaction = DM.ibTransaction
     SelectSQL.Strings = (
       'select *'
       'from proc_curr_report(:curr_id, :financing_id);')
@@ -1388,6 +1350,8 @@ object fmRepCurriculum: TfmRepCurriculum
   end
   object ibdsCurrReportRec: TIBDataSet
     Tag = -1
+    Database = DM.ibDatabase
+    Transaction = DM.ibTransaction
     SelectSQL.Strings = (
       'select *'
       'from proc_curr_rec_report(:curr_id, :financing_id)'

@@ -69,7 +69,7 @@ procedure TfmEdISubject.jvdblcDepartmentChange(Sender: TObject);
 begin
   ibqDepartment.Locate('ID', jvdblcDepartment.KeyValue, []);
   ibqCurrRec.Close;
-  ibqCurrRec.ParamByName('CurriculumID').Value := ibqDepartment.FieldValues['CurriculumID'];
+  ibqCurrRec.ParamByName('CurriculumID').Value := ibqDepartment.FieldValues['CURR_ID'];
   ibqCurrRec.Open;
   if (jvdblcCurrRec.KeyValue = Null) or ibqCurrRec.Locate('ID', jvdblcCurrRec.KeyValue, []) then Exit;
   jvdblcCurrRec.KeyValue := Null;

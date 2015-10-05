@@ -46,7 +46,7 @@ object fmEdISubject: TfmEdISubject
     Height = 23
     Anchors = [akLeft, akTop, akRight]
     LookupField = 'ID'
-    LookupDisplay = 'Name'
+    LookupDisplay = 'NAME'
     LookupSource = dsDepartment
     TabOrder = 0
     OnChange = jvdblcDepartmentChange
@@ -66,7 +66,7 @@ object fmEdISubject: TfmEdISubject
     Height = 23
     Anchors = [akLeft, akTop, akRight]
     LookupField = 'ID'
-    LookupDisplay = 'SUBJECT_NAME'
+    LookupDisplay = 'SUBJ_NAME'
     LookupSource = dsCurrRec
     TabOrder = 2
   end
@@ -137,9 +137,8 @@ object fmEdISubject: TfmEdISubject
   object ibqDepartment: TIBQuery
     Database = DM.ibDatabase
     Transaction = DM.ibReadTransaction
-    Active = True
     SQL.Strings = (
-      'select * from "Department"')
+      'select * from V_DEPARTMENT')
     Left = 336
     Top = 96
   end
@@ -148,8 +147,8 @@ object fmEdISubject: TfmEdISubject
     Transaction = DM.ibReadTransaction
     SQL.Strings = (
       'select * '
-      'from VIEW_CURRICULUM_RECORDS'
-      'WHERE "CurriculumID" = :CurriculumID')
+      'from V_CURRICULUM_REC'
+      'WHERE curr_id = :CurriculumID')
     Left = 408
     Top = 96
     ParamData = <

@@ -105,6 +105,8 @@ end;
 
 procedure TfmLearnTimeGrid.FormCreate(Sender: TObject);
 begin
+  dmLTG.ibdsLTG.Close;
+  dmLTG.ibdsLTG.Open;
   dmLTG.ibdsLTGSubject.Close;
   dmLTG.ibdsLTGSubject.Open;
   dsLTG.DataSet := dmLTG.ibdsLTG;
