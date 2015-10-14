@@ -2,11 +2,12 @@ object DM: TDM
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Left = 554
-  Top = 228
+  Left = 750
+  Top = 265
   Height = 632
   Width = 713
   object ibDatabase: TIBDatabase
+    Connected = True
     DatabaseName = 'localhost:C:\Projects\db\zawuch.fdb'
     Params.Strings = (
       'user_name=SYSDBA'
@@ -22,6 +23,7 @@ object DM: TDM
     Top = 8
   end
   object ibReadTransaction: TIBTransaction
+    Active = True
     DefaultDatabase = ibDatabase
     Params.Strings = (
       'read_committed'
@@ -875,125 +877,6 @@ object DM: TDM
       FieldName = 'CURR_ID'
       Origin = '"VIEW_STUDENT_PLAN"."CURR_ID"'
       Visible = False
-    end
-  end
-  object ibdsTeacherTM: TIBDataSet
-    Database = ibDatabase
-    Transaction = ibReadTransaction
-    OnCalcFields = ibdsTeacherTMCalcFields
-    SelectSQL.Strings = (
-      
-        'select * from proc_teacher_tm(:"ID", 0) PTTM0, proc_teacher_tm(:' +
-        '"ID", 1) PTTM1;')
-    Left = 32
-    Top = 216
-    object ibdsTeacherTMOUTYTIME: TFloatField
-      FieldName = 'OUTYTIME'
-      Origin = '"PROC_TEACHER_TM"."OUTYTIME"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsTeacherTMOUTOTIME: TFloatField
-      FieldName = 'OUTOTIME'
-      Origin = '"PROC_TEACHER_TM"."OUTOTIME"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsTeacherTMOUTCTIME: TFloatField
-      FieldName = 'OUTCTIME'
-      Origin = '"PROC_TEACHER_TM"."OUTCTIME"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsTeacherTMOUTYPAY: TFloatField
-      FieldName = 'OUTYPAY'
-      Origin = '"PROC_TEACHER_TM"."OUTYPAY"'
-      currency = True
-    end
-    object ibdsTeacherTMOUTOPAY: TFloatField
-      FieldName = 'OUTOPAY'
-      Origin = '"PROC_TEACHER_TM"."OUTOPAY"'
-      currency = True
-    end
-    object ibdsTeacherTMOUTCPAY: TFloatField
-      FieldName = 'OUTCPAY'
-      Origin = '"PROC_TEACHER_TM"."OUTCPAY"'
-      currency = True
-    end
-    object ibdsTeacherTMOUTYTIME1: TFloatField
-      FieldName = 'OUTYTIME1'
-      Origin = '"PROC_TEACHER_TM"."OUTYTIME"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsTeacherTMOUTOTIME1: TFloatField
-      FieldName = 'OUTOTIME1'
-      Origin = '"PROC_TEACHER_TM"."OUTOTIME"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsTeacherTMOUTCTIME1: TFloatField
-      FieldName = 'OUTCTIME1'
-      Origin = '"PROC_TEACHER_TM"."OUTCTIME"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsTeacherTMOUTYPAY1: TFloatField
-      FieldName = 'OUTYPAY1'
-      Origin = '"PROC_TEACHER_TM"."OUTYPAY"'
-      currency = True
-    end
-    object ibdsTeacherTMOUTOPAY1: TFloatField
-      FieldName = 'OUTOPAY1'
-      Origin = '"PROC_TEACHER_TM"."OUTOPAY"'
-      currency = True
-    end
-    object ibdsTeacherTMOUTCPAY1: TFloatField
-      FieldName = 'OUTCPAY1'
-      Origin = '"PROC_TEACHER_TM"."OUTCPAY"'
-      currency = True
-    end
-    object ibdsTeacherTMOUTSUMTIME: TFloatField
-      FieldName = 'OUTSUMTIME'
-      Origin = '"PROC_TEACHER_TM"."OUTSUMTIME"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsTeacherTMOUTSUMPAY: TFloatField
-      FieldName = 'OUTSUMPAY'
-      Origin = '"PROC_TEACHER_TM"."OUTSUMPAY"'
-      currency = True
-    end
-    object ibdsTeacherTMOUTSUMTIME1: TFloatField
-      FieldName = 'OUTSUMTIME1'
-      Origin = '"PROC_TEACHER_TM"."OUTSUMTIME"'
-      DisplayFormat = '0.00'
-    end
-    object ibdsTeacherTMOUTSUMPAY1: TFloatField
-      FieldName = 'OUTSUMPAY1'
-      Origin = '"PROC_TEACHER_TM"."OUTSUMPAY"'
-      currency = True
-    end
-    object ibdsTeacherTMSUMTIME: TFloatField
-      FieldKind = fkCalculated
-      FieldName = 'SUMTIME'
-      DisplayFormat = '0.00'
-      Calculated = True
-    end
-    object ibdsTeacherTMSUMPAY: TFloatField
-      FieldKind = fkCalculated
-      FieldName = 'SUMPAY'
-      currency = True
-      Calculated = True
-    end
-    object ibdsTeacherTMOUTADDSUM: TFloatField
-      FieldName = 'OUTADDSUM'
-      Origin = '"PROC_TEACHER_TM"."OUTADDSUM"'
-      currency = True
-    end
-    object ibdsTeacherTMTOTALSUM: TFloatField
-      FieldKind = fkCalculated
-      FieldName = 'TOTALSUM'
-      currency = True
-      Calculated = True
-    end
-    object ibdsTeacherTMName: TStringField
-      FieldKind = fkCalculated
-      FieldName = 'Name'
-      Calculated = True
     end
   end
   object ibdsGrouping: TIBDataSet

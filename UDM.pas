@@ -68,27 +68,6 @@ type
     ibdsConstOTCOEF: TFloatField;
     ibdsConstCTCOEF: TFloatField;
     ibdsStudentPlanUseBool: TBooleanField;
-    ibdsTeacherTM: TIBDataSet;
-    ibdsTeacherTMOUTYTIME: TFloatField;
-    ibdsTeacherTMOUTOTIME: TFloatField;
-    ibdsTeacherTMOUTCTIME: TFloatField;
-    ibdsTeacherTMOUTYPAY: TFloatField;
-    ibdsTeacherTMOUTOPAY: TFloatField;
-    ibdsTeacherTMOUTCPAY: TFloatField;
-    ibdsTeacherTMOUTYTIME1: TFloatField;
-    ibdsTeacherTMOUTOTIME1: TFloatField;
-    ibdsTeacherTMOUTCTIME1: TFloatField;
-    ibdsTeacherTMOUTYPAY1: TFloatField;
-    ibdsTeacherTMOUTOPAY1: TFloatField;
-    ibdsTeacherTMOUTCPAY1: TFloatField;
-    ibdsTeacherTMOUTSUMTIME: TFloatField;
-    ibdsTeacherTMOUTSUMPAY: TFloatField;
-    ibdsTeacherTMOUTSUMTIME1: TFloatField;
-    ibdsTeacherTMOUTSUMPAY1: TFloatField;
-    ibdsTeacherTMSUMTIME: TFloatField;
-    ibdsTeacherTMSUMPAY: TFloatField;
-    ibdsTeacherTMOUTADDSUM: TFloatField;
-    ibdsTeacherTMTOTALSUM: TFloatField;
     ibdsTeacherStage: TStringField;
     ibdsTeacherSTAGE_Y: TSmallintField;
     ibdsTeacherSTAGE_M: TSmallintField;
@@ -99,7 +78,6 @@ type
     ibdsTeacherCurrStageM: TIntegerField;
     ibdsTeacherCurrStageY: TFloatField;
     ibdsTeacherCurrStage: TStringField;
-    ibdsTeacherTMName: TStringField;
     ibdsStudentAge: TIntegerField;
     ibdsStudentState: TIntegerField;
     ibdsConstPASPORT_CODE: TIBStringField;
@@ -463,7 +441,6 @@ type
     procedure ibdsTeacherCalcFields(DataSet: TDataSet);
     procedure ibdsStudentCalcFields(DataSet: TDataSet);
     procedure ibdsStudentPlanCalcFields(DataSet: TDataSet);
-    procedure ibdsTeacherTMCalcFields(DataSet: TDataSet);
     procedure ibdsGroupingCalcFields(DataSet: TDataSet);
     procedure ibdsTeacherGroupSubjCalcFields(DataSet: TDataSet);
     procedure ibdsTarifficationRecCalcFields(DataSet: TDataSet);
@@ -1271,23 +1248,6 @@ begin
           ShowMessage('Ошибка при открытии: ' + (Components[i] as TIBDataSet).Name);
           raise;
         end;
-end;
-
-procedure TDM.ibdsTeacherTMCalcFields(DataSet: TDataSet);
-begin
-  ibdsTeacherTMSUMTIME.Value :=
-    ibdsTeacherTMOUTSUMTIME.Value + ibdsTeacherTMOUTSUMTIME1.Value;
-  if ibdsTeacherTMSUMTIME.Value = 0 then ibdsTeacherTMSUMTIME.AsVariant := Null;
-
-  ibdsTeacherTMSUMPAY.Value :=
-    ibdsTeacherTMOUTSUMPAY.Value + ibdsTeacherTMOUTSUMPAY1.Value;
-  if ibdsTeacherTMSUMPAY.Value = 0 then
-    ibdsTeacherTMSUMPAY.AsVariant := Null;
-  ibdsTeacherTMTOTALSUM.Value := ibdsTeacherTMSUMPAY.Value +
-    ibdsTeacherTMOUTADDSUM.Value;
-  if ibdsTeacherTMTOTALSUM.Value = 0 then
-    ibdsTeacherTMTOTALSUM.AsVariant := Null;
-  ibdsTeacherTMName.Value := DM.ibdsTeacherName.Value;
 end;
 
 procedure TDM.ChangeConstants(YTCoef, OTCoef, CTCoef: double;

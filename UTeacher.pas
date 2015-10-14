@@ -31,14 +31,11 @@ type
     Label11: TLabel;
     Label12: TLabel;
     Label13: TLabel;
-    Label14: TLabel;
     Label15: TLabel;
     Label21: TLabel;
     Label25: TLabel;
-    dbeYTB: TDBEdit;
-    dbeYTS: TDBEdit;
-    dbeOTB: TDBEdit;
-    dbeOTS: TDBEdit;
+    dbePedTB: TDBEdit;
+    dbePedTS: TDBEdit;
     dbeCTB: TDBEdit;
     dbeCTS: TDBEdit;
     dbeSTB: TDBEdit;
@@ -53,14 +50,11 @@ type
     Label16: TLabel;
     Label17: TLabel;
     Label18: TLabel;
-    Label19: TLabel;
     Label20: TLabel;
     Label22: TLabel;
     Label24: TLabel;
-    dbeYMB: TDBEdit;
-    dbeOMB: TDBEdit;
-    dbeYMS: TDBEdit;
-    dbeOMS: TDBEdit;
+    dbePedMB: TDBEdit;
+    dbePedMS: TDBEdit;
     dbeCMS: TDBEdit;
     dbeSMS: TDBEdit;
     dbeCMB: TDBEdit;
@@ -171,6 +165,27 @@ type
     frxXLSExport1: TfrxXLSExport;
     ibdsMaterialStimulusXml: TIBDataSet;
     ibdsMaterialStimulusXmlROW: TIBStringField;
+    ibdsTeacherTM: TIBDataSet;
+    ibdsTeacherTMPED_TIME_B: TFloatField;
+    ibdsTeacherTMPED_TIME_S: TFloatField;
+    ibdsTeacherTMCONC_TIME_B: TFloatField;
+    ibdsTeacherTMCONC_TIME_S: TFloatField;
+    ibdsTeacherTMPED_PAY_B: TFloatField;
+    ibdsTeacherTMPED_PAY_S: TFloatField;
+    ibdsTeacherTMCONC_PAY_B: TFloatField;
+    ibdsTeacherTMCONC_PAY_S: TFloatField;
+    ibdsTeacherTMSUM_PAY_B: TFloatField;
+    ibdsTeacherTMSUM_PAY_S: TFloatField;
+    ibdsTeacherTMSUM_TIME_B: TFloatField;
+    ibdsTeacherTMSUM_TIME_S: TFloatField;
+    ibdsTeacherTMADD_SUM: TFloatField;
+    ibdsTeacherTMTOTAL_PAY: TFloatField;
+    ibdsTeacherTMTOTAL_TIME: TFloatField;
+    ibdsTeacherTMSUM_PAY: TFloatField;
+    frxTeachersLoadingPlus: TfrxReport;
+    frxdbTeachersLoading: TfrxDBDataset;
+    ibdsTeachersLoading: TIBDataSet;
+    frxTeachersLoading: TfrxReport;
     procedure miCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnAddTeacherClick(Sender: TObject);
@@ -242,14 +257,14 @@ begin
   // запускаем форму без фильтрации
   DM.ibdsTeacher.ParamByName('filter_id').Value := Null;
   DM.ibdsTeacher.Open;
-  DM.ibdsTeacherTM.Close;
-  DM.ibdsTeacherTM.Open;
+  ibdsTeacherTM.Close;
+  ibdsTeacherTM.Open;
 
   dsTeacher.DataSet := DM.ibdsTeacher;
   DM.ibdsTeacherAddings.DataSource := dsTeacher;
   dsTeacherAdding.DataSet := DM.ibdsTeacherAddings;
-  dsTeacherTM.DataSet := DM.ibdsTeacherTM;
-  DM.ibdsTeacherTM.DataSource := dsTeacher;
+  dsTeacherTM.DataSet := ibdsTeacherTM;
+  ibdsTeacherTM.DataSource := dsTeacher;
   ibdsTitle.Open;
   ibdsCategory.Open;
   IBEvents.RegisterEvents;
@@ -281,8 +296,8 @@ begin
   fmEdTeacher.EditMode := true;
   fmEdTeacher.ShowModal;
   fmEdTeacher.Release;
-  DM.ibdsTeacherTM.Close;
-  DM.ibdsTeacherTM.Open;
+  ibdsTeacherTM.Close;
+  ibdsTeacherTM.Open;
 end;
 
 procedure TfmTeacher.dbgTeacherDrawColumnCell(Sender: TObject;
@@ -337,7 +352,7 @@ procedure TfmTeacher.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   ibdsTitle.Close;
   ibdsCategory.Close;
-  DM.ibdsTeacherTM.DataSource := nil;
+  ibdsTeacherTM.DataSource := nil;
   DM.ibdsTeacherAddings.DataSource := nil;
   dsTeacherAdding.DataSet := nil;
   dsTeacherTM.DataSet := nil;
@@ -406,55 +421,18 @@ begin
 end;
 
 procedure TfmTeacher.miRepNClick(Sender: TObject);
-var
-  rep: TRTReport;
-  BM: TBookmark;
-  i: Integer;
-  YT, OT, CT: Double;
 begin
-  YT := 0; OT := 0; CT := 0;
-  rep := TRTReport.Create;
-  rep.SetMarginsMM;
-  rep.AddPar(DM.ibdsConstPASPORT_NAME.Value);
-  rep.AddPar('');   
-  rep.ParSet(fTimes, 12, [fstBold]);
-  rep.AddPar('\qcНагрузка преподавателей\line');
+  ibdsTeachersLoading.Close;
+  if btnFilter.Down then
+    ibdsTeachersLoading.ParamByName('filter_id').Value := 1
+  else
+    ibdsTeachersLoading.ParamByName('filter_id').Value := Null;
 
-  rep.ParSetTableHead;
-  rep.CreateTableMMSz([10, 45, 35, 20, 30, 13, 13, 13, 15], []);
-  rep.AddRow(['№', 'Ф.И.О.', 'Предмет', 'Образование',
-    'Должность', '\fs20Мл. часы', 'Ст. часы', 'Конц. часы', 'Всего часы\b0']);
-  BM := DM.ibdsTeacher.GetBookmark;
-  DM.ibdsTeacher.DisableControls;
-
-  rep.ParSetTable;
-  DM.ibdsTeacher.First;
-  i := 1;
-  while not DM.ibdsTeacher.Eof do
-  begin
-    DM.ibdsTeacherTM.Close;
-    DM.ibdsTeacherTM.Params[0].AsInteger := DM.ibdsTeacherID.Value;
-    DM.ibdsTeacherTM.Open;
-    if DM.ibdsTeacherID.Value <> 0 then
-    begin
-      rep.AddRow(['\ql ' + IntToStr(i), DM.ibdsTeacherName.Value, DM.ibdsTeacherSubject.Value,
-        DM.ibdsTeacherEducation.Value, DM.ibdsTeacherPost.Value,
-        '\qr ' + dFormat(DM.ibdsTeacherTMOUTYTIME.Value),
-        dFormat(DM.ibdsTeacherTMOUTOTIME.Value),
-        dFormat(DM.ibdsTeacherTMOUTCTIME.Value),
-        dFormat(DM.ibdsTeacherTMOUTSUMTIME.Value)]);
-      YT := YT + DM.ibdsTeacherTMOUTYTIME.Value;
-      OT := OT + DM.ibdsTeacherTMOUTOTIME.Value;
-      CT := CT + DM.ibdsTeacherTMOUTCTIME.Value;
-      inc(i);
-    end;
-    DM.ibdsTeacher.Next;
-  end;
-  rep.AddRow(['', '\ql ИТОГО', '', '', '', '\qr ' +  dFormat(YT), dFormat(OT), dFormat(CT), dFormat(YT + OT +CT)]);  
-  DM.ibdsTeacher.GotoBookmark(BM);
-  DM.ibdsTeacher.FreeBookmark(BM);
-  DM.ibdsTeacher.EnableControls;
-  rep.SaveAndExecuteReport(Handle, 'Нагрузка преподавателей');
+  URTReport.runFrxReportAndExport(
+    'fr\TeachersLoadingPlus.fr3',
+    frxTeachersLoadingPlus,
+    frxRTFExport
+  );
 end;
 
 procedure TfmTeacher.dbgTeacherDblClick(Sender: TObject);
@@ -1016,52 +994,18 @@ begin
 end;
 
 procedure TfmTeacher.miTeacherLoadClick(Sender: TObject);
-var
-  rep: TRTReport;
-  BM: TBookmark;
-  i: Integer;
-  YT, OT, CT: Double;
 begin
-  YT := 0; OT := 0; CT := 0;
-  rep := TRTReport.Create;
-  rep.SetMarginsMM;
-  rep.AddPar(DM.ibdsConstPASPORT_NAME.Value);
-  rep.AddPar('');   
-  rep.ParSet(fTimes, 12, [fstBold]);
-  rep.AddPar('\qcНагрузка преподавателей\line');
-  rep.ParSetTableHead;
-  rep.CreateTableMMSz([10, 75, 14, 14, 14, 15], []);
-  rep.AddRow(['№', 'Ф.И.О.', '\fs20Мл. часы', 'Ст. часы', 'Конц. часы', 'Всего часы\b0']);
-  BM := DM.ibdsTeacher.GetBookmark;
-  DM.ibdsTeacher.DisableControls;
+  ibdsTeachersLoading.Close;
+  if btnFilter.Down then
+    ibdsTeachersLoading.ParamByName('filter_id').Value := 1
+  else
+    ibdsTeachersLoading.ParamByName('filter_id').Value := Null;
 
-  rep.ParSetTable;
-  DM.ibdsTeacher.First;
-  i := 1;
-  while not DM.ibdsTeacher.Eof do
-  begin
-    DM.ibdsTeacherTM.Close;
-    DM.ibdsTeacherTM.Params[0].AsInteger := DM.ibdsTeacherID.Value;
-    DM.ibdsTeacherTM.Open;
-    if DM.ibdsTeacherID.Value <> 0 then
-    begin
-      rep.AddRow(['\ql ' + IntToStr(i), DM.ibdsTeacherName.Value,
-        '\qr ' + dFormat(DM.ibdsTeacherTMOUTYTIME.Value),
-        dFormat(DM.ibdsTeacherTMOUTOTIME.Value),
-        dFormat(DM.ibdsTeacherTMOUTCTIME.Value),
-        dFormat(DM.ibdsTeacherTMOUTSUMTIME.Value)]);
-        YT := YT + DM.ibdsTeacherTMOUTYTIME.Value;
-        OT := OT + DM.ibdsTeacherTMOUTOTIME.Value;
-        CT := CT + DM.ibdsTeacherTMOUTCTIME.Value;
-      inc(i);
-    end;
-    DM.ibdsTeacher.Next;
-  end;
-  rep.AddRow(['', '\ql ИТОГО', '\qr ' +  dFormat(YT), dFormat(OT), dFormat(CT), dFormat(YT + OT +CT)]);
-  DM.ibdsTeacher.GotoBookmark(BM);
-  DM.ibdsTeacher.FreeBookmark(BM);
-  DM.ibdsTeacher.EnableControls;
-  rep.SaveAndExecuteReport(Handle, 'Нагрузка преподавателей');
+  URTReport.runFrxReportAndExport(
+    'fr\TeachersLoading.fr3',
+    frxTeachersLoadingPlus,
+    frxRTFExport
+  );
 end;
 
 procedure TfmTeacher.dbgTeacherKeyDown(Sender: TObject; var Key: Word;
