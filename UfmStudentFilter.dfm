@@ -247,15 +247,15 @@ object fmStudentFilter: TfmStudentFilter
     OnClick = btnMasterResetClick
   end
   object Label5: TLabel
-    Left = 520
-    Top = 440
+    Left = 344
+    Top = 392
     Width = 31
     Height = 20
     Caption = #1055#1086#1083
   end
   object jsbSexClear: TJvSpeedButton
-    Left = 616
-    Top = 432
+    Left = 456
+    Top = 384
     Width = 25
     Height = 25
     Flat = True
@@ -324,21 +324,6 @@ object fmStudentFilter: TfmStudentFilter
       '7'
       '8')
   end
-  object cbCat: TRadioGroup
-    Left = 344
-    Top = 368
-    Width = 361
-    Height = 49
-    Caption = #1050#1072#1090#1077#1075#1086#1088#1080#1103' '#1082#1083#1072#1089#1089#1072
-    Columns = 3
-    ItemIndex = 0
-    Items.Strings = (
-      #1074#1089#1077
-      #1084#1083'.'
-      #1089#1090'.')
-    TabOrder = 3
-    OnClick = cbCatClick
-  end
   object cbFinanc: TComboBox
     Left = 8
     Top = 280
@@ -346,7 +331,7 @@ object fmStudentFilter: TfmStudentFilter
     Height = 28
     ItemHeight = 20
     ItemIndex = 0
-    TabOrder = 4
+    TabOrder = 3
     Text = #1051#1070#1041#1054#1045
     OnChange = cbFinancChange
     Items.Strings = (
@@ -361,7 +346,7 @@ object fmStudentFilter: TfmStudentFilter
     Height = 28
     ItemHeight = 20
     ItemIndex = 0
-    TabOrder = 5
+    TabOrder = 4
     Text = #1051#1070#1041#1054#1049
     OnChange = cbMoneyChange
     Items.Strings = (
@@ -379,7 +364,7 @@ object fmStudentFilter: TfmStudentFilter
     ItemIndex = 0
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 6
+    TabOrder = 5
     Text = #1051#1070#1041#1054#1045
     OnChange = cbStatusChange
     Items.Strings = (
@@ -398,7 +383,7 @@ object fmStudentFilter: TfmStudentFilter
     Width = 361
     Height = 65
     Caption = #1042#1086#1079#1088#1072#1089#1090
-    TabOrder = 7
+    TabOrder = 6
     object Label9: TLabel
       Left = 157
       Top = 32
@@ -438,7 +423,7 @@ object fmStudentFilter: TfmStudentFilter
     Width = 361
     Height = 65
     Caption = #1044#1072#1090#1072' '#1079#1072#1095#1080#1089#1083#1077#1085#1080#1103
-    TabOrder = 8
+    TabOrder = 7
     object Label10: TLabel
       Left = 157
       Top = 32
@@ -598,7 +583,7 @@ object fmStudentFilter: TfmStudentFilter
     Width = 361
     Height = 65
     Caption = #1044#1072#1090#1072' '#1074#1086#1089#1090#1072#1085#1086#1074#1083#1077#1085#1080#1103
-    TabOrder = 10
+    TabOrder = 9
     object Label13: TLabel
       Left = 157
       Top = 32
@@ -758,7 +743,7 @@ object fmStudentFilter: TfmStudentFilter
     Width = 361
     Height = 65
     Caption = #1044#1072#1090#1072' '#1072#1082#1072#1076#1077#1084'. '#1086#1090#1087#1091#1089#1082#1072
-    TabOrder = 11
+    TabOrder = 10
     object Label15: TLabel
       Left = 157
       Top = 32
@@ -918,7 +903,7 @@ object fmStudentFilter: TfmStudentFilter
     Width = 361
     Height = 65
     Caption = #1044#1072#1090#1072' '#1086#1090#1095#1080#1089#1083#1077#1085#1080#1103
-    TabOrder = 9
+    TabOrder = 8
     object Label17: TLabel
       Left = 157
       Top = 32
@@ -1078,7 +1063,7 @@ object fmStudentFilter: TfmStudentFilter
     Width = 497
     Height = 153
     BevelInner = bvLowered
-    TabOrder = 12
+    TabOrder = 11
     object Label7: TLabel
       Left = 16
       Top = 120
@@ -1392,7 +1377,7 @@ object fmStudentFilter: TfmStudentFilter
     Height = 28
     Style = csDropDownList
     ItemHeight = 20
-    TabOrder = 13
+    TabOrder = 12
     OnChange = cbEClassChange
     Items.Strings = (
       #1085#1072#1080#1073#1086#1083#1100#1096'.'
@@ -1414,7 +1399,7 @@ object fmStudentFilter: TfmStudentFilter
     Height = 28
     ItemHeight = 20
     ItemIndex = 0
-    TabOrder = 14
+    TabOrder = 13
     Text = #1051#1070#1041#1054#1049
     OnChange = cbPeriodChange
     OnKeyPress = cbPeriodKeyPress
@@ -1440,7 +1425,7 @@ object fmStudentFilter: TfmStudentFilter
     DirectInput = False
     ImageIndex = 0
     Images = il
-    TabOrder = 15
+    TabOrder = 14
     Text = 'jvceSpec'
     OnButtonClick = jvceSpecButtonClick
   end
@@ -1455,7 +1440,7 @@ object fmStudentFilter: TfmStudentFilter
     DirectInput = False
     ImageIndex = 0
     Images = il
-    TabOrder = 16
+    TabOrder = 15
     Text = 'jvceSpec'
     OnButtonClick = btnChFilialClick
   end
@@ -1470,13 +1455,13 @@ object fmStudentFilter: TfmStudentFilter
     DirectInput = False
     ImageIndex = 0
     Images = il
-    TabOrder = 17
+    TabOrder = 16
     Text = 'jvceSpec'
     OnButtonClick = btnChMasterClick
   end
   object jdblcSex: TJvDBLookupCombo
-    Left = 560
-    Top = 432
+    Left = 392
+    Top = 384
     Width = 49
     Height = 27
     DataField = 'ID_SEX'
@@ -1484,7 +1469,7 @@ object fmStudentFilter: TfmStudentFilter
     LookupField = 'F_ID'
     LookupDisplay = 'F_NAME'
     LookupSource = dsSex
-    TabOrder = 18
+    TabOrder = 17
   end
   object FormPlacement1: TFormPlacement
     Left = 600
@@ -2198,10 +2183,6 @@ object fmStudentFilter: TfmStudentFilter
         Size = 255
       end
       item
-        Name = 'CATEGORY'
-        DataType = ftInteger
-      end
-      item
         Name = 'PERIOD'
         DataType = ftInteger
       end
@@ -2301,7 +2282,7 @@ object fmStudentFilter: TfmStudentFilter
         Name = 'ID_SEX'
         DataType = ftInteger
       end>
-    DataSet = DM.ibdsStudentFilter
+    DataSet = fmStudent.ibdsStudentFilter
     LoadRecords = True
     Left = 120
     object jvmdStudentFilterID: TIntegerField
@@ -2429,7 +2410,7 @@ object fmStudentFilter: TfmStudentFilter
         DataType = ftString
         Size = 30
       end>
-    DataSet = DM.ibdsStudentFilterSpec
+    DataSet = fmStudent.ibdsStudentFilterSpec
     LoadRecords = True
     Left = 184
     object jvmdStudentFilterSpecID_SPECIALIZATION: TIntegerField
@@ -2458,5 +2439,11 @@ object fmStudentFilter: TfmStudentFilter
   object dsStudentFilter: TDataSource
     DataSet = jvmdStudentFilter
     Left = 144
+  end
+  object ibqProc: TIBQuery
+    Database = DM.ibDatabase
+    Transaction = DM.ibTransaction
+    Left = 592
+    Top = 384
   end
 end

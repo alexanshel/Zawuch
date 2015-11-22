@@ -14,7 +14,6 @@ type
   TfmStudentFilter = class(TForm)
     cbBClass: TComboBox;
     Label1: TLabel;
-    cbCat: TRadioGroup;
     cbFinanc: TComboBox;
     Label2: TLabel;
     cbMoney: TComboBox;
@@ -132,6 +131,7 @@ type
     jvmdStudentFilterSUBJ_STATE: TIntegerField;
     jvmdStudentFilterFINANCING_ID: TIntegerField;
     jvmdStudentFilterID_SEX: TIntegerField;
+    ibqProc: TIBQuery;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnChMasterClick(Sender: TObject);
@@ -168,7 +168,6 @@ type
     procedure cbFinancChange(Sender: TObject);
     procedure cbBClassChange(Sender: TObject);
     procedure cbEClassChange(Sender: TObject);
-    procedure cbCatClick(Sender: TObject);
     procedure jvspClearSpecClick(Sender: TObject);
     procedure cbPeriodChange(Sender: TObject);
     procedure cbMoneyChange(Sender: TObject);
@@ -178,6 +177,30 @@ type
     { Private declarations }
     btnSaveClicked: boolean;
     procedure RefreshSpec;
+    function AddStudentFilter(
+      ID: Variant;
+      Name: String;
+      FilialID,
+      ClassB,
+      ClassE,
+      CuratorID,
+      Period,
+      Status,
+      PayPercent,
+      AgeB,
+      AgeE,
+      EnterDB,
+      EnterDE,
+      ReleaseDB,
+      ReleaseDE,
+      RestoreDB,
+      RestoreDE,
+      AcademyDB,
+      AcademyDE,
+      SubjectID1,
+      TeacherID1,
+      SubjectID2, TeacherID2, SubjState, FinancingID, IDSex: Variant
+    ): Integer;
   public
     { Public declarations }
     ID_Filter: Integer;
@@ -191,7 +214,7 @@ var
 implementation
 
 uses UDM, UDepSpecCurr, UTeacher, UFilial, USubject, Math, StrUtils, VarUtils,
-  UDeptSpecTree;
+  UDeptSpecTree, UStudent;
 
 {$R *.dfm}
 
@@ -229,11 +252,11 @@ begin
 
   cbOnOff.Checked := DM.ibdsStudent.Filtered;
 
-  DM.ibdsStudentFilter.Close;
-  DM.ibdsStudentFilterSpec.Close;  
-  DM.ibdsStudentFilter.Open;
-  DM.ibdsStudentFilter.Locate('ID', 1, []);
-  DM.ibdsStudentFilterSpec.Open;
+  fmStudent.ibdsStudentFilter.Close;
+  fmStudent.ibdsStudentFilterSpec.Close;
+  fmStudent.ibdsStudentFilter.Open;
+  fmStudent.ibdsStudentFilter.Locate('ID', 1, []);
+  fmStudent.ibdsStudentFilterSpec.Open;
   jvmdStudentFilter.Open;
   jvmdStudentFilterSpec.Open;
   ibdsSex.Open;
@@ -243,11 +266,10 @@ begin
   jvceFilial.Text := jvmdStudentFilterFILIAL_NAME.Value;
   cbBClass.ItemIndex := Coalesce([jvmdStudentFilterCLASS_B.AsVariant, Variant(-1)]) + 1;
   cbEClass.ItemIndex := Coalesce([jvmdStudentFilterCLASS_E.AsVariant, Variant(-1)]) + 1;
-  cbCat.ItemIndex := Coalesce([jvmdStudentFilterCATEGORY.AsVariant, Variant(-1)]) + 1;
   cbFinanc.ItemIndex := Coalesce([jvmdStudentFilterFINANCING_ID.AsVariant, Variant(-1)]) + 1;
   cbMoney.ItemIndex := Coalesce([jvmdStudentFilterPAY_PERCENT.AsVariant, Variant(-1)]) + 1;
   cbStatus.ItemIndex := Coalesce([jvmdStudentFilterSTATUS.AsVariant, Variant(-1)]) + 1;
-  edAgeB.Text := jvmdStudentFilterAGE_B.AsString; DM.ibdsStudentFilterAGE_B.AsString;
+  edAgeB.Text := jvmdStudentFilterAGE_B.AsString; fmStudent.ibdsStudentFilterAGE_B.AsString;
   edAgeE.Text := jvmdStudentFilterAGE_E.AsString;
   jvdeEnterDB.Text := jvmdStudentFilterENTER_D_B.AsString;
   jvdeEnterDE.Text := jvmdStudentFilterENTER_D_E.AsString;
@@ -296,13 +318,12 @@ begin
   begin
     btnSaveClicked := false;
 
-    DM.AddStudentFilter(jvmdStudentFilterID.Value,
+    AddStudentFilter(jvmdStudentFilterID.Value,
       jvmdStudentFilterNAME.Value,
       jvmdStudentFilterFILIAL_ID.AsVariant,
       jvmdStudentFilterCLASS_B.AsVariant,
       jvmdStudentFilterCLASS_E.AsVariant,
       jvmdStudentFilterCURATOR_ID.AsVariant,
-      jvmdStudentFilterCATEGORY.AsVariant,
       jvmdStudentFilterPERIOD.AsVariant,
       jvmdStudentFilterSTATUS.AsVariant,
       jvmdStudentFilterPAY_PERCENT.AsVariant,
@@ -810,23 +831,6 @@ begin
   end;
 end;
 
-procedure TfmStudentFilter.cbCatClick(Sender: TObject);
-begin
-  if cbCat.ItemIndex = 0 then
-  begin
-    jvmdStudentFilter.Edit;
-    jvmdStudentFilterCATEGORY.AsVariant := Null;
-    jvmdStudentFilter.Post;
-  end
-  else
-  begin
-    jvmdStudentFilter.Edit;
-    jvmdStudentFilterCATEGORY.AsVariant := cbCat.ItemIndex - 1;
-    jvmdStudentFilter.Post;
-    //edEnterDE.Text := '';
-  end;
-end;
-
 procedure TfmStudentFilter.RefreshSpec;
 begin
   jvceSpec.Clear;
@@ -885,6 +889,59 @@ end;
 procedure TfmStudentFilter.FormDestroy(Sender: TObject);
 begin
   ibdsSex.Close;
+end;
+
+function TfmStudentFilter.AddStudentFilter(ID: Variant; Name: String;
+  FilialID, ClassB, ClassE, CuratorID, Period, Status,
+  PayPercent, AgeB, AgeE, EnterDB, EnterDE, ReleaseDB, ReleaseDE,
+  RestoreDB, RestoreDE, AcademyDB, AcademyDE, SubjectID1, TeacherID1,
+  SubjectID2, TeacherID2, SubjState, FinancingID, IDSex: Variant): Integer;
+begin
+if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
+
+  ibqProc.SQL.Clear;
+  ibqProc.SQL.Append(
+    'EXECUTE PROCEDURE ADD_STUDENT_FILTER( ' +
+    ':in_id, :in_name, :in_filial_id, ' +
+    ':in_class_b, :in_class_e, :in_curator_id, :in_period, :in_status, ' +
+    ':in_pay_percent, :in_age_b, :in_age_e, :in_enter_d_b, :in_enter_d_e, :in_release_d_b, ' +
+    ':in_release_d_e, :in_restore_d_b, :in_restore_d_e, :in_academy_d_b, :in_academy_d_e, ' +
+    ':in_subject_id_1, :in_teacher_id_1, :in_subject_id_2, :in_teacher_id_2, :in_subj_state, :in_financing_id, :in_id_sex)');
+
+  ibqProc.ParamByName('in_id').Value := ID;
+  ibqProc.ParamByName('in_name').Value := Name;
+  ibqProc.ParamByName('in_filial_id').Value := FilialID;
+  ibqProc.ParamByName('in_class_b').Value := ClassB;
+  ibqProc.ParamByName('in_class_e').Value := ClassE;
+  ibqProc.ParamByName('in_curator_id').Value := CuratorID;
+  ibqProc.ParamByName('in_period').Value := Period;
+  ibqProc.ParamByName('in_status').Value := Status;
+  ibqProc.ParamByName('in_pay_percent').Value := PayPercent;
+  ibqProc.ParamByName('in_age_b').Value := AgeB;
+  ibqProc.ParamByName('in_age_e').Value := AgeE;
+  ibqProc.ParamByName('in_enter_d_b').Value := EnterDB;
+  ibqProc.ParamByName('in_enter_d_e').Value := EnterDE;
+  ibqProc.ParamByName('in_release_d_b').Value := ReleaseDB;
+  ibqProc.ParamByName('in_release_d_e').Value := ReleaseDE;
+  ibqProc.ParamByName('in_restore_d_b').Value := RestoreDB;
+  ibqProc.ParamByName('in_restore_d_e').Value := RestoreDE;
+  ibqProc.ParamByName('in_academy_d_b').Value := AcademyDB;
+  ibqProc.ParamByName('in_academy_d_e').Value := AcademyDE;
+  ibqProc.ParamByName('in_subject_id_1').Value := SubjectID1;
+  ibqProc.ParamByName('in_teacher_id_1').Value := TeacherID1;
+  ibqProc.ParamByName('in_subject_id_2').Value := SubjectID2;
+  ibqProc.ParamByName('in_teacher_id_2').Value := TeacherID2;
+  ibqProc.ParamByName('in_subj_state').Value := SubjState;
+  ibqProc.ParamByName('in_financing_id').Value := FinancingID;
+  ibqProc.ParamByName('in_id_sex').Value := IDSex;
+  try
+    ibqProc.ExecSQL;
+    Result := ibqProc.Current.Vars[0].AsInteger;
+  except
+    ibqProc.Transaction.Rollback;
+  end;
+
+  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
 end;
 
 end.

@@ -112,6 +112,44 @@ type
     frxRTFExport: TfrxRTFExport;
     ibdsRepForTeacherHeader: TIBDataSet;
     frdbdsRepForTeacherHeader: TfrxDBDataset;
+    ibdsStudentFilter: TIBDataSet;
+    ibdsStudentFilterID: TIntegerField;
+    ibdsStudentFilterNAME: TIBStringField;
+    ibdsStudentFilterFILIAL_ID: TIntegerField;
+    ibdsStudentFilterFILIAL_NAME: TIBStringField;
+    ibdsStudentFilterCLASS_B: TIntegerField;
+    ibdsStudentFilterCLASS_E: TIntegerField;
+    ibdsStudentFilterCURATOR_ID: TIntegerField;
+    ibdsStudentFilterCURATOR_NAME: TIBStringField;
+    ibdsStudentFilterPERIOD: TIntegerField;
+    ibdsStudentFilterSTATUS: TIntegerField;
+    ibdsStudentFilterPAY_PERCENT: TIntegerField;
+    ibdsStudentFilterAGE_B: TIntegerField;
+    ibdsStudentFilterAGE_E: TIntegerField;
+    ibdsStudentFilterENTER_D_B: TDateField;
+    ibdsStudentFilterENTER_D_E: TDateField;
+    ibdsStudentFilterRELEASE_D_B: TDateField;
+    ibdsStudentFilterRELEASE_D_E: TDateField;
+    ibdsStudentFilterRESTORE_D_B: TDateField;
+    ibdsStudentFilterRESTORE_D_E: TDateField;
+    ibdsStudentFilterACADEMY_D_B: TDateField;
+    ibdsStudentFilterACADEMY_D_E: TDateField;
+    ibdsStudentFilterSUBJECT_ID_1: TIntegerField;
+    ibdsStudentFilterSUBJECT_NAME_1: TIBStringField;
+    ibdsStudentFilterTEACHER_ID_1: TIntegerField;
+    ibdsStudentFilterTEACHER_NAME_1: TIBStringField;
+    ibdsStudentFilterSUBJECT_ID_2: TIntegerField;
+    ibdsStudentFilterSUBJECT_NAME_2: TIBStringField;
+    ibdsStudentFilterTEACHER_ID_2: TIntegerField;
+    ibdsStudentFilterTEACHER_NAME_2: TIBStringField;
+    ibdsStudentFilterSUBJ_STATE: TIntegerField;
+    ibdsStudentFilterFINANCING_ID: TIntegerField;
+    ibdsStudentFilterID_SEX: TIntegerField;
+    ibdsStudentFilterSpec: TIBDataSet;
+    ibdsStudentFilterSpecID_FILTER: TIntegerField;
+    ibdsStudentFilterSpecID_SPECIALIZATION: TIntegerField;
+    ibdsStudentFilterSpecSPEC_NAME: TIBStringField;
+    dsStudentFilter: TDataSource;
     procedure miExitClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -966,9 +1004,9 @@ begin
   s := TStringList.Create;
   s.Delimiter := '|';
 
-  DM.ibdsStudentFilter.Close;
-  DM.ibdsStudentFilter.Open;
-  if (not btnFilter.Down) or DM.ibdsStudentFilterTEACHER_ID_1.IsNull then
+  fmStudent.ibdsStudentFilter.Close;
+  fmStudent.ibdsStudentFilter.Open;
+  if (not btnFilter.Down) or fmStudent.ibdsStudentFilterTEACHER_ID_1.IsNull then
   begin
     ShowMessage('Настройте и включите фильтр');
     Exit;
@@ -985,7 +1023,7 @@ begin
 
 
   rep.ParSet(fArial, 12, [fstBold]);
-  DM.ibdsTeacher.Locate('ID', VarArrayOf([DM.ibdsStudentFilterTEACHER_ID_1.Value]), []);
+  DM.ibdsTeacher.Locate('ID', VarArrayOf([fmStudent.ibdsStudentFilterTEACHER_ID_1.Value]), []);
   rep.AddText('\qc Преподаватель: ' + DM.ibdsTeacherName.Value);
   rep.AddPar('');
 
@@ -1041,7 +1079,7 @@ begin
 //          'SELECT TIME_Y, TIME_O, TIME_C FROM V_STUDENT_CURATOR_CLOCK vscc WHERE vscc.ID_STUDENT = :st_id AND vscc.ID_TEACHER = :t_id'
         );
         DM.ibds.ParamByName('st_id').AsInteger := DM.ibdsStudentID.Value;
-        DM.ibds.ParamByName('t_id').AsInteger := DM.ibdsStudentFilterTEACHER_ID_1.Value;
+        DM.ibds.ParamByName('t_id').AsInteger := fmStudent.ibdsStudentFilterTEACHER_ID_1.Value;
         DM.ibds.Open;
 
         if not DM.ibds.IsEmpty then
@@ -1068,7 +1106,7 @@ begin
     DM.ibds.SelectSQL.Clear;
     DM.ibds.SelectSQL.Append('SELECT * FROM PROC_TEACHER_REPORT(:t_id, :dept_id)');
     DM.ibds.ParamByName('dept_id').AsInteger := Integer(Depts.Objects[i]);
-    DM.ibds.ParamByName('t_id').AsInteger := DM.ibdsStudentFilterTEACHER_ID_1.Value;
+    DM.ibds.ParamByName('t_id').AsInteger := fmStudent.ibdsStudentFilterTEACHER_ID_1.Value;
     DM.ibds.Open;
     DM.ibds.First;
 
@@ -1215,9 +1253,9 @@ var
     IsHeaderPrinted := true;
   end;
 begin
-  DM.ibdsStudentFilter.Close;
-  DM.ibdsStudentFilter.Open;
-  if (not btnFilter.Down) or DM.ibdsStudentFilterSUBJECT_ID_1.IsNull then
+  fmStudent.ibdsStudentFilter.Close;
+  fmStudent.ibdsStudentFilter.Open;
+  if (not btnFilter.Down) or fmStudent.ibdsStudentFilterSUBJECT_ID_1.IsNull then
   begin
     ShowMessage('Настройте и включите фильтр');
     Exit;
@@ -1232,7 +1270,7 @@ begin
   rep := TRTReport.Create('DeptStRepForTeacherSubj');
 
   rep.ParSet(fArial, 12, [fstBold]);
-  rep.AddText('\qc Предмет: ' + DM.ibdsStudentFilterSUBJECT_NAME_1.Value);
+  rep.AddText('\qc Предмет: ' + fmStudent.ibdsStudentFilterSUBJECT_NAME_1.Value);
   rep.AddPar('');
 
   BM := DM.ibdsStudent.GetBookmark;
@@ -1283,7 +1321,7 @@ begin
         'GROUP BY T."Name";'
       );
       DM.ibds.ParamByName('st_id').AsInteger := DM.ibdsStudentID.Value;
-      DM.ibds.ParamByName('s_id').AsInteger := DM.ibdsStudentFilterSUBJECT_ID_1.Value;
+      DM.ibds.ParamByName('s_id').AsInteger := fmStudent.ibdsStudentFilterSUBJECT_ID_1.Value;
       DM.ibds.ParamByName('d_id').AsInteger := Integer(Depts.Objects[i]);
       DM.ibds.Open;
       //DM.ibds.First;
@@ -1340,7 +1378,7 @@ begin
       'order by TG.grouping_id, GS.id;'
     );
     DM.ibds.ParamByName('dept_id').AsInteger := Integer(Depts.Objects[i]);
-    DM.ibds.ParamByName('t_id').AsInteger := DM.ibdsStudentFilterTEACHER_ID_1.Value;
+    DM.ibds.ParamByName('t_id').AsInteger := fmStudent.ibdsStudentFilterTEACHER_ID_1.Value;
     DM.ibds.Open;
     DM.ibds.First;
 
@@ -1372,9 +1410,9 @@ end;
 
 procedure TfmStudent.miPrintFoTeacherClick(Sender: TObject);
 begin
-  DM.ibdsStudentFilter.Close;
-  DM.ibdsStudentFilter.Open;
-  if (not btnFilter.Down) or DM.ibdsStudentFilterTEACHER_ID_1.IsNull then
+  fmStudent.ibdsStudentFilter.Close;
+  fmStudent.ibdsStudentFilter.Open;
+  if (not btnFilter.Down) or fmStudent.ibdsStudentFilterTEACHER_ID_1.IsNull then
   begin
     ShowMessage('Настройте и включите фильтр');
     Exit;

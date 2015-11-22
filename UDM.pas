@@ -320,12 +320,6 @@ type
     ibdsGroupingSubjPOS: TIntegerField;
     ibdsRepTabExt2: TIBDataSet;
     ibds2: TIBDataSet;
-    ibdsStudentFilter: TIBDataSet;
-    ibdsStudentFilterSpec: TIBDataSet;
-    ibdsStudentFilterSpecID_FILTER: TIntegerField;
-    ibdsStudentFilterSpecID_SPECIALIZATION: TIntegerField;
-    ibdsStudentFilterSpecSPEC_NAME: TIBStringField;
-    dsStudentFilter: TDataSource;
     ibdsRepTabExtREC_TIME: TDateTimeField;
     ibdsRepTabExtTEACHER_NAME: TIBStringField;
     ibdsRepTabExtTAB_MONTH: TDateField;
@@ -358,39 +352,6 @@ type
     ibdsTeacherID_CATEGORY: TIntegerField;
     ibdsStudentSEX_ID: TIntegerField;
     ibdsStudentSEX_NAME: TIBStringField;
-    ibdsStudentFilterID: TIntegerField;
-    ibdsStudentFilterNAME: TIBStringField;
-    ibdsStudentFilterFILIAL_ID: TIntegerField;
-    ibdsStudentFilterFILIAL_NAME: TIBStringField;
-    ibdsStudentFilterCLASS_B: TIntegerField;
-    ibdsStudentFilterCLASS_E: TIntegerField;
-    ibdsStudentFilterCURATOR_ID: TIntegerField;
-    ibdsStudentFilterCURATOR_NAME: TIBStringField;
-    ibdsStudentFilterCATEGORY: TIntegerField;
-    ibdsStudentFilterPERIOD: TIntegerField;
-    ibdsStudentFilterSTATUS: TIntegerField;
-    ibdsStudentFilterPAY_PERCENT: TIntegerField;
-    ibdsStudentFilterAGE_B: TIntegerField;
-    ibdsStudentFilterAGE_E: TIntegerField;
-    ibdsStudentFilterENTER_D_B: TDateField;
-    ibdsStudentFilterENTER_D_E: TDateField;
-    ibdsStudentFilterRELEASE_D_B: TDateField;
-    ibdsStudentFilterRELEASE_D_E: TDateField;
-    ibdsStudentFilterRESTORE_D_B: TDateField;
-    ibdsStudentFilterRESTORE_D_E: TDateField;
-    ibdsStudentFilterACADEMY_D_B: TDateField;
-    ibdsStudentFilterACADEMY_D_E: TDateField;
-    ibdsStudentFilterSUBJECT_ID_1: TIntegerField;
-    ibdsStudentFilterSUBJECT_NAME_1: TIBStringField;
-    ibdsStudentFilterTEACHER_ID_1: TIntegerField;
-    ibdsStudentFilterTEACHER_NAME_1: TIBStringField;
-    ibdsStudentFilterSUBJECT_ID_2: TIntegerField;
-    ibdsStudentFilterSUBJECT_NAME_2: TIBStringField;
-    ibdsStudentFilterTEACHER_ID_2: TIntegerField;
-    ibdsStudentFilterTEACHER_NAME_2: TIBStringField;
-    ibdsStudentFilterSUBJ_STATE: TIntegerField;
-    ibdsStudentFilterFINANCING_ID: TIntegerField;
-    ibdsStudentFilterID_SEX: TIntegerField;
     ibdsTeacherID_CATEGORY_CONC: TIntegerField;
     ibdsTeacherCATEGORY_T: TIBStringField;
     ibdsTeacherCATEGORY_C: TIBStringField;
@@ -482,14 +443,6 @@ type
     function AddRepTabExt2(RecTime: Variant; TeacherName: String;
       TabMonth: TDateTime; y_t, o_t, c_t, y_t_ood, o_t_ood, c_t_ood,
       y_t_filial, o_t_filial, c_t_filial: Double): TDateTime;
-    function AddStudentFilter(
-      ID: Variant; Name: String;
-      FilialID,
-      ClassB, ClassE, CuratorID, Category, Period, Status,
-      PayPercent, AgeB, AgeE, EnterDB, EnterDE,
-      ReleaseDB, ReleaseDE, RestoreDB, RestoreDE,
-      AcademyDB, AcademyDE, SubjectID1, TeacherID1,
-      SubjectID2, TeacherID2, SubjState, FinancingID, IDSex: Variant): Integer;
     function AddTeacherFilter(
       ID: Variant; Name: String;
       MainSubjID, MainGrade, ConcGrade, PostID, EducationID, FilialID,
@@ -1794,60 +1747,6 @@ if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
 
   try
     ibqProc.ExecSQL;
-  except
-    ibqProc.Transaction.Rollback;
-  end;
-
-  if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
-end;
-
-function TDM.AddStudentFilter(ID: Variant; Name: String; FilialID,
-  ClassB, ClassE, CuratorID, Category, Period, Status,
-  PayPercent, AgeB, AgeE, EnterDB, EnterDE, ReleaseDB, ReleaseDE,
-  RestoreDB, RestoreDE, AcademyDB, AcademyDE, SubjectID1, TeacherID1,
-  SubjectID2, TeacherID2, SubjState, FinancingID, IDSex: Variant): Integer;
-begin
-if ibqProc.Transaction.InTransaction then ibqProc.Transaction.Commit;
-
-  ibqProc.SQL.Clear;
-  ibqProc.SQL.Append(
-    'EXECUTE PROCEDURE ADD_STUDENT_FILTER( ' +
-    ':in_id, :in_name, :in_filial_id, ' +
-    ':in_class_b, :in_class_e, :in_curator_id, :in_category, :in_period, :in_status, ' +
-    ':in_pay_percent, :in_age_b, :in_age_e, :in_enter_d_b, :in_enter_d_e, :in_release_d_b, ' +
-    ':in_release_d_e, :in_restore_d_b, :in_restore_d_e, :in_academy_d_b, :in_academy_d_e, ' +
-    ':in_subject_id_1, :in_teacher_id_1, :in_subject_id_2, :in_teacher_id_2, :in_subj_state, :in_financing_id, :in_id_sex)');
-
-  ibqProc.ParamByName('in_id').Value := ID;
-  ibqProc.ParamByName('in_name').Value := Name;
-  ibqProc.ParamByName('in_filial_id').Value := FilialID;
-  ibqProc.ParamByName('in_class_b').Value := ClassB;
-  ibqProc.ParamByName('in_class_e').Value := ClassE;
-  ibqProc.ParamByName('in_curator_id').Value := CuratorID;
-  ibqProc.ParamByName('in_category').Value := Category;
-  ibqProc.ParamByName('in_period').Value := Period;
-  ibqProc.ParamByName('in_status').Value := Status;
-  ibqProc.ParamByName('in_pay_percent').Value := PayPercent;
-  ibqProc.ParamByName('in_age_b').Value := AgeB;
-  ibqProc.ParamByName('in_age_e').Value := AgeE;
-  ibqProc.ParamByName('in_enter_d_b').Value := EnterDB;
-  ibqProc.ParamByName('in_enter_d_e').Value := EnterDE;
-  ibqProc.ParamByName('in_release_d_b').Value := ReleaseDB;
-  ibqProc.ParamByName('in_release_d_e').Value := ReleaseDE;
-  ibqProc.ParamByName('in_restore_d_b').Value := RestoreDB;
-  ibqProc.ParamByName('in_restore_d_e').Value := RestoreDE;
-  ibqProc.ParamByName('in_academy_d_b').Value := AcademyDB;
-  ibqProc.ParamByName('in_academy_d_e').Value := AcademyDE;
-  ibqProc.ParamByName('in_subject_id_1').Value := SubjectID1;
-  ibqProc.ParamByName('in_teacher_id_1').Value := TeacherID1;
-  ibqProc.ParamByName('in_subject_id_2').Value := SubjectID2;
-  ibqProc.ParamByName('in_teacher_id_2').Value := TeacherID2;
-  ibqProc.ParamByName('in_subj_state').Value := SubjState;
-  ibqProc.ParamByName('in_financing_id').Value := FinancingID;
-  ibqProc.ParamByName('in_id_sex').Value := IDSex;
-  try
-    ibqProc.ExecSQL;
-    Result := ibqProc.Current.Vars[0].AsInteger;
   except
     ibqProc.Transaction.Rollback;
   end;
