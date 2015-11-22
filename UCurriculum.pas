@@ -157,6 +157,10 @@ type
     frxdbdsCurrRec: TfrxDBDataset;
     frxdbdsCurr: TfrxDBDataset;
     frxRTFExport: TfrxRTFExport;
+    frxCurriculumWT0: TfrxReport;
+    frxCurriculumWT09: TfrxReport;
+    frxCurriculumWT9: TfrxReport;
+    ibdsCurriculumSum: TIBDataSet;
     procedure miExitClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -350,9 +354,11 @@ end;
 procedure TfmCurriculum.FormCreate(Sender: TObject);
 begin
   ibdsCurriculumRecord.Close;
+  ibdsCurriculumSum.Close;
   CurrRecSQL := ibdsCurriculumRecord.SelectSQL;
-  ibdsCurriculumRecord.Open;
   ibdsCurriculum.Open;
+  ibdsCurriculumRecord.Open;
+  ibdsCurriculumSum.Open;
   CheckBtn;
   InChoiceMode := false;
   Resize;
@@ -659,133 +665,28 @@ procedure TfmCurriculum.miWordClick(Sender: TObject);
 const FIELD_QTY = 16;
 var
   rep: TRTReport;
-  P: array[0 .. FIELD_QTY - 1] of Integer; //positions
-  S: String[30];
-  i: Integer;
+  repNameSuffix: String;
+  repName: String;
   BM: TBookmark;
-  function Cat(V: Variant): String;
-  begin
-    Result := 'ст.';
-    if V = Null then Result := ''
-    else
-      if V = 0 then Result := 'мл.';
-  end;
-  function dFormat(Value: Double): String;
-  begin
-    if Value = 0 then Result := ''
-    else Result := Format('%.2f', [Value]);
-  end;
 begin
+  repNameSuffix := '';
+  // печать без класса 0
+  if ibdsCurriculumSum.FieldByName('T0A').AsString = '0' then repNameSuffix := '0';
+  // печать без класса 9
+  if ibdsCurriculumPERIOD.Value < 8 then repNameSuffix := repNameSuffix + '9';
+  repName := 'fr\Curriculum' + IfThen(repNameSuffix <> '',  'WT' + repNameSuffix) + '.fr3';
+
   BM := ibdsCurriculumRecord.GetBookmark;
   ibdsCurriculumRecord.DisableControls;
   ibdsCurriculumRecord.First;
   URTReport.runFrxReportAndExport(
-    'fr\Curriculum.fr3',
+    repName,
     frxrCurriculum,
     frxRTFExport
   );
   ibdsCurriculumRecord.GotoBookmark(BM);
   ibdsCurriculumRecord.FreeBookmark(BM);
   ibdsCurriculumRecord.EnableControls;
-
-  //LocateReportParam('Curriculum', #5#30#7#15#15#15#15#15#15#15#15#15#15#15#15);
-
-
-  S := #5#30#7#15#15#15#15#15#15#15#15#15#15#15#15;// DM.ibdsReportParamSIZES_1.Value;
-  //P[0] := Ord(S[1])*57;
-  //  for i := 1 to FIELD_QTY - 1 do
-  //  P[i] := P[i - 1] + Ord(S[i + 1]) * TWIPS_IN_MM;
-
-//  rep := TRTReport.Create('Curriculum');
-
-//  rep.AddText('\headery300 {\header ');  //верхний колонтитул
-//  rep.ParSet12Arial;
-//  rep.AddText(DM.ibdsConstPASPORT_NAME.Value);
-//  rep.AddText('\tx14000\tab\b Лист \chpgn\par}');
-
-//  rep.AddPar('\qc ' + 'ТИПОВОЙ УЧЕБНЫЙ ПЛАН');
-//  rep.AddPar('\qc ' + ibdsCurriculumNAME.Value);
-
-//  rep.ParSet12Arial;
-
-//  rep.CreateMergeHeader(
-//             [P[0],    P[2],           P[3],    P[4], P[5], P[6], P[7], P[8], P[9], P[10], P[11], P[14], P[15]], [0], []);
-//  rep.AddRow(['\qc №', '\ql Класс ->', '\qc 0', '1',  '2',  '3',  '4',  '5',  '6',  '7',   '8',   '9',   'Всего']);
-
-//  rep.Complete2MergeHeader(
-//             [P[0],    P[2],           P[3],    P[4], P[5], P[6], P[7], P[8], P[9], P[10], P[11], P[12], P[13], P[14], P[15]], [0],
-//             [1,       2,              3,       4,    5,    6,    7,    8,    9,    10,    11,    12,    13,    14], []);
-//  rep.AddRow(['', '\ql Категория ->', '\qc ' +
-//    Cat(ibdsCurriculumCAT_0.AsVariant), Cat(ibdsCurriculumCAT_1.AsVariant),
-//    Cat(ibdsCurriculumCAT_2.AsVariant), Cat(ibdsCurriculumCAT_3.AsVariant),
-//    Cat(ibdsCurriculumCAT_4.AsVariant), Cat(ibdsCurriculumCAT_5.AsVariant),
-//    Cat(ibdsCurriculumCAT_6.AsVariant), Cat(ibdsCurriculumCAT_7.AsVariant),
-//    Cat(ibdsCurriculumCAT_8.AsVariant), Cat(ibdsCurriculumCAT_9.AsVariant), 'мл.', 'ст.', 'конц.']);
-//
-//  rep.CompleteMergeHeader(P, [0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], []);
-//  rep.AddRow(['', '\ql Предмет', 'Гр.', '', '', '', '', '', '', '', '', '', '', '', '', '']);
-//  rep.CreateTable(P, []);
-//  rep.ParSet12Times;
-//
-//  BM := ibdsCurriculumRecord.GetBookmark;
-//  ibdsCurriculumRecord.DisableControls;
-//  ibdsCurriculumRecord.First;
-//  i := 0;
-//
-//  while not ibdsCurriculumRecord.Eof do
-//  begin
-//    inc(i);
-//    rep.AddRow(['\qc ' + IntToStr(i),
-//      '\ql ' + ibdsCurriculumRecordSUBJ_NAME.Value,
-//      '\qc ' + ibdsCurriculumRecordGROUP_QTY.AsString,
-//      '\qr ' +
-//      dFormat(ibdsCurriculumRecordCLOCK_0.Value),
-//      dFormat(ibdsCurriculumRecordCLOCK_1.Value),
-//      dFormat(ibdsCurriculumRecordCLOCK_2.Value),
-//      dFormat(ibdsCurriculumRecordCLOCK_3.Value),
-//      dFormat(ibdsCurriculumRecordCLOCK_4.Value),
-//      dFormat(ibdsCurriculumRecordCLOCK_5.Value),
-//      dFormat(ibdsCurriculumRecordCLOCK_6.Value),
-//      dFormat(ibdsCurriculumRecordCLOCK_7.Value),
-//      dFormat(ibdsCurriculumRecordCLOCK_8.Value),
-//      dFormat(ibdsCurriculumRecordCLOCK_9.Value),
-//      dFormat(ibdsCurriculumRecordCLOCK_PED.Value),
-//      dFormat(ibdsCurriculumRecordCLOCK_CONC.Value)]);
-//    ibdsCurriculumRecord.Next;
-//  end;
-
-//  ibSQL.Close;
-//  ibSQL.SQL.Clear;
-//  ibSQL.SQL.Append('select * from v_curriculum_sum where id = :id');
-//  ibSQL.ParamByName('id').AsString := ibdsCurriculumID.AsString;
-//  ibSQL.ExecQuery;
-//
-//  //ID,
-//  //T0YO, T1YO, T2YO, T3YO, T4YO, T5YO, T6YO, T7YO, T8YO, T9YO,
-//  //T0C, T1C, T2C, T3C, T4C, T5C, T6C, T7C, T8C, T9C,
-//  //YT_SUM, OT_SUM, CT_SUM, GR_YO, GR_C, GR_ALL
-//
-//  rep.AddRow(['', '\ql ВСЕГО', '\qr',
-//    dFormat(ibSQL.FieldByName('T0A').AsDouble),
-//    dFormat(ibSQL.FieldByName('T1A').AsDouble),
-//    dFormat(ibSQL.FieldByName('T2A').AsDouble),
-//    dFormat(ibSQL.FieldByName('T3A').AsDouble),
-//    dFormat(ibSQL.FieldByName('T4A').AsDouble),
-//    dFormat(ibSQL.FieldByName('T5A').AsDouble),
-//    dFormat(ibSQL.FieldByName('T6A').AsDouble),
-//    dFormat(ibSQL.FieldByName('T7A').AsDouble),
-//    dFormat(ibSQL.FieldByName('T8A').AsDouble),
-//    dFormat(ibSQL.FieldByName('T9A').AsDouble),
-//    dFormat(ibSQL.FieldByName('SUM_PED').AsDouble),
-//    dFormat(ibSQL.FieldByName('SUM_PED').AsDouble),
-//    dFormat(ibSQL.FieldByName('SUM_CONC').AsDouble)
-//  ]);
-//
-//  ibdsCurriculumRecord.GotoBookmark(BM);
-//  ibdsCurriculumRecord.FreeBookmark(BM);
-//  ibdsCurriculumRecord.EnableControls;
-
-//  rep.SaveAndExecuteReport(Handle, 'Учебный план');
 end;
 
 procedure TfmCurriculum.miParamClick(Sender: TObject);

@@ -1665,7 +1665,7 @@ object fmCurriculum: TfmCurriculum
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 39338.492116608800000000
-    ReportOptions.LastChange = 42318.007971828700000000
+    ReportOptions.LastChange = 42330.715290115740000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -1689,9 +1689,8 @@ object fmCurriculum: TfmCurriculum
       Width = 1000.000000000000000000
     end
     object Page1: TfrxReportPage
-      Orientation = poLandscape
-      PaperWidth = 297.000000000000000000
-      PaperHeight = 210.000000000000000000
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
       PaperSize = 9
       LeftMargin = 10.000000000000000000
       RightMargin = 10.000000000000000000
@@ -1701,11 +1700,11 @@ object fmCurriculum: TfmCurriculum
       object ReportTitle1: TfrxReportTitle
         Height = 34.015770000000010000
         Top = 18.897650000000000000
-        Width = 1046.929810000000000000
+        Width = 718.110700000000000000
         Stretched = True
         object Memo28: TfrxMemoView
           Align = baWidth
-          Width = 1046.929810000000000000
+          Width = 718.110700000000000000
           Height = 34.015770000000010000
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
@@ -1723,10 +1722,10 @@ object fmCurriculum: TfmCurriculum
       object Header1: TfrxHeader
         Height = 56.692950000000010000
         Top = 113.385900000000000000
-        Width = 1046.929810000000000000
+        Width = 718.110700000000000000
         object Memo1: TfrxMemoView
-          Left = 238.110390000000000000
-          Width = 642.520100000000000000
+          Left = 204.094620000000100000
+          Width = 415.748300000000000000
           Height = 18.897650000000000000
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
@@ -1742,9 +1741,9 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo2: TfrxMemoView
-          Left = 238.110390000000000000
+          Left = 204.094620000000000000
           Top = 18.897649999999980000
-          Width = 64.252010000000000000
+          Width = 41.574830000000000000
           Height = 37.795300000000000000
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
@@ -1760,9 +1759,9 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo3: TfrxMemoView
-          Left = 302.362400000000000000
+          Left = 245.669449999999900000
           Top = 18.897649999999980000
-          Width = 64.252010000000000000
+          Width = 41.574830000000000000
           Height = 37.795300000000000000
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
@@ -1778,9 +1777,9 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo4: TfrxMemoView
-          Left = 366.614410000000000000
+          Left = 287.244279999999800000
           Top = 18.897649999999980000
-          Width = 64.252010000000000000
+          Width = 41.574830000000000000
           Height = 37.795300000000000000
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
@@ -1796,9 +1795,9 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo5: TfrxMemoView
-          Left = 430.866420000000000000
+          Left = 328.819109999999800000
           Top = 18.897649999999980000
-          Width = 64.252010000000000000
+          Width = 41.574830000000000000
           Height = 37.795300000000000000
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
@@ -1814,9 +1813,9 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo6: TfrxMemoView
-          Left = 495.118430000000000000
+          Left = 370.393939999999800000
           Top = 18.897649999999980000
-          Width = 64.252010000000000000
+          Width = 41.574830000000000000
           Height = 37.795300000000000000
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
@@ -1832,9 +1831,9 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo7: TfrxMemoView
-          Left = 559.370440000000000000
+          Left = 411.968769999999800000
           Top = 18.897649999999980000
-          Width = 64.252010000000000000
+          Width = 41.574830000000000000
           Height = 37.795300000000000000
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
@@ -1850,9 +1849,9 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo8: TfrxMemoView
-          Left = 623.622450000000000000
+          Left = 453.543599999999800000
           Top = 18.897649999999980000
-          Width = 64.252010000000000000
+          Width = 41.574830000000000000
           Height = 37.795300000000000000
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
@@ -1868,9 +1867,9 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo9: TfrxMemoView
-          Left = 687.874460000000000000
+          Left = 495.118429999999700000
           Top = 18.897649999999980000
-          Width = 64.252010000000000000
+          Width = 41.574830000000000000
           Height = 37.795300000000000000
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
@@ -1886,9 +1885,9 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo10: TfrxMemoView
-          Left = 752.126470000000000000
+          Left = 536.693259999999800000
           Top = 18.897649999999980000
-          Width = 64.252010000000000000
+          Width = 41.574830000000000000
           Height = 37.795300000000000000
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
@@ -1904,8 +1903,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo11: TfrxMemoView
-          Left = 880.630490000000000000
-          Width = 166.299320000000000000
+          Left = 619.842919999999900000
+          Width = 98.267780000000000000
           Height = 18.897650000000000000
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
@@ -1921,9 +1920,9 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo35: TfrxMemoView
-          Left = 880.630490000000000000
+          Left = 619.842919999999900000
           Top = 18.897649999999980000
-          Width = 83.149660000000000000
+          Width = 49.133890000000000000
           Height = 37.795300000000000000
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
@@ -1939,26 +1938,26 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo37: TfrxMemoView
-          Left = 963.780150000000000000
+          Left = 668.976810000000000000
           Top = 18.897649999999980000
-          Width = 83.149660000000000000
+          Width = 49.133890000000000000
           Height = 37.795300000000000000
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -12
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8 = (
-            #1056#1108#1056#1109#1056#1029#1057#8224#1056#181#1057#1026#1057#8218' '#1057#8225#1056#176#1057#1027#1057#8249)
+            #1056#1108#1056#1109#1056#1029#1057#8224'. '#1057#8225#1056#176#1057#1027#1057#8249)
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo38: TfrxMemoView
-          Left = 34.015770000000010000
-          Width = 166.299320000000000000
+          Left = 22.677180000000000000
+          Width = 151.181200000000000000
           Height = 56.692950000000010000
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
@@ -1974,8 +1973,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo12: TfrxMemoView
-          Left = 200.315090000000000000
-          Width = 37.795300000000000000
+          Left = 173.858380000000000000
+          Width = 30.236240000000000000
           Height = 56.692950000000010000
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
@@ -1991,9 +1990,9 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo13: TfrxMemoView
-          Left = 816.378480000000000000
+          Left = 578.268089999999700000
           Top = 18.897649999999980000
-          Width = 64.252010000000000000
+          Width = 41.574830000000000000
           Height = 37.795300000000000000
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
@@ -2009,7 +2008,7 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo46: TfrxMemoView
-          Width = 34.015770000000010000
+          Width = 22.677180000000000000
           Height = 56.692950000000010000
           DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
@@ -2028,13 +2027,13 @@ object fmCurriculum: TfmCurriculum
       object MasterData1: TfrxMasterData
         Height = 18.897650000000000000
         Top = 192.756030000000000000
-        Width = 1046.929810000000000000
+        Width = 718.110700000000000000
         DataSet = frxdbdsCurrRec
         DataSetName = 'frxdbdsCurrRec'
         RowCount = 0
         object Memo14: TfrxMemoView
-          Left = 816.378480000000000000
-          Width = 64.252010000000000000
+          Left = 578.268089999999700000
+          Width = 41.574830000000000000
           Height = 18.897650000000000000
           DisplayFormat.DecimalSeparator = ','
           DisplayFormat.FormatStr = '%2.2f'
@@ -2054,8 +2053,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo15: TfrxMemoView
-          Left = 752.126470000000000000
-          Width = 64.252010000000000000
+          Left = 536.693259999999800000
+          Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataField = 'CLOCK_8'
           DataSet = frxdbdsCurrRec
@@ -2078,8 +2077,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo16: TfrxMemoView
-          Left = 687.874460000000000000
-          Width = 64.252010000000000000
+          Left = 495.118429999999700000
+          Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataField = 'CLOCK_7'
           DataSet = frxdbdsCurrRec
@@ -2102,8 +2101,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo17: TfrxMemoView
-          Left = 623.622450000000000000
-          Width = 64.252010000000000000
+          Left = 453.543599999999800000
+          Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataField = 'CLOCK_6'
           DataSet = frxdbdsCurrRec
@@ -2126,8 +2125,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo18: TfrxMemoView
-          Left = 559.370440000000000000
-          Width = 64.252010000000000000
+          Left = 411.968769999999800000
+          Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataField = 'CLOCK_5'
           DataSet = frxdbdsCurrRec
@@ -2150,8 +2149,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo19: TfrxMemoView
-          Left = 495.118430000000000000
-          Width = 64.252010000000000000
+          Left = 370.393939999999800000
+          Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataField = 'CLOCK_4'
           DataSet = frxdbdsCurrRec
@@ -2174,8 +2173,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo20: TfrxMemoView
-          Left = 430.866420000000000000
-          Width = 64.252010000000000000
+          Left = 328.819109999999800000
+          Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataField = 'CLOCK_3'
           DataSet = frxdbdsCurrRec
@@ -2198,8 +2197,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo21: TfrxMemoView
-          Left = 366.614410000000000000
-          Width = 64.252010000000000000
+          Left = 287.244279999999800000
+          Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataField = 'CLOCK_2'
           DataSet = frxdbdsCurrRec
@@ -2222,8 +2221,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo22: TfrxMemoView
-          Left = 302.362400000000000000
-          Width = 64.252010000000000000
+          Left = 245.669449999999900000
+          Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataField = 'CLOCK_1'
           DataSet = frxdbdsCurrRec
@@ -2246,8 +2245,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo23: TfrxMemoView
-          Left = 238.110390000000000000
-          Width = 64.252010000000000000
+          Left = 204.094620000000100000
+          Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataField = 'CLOCK_0'
           DataSet = frxdbdsCurrRec
@@ -2270,8 +2269,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo24: TfrxMemoView
-          Left = 200.315090000000000000
-          Width = 37.795300000000000000
+          Left = 173.858380000000000000
+          Width = 30.236240000000000000
           Height = 18.897650000000000000
           DataSet = frxdbdsCurrRec
           DataSetName = 'frxdbdsCurrRec'
@@ -2291,8 +2290,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo25: TfrxMemoView
-          Left = 34.015770000000010000
-          Width = 166.299320000000000000
+          Left = 22.677180000000000000
+          Width = 151.181200000000000000
           Height = 18.897650000000000000
           DataField = 'SUBJ_NAME'
           DataSet = frxdbdsCurrRec
@@ -2312,8 +2311,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo26: TfrxMemoView
-          Left = 880.630490000000000000
-          Width = 83.149660000000000000
+          Left = 619.842919999999900000
+          Width = 49.133890000000000000
           Height = 18.897650000000000000
           DataField = 'CLOCK_PED'
           DataSet = frxdbdsCurrRec
@@ -2335,8 +2334,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo27: TfrxMemoView
-          Left = 963.780150000000000000
-          Width = 83.149660000000000000
+          Left = 668.976809999999700000
+          Width = 49.133890000000000000
           Height = 18.897650000000000000
           DataField = 'CLOCK_CONC'
           DataSet = frxdbdsCurrRec
@@ -2358,7 +2357,7 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo47: TfrxMemoView
-          Width = 34.015770000000010000
+          Width = 22.677180000000000000
           Height = 18.897650000000000000
           DataSet = frxdbdsCurrRec
           DataSetName = 'frxdbdsCurrRec'
@@ -2381,9 +2380,9 @@ object fmCurriculum: TfmCurriculum
       object Footer1: TfrxFooter
         Height = 18.897650000000000000
         Top = 234.330860000000000000
-        Width = 1046.929810000000000000
+        Width = 718.110700000000000000
         object Memo29: TfrxMemoView
-          Width = 200.315090000000000000
+          Width = 173.858380000000000000
           Height = 18.897650000000000000
           DataSet = frxdbdsCurrRec
           DataSetName = 'frxdbdsCurrRec'
@@ -2402,8 +2401,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo30: TfrxMemoView
-          Left = 200.315090000000000000
-          Width = 37.795300000000000000
+          Left = 173.858380000000000000
+          Width = 30.236240000000000000
           Height = 18.897650000000000000
           DataSet = frxdbdsCurrRec
           DataSetName = 'frxdbdsCurrRec'
@@ -2423,8 +2422,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo31: TfrxMemoView
-          Left = 238.110390000000000000
-          Width = 64.252010000000000000
+          Left = 204.094620000000100000
+          Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataSet = frxdbdsCurrRec
           DataSetName = 'frxdbdsCurrRec'
@@ -2446,8 +2445,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo32: TfrxMemoView
-          Left = 302.362400000000000000
-          Width = 64.252010000000000000
+          Left = 245.669449999999900000
+          Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataSet = frxdbdsCurrRec
           DataSetName = 'frxdbdsCurrRec'
@@ -2469,8 +2468,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo33: TfrxMemoView
-          Left = 366.614410000000000000
-          Width = 64.252010000000000000
+          Left = 287.244279999999800000
+          Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataSet = frxdbdsCurrRec
           DataSetName = 'frxdbdsCurrRec'
@@ -2492,8 +2491,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo34: TfrxMemoView
-          Left = 430.866420000000000000
-          Width = 64.252010000000000000
+          Left = 328.819109999999800000
+          Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataSet = frxdbdsCurrRec
           DataSetName = 'frxdbdsCurrRec'
@@ -2515,8 +2514,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo36: TfrxMemoView
-          Left = 495.118430000000000000
-          Width = 64.252010000000000000
+          Left = 370.393939999999800000
+          Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataSet = frxdbdsCurrRec
           DataSetName = 'frxdbdsCurrRec'
@@ -2538,8 +2537,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo39: TfrxMemoView
-          Left = 559.370440000000000000
-          Width = 64.252010000000000000
+          Left = 411.968769999999800000
+          Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataSet = frxdbdsCurrRec
           DataSetName = 'frxdbdsCurrRec'
@@ -2561,8 +2560,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo40: TfrxMemoView
-          Left = 623.622450000000000000
-          Width = 64.252010000000000000
+          Left = 453.543599999999800000
+          Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataSet = frxdbdsCurrRec
           DataSetName = 'frxdbdsCurrRec'
@@ -2584,8 +2583,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo41: TfrxMemoView
-          Left = 687.874460000000000000
-          Width = 64.252010000000000000
+          Left = 495.118429999999700000
+          Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataSet = frxdbdsCurrRec
           DataSetName = 'frxdbdsCurrRec'
@@ -2607,8 +2606,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo42: TfrxMemoView
-          Left = 752.126470000000000000
-          Width = 64.252010000000000000
+          Left = 536.693259999999800000
+          Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataSet = frxdbdsCurrRec
           DataSetName = 'frxdbdsCurrRec'
@@ -2630,8 +2629,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo43: TfrxMemoView
-          Left = 816.378480000000000000
-          Width = 64.252010000000000000
+          Left = 578.268089999999700000
+          Width = 41.574830000000000000
           Height = 18.897650000000000000
           DataSet = frxdbdsCurrRec
           DataSetName = 'frxdbdsCurrRec'
@@ -2653,8 +2652,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo44: TfrxMemoView
-          Left = 880.630490000000000000
-          Width = 83.149660000000000000
+          Left = 619.842919999999900000
+          Width = 49.133890000000000000
           Height = 18.897650000000000000
           DataSet = frxdbdsCurrRec
           DataSetName = 'frxdbdsCurrRec'
@@ -2675,8 +2674,8 @@ object fmCurriculum: TfmCurriculum
           VAlign = vaCenter
         end
         object Memo45: TfrxMemoView
-          Left = 963.780150000000000000
-          Width = 83.149660000000000000
+          Left = 668.976809999999700000
+          Width = 49.133890000000000000
           Height = 18.897650000000000000
           DataSet = frxdbdsCurrRec
           DataSetName = 'frxdbdsCurrRec'
@@ -2704,14 +2703,14 @@ object fmCurriculum: TfmCurriculum
     CloseDataSource = False
     DataSet = ibdsCurriculumRecord
     Left = 104
-    Top = 272
+    Top = 336
   end
   object frxdbdsCurr: TfrxDBDataset
     UserName = 'frxdbdsCurr'
     CloseDataSource = False
     DataSet = ibdsCurriculum
     Left = 104
-    Top = 320
+    Top = 376
   end
   object frxRTFExport: TfrxRTFExport
     ShowDialog = False
@@ -2724,5 +2723,2891 @@ object fmCurriculum: TfmCurriculum
     HeaderFooterMode = hfNone
     Left = 184
     Top = 296
+  end
+  object frxCurriculumWT0: TfrxReport
+    Version = '4.0.11'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 39338.492116608800000000
+    ReportOptions.LastChange = 42330.715418888890000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 153
+    Top = 337
+    Datasets = <
+      item
+        DataSet = frxdbdsCurr
+        DataSetName = 'frxdbdsCurr'
+      end
+      item
+        DataSet = frxdbdsCurrRec
+        DataSetName = 'frxdbdsCurrRec'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      Frame.Width = 2.000000000000000000
+      object ReportTitle1: TfrxReportTitle
+        Height = 34.015770000000000000
+        Top = 18.897650000000000000
+        Width = 718.110700000000000000
+        Stretched = True
+        object Memo28: TfrxMemoView
+          Align = baWidth
+          Width = 718.110700000000000000
+          Height = 34.015770000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Width = 0.500000000000000000
+          Memo.UTF8 = (
+            '[frxdbdsCurr."Name"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+      object Header1: TfrxHeader
+        Height = 56.692950000000010000
+        Top = 113.385900000000000000
+        Width = 718.110700000000000000
+        object Memo1: TfrxMemoView
+          Left = 204.094620000000100000
+          Width = 374.173470000000000000
+          Height = 18.897650000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1113#1056#187#1056#176#1057#1027#1057#1027#1057#8249)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo3: TfrxMemoView
+          Left = 204.094620000000100000
+          Top = 18.897650000000010000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '1')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo4: TfrxMemoView
+          Left = 245.669449999999800000
+          Top = 18.897650000000010000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '2')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo5: TfrxMemoView
+          Left = 287.244279999999800000
+          Top = 18.897650000000010000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '3')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo6: TfrxMemoView
+          Left = 328.819109999999800000
+          Top = 18.897650000000010000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '4')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo7: TfrxMemoView
+          Left = 370.393939999999700000
+          Top = 18.897650000000010000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '5')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo8: TfrxMemoView
+          Left = 411.968769999999800000
+          Top = 18.897650000000010000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '6')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo9: TfrxMemoView
+          Left = 453.543599999999800000
+          Top = 18.897650000000010000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '7')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo10: TfrxMemoView
+          Left = 495.118429999999700000
+          Top = 18.897650000000010000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '8')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo11: TfrxMemoView
+          Left = 578.268089999999700000
+          Width = 98.267780000000000000
+          Height = 18.897650000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#8217#1057#1027#1056#181#1056#1110#1056#1109' '#1057#8225#1056#176#1057#1027#1056#1109#1056#1030)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo35: TfrxMemoView
+          Left = 578.268089999999700000
+          Top = 18.897650000000010000
+          Width = 49.133890000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1111#1056#181#1056#1169'. '#1057#8225#1056#176#1057#1027#1057#8249)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo37: TfrxMemoView
+          Left = 627.401980000000000000
+          Top = 18.897649999999980000
+          Width = 49.133890000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1108#1056#1109#1056#1029#1057#8224'. '#1057#8225#1056#176#1057#1027#1057#8249)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo38: TfrxMemoView
+          Left = 22.677180000000000000
+          Width = 151.181200000000000000
+          Height = 56.692950000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1119#1057#1026#1056#181#1056#1169#1056#1112#1056#181#1057#8218)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo12: TfrxMemoView
+          Left = 173.858380000000100000
+          Width = 30.236240000000000000
+          Height = 56.692950000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#8220#1057#1026'.')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo13: TfrxMemoView
+          Left = 536.693259999999800000
+          Top = 18.897650000000010000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '9')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo46: TfrxMemoView
+          Width = 22.677180000000000000
+          Height = 56.692950000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1074#8222#8211)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+      object MasterData1: TfrxMasterData
+        Height = 18.897650000000000000
+        Top = 192.756030000000000000
+        Width = 718.110700000000000000
+        DataSet = frxdbdsCurrRec
+        DataSetName = 'frxdbdsCurrRec'
+        RowCount = 0
+        object Memo14: TfrxMemoView
+          Left = 536.693259999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_9"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo15: TfrxMemoView
+          Left = 495.118429999999700000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_8'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_8"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo16: TfrxMemoView
+          Left = 453.543599999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_7'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_7"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo17: TfrxMemoView
+          Left = 411.968769999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_6'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_6"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo18: TfrxMemoView
+          Left = 370.393939999999700000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_5'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_5"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo19: TfrxMemoView
+          Left = 328.819109999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_4'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_4"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo20: TfrxMemoView
+          Left = 287.244279999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_3'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_3"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo21: TfrxMemoView
+          Left = 245.669449999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_2'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_2"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo22: TfrxMemoView
+          Left = 204.094620000000100000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_1'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_1"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo24: TfrxMemoView
+          Left = 173.858380000000100000
+          Width = 30.236240000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%g'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."GROUP_QTY"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo25: TfrxMemoView
+          Left = 22.677180000000000000
+          Width = 151.181200000000000000
+          Height = 18.897650000000000000
+          DataField = 'SUBJ_NAME'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%g'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."SUBJ_NAME"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo26: TfrxMemoView
+          Left = 578.268089999999700000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_PED'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_PED"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo27: TfrxMemoView
+          Left = 627.401979999999700000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_CONC'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_CONC"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo47: TfrxMemoView
+          Width = 22.677180000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%g'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[Line]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+      object Footer1: TfrxFooter
+        Height = 18.897650000000000000
+        Top = 234.330860000000000000
+        Width = 718.110700000000000000
+        object Memo29: TfrxMemoView
+          Width = 173.858380000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%g'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          Memo.UTF8 = (
+            #1056#8217#1056#1038#1056#8226#1056#8220#1056#1115)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo30: TfrxMemoView
+          Left = 173.858380000000100000
+          Width = 30.236240000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%g'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."GROUP_QTY">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo32: TfrxMemoView
+          Left = 204.094620000000100000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_1">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo33: TfrxMemoView
+          Left = 245.669449999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_2">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo34: TfrxMemoView
+          Left = 287.244279999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_3">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo36: TfrxMemoView
+          Left = 328.819109999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_4">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo39: TfrxMemoView
+          Left = 370.393939999999700000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_5">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo40: TfrxMemoView
+          Left = 411.968769999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_6">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo41: TfrxMemoView
+          Left = 453.543599999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_7">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo42: TfrxMemoView
+          Left = 495.118429999999700000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_8">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo43: TfrxMemoView
+          Left = 536.693259999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_9">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo44: TfrxMemoView
+          Left = 578.268089999999700000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_PED">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo45: TfrxMemoView
+          Left = 627.401979999999700000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_CONC">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+    end
+  end
+  object frxCurriculumWT09: TfrxReport
+    Version = '4.0.11'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 39338.492116608800000000
+    ReportOptions.LastChange = 42330.715539548610000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 153
+    Top = 377
+    Datasets = <
+      item
+        DataSet = frxdbdsCurr
+        DataSetName = 'frxdbdsCurr'
+      end
+      item
+        DataSet = frxdbdsCurrRec
+        DataSetName = 'frxdbdsCurrRec'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      Frame.Width = 2.000000000000000000
+      object ReportTitle1: TfrxReportTitle
+        Height = 34.015770000000000000
+        Top = 18.897650000000000000
+        Width = 718.110700000000000000
+        Stretched = True
+        object Memo28: TfrxMemoView
+          Align = baWidth
+          Width = 718.110700000000000000
+          Height = 34.015770000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Width = 0.500000000000000000
+          Memo.UTF8 = (
+            '[frxdbdsCurr."Name"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+      object Header1: TfrxHeader
+        Height = 56.692950000000000000
+        Top = 113.385900000000000000
+        Width = 718.110700000000000000
+        object Memo1: TfrxMemoView
+          Left = 204.094620000000000000
+          Width = 332.598640000000000000
+          Height = 18.897650000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1113#1056#187#1056#176#1057#1027#1057#1027#1057#8249)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo3: TfrxMemoView
+          Left = 204.094620000000000000
+          Top = 18.897650000000010000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '1')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo4: TfrxMemoView
+          Left = 245.669450000000000000
+          Top = 18.897650000000010000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '2')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo5: TfrxMemoView
+          Left = 287.244280000000000000
+          Top = 18.897650000000010000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '3')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo6: TfrxMemoView
+          Left = 328.819110000000000000
+          Top = 18.897650000000010000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '4')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo7: TfrxMemoView
+          Left = 370.393940000000000000
+          Top = 18.897650000000010000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '5')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo8: TfrxMemoView
+          Left = 411.968770000000000000
+          Top = 18.897650000000010000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '6')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo9: TfrxMemoView
+          Left = 453.543600000000000000
+          Top = 18.897650000000010000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '7')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo10: TfrxMemoView
+          Left = 495.118430000000000000
+          Top = 18.897650000000010000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '8')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo11: TfrxMemoView
+          Left = 536.693259999999800000
+          Width = 98.267779999999990000
+          Height = 18.897650000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#8217#1057#1027#1056#181#1056#1110#1056#1109' '#1057#8225#1056#176#1057#1027#1056#1109#1056#1030)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo35: TfrxMemoView
+          Left = 536.693259999999800000
+          Top = 18.897650000000010000
+          Width = 49.133890000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1111#1056#181#1056#1169'. '#1057#8225#1056#176#1057#1027#1057#8249)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo37: TfrxMemoView
+          Left = 585.827150000000000000
+          Top = 18.897649999999980000
+          Width = 49.133890000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1108#1056#1109#1056#1029#1057#8224'. '#1057#8225#1056#176#1057#1027#1057#8249)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo38: TfrxMemoView
+          Left = 22.677180000000000000
+          Width = 151.181200000000000000
+          Height = 56.692950000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1119#1057#1026#1056#181#1056#1169#1056#1112#1056#181#1057#8218)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo12: TfrxMemoView
+          Left = 173.858380000000000000
+          Width = 30.236240000000000000
+          Height = 56.692950000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#8220#1057#1026'.')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo46: TfrxMemoView
+          Width = 22.677180000000000000
+          Height = 56.692950000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1074#8222#8211)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+      object MasterData1: TfrxMasterData
+        Height = 18.897650000000000000
+        Top = 192.756030000000000000
+        Width = 718.110700000000000000
+        DataSet = frxdbdsCurrRec
+        DataSetName = 'frxdbdsCurrRec'
+        RowCount = 0
+        object Memo15: TfrxMemoView
+          Left = 495.118430000000000000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_8'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_8"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo16: TfrxMemoView
+          Left = 453.543600000000000000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_7'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_7"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo17: TfrxMemoView
+          Left = 411.968770000000000000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_6'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_6"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo18: TfrxMemoView
+          Left = 370.393940000000000000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_5'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_5"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo19: TfrxMemoView
+          Left = 328.819110000000000000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_4'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_4"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo20: TfrxMemoView
+          Left = 287.244280000000000000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_3'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_3"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo21: TfrxMemoView
+          Left = 245.669450000000000000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_2'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_2"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo22: TfrxMemoView
+          Left = 204.094620000000000000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_1'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_1"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo24: TfrxMemoView
+          Left = 173.858380000000000000
+          Width = 30.236240000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%g'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."GROUP_QTY"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo25: TfrxMemoView
+          Left = 22.677180000000000000
+          Width = 151.181200000000000000
+          Height = 18.897650000000000000
+          DataField = 'SUBJ_NAME'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%g'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."SUBJ_NAME"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo26: TfrxMemoView
+          Left = 536.693259999999800000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_PED'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_PED"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo27: TfrxMemoView
+          Left = 585.827149999999700000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_CONC'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_CONC"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo47: TfrxMemoView
+          Width = 22.677180000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%g'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[Line]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+      object Footer1: TfrxFooter
+        Height = 18.897650000000000000
+        Top = 234.330860000000000000
+        Width = 718.110700000000000000
+        object Memo29: TfrxMemoView
+          Width = 173.858380000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%g'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          Memo.UTF8 = (
+            #1056#8217#1056#1038#1056#8226#1056#8220#1056#1115)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo30: TfrxMemoView
+          Left = 173.858380000000000000
+          Width = 30.236240000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%g'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."GROUP_QTY">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo32: TfrxMemoView
+          Left = 204.094620000000000000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_1">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo33: TfrxMemoView
+          Left = 245.669450000000000000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_2">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo34: TfrxMemoView
+          Left = 287.244280000000000000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_3">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo36: TfrxMemoView
+          Left = 328.819110000000000000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_4">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo39: TfrxMemoView
+          Left = 370.393940000000000000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_5">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo40: TfrxMemoView
+          Left = 411.968770000000000000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_6">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo41: TfrxMemoView
+          Left = 453.543600000000000000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_7">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo42: TfrxMemoView
+          Left = 495.118430000000000000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_8">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo44: TfrxMemoView
+          Left = 536.693259999999800000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_PED">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo45: TfrxMemoView
+          Left = 585.827149999999700000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_CONC">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+    end
+  end
+  object frxCurriculumWT9: TfrxReport
+    Version = '4.0.11'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 39338.492116608800000000
+    ReportOptions.LastChange = 42330.715672372680000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 153
+    Top = 417
+    Datasets = <
+      item
+        DataSet = frxdbdsCurr
+        DataSetName = 'frxdbdsCurr'
+      end
+      item
+        DataSet = frxdbdsCurrRec
+        DataSetName = 'frxdbdsCurrRec'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      Frame.Width = 2.000000000000000000
+      object ReportTitle1: TfrxReportTitle
+        Height = 34.015770000000010000
+        Top = 18.897650000000000000
+        Width = 718.110700000000000000
+        Stretched = True
+        object Memo28: TfrxMemoView
+          Align = baWidth
+          Width = 718.110700000000000000
+          Height = 34.015770000000010000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Width = 0.500000000000000000
+          Memo.UTF8 = (
+            '[frxdbdsCurr."Name"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+      object Header1: TfrxHeader
+        Height = 56.692950000000010000
+        Top = 113.385900000000000000
+        Width = 718.110700000000000000
+        object Memo1: TfrxMemoView
+          Left = 204.094620000000000000
+          Width = 374.173469999999700000
+          Height = 18.897650000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1113#1056#187#1056#176#1057#1027#1057#1027#1057#8249)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo2: TfrxMemoView
+          Left = 204.094620000000000000
+          Top = 18.897649999999980000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '0')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo3: TfrxMemoView
+          Left = 245.669449999999900000
+          Top = 18.897649999999980000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '1')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo4: TfrxMemoView
+          Left = 287.244279999999800000
+          Top = 18.897649999999980000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '2')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo5: TfrxMemoView
+          Left = 328.819109999999800000
+          Top = 18.897649999999980000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '3')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo6: TfrxMemoView
+          Left = 370.393939999999800000
+          Top = 18.897649999999980000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '4')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo7: TfrxMemoView
+          Left = 411.968769999999800000
+          Top = 18.897649999999980000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '5')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo8: TfrxMemoView
+          Left = 453.543599999999800000
+          Top = 18.897649999999980000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '6')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo9: TfrxMemoView
+          Left = 495.118429999999700000
+          Top = 18.897649999999980000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '7')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo10: TfrxMemoView
+          Left = 536.693259999999800000
+          Top = 18.897649999999980000
+          Width = 41.574830000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '8')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo11: TfrxMemoView
+          Left = 578.268089999999600000
+          Width = 98.267780000000000000
+          Height = 18.897650000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#8217#1057#1027#1056#181#1056#1110#1056#1109' '#1057#8225#1056#176#1057#1027#1056#1109#1056#1030)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo35: TfrxMemoView
+          Left = 578.268089999999600000
+          Top = 18.897649999999980000
+          Width = 49.133890000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1111#1056#181#1056#1169'. '#1057#8225#1056#176#1057#1027#1057#8249)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo37: TfrxMemoView
+          Left = 627.401980000000000000
+          Top = 18.897649999999980000
+          Width = 49.133890000000000000
+          Height = 37.795300000000000000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1108#1056#1109#1056#1029#1057#8224'. '#1057#8225#1056#176#1057#1027#1057#8249)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo38: TfrxMemoView
+          Left = 22.677180000000000000
+          Width = 151.181200000000000000
+          Height = 56.692950000000010000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#1119#1057#1026#1056#181#1056#1169#1056#1112#1056#181#1057#8218)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo12: TfrxMemoView
+          Left = 173.858380000000000000
+          Width = 30.236240000000000000
+          Height = 56.692950000000010000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1056#8220#1057#1026'.')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo46: TfrxMemoView
+          Width = 22.677180000000000000
+          Height = 56.692950000000010000
+          DisplayFormat.DecimalSeparator = ','
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            #1074#8222#8211)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+      object MasterData1: TfrxMasterData
+        Height = 18.897650000000000000
+        Top = 192.756030000000000000
+        Width = 718.110700000000000000
+        DataSet = frxdbdsCurrRec
+        DataSetName = 'frxdbdsCurrRec'
+        RowCount = 0
+        object Memo15: TfrxMemoView
+          Left = 536.693259999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_8'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_8"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo16: TfrxMemoView
+          Left = 495.118429999999700000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_7'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_7"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo17: TfrxMemoView
+          Left = 453.543599999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_6'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_6"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo18: TfrxMemoView
+          Left = 411.968769999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_5'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_5"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo19: TfrxMemoView
+          Left = 370.393939999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_4'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_4"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo20: TfrxMemoView
+          Left = 328.819109999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_3'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_3"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo21: TfrxMemoView
+          Left = 287.244279999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_2'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_2"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo22: TfrxMemoView
+          Left = 245.669449999999900000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_1'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_1"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo23: TfrxMemoView
+          Left = 204.094620000000100000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_0'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_0"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo24: TfrxMemoView
+          Left = 173.858380000000000000
+          Width = 30.236240000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%g'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."GROUP_QTY"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo25: TfrxMemoView
+          Left = 22.677180000000000000
+          Width = 151.181200000000000000
+          Height = 18.897650000000000000
+          DataField = 'SUBJ_NAME'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%g'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."SUBJ_NAME"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo26: TfrxMemoView
+          Left = 578.268089999999600000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_PED'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_PED"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo27: TfrxMemoView
+          Left = 627.401979999999500000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          DataField = 'CLOCK_CONC'
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[frxdbdsCurrRec."CLOCK_CONC"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo47: TfrxMemoView
+          Width = 22.677180000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%g'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[Line]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+      object Footer1: TfrxFooter
+        Height = 18.897650000000000000
+        Top = 234.330860000000000000
+        Width = 718.110700000000000000
+        object Memo29: TfrxMemoView
+          Width = 173.858380000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%g'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          Memo.UTF8 = (
+            #1056#8217#1056#1038#1056#8226#1056#8220#1056#1115)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo30: TfrxMemoView
+          Left = 173.858380000000000000
+          Width = 30.236240000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%g'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."GROUP_QTY">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo31: TfrxMemoView
+          Left = 204.094620000000100000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_0">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo32: TfrxMemoView
+          Left = 245.669449999999900000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_1">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo33: TfrxMemoView
+          Left = 287.244279999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_2">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo34: TfrxMemoView
+          Left = 328.819109999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_3">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo36: TfrxMemoView
+          Left = 370.393939999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_4">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo39: TfrxMemoView
+          Left = 411.968769999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_5">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo40: TfrxMemoView
+          Left = 453.543599999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_6">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo41: TfrxMemoView
+          Left = 495.118429999999700000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_7">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo42: TfrxMemoView
+          Left = 536.693259999999800000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_8">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo44: TfrxMemoView
+          Left = 578.268089999999600000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_PED">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo45: TfrxMemoView
+          Left = 627.401979999999500000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          DataSet = frxdbdsCurrRec
+          DataSetName = 'frxdbdsCurrRec'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.2f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 0.500000000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[sum(<frxdbdsCurrRec."CLOCK_CONC">)]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+    end
+  end
+  object ibdsCurriculumSum: TIBDataSet
+    Database = DM.ibDatabase
+    Transaction = DM.ibReadTransaction
+    RefreshSQL.Strings = (
+      'select * from v_curriculum_rec'
+      'where curr_id =  :curr_id and id = :id'
+      'order by num')
+    SelectSQL.Strings = (
+      'select * from v_curriculum_sum'
+      'where id = :id')
+    DataSource = dsCurr
+    Left = 640
+    Top = 520
   end
 end
