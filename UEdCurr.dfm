@@ -1,9 +1,10 @@
 object fmEdCurr: TfmEdCurr
   Left = 266
   Top = 286
-  Width = 821
-  Height = 296
+  BorderStyle = bsDialog
   Caption = #1059#1095#1077#1073#1085#1099#1081' '#1087#1083#1072#1085
+  ClientHeight = 142
+  ClientWidth = 813
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -76,170 +77,13 @@ object fmEdCurr: TfmEdCurr
       end
     end
   end
-  object Panel1: TPanel
+  object Panel3: TPanel
     Left = 0
     Top = 81
     Width = 813
-    Height = 120
-    Align = alTop
-    TabOrder = 1
-    object GroupBox2: TGroupBox
-      Left = 1
-      Top = 1
-      Width = 811
-      Height = 118
-      Align = alClient
-      Caption = #1050#1072#1090#1077#1075#1086#1088#1080#1080
-      TabOrder = 0
-      object rgCat0: TRadioGroup
-        Left = 8
-        Top = 24
-        Width = 70
-        Height = 80
-        Caption = '0 '#1082#1083#1072#1089#1089
-        ItemIndex = 0
-        Items.Strings = (
-          '----'
-          #1084#1083'.'
-          #1089#1090'.')
-        TabOrder = 0
-        OnEnter = edNameChange
-      end
-      object rgCat1: TRadioGroup
-        Left = 88
-        Top = 24
-        Width = 70
-        Height = 80
-        Caption = '1 '#1082#1083#1072#1089#1089
-        ItemIndex = 0
-        Items.Strings = (
-          '----'
-          #1084#1083'.'
-          #1089#1090'.')
-        TabOrder = 1
-        OnEnter = edNameChange
-      end
-      object rgCat2: TRadioGroup
-        Left = 168
-        Top = 24
-        Width = 70
-        Height = 80
-        Caption = '2 '#1082#1083#1072#1089#1089
-        ItemIndex = 0
-        Items.Strings = (
-          '----'
-          #1084#1083'.'
-          #1089#1090'.')
-        TabOrder = 2
-        OnEnter = edNameChange
-      end
-      object rgCat3: TRadioGroup
-        Left = 248
-        Top = 24
-        Width = 70
-        Height = 80
-        Caption = '3 '#1082#1083#1072#1089#1089
-        ItemIndex = 0
-        Items.Strings = (
-          '----'
-          #1084#1083'.'
-          #1089#1090'.')
-        TabOrder = 3
-        OnEnter = edNameChange
-      end
-      object rgCat4: TRadioGroup
-        Left = 328
-        Top = 24
-        Width = 70
-        Height = 80
-        Caption = '4 '#1082#1083#1072#1089#1089
-        ItemIndex = 0
-        Items.Strings = (
-          '----'
-          #1084#1083'.'
-          #1089#1090'.')
-        TabOrder = 4
-        OnEnter = edNameChange
-      end
-      object rgCat5: TRadioGroup
-        Left = 408
-        Top = 24
-        Width = 70
-        Height = 80
-        Caption = '5 '#1082#1083#1072#1089#1089
-        ItemIndex = 0
-        Items.Strings = (
-          '----'
-          #1084#1083'.'
-          #1089#1090'.')
-        TabOrder = 5
-        OnEnter = edNameChange
-      end
-      object rgCat6: TRadioGroup
-        Left = 488
-        Top = 24
-        Width = 70
-        Height = 80
-        Caption = '6 '#1082#1083#1072#1089#1089
-        ItemIndex = 0
-        Items.Strings = (
-          '----'
-          #1084#1083'.'
-          #1089#1090'.')
-        TabOrder = 6
-        OnEnter = edNameChange
-      end
-      object rgCat7: TRadioGroup
-        Left = 568
-        Top = 24
-        Width = 70
-        Height = 80
-        Caption = '7 '#1082#1083#1072#1089#1089
-        ItemIndex = 0
-        Items.Strings = (
-          '----'
-          #1084#1083'.'
-          #1089#1090'.')
-        TabOrder = 7
-        OnEnter = edNameChange
-      end
-      object rgCat8: TRadioGroup
-        Left = 648
-        Top = 24
-        Width = 70
-        Height = 80
-        Caption = '8 '#1082#1083#1072#1089#1089
-        ItemIndex = 0
-        Items.Strings = (
-          '----'
-          #1084#1083'.'
-          #1089#1090'.')
-        TabOrder = 8
-        OnEnter = edNameChange
-      end
-      object rgCat9: TRadioGroup
-        Left = 728
-        Top = 24
-        Width = 70
-        Height = 80
-        Caption = '9 '#1082#1083#1072#1089#1089
-        ItemIndex = 0
-        Items.Strings = (
-          '----'
-          #1084#1083'.'
-          #1089#1090'.')
-        TabOrder = 9
-        OnEnter = edNameChange
-      end
-    end
-  end
-  object Panel3: TPanel
-    Left = 0
-    Top = 201
-    Width = 813
     Height = 61
     Align = alClient
-    TabOrder = 2
+    TabOrder = 1
     object btnCancel: TBitBtn
       Left = 160
       Top = 12
@@ -257,10 +101,5 @@ object fmEdCurr: TfmEdCurr
       TabOrder = 1
       Kind = bkOK
     end
-  end
-  object FormPlacement1: TFormPlacement
-    Options = [fpPosition]
-    Left = 296
-    Top = 208
   end
 end

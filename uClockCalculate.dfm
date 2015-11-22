@@ -1,6 +1,6 @@
 object fmClockCalculate: TfmClockCalculate
-  Left = 141
-  Top = 146
+  Left = 247
+  Top = 166
   Width = 1008
   Height = 685
   Caption = #1056#1072#1089#1095#1105#1090' '#1091#1095#1077#1073#1085#1099#1093' '#1095#1072#1089#1086#1074

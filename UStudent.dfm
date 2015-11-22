@@ -1049,27 +1049,6 @@ object fmStudent: TfmStudent
       ProviderFlags = []
       ReadOnly = True
     end
-    object ibdsCurriculumRecordYT: TFloatField
-      FieldKind = fkInternalCalc
-      FieldName = 'YT'
-      Origin = '"V_CURRICULUM_REC"."YT"'
-      ProviderFlags = []
-      ReadOnly = True
-    end
-    object ibdsCurriculumRecordOT: TFloatField
-      FieldKind = fkInternalCalc
-      FieldName = 'OT'
-      Origin = '"V_CURRICULUM_REC"."OT"'
-      ProviderFlags = []
-      ReadOnly = True
-    end
-    object ibdsCurriculumRecordCT: TFloatField
-      FieldKind = fkInternalCalc
-      FieldName = 'CT'
-      Origin = '"V_CURRICULUM_REC"."CT"'
-      ProviderFlags = []
-      ReadOnly = True
-    end
     object ibdsCurriculumRecordSUBJ_CODE: TIntegerField
       FieldName = 'SUBJ_CODE'
       Origin = '"V_CURRICULUM_REC"."SUBJ_CODE"'

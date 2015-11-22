@@ -104,9 +104,6 @@ type
     ibdsCurriculumRecordCLOCK_7: TFloatField;
     ibdsCurriculumRecordCLOCK_8: TFloatField;
     ibdsCurriculumRecordCLOCK_9: TFloatField;
-    ibdsCurriculumRecordYT: TFloatField;
-    ibdsCurriculumRecordOT: TFloatField;
-    ibdsCurriculumRecordCT: TFloatField;
     ibdsCurriculumRecordSUBJ_CODE: TIntegerField;
     dsCurrRec: TDataSource;
     frxrForTeacher: TfrxReport;
