@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, Menus, StdCtrls, ExtCtrls, Grids, DBGrids, URTReport, IniFiles,
   ShellApi, RXDBCtrl, Buttons, IBCustomDataSet, frxClass, frxDBSet,
-  frxExportRTF;
+  frxExportRTF, frxVariables;
 
 type
   TfmTab = class(TForm)
@@ -146,6 +146,14 @@ begin
   dbgTab.DefaultDrawColumnCell(Rect, DataCol, Column, State);
 end;
 
+procedure setReportDraftModeVariable(variables: TfrxVariables; isDraftMode: boolean);
+var
+  index: integer;
+begin
+  index := variables.IndexOf('isDraftMode');
+  variables.Items[index].Value := isDraftMode;
+end;
+
 procedure TfmTab.miPrintClick(Sender: TObject);
 const repFName = 'fr\MainTab.fr3';
 begin
@@ -157,6 +165,7 @@ begin
   ibdsAbsentTab1.Close;
   ibdsAbsentTab1.Open;
   frxAbsentTab.LoadFromFile(repFName);
+  setReportDraftModeVariable(frxAbsentTab.Variables, true);
   frxAbsentTab.PrepareReport;
   frxAbsentTab.Export(frxRTFExport);
   ibdsAbsentTab1.Close;
@@ -180,7 +189,7 @@ begin
 end;
 
 procedure TfmTab.mPrintSimpleClick(Sender: TObject);
-const repFName = 'fr\MainTabSimple.fr3';
+const repFName = 'fr\MainTab.fr3';
 begin
   frxRTFExport.FileName := URTReport.getFreeFileName;
   if not FileExists(repFName)  then
@@ -190,6 +199,8 @@ begin
   ibdsAbsentTab1.Close;
   ibdsAbsentTab1.Open;
   frxAbsentTab.LoadFromFile(repFName);
+  //frxAbsentTab.Variables.AddVariable('report', 'isDraftMode', false);
+  setReportDraftModeVariable(frxAbsentTab.Variables, false);
   frxAbsentTab.PrepareReport;
   frxAbsentTab.Export(frxRTFExport);
   ibdsAbsentTab1.Close;

@@ -116,15 +116,6 @@ type
     ibdsCurriculumNAME: TIBStringField;
     ibdsCurriculumPERIOD_FOR_PRINT: TIBStringField;
     ibdsCurriculumPERIOD: TSmallintField;
-    ibdsCurriculumCAT_0: TLargeintField;
-    ibdsCurriculumCAT_1: TLargeintField;
-    ibdsCurriculumCAT_2: TLargeintField;
-    ibdsCurriculumCAT_3: TLargeintField;
-    ibdsCurriculumCAT_4: TLargeintField;
-    ibdsCurriculumCAT_5: TLargeintField;
-    ibdsCurriculumCAT_6: TLargeintField;
-    ibdsCurriculumCAT_7: TLargeintField;
-    ibdsCurriculumCAT_8: TLargeintField;
     ibdsCurriculumRecord: TIBDataSet;
     pYO9: TPanel;
     pC9: TPanel;
@@ -149,7 +140,6 @@ type
     ibdsCurriculumRecordCLOCK_9: TFloatField;
     ibdsCurriculumRecordSUBJ_CODE: TIntegerField;
     ibdsCurriculumPOS: TIntegerField;
-    ibdsCurriculumCAT_9: TLargeintField;
     ibdsCurriculumRecordCLOCK_PED: TFloatField;
     ibdsCurriculumRecordCLOCK_CONC: TFloatField;
     Panel20: TPanel;
@@ -387,8 +377,6 @@ var
   end;
 begin
   fmEdCurr := TfmEdCurr.Create(Self);
-  for i := 0 to MAX_CLASS_QTY do
-    (fmEdCurr.FindComponent('rgCat' + IntToStr(i)) as TRadioGroup).Enabled := true;
   if fmEdCurr.ShowModal = mrOK then
   begin
     id := AddCurriculum(
@@ -397,12 +385,6 @@ begin
       fmEdCurr.cbPeriod.ItemIndex + 1,
       fmEdCurr.edPeriodForPrint.Text
     );
-    for i := 0 to MAX_CLASS_QTY do
-      AddCurriculumCat(
-        id,
-        i,
-        Preo((fmEdCurr.FindComponent('rgCat' + IntToStr(i)) as TRadioGroup).ItemIndex)
-      );
     ibdsCurriculum.Close;
     ibdsCurriculum.Open;
     ibdsCurriculum.Locate('ID', VarArrayOf([id]), []);
@@ -470,8 +452,7 @@ begin
   fmEdCurrRec := TfmEdCurrRec.Create(Self);
   for i := 0 to MAX_CLASS_QTY do
   begin
-    if not ibdsCurriculum.FieldByName('CAT_' + IntToStr(i)).IsNull then
-      (fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Enabled := true;
+    (fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Enabled := true;
     (fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Text := '0,00';
   end;
 
@@ -543,8 +524,7 @@ begin
   begin
     (fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Text :=
       Format('%.2f', [ibdsCurriculumRecord.FieldByName('CLOCK_' + IntToStr(i)).AsFloat]);
-    if not ibdsCurriculum.FieldByName('CAT_' + IntToStr(i)).IsNull then
-      (fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Enabled := true;
+    (fmEdCurrRec.FindComponent('cbT' + IntToStr(i)) as TComboBox).Enabled := true;
   end;
 
   if fmEdCurrRec.ShowModal = mrOk then

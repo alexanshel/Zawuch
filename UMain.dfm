@@ -3,12 +3,12 @@ object fmMAIN: TfmMAIN
   Top = 528
   AutoScroll = False
   Caption = #1047#1072#1074#1091#1095
-  ClientHeight = 113
-  ClientWidth = 511
+  ClientHeight = 141
+  ClientWidth = 639
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -16
+  Font.Height = -20
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   HelpFile = 'zawuch.hlp'
@@ -16,20 +16,20 @@ object fmMAIN: TfmMAIN
   Position = poDesktopCenter
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
-  PixelsPerInch = 96
-  TextHeight = 20
+  PixelsPerInch = 120
+  TextHeight = 25
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 94
-    Width = 511
+    Top = 122
+    Width = 639
     Height = 19
     Panels = <>
   end
   object ActionToolBar: TActionToolBar
     Left = 0
-    Top = 27
-    Width = 511
-    Height = 67
+    Top = 32
+    Width = 639
+    Height = 90
     ActionManager = ActionManager
     Align = alClient
     Caption = 'ActionToolBar'
@@ -39,8 +39,8 @@ object fmMAIN: TfmMAIN
   object ActionMainMenuBar: TActionMainMenuBar
     Left = 0
     Top = 0
-    Width = 511
-    Height = 27
+    Width = 639
+    Height = 32
     UseSystemFont = False
     ActionManager = ActionManager
     AllowHiding = True
@@ -51,7 +51,7 @@ object fmMAIN: TfmMAIN
     EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
+    Font.Height = -15
     Font.Name = 'Tahoma'
     Font.Style = []
     Spacing = 0

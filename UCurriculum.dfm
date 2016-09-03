@@ -1,16 +1,16 @@
 object fmCurriculum: TfmCurriculum
-  Left = 260
-  Top = 128
+  Left = 415
+  Top = 188
   HelpContext = 17
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = #1059#1095#1072#1073#1085#1099#1081' '#1087#1083#1072#1085
-  ClientHeight = 787
-  ClientWidth = 1230
+  ClientHeight = 673
+  ClientWidth = 1453
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -16
+  Font.Height = -20
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   HelpFile = 'zawuch.hlp'
@@ -19,21 +19,21 @@ object fmCurriculum: TfmCurriculum
   WindowState = wsMaximized
   OnClose = FormClose
   OnCreate = FormCreate
-  PixelsPerInch = 96
-  TextHeight = 20
+  PixelsPerInch = 120
+  TextHeight = 25
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1230
-    Height = 787
+    Width = 1453
+    Height = 673
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
     object Panel2: TPanel
       Left = 0
-      Top = 177
-      Width = 1230
-      Height = 610
+      Top = 221
+      Width = 1453
+      Height = 452
       Align = alClient
       BevelOuter = bvNone
       Color = clWindow
@@ -41,335 +41,335 @@ object fmCurriculum: TfmCurriculum
       object Panel7: TPanel
         Left = 0
         Top = 0
-        Width = 1230
-        Height = 48
+        Width = 1453
+        Height = 60
         Align = alTop
         TabOrder = 0
         object Panel3: TPanel
-          Left = 13
+          Left = 16
           Top = 0
-          Width = 248
-          Height = 17
+          Width = 310
+          Height = 21
           BevelInner = bvLowered
           Caption = #1050#1083#1072#1089#1089#1099'->'
           TabOrder = 0
         end
         object Panel4: TPanel
-          Left = 861
+          Left = 1076
           Top = 0
-          Width = 120
-          Height = 17
+          Width = 150
+          Height = 21
           BevelInner = bvLowered
           Caption = #1042#1089#1077#1075#1086
           TabOrder = 1
         end
         object Panel9: TPanel
-          Left = 13
-          Top = 17
-          Width = 187
-          Height = 32
+          Left = 16
+          Top = 21
+          Width = 234
+          Height = 40
           BevelInner = bvLowered
           Caption = #1055#1088#1077#1076#1084#1077#1090
           TabOrder = 2
         end
         object Panel10: TPanel
-          Left = 200
-          Top = 17
-          Width = 61
-          Height = 32
+          Left = 250
+          Top = 21
+          Width = 76
+          Height = 40
           BevelInner = bvLowered
           Caption = #1043#1088'.'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clDefault
-          Font.Height = -13
+          Font.Height = -17
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 3
         end
         object Panel11: TPanel
-          Left = 261
+          Left = 326
           Top = 0
-          Width = 60
-          Height = 17
+          Width = 75
+          Height = 21
           BevelInner = bvLowered
           Caption = '0'
           TabOrder = 4
         end
         object Panel12: TPanel
-          Left = 321
+          Left = 401
           Top = 0
-          Width = 60
-          Height = 17
+          Width = 75
+          Height = 21
           BevelInner = bvLowered
           Caption = '1'
           TabOrder = 5
         end
         object Panel13: TPanel
-          Left = 381
+          Left = 476
           Top = 0
-          Width = 60
-          Height = 17
+          Width = 75
+          Height = 21
           BevelInner = bvLowered
           Caption = '2'
           TabOrder = 6
         end
         object Panel14: TPanel
-          Left = 441
+          Left = 551
           Top = 0
-          Width = 60
-          Height = 17
+          Width = 75
+          Height = 21
           BevelInner = bvLowered
           Caption = '3'
           TabOrder = 7
         end
         object Panel15: TPanel
-          Left = 501
+          Left = 626
           Top = 0
-          Width = 60
-          Height = 17
+          Width = 75
+          Height = 21
           BevelInner = bvLowered
           Caption = '4'
           TabOrder = 8
         end
         object Panel16: TPanel
-          Left = 561
+          Left = 701
           Top = 0
-          Width = 60
-          Height = 17
+          Width = 75
+          Height = 21
           BevelInner = bvLowered
           Caption = '5'
           TabOrder = 9
         end
         object Panel17: TPanel
-          Left = 621
+          Left = 776
           Top = 0
-          Width = 60
-          Height = 17
+          Width = 75
+          Height = 21
           BevelInner = bvLowered
           Caption = '6'
           TabOrder = 10
         end
         object Panel18: TPanel
-          Left = 681
+          Left = 851
           Top = 0
-          Width = 60
-          Height = 17
+          Width = 75
+          Height = 21
           BevelInner = bvLowered
           Caption = '7'
           TabOrder = 11
         end
         object Panel19: TPanel
-          Left = 741
+          Left = 926
           Top = 0
-          Width = 60
-          Height = 17
+          Width = 75
+          Height = 21
           BevelInner = bvLowered
           Caption = '8'
           TabOrder = 12
         end
         object pCat0: TPanel
-          Left = 261
-          Top = 17
-          Width = 60
-          Height = 32
+          Left = 326
+          Top = 21
+          Width = 75
+          Height = 40
           BevelInner = bvLowered
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clHotLight
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 13
         end
         object pCat1: TPanel
-          Left = 321
-          Top = 17
-          Width = 60
-          Height = 32
+          Left = 401
+          Top = 21
+          Width = 75
+          Height = 40
           BevelInner = bvLowered
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clHotLight
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 14
         end
         object pCat2: TPanel
-          Left = 381
-          Top = 17
-          Width = 60
-          Height = 32
+          Left = 476
+          Top = 21
+          Width = 75
+          Height = 40
           BevelInner = bvLowered
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clHotLight
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 15
         end
         object pCat3: TPanel
-          Left = 441
-          Top = 17
-          Width = 60
-          Height = 32
+          Left = 551
+          Top = 21
+          Width = 75
+          Height = 40
           BevelInner = bvLowered
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clHotLight
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 16
         end
         object pCat4: TPanel
-          Left = 501
-          Top = 17
-          Width = 60
-          Height = 32
+          Left = 626
+          Top = 21
+          Width = 75
+          Height = 40
           BevelInner = bvLowered
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clHotLight
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 17
         end
         object pCat5: TPanel
-          Left = 561
-          Top = 17
-          Width = 60
-          Height = 32
+          Left = 701
+          Top = 21
+          Width = 75
+          Height = 40
           BevelInner = bvLowered
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clHotLight
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 18
         end
         object pCat6: TPanel
-          Left = 621
-          Top = 17
-          Width = 60
-          Height = 32
+          Left = 776
+          Top = 21
+          Width = 75
+          Height = 40
           BevelInner = bvLowered
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clHotLight
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 19
         end
         object pCat7: TPanel
-          Left = 681
-          Top = 17
-          Width = 60
-          Height = 32
+          Left = 851
+          Top = 21
+          Width = 75
+          Height = 40
           BevelInner = bvLowered
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clHotLight
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 20
         end
         object pCat8: TPanel
-          Left = 741
-          Top = 17
-          Width = 60
-          Height = 32
+          Left = 926
+          Top = 21
+          Width = 75
+          Height = 40
           BevelInner = bvLowered
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clHotLight
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 21
         end
         object Panel30: TPanel
-          Left = 861
-          Top = 17
-          Width = 60
-          Height = 32
+          Left = 1076
+          Top = 21
+          Width = 75
+          Height = 40
           BevelInner = bvLowered
           Caption = #1089#1090'.'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 22
         end
         object Panel31: TPanel
-          Left = 921
-          Top = 17
-          Width = 60
-          Height = 32
+          Left = 1151
+          Top = 21
+          Width = 75
+          Height = 40
           BevelInner = bvLowered
           Caption = #1082#1086#1085#1094'.'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlue
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 23
         end
         object Panel32: TPanel
-          Left = 981
+          Left = 1226
           Top = 0
-          Width = 18
-          Height = 49
+          Width = 23
+          Height = 61
           BevelInner = bvLowered
           TabOrder = 24
         end
         object Panel63: TPanel
           Left = 0
           Top = 0
-          Width = 13
-          Height = 49
+          Width = 16
+          Height = 61
           BevelInner = bvLowered
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clHotLight
-          Font.Height = -12
+          Font.Height = -15
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 25
         end
         object pCat9: TPanel
-          Left = 801
-          Top = 17
-          Width = 60
-          Height = 32
+          Left = 1001
+          Top = 21
+          Width = 75
+          Height = 40
           BevelInner = bvLowered
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clHotLight
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 26
         end
         object Panel20: TPanel
-          Left = 861
-          Top = 17
-          Width = 60
-          Height = 32
+          Left = 1076
+          Top = 21
+          Width = 75
+          Height = 40
           BevelInner = bvLowered
           Caption = #1087#1077#1076'.'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
@@ -378,37 +378,37 @@ object fmCurriculum: TfmCurriculum
       end
       object Panel33: TPanel
         Left = 0
-        Top = 530
-        Width = 1230
-        Height = 80
+        Top = 352
+        Width = 1453
+        Height = 100
         Align = alBottom
         TabOrder = 1
         object Panel34: TPanel
-          Left = 13
+          Left = 16
           Top = 1
-          Width = 188
-          Height = 24
+          Width = 235
+          Height = 30
           BevelInner = bvLowered
           Caption = #1042#1089#1077#1075#1086' ('#1087#1077#1076'.)'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 0
         end
         object pGr: TPanel
-          Left = 201
+          Left = 251
           Top = 1
-          Width = 60
-          Height = 24
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           BiDiMode = bdLeftToRight
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentBiDiMode = False
@@ -416,556 +416,556 @@ object fmCurriculum: TfmCurriculum
           TabOrder = 1
         end
         object pYO0: TPanel
-          Left = 261
+          Left = 326
           Top = 1
-          Width = 60
-          Height = 24
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 2
         end
         object pYO1: TPanel
-          Left = 321
+          Left = 401
           Top = 1
-          Width = 60
-          Height = 24
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 3
         end
         object pYO2: TPanel
-          Left = 381
+          Left = 476
           Top = 1
-          Width = 60
-          Height = 24
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 4
         end
         object pYO3: TPanel
-          Left = 441
+          Left = 551
           Top = 1
-          Width = 60
-          Height = 24
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 5
         end
         object pYO4: TPanel
-          Left = 501
+          Left = 626
           Top = 1
-          Width = 60
-          Height = 24
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 6
         end
         object pYO5: TPanel
-          Left = 561
+          Left = 701
           Top = 1
-          Width = 60
-          Height = 24
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 7
         end
         object pYO6: TPanel
-          Left = 621
+          Left = 776
           Top = 1
-          Width = 60
-          Height = 24
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 8
         end
         object pYO7: TPanel
-          Left = 681
+          Left = 851
           Top = 1
-          Width = 60
-          Height = 24
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 9
         end
         object pYO8: TPanel
-          Left = 741
+          Left = 926
           Top = 1
-          Width = 60
-          Height = 24
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 10
         end
         object pSumY: TPanel
-          Left = 861
+          Left = 1076
           Top = 1
-          Width = 60
-          Height = 24
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 11
         end
         object Panel48: TPanel
-          Left = 13
-          Top = 25
-          Width = 188
-          Height = 24
+          Left = 16
+          Top = 31
+          Width = 235
+          Height = 30
           BevelInner = bvLowered
           Caption = #1042#1089#1077#1075#1086' ('#1082#1086#1085#1094'.)'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlue
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 12
         end
         object pGrC: TPanel
-          Left = 201
-          Top = 25
-          Width = 60
-          Height = 24
+          Left = 251
+          Top = 31
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlue
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 13
         end
         object pC0: TPanel
-          Left = 261
-          Top = 25
-          Width = 60
-          Height = 24
+          Left = 326
+          Top = 31
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlue
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 14
         end
         object pC1: TPanel
-          Left = 321
-          Top = 25
-          Width = 60
-          Height = 24
+          Left = 401
+          Top = 31
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlue
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 15
         end
         object pC2: TPanel
-          Left = 381
-          Top = 25
-          Width = 60
-          Height = 24
+          Left = 476
+          Top = 31
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlue
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 16
         end
         object pC3: TPanel
-          Left = 441
-          Top = 25
-          Width = 60
-          Height = 24
+          Left = 551
+          Top = 31
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlue
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 17
         end
         object pC4: TPanel
-          Left = 501
-          Top = 25
-          Width = 60
-          Height = 24
+          Left = 626
+          Top = 31
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlue
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 18
         end
         object pC5: TPanel
-          Left = 561
-          Top = 25
-          Width = 60
-          Height = 24
+          Left = 701
+          Top = 31
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlue
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 19
         end
         object pC6: TPanel
-          Left = 621
-          Top = 25
-          Width = 60
-          Height = 24
+          Left = 776
+          Top = 31
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlue
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 20
         end
         object pC7: TPanel
-          Left = 681
-          Top = 25
-          Width = 60
-          Height = 24
+          Left = 851
+          Top = 31
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlue
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 21
         end
         object pC8: TPanel
-          Left = 741
-          Top = 25
-          Width = 60
-          Height = 24
+          Left = 926
+          Top = 31
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlue
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 22
         end
         object pSumC: TPanel
-          Left = 921
-          Top = 25
-          Width = 60
-          Height = 24
+          Left = 1151
+          Top = 31
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlue
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 23
         end
         object Panel47: TPanel
-          Left = 861
-          Top = 25
-          Width = 60
-          Height = 24
+          Left = 1076
+          Top = 31
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           TabOrder = 24
         end
         object Panel50: TPanel
-          Left = 921
+          Left = 1151
           Top = 1
-          Width = 60
-          Height = 24
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           TabOrder = 25
         end
         object Panel51: TPanel
-          Left = 13
-          Top = 49
-          Width = 188
-          Height = 24
+          Left = 16
+          Top = 61
+          Width = 235
+          Height = 30
           BevelInner = bvLowered
           Caption = #1042#1089#1077#1075#1086
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 26
         end
         object PGrAll: TPanel
-          Left = 201
-          Top = 49
-          Width = 60
-          Height = 24
+          Left = 251
+          Top = 61
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 27
         end
         object pAll0: TPanel
-          Left = 261
-          Top = 49
-          Width = 60
-          Height = 24
+          Left = 326
+          Top = 61
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 28
         end
         object pAll1: TPanel
-          Left = 321
-          Top = 49
-          Width = 60
-          Height = 24
+          Left = 401
+          Top = 61
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 29
         end
         object pAll2: TPanel
-          Left = 381
-          Top = 49
-          Width = 60
-          Height = 24
+          Left = 476
+          Top = 61
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 30
         end
         object pAll3: TPanel
-          Left = 441
-          Top = 49
-          Width = 60
-          Height = 24
+          Left = 551
+          Top = 61
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 31
         end
         object pAll4: TPanel
-          Left = 501
-          Top = 49
-          Width = 60
-          Height = 24
+          Left = 626
+          Top = 61
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 32
         end
         object pAll5: TPanel
-          Left = 561
-          Top = 49
-          Width = 60
-          Height = 24
+          Left = 701
+          Top = 61
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 33
         end
         object pAll6: TPanel
-          Left = 621
-          Top = 49
-          Width = 60
-          Height = 24
+          Left = 776
+          Top = 61
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 34
         end
         object pAll7: TPanel
-          Left = 681
-          Top = 49
-          Width = 60
-          Height = 24
+          Left = 851
+          Top = 61
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 35
         end
         object pAll8: TPanel
-          Left = 741
-          Top = 49
-          Width = 60
-          Height = 24
+          Left = 926
+          Top = 61
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 36
         end
         object pC9: TPanel
-          Left = 801
-          Top = 25
-          Width = 60
-          Height = 24
+          Left = 1001
+          Top = 31
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlue
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 37
         end
         object pYO9: TPanel
-          Left = 801
+          Left = 1001
           Top = 1
-          Width = 60
-          Height = 24
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
           TabOrder = 38
         end
         object pAll9: TPanel
-          Left = 801
-          Top = 49
-          Width = 60
-          Height = 24
+          Left = 1001
+          Top = 61
+          Width = 75
+          Height = 30
           BevelInner = bvLowered
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -22
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
@@ -974,16 +974,16 @@ object fmCurriculum: TfmCurriculum
       end
       object dbgCurrRec: TRxDBGrid
         Left = 0
-        Top = 48
-        Width = 1230
-        Height = 482
+        Top = 60
+        Width = 1453
+        Height = 292
         Align = alClient
         DataSource = dsCurrRec
         Options = [dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
         TabOrder = 2
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
-        TitleFont.Height = -16
+        TitleFont.Height = -20
         TitleFont.Name = 'MS Sans Serif'
         TitleFont.Style = []
         OnDrawColumnCell = dbgCurrRecDrawColumnCell
@@ -1079,16 +1079,16 @@ object fmCurriculum: TfmCurriculum
     object Panel5: TPanel
       Left = 0
       Top = 0
-      Width = 1230
-      Height = 177
+      Width = 1453
+      Height = 221
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 1
       object Panel21: TPanel
         Left = 0
         Top = 0
-        Width = 600
-        Height = 177
+        Width = 665
+        Height = 221
         Align = alClient
         BevelOuter = bvNone
         BorderStyle = bsSingle
@@ -1096,51 +1096,51 @@ object fmCurriculum: TfmCurriculum
         object Panel6: TPanel
           Left = 0
           Top = 0
-          Width = 596
-          Height = 40
+          Width = 661
+          Height = 50
           Align = alTop
           BevelOuter = bvLowered
           TabOrder = 0
           object btnAddCurr: TSpeedButton
-            Left = 16
-            Top = 3
-            Width = 161
-            Height = 33
+            Left = 20
+            Top = 4
+            Width = 201
+            Height = 41
             Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1087#1083#1072#1085
             Flat = True
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clNavy
-            Font.Height = -16
+            Font.Height = -22
             Font.Name = 'MS Sans Serif'
             Font.Style = []
             ParentFont = False
             OnClick = btnAddCurrClick
           end
           object btnEditCurr: TSpeedButton
-            Left = 192
-            Top = 3
-            Width = 185
-            Height = 33
+            Left = 240
+            Top = 4
+            Width = 231
+            Height = 41
             Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100' '#1087#1083#1072#1085
             Flat = True
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clNavy
-            Font.Height = -16
+            Font.Height = -22
             Font.Name = 'MS Sans Serif'
             Font.Style = []
             ParentFont = False
             OnClick = btnEditCurrClick
           end
           object btnDelCurr: TSpeedButton
-            Left = 396
-            Top = 3
-            Width = 145
-            Height = 33
+            Left = 495
+            Top = 4
+            Width = 181
+            Height = 41
             Caption = #1059#1076#1072#1083#1080#1090#1100' '#1087#1083#1072#1085
             Flat = True
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clRed
-            Font.Height = -16
+            Font.Height = -22
             Font.Name = 'MS Sans Serif'
             Font.Style = []
             ParentFont = False
@@ -1149,36 +1149,36 @@ object fmCurriculum: TfmCurriculum
         end
         object GroupBox1: TGroupBox
           Left = 1
-          Top = 104
-          Width = 592
-          Height = 65
+          Top = 130
+          Width = 740
+          Height = 81
           Caption = #1055#1072#1085#1077#1083#1100' '#1091#1087#1088#1072#1074#1083#1077#1085#1080#1103' '#1089#1086#1089#1090#1072#1074#1086#1084' '#1091#1095#1077#1073#1085#1086#1075#1086' '#1087#1083#1072#1085#1072
           TabOrder = 1
           object btnAddSubj: TButton
-            Left = 16
-            Top = 26
-            Width = 161
-            Height = 31
+            Left = 20
+            Top = 33
+            Width = 201
+            Height = 38
             Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1087#1088#1077#1076#1084#1077#1090
             TabOrder = 0
             TabStop = False
             OnClick = btnAddSubjClick
           end
           object btnEditSubj: TButton
-            Left = 193
-            Top = 26
-            Width = 208
-            Height = 31
+            Left = 241
+            Top = 33
+            Width = 260
+            Height = 38
             Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100' '#1087#1088#1077#1076#1084#1077#1090
             TabOrder = 1
             TabStop = False
             OnClick = btnEditSubjClick
           end
           object btnDelSubj: TButton
-            Left = 416
-            Top = 26
-            Width = 161
-            Height = 31
+            Left = 520
+            Top = 33
+            Width = 201
+            Height = 38
             Caption = #1059#1076#1072#1083#1080#1090#1100' '#1087#1088#1077#1076#1084#1077#1090
             TabOrder = 2
             TabStop = False
@@ -1187,17 +1187,17 @@ object fmCurriculum: TfmCurriculum
         end
       end
       object dbgCurr: TRxDBGrid
-        Left = 600
+        Left = 665
         Top = 0
-        Width = 589
-        Height = 177
+        Width = 736
+        Height = 221
         Align = alRight
         DataSource = dsCurr
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
         TabOrder = 1
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
-        TitleFont.Height = -16
+        TitleFont.Height = -20
         TitleFont.Name = 'MS Sans Serif'
         TitleFont.Style = []
         OnDblClick = dbgCurrDblClick
@@ -1215,17 +1215,17 @@ object fmCurriculum: TfmCurriculum
           end>
       end
       object Panel22: TPanel
-        Left = 1189
+        Left = 1401
         Top = 0
-        Width = 41
-        Height = 177
+        Width = 52
+        Height = 221
         Align = alRight
         TabOrder = 2
         object btnCurMoveDown: TSpeedButton
-          Left = 10
-          Top = 32
-          Width = 23
-          Height = 22
+          Left = 13
+          Top = 40
+          Width = 28
+          Height = 28
           Glyph.Data = {
             76010000424D7601000000000000760000002800000020000000100000000100
             04000000000000010000120B0000120B00001000000000000000000000000000
@@ -1243,10 +1243,10 @@ object fmCurriculum: TfmCurriculum
           OnClick = btnCurMoveDownClick
         end
         object btnCurMoveUp: TSpeedButton
-          Left = 10
-          Top = 8
-          Width = 23
-          Height = 22
+          Left = 13
+          Top = 10
+          Width = 28
+          Height = 28
           Glyph.Data = {
             76010000424D7601000000000000760000002800000020000000100000000100
             04000000000000010000120B0000120B00001000000000000000000000000000
@@ -1267,10 +1267,10 @@ object fmCurriculum: TfmCurriculum
     end
   end
   object Panel23: TPanel
-    Left = 801
-    Top = 177
-    Width = 60
-    Height = 17
+    Left = 1001
+    Top = 221
+    Width = 75
+    Height = 22
     BevelInner = bvLowered
     Caption = '9'
     TabOrder = 1
@@ -1389,98 +1389,10 @@ object fmCurriculum: TfmCurriculum
       ReadOnly = True
       Visible = False
     end
-    object ibdsCurriculumCAT_0: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_0'
-      Origin = '"VIEW_CURRICULUM"."CAT_0"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_1: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_1'
-      Origin = '"VIEW_CURRICULUM"."CAT_1"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_2: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_2'
-      Origin = '"VIEW_CURRICULUM"."CAT_2"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_3: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_3'
-      Origin = '"VIEW_CURRICULUM"."CAT_3"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_4: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_4'
-      Origin = '"VIEW_CURRICULUM"."CAT_4"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_5: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_5'
-      Origin = '"VIEW_CURRICULUM"."CAT_5"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_6: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_6'
-      Origin = '"VIEW_CURRICULUM"."CAT_6"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_7: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_7'
-      Origin = '"VIEW_CURRICULUM"."CAT_7"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_8: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_8'
-      Origin = '"VIEW_CURRICULUM"."CAT_8"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
     object ibdsCurriculumPOS: TIntegerField
       FieldKind = fkInternalCalc
       FieldName = 'POS'
       Origin = '"V_CURRICULUM"."POS"'
-      ProviderFlags = []
-      ReadOnly = True
-    end
-    object ibdsCurriculumCAT_9: TLargeintField
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_9'
-      Origin = '"V_CURRICULUM"."CAT_9"'
       ProviderFlags = []
       ReadOnly = True
     end
@@ -1496,7 +1408,6 @@ object fmCurriculum: TfmCurriculum
       'select * from v_curriculum_rec'
       'where curr_id=:id'
       'order by num')
-    Active = True
     DataSource = dsCurr
     Left = 648
     Top = 296

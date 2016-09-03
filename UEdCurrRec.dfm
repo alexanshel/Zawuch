@@ -1,124 +1,124 @@
 object fmEdCurrRec: TfmEdCurrRec
   Left = 284
   Top = 279
-  Width = 762
-  Height = 284
+  Width = 982
+  Height = 343
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -16
+  Font.Height = -20
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
   OnClose = FormClose
   OnCreate = FormCreate
-  PixelsPerInch = 96
-  TextHeight = 20
+  PixelsPerInch = 120
+  TextHeight = 25
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 754
-    Height = 185
+    Width = 974
+    Height = 231
     Align = alTop
     TabOrder = 0
     object Label10: TLabel
-      Left = 272
-      Top = 8
-      Width = 186
-      Height = 20
+      Left = 340
+      Top = 10
+      Width = 225
+      Height = 25
       Caption = #1050#1086#1083'-'#1074#1086' '#1095#1077#1083#1086#1074#1077#1082' '#1074' '#1075#1088#1091#1087#1087#1077
     end
     object RxLabel1: TRxLabel
-      Left = 16
-      Top = 8
-      Width = 72
-      Height = 20
+      Left = 20
+      Top = 10
+      Width = 113
+      Height = 31
       Caption = #1055#1088#1077#1076#1084#1077#1090
     end
     object GroupBox1: TGroupBox
-      Left = 8
-      Top = 80
-      Width = 737
-      Height = 97
+      Left = 10
+      Top = 100
+      Width = 921
+      Height = 121
       Caption = #1042#1088#1077#1084#1103
       TabOrder = 2
       object Label1: TLabel
-        Left = 12
-        Top = 38
-        Width = 56
-        Height = 20
+        Left = 15
+        Top = 48
+        Width = 68
+        Height = 25
         Caption = '0 '#1082#1083#1072#1089#1089
       end
       object Label2: TLabel
-        Left = 84
-        Top = 38
-        Width = 56
-        Height = 20
+        Left = 105
+        Top = 48
+        Width = 68
+        Height = 25
         Caption = '1 '#1082#1083#1072#1089#1089
       end
       object Label3: TLabel
-        Left = 156
-        Top = 38
-        Width = 56
-        Height = 20
+        Left = 195
+        Top = 48
+        Width = 68
+        Height = 25
         Caption = '2 '#1082#1083#1072#1089#1089
       end
       object Label4: TLabel
-        Left = 228
-        Top = 38
-        Width = 56
-        Height = 20
+        Left = 285
+        Top = 48
+        Width = 68
+        Height = 25
         Caption = '3 '#1082#1083#1072#1089#1089
       end
       object Label5: TLabel
-        Left = 300
-        Top = 38
-        Width = 56
-        Height = 20
+        Left = 375
+        Top = 48
+        Width = 68
+        Height = 25
         Caption = '4 '#1082#1083#1072#1089#1089
       end
       object Label6: TLabel
-        Left = 372
-        Top = 38
-        Width = 56
-        Height = 20
+        Left = 465
+        Top = 48
+        Width = 68
+        Height = 25
         Caption = '5 '#1082#1083#1072#1089#1089
       end
       object Label7: TLabel
-        Left = 444
-        Top = 38
-        Width = 56
-        Height = 20
+        Left = 555
+        Top = 48
+        Width = 68
+        Height = 25
         Caption = '6 '#1082#1083#1072#1089#1089
       end
       object Label8: TLabel
-        Left = 516
-        Top = 38
-        Width = 56
-        Height = 20
+        Left = 645
+        Top = 48
+        Width = 68
+        Height = 25
         Caption = '7 '#1082#1083#1072#1089#1089
       end
       object Label9: TLabel
-        Left = 588
-        Top = 38
-        Width = 56
-        Height = 20
+        Left = 735
+        Top = 48
+        Width = 68
+        Height = 25
         Caption = '8 '#1082#1083#1072#1089#1089
       end
       object Label11: TLabel
-        Left = 659
-        Top = 38
-        Width = 56
-        Height = 20
+        Left = 824
+        Top = 48
+        Width = 68
+        Height = 25
         Caption = '9 '#1082#1083#1072#1089#1089
       end
       object cbT0: TComboBox
-        Left = 12
-        Top = 55
-        Width = 57
-        Height = 28
+        Left = 15
+        Top = 69
+        Width = 71
+        Height = 33
         Enabled = False
-        ItemHeight = 20
+        ItemHeight = 25
         ItemIndex = 0
         TabOrder = 0
         Text = '0,00'
@@ -139,12 +139,12 @@ object fmEdCurrRec: TfmEdCurrRec
           '7,00')
       end
       object cbT1: TComboBox
-        Left = 84
-        Top = 55
-        Width = 57
-        Height = 28
+        Left = 105
+        Top = 69
+        Width = 71
+        Height = 33
         Enabled = False
-        ItemHeight = 20
+        ItemHeight = 25
         ItemIndex = 0
         TabOrder = 1
         Text = '0,00'
@@ -165,12 +165,12 @@ object fmEdCurrRec: TfmEdCurrRec
           '7,00')
       end
       object cbT2: TComboBox
-        Left = 156
-        Top = 55
-        Width = 57
-        Height = 28
+        Left = 195
+        Top = 69
+        Width = 71
+        Height = 33
         Enabled = False
-        ItemHeight = 20
+        ItemHeight = 25
         ItemIndex = 0
         TabOrder = 2
         Text = '0,00'
@@ -191,12 +191,12 @@ object fmEdCurrRec: TfmEdCurrRec
           '7,00')
       end
       object cbT3: TComboBox
-        Left = 228
-        Top = 55
-        Width = 57
-        Height = 28
+        Left = 285
+        Top = 69
+        Width = 71
+        Height = 33
         Enabled = False
-        ItemHeight = 20
+        ItemHeight = 25
         ItemIndex = 0
         TabOrder = 3
         Text = '0,00'
@@ -217,12 +217,12 @@ object fmEdCurrRec: TfmEdCurrRec
           '7,00')
       end
       object cbT4: TComboBox
-        Left = 300
-        Top = 55
-        Width = 57
-        Height = 28
+        Left = 375
+        Top = 69
+        Width = 71
+        Height = 33
         Enabled = False
-        ItemHeight = 20
+        ItemHeight = 25
         ItemIndex = 0
         TabOrder = 4
         Text = '0,00'
@@ -243,12 +243,12 @@ object fmEdCurrRec: TfmEdCurrRec
           '7,00')
       end
       object cbT5: TComboBox
-        Left = 372
-        Top = 55
-        Width = 57
-        Height = 28
+        Left = 465
+        Top = 69
+        Width = 71
+        Height = 33
         Enabled = False
-        ItemHeight = 20
+        ItemHeight = 25
         ItemIndex = 0
         TabOrder = 5
         Text = '0,00'
@@ -269,12 +269,12 @@ object fmEdCurrRec: TfmEdCurrRec
           '7,00')
       end
       object cbT6: TComboBox
-        Left = 444
-        Top = 55
-        Width = 57
-        Height = 28
+        Left = 555
+        Top = 69
+        Width = 71
+        Height = 33
         Enabled = False
-        ItemHeight = 20
+        ItemHeight = 25
         ItemIndex = 0
         TabOrder = 6
         Text = '0,00'
@@ -295,12 +295,12 @@ object fmEdCurrRec: TfmEdCurrRec
           '7,00')
       end
       object cbT7: TComboBox
-        Left = 516
-        Top = 55
-        Width = 57
-        Height = 28
+        Left = 645
+        Top = 69
+        Width = 71
+        Height = 33
         Enabled = False
-        ItemHeight = 20
+        ItemHeight = 25
         ItemIndex = 0
         TabOrder = 7
         Text = '0,00'
@@ -321,12 +321,12 @@ object fmEdCurrRec: TfmEdCurrRec
           '7,00')
       end
       object cbT8: TComboBox
-        Left = 588
-        Top = 55
-        Width = 57
-        Height = 28
+        Left = 735
+        Top = 69
+        Width = 71
+        Height = 33
         Enabled = False
-        ItemHeight = 20
+        ItemHeight = 25
         ItemIndex = 0
         TabOrder = 8
         Text = '0,00'
@@ -347,12 +347,12 @@ object fmEdCurrRec: TfmEdCurrRec
           '7,00')
       end
       object cbT9: TComboBox
-        Left = 659
-        Top = 55
-        Width = 57
-        Height = 28
+        Left = 824
+        Top = 69
+        Width = 71
+        Height = 33
         Enabled = False
-        ItemHeight = 20
+        ItemHeight = 25
         ItemIndex = 0
         TabOrder = 9
         Text = '0,00'
@@ -374,11 +374,11 @@ object fmEdCurrRec: TfmEdCurrRec
       end
     end
     object cbGroup: TComboBox
-      Left = 272
-      Top = 32
-      Width = 129
-      Height = 28
-      ItemHeight = 20
+      Left = 340
+      Top = 40
+      Width = 161
+      Height = 33
+      ItemHeight = 25
       TabOrder = 1
       Text = '10'
       OnKeyPress = cbGroupKeyPress
@@ -392,10 +392,10 @@ object fmEdCurrRec: TfmEdCurrRec
         '30')
     end
     object edSubject: TComboEdit
-      Left = 16
-      Top = 32
-      Width = 225
-      Height = 28
+      Left = 20
+      Top = 40
+      Width = 281
+      Height = 35
       DirectInput = False
       Glyph.Data = {
         E6040000424DE604000000000000360000002800000014000000140000000100
@@ -438,40 +438,40 @@ object fmEdCurrRec: TfmEdCurrRec
         E5EFE1E3E1E3E3E3E4E3E4E3E4E3E2E2E2E3E3E3E3E3E3E4E4E4E3E3E3E2E2E2
         DDE1DDE7E4E7F0E5F0EBE1EBE4DFE4E6E0E6EAE0EAEFE4EFE8E5E8DEE2DEE2E2
         E2E4E4E4E3E3E3E3E3E3}
-      ButtonWidth = 23
+      ButtonWidth = 29
       NumGlyphs = 1
       TabOrder = 0
       OnButtonClick = btnSubjectClick
     end
   end
   object btnOk: TBitBtn
-    Left = 8
-    Top = 192
-    Width = 113
-    Height = 33
+    Left = 10
+    Top = 240
+    Width = 141
+    Height = 41
     TabOrder = 1
     OnClick = btnOkClick
     Kind = bkOK
   end
   object btnCancel: TBitBtn
-    Left = 136
-    Top = 192
-    Width = 105
-    Height = 33
+    Left = 170
+    Top = 240
+    Width = 131
+    Height = 41
     Caption = #1054#1090#1084#1077#1085#1072
     TabOrder = 2
     Kind = bkCancel
   end
   object cbPos: TCheckBox
-    Left = 352
-    Top = 192
-    Width = 281
-    Height = 33
+    Left = 440
+    Top = 240
+    Width = 351
+    Height = 41
     Caption = #1074#1089#1090#1072#1074#1082#1072' '#1074' '#1090#1077#1082#1091#1097#1091#1102' '#1087#1086#1079#1080#1094#1080#1102
     Color = clBtnFace
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlue
-    Font.Height = -16
+    Font.Height = -22
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentColor = False

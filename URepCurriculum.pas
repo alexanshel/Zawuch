@@ -23,10 +23,8 @@ type
     dbgCurrRec: TRxDBGrid;
     Panel4: TPanel;
     dbgCurr: TRxDBGrid;
-    dbgCurrCat: TRxDBGrid;
     Panel7: TPanel;
     Panel3: TPanel;
-    Panel5: TPanel;
     Panel6: TPanel;
     dsCurrCat: TDataSource;
     Panel8: TPanel;
@@ -46,15 +44,6 @@ type
     ibdsCurriculumNAME: TIBStringField;
     ibdsCurriculumPERIOD_FOR_PRINT: TIBStringField;
     ibdsCurriculumPERIOD: TSmallintField;
-    ibdsCurriculumCAT_0: TLargeintField;
-    ibdsCurriculumCAT_1: TLargeintField;
-    ibdsCurriculumCAT_2: TLargeintField;
-    ibdsCurriculumCAT_3: TLargeintField;
-    ibdsCurriculumCAT_4: TLargeintField;
-    ibdsCurriculumCAT_5: TLargeintField;
-    ibdsCurriculumCAT_6: TLargeintField;
-    ibdsCurriculumCAT_7: TLargeintField;
-    ibdsCurriculumCAT_8: TLargeintField;
     DataSource1: TDataSource;
     ibdsCurrReport: TIBDataSet;
     ibdsCurrReportQ_0: TIntegerField;
@@ -182,8 +171,6 @@ type
     procedure cbFinancingChange(Sender: TObject);
     procedure dbgCurrRecDrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
-    procedure dbgCurrCatDrawColumnCell(Sender: TObject; const Rect: TRect;
-      DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure miHelpClick(Sender: TObject);
     procedure SetSizes;
   private
@@ -285,7 +272,6 @@ begin
     dbgCurrSum.Columns[i].Width := dbgCurr.Columns[i].Width;
     dbgCurrVSum.Columns[i].Width := dbgCurr.Columns[i].Width;
     dbgCurrTotal.Columns[i].Width := dbgCurr.Columns[i].Width;
-    dbgCurrCat.Columns[i].Width := dbgCurrRec.Columns[2].Width + dbgCurrRec.Columns[3].Width + 1;
   end;
   for i := 20 to 27 do
     dbgCurrSum.Columns[i - 11].Width := dbgCurrRec.Columns[i].Width;
@@ -526,17 +512,6 @@ begin
     dbgCurrRec.Canvas.Font.Color := clBlue;
 
   dbgCurrRec.DefaultDrawColumnCell(Rect, DataCol, Column, State);
-end;
-
-procedure TfmRepCurriculum.dbgCurrCatDrawColumnCell(Sender: TObject;
-  const Rect: TRect; DataCol: Integer; Column: TColumn;
-  State: TGridDrawState);
-begin
-  if Column.Field.AsString = 'мл.' then
-    dbgCurrCat.Canvas.Font.Color := clGreen
-  else
-    dbgCurrCat.Canvas.Font.Color := clRed;
-  dbgCurrCat.DefaultDrawColumnCell(Rect, DataCol, Column, State);
 end;
 
 procedure TfmRepCurriculum.miHelpClick(Sender: TObject);

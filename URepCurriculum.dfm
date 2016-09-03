@@ -1,14 +1,14 @@
 object fmRepCurriculum: TfmRepCurriculum
-  Left = 364
-  Top = 157
-  Width = 958
-  Height = 666
+  Left = -4
+  Top = -4
+  Width = 1928
+  Height = 949
   HelpContext = 34
   Caption = #1054#1090#1095#1077#1090': '#1059#1095#1077#1073#1085#1099#1081' '#1087#1083#1072#1085
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -16
+  Font.Height = -20
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   HelpFile = 'zawuch.hlp'
@@ -18,46 +18,46 @@ object fmRepCurriculum: TfmRepCurriculum
   OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
-  PixelsPerInch = 96
-  TextHeight = 20
+  PixelsPerInch = 120
+  TextHeight = 25
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 950
-    Height = 89
+    Width = 1920
+    Height = 111
     Align = alTop
     TabOrder = 0
     object Label2: TLabel
-      Left = 8
-      Top = 16
-      Width = 107
-      Height = 20
+      Left = 10
+      Top = 20
+      Width = 130
+      Height = 25
       Caption = #1059#1095#1077#1073#1085#1099#1081' '#1087#1083#1072#1085
     end
     object Label3: TLabel
-      Left = 208
-      Top = 16
-      Width = 131
-      Height = 20
+      Left = 260
+      Top = 20
+      Width = 158
+      Height = 25
       Caption = #1060#1080#1085#1072#1085#1089#1080#1088#1086#1074#1072#1085#1080#1077
     end
     object cbCurr: TComboBox
-      Left = 8
-      Top = 40
-      Width = 169
-      Height = 28
-      ItemHeight = 20
+      Left = 10
+      Top = 50
+      Width = 211
+      Height = 33
+      ItemHeight = 25
       TabOrder = 0
       Text = 'cbCurr'
       OnChange = cbCurrChange
       OnKeyPress = cbCurrKeyPress
     end
     object cbFinancing: TComboBox
-      Left = 208
-      Top = 40
-      Width = 145
-      Height = 28
-      ItemHeight = 20
+      Left = 260
+      Top = 50
+      Width = 181
+      Height = 33
+      ItemHeight = 25
       ItemIndex = 0
       TabOrder = 1
       Text = #1073#1102#1076#1078#1077#1090
@@ -69,24 +69,24 @@ object fmRepCurriculum: TfmRepCurriculum
   end
   object ScrollBox1: TScrollBox
     Left = 0
-    Top = 89
-    Width = 950
-    Height = 523
+    Top = 111
+    Width = 1920
+    Height = 773
     Align = alClient
     AutoScroll = False
     TabOrder = 1
     object dbgCurrRec: TRxDBGrid
       Left = 0
-      Top = 97
-      Width = 946
-      Height = 304
+      Top = 41
+      Width = 1916
+      Height = 580
       Align = alClient
       DataSource = dsCurrRec
       Options = [dgTitles, dgColumnResize, dgColLines, dgRowLines, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
-      TitleFont.Height = -16
+      TitleFont.Height = -20
       TitleFont.Name = 'MS Sans Serif'
       TitleFont.Style = []
       OnDrawColumnCell = dbgCurrRecDrawColumnCell
@@ -401,47 +401,38 @@ object fmRepCurriculum: TfmRepCurriculum
     object Panel7: TPanel
       Left = 0
       Top = 0
-      Width = 946
-      Height = 97
+      Width = 1916
+      Height = 41
       Align = alTop
       TabOrder = 1
       object Panel3: TPanel
         Left = 1
         Top = 1
-        Width = 392
-        Height = 95
+        Width = 490
+        Height = 39
         Align = alLeft
         TabOrder = 0
-        object Panel5: TPanel
-          Left = 1
-          Top = 1
-          Width = 390
-          Height = 56
-          Align = alTop
-          Caption = #1050#1072#1090#1077#1075#1086#1088#1080#1080' ->'
-          TabOrder = 0
-        end
         object Panel6: TPanel
           Left = 1
-          Top = 57
-          Width = 390
+          Top = 1
+          Width = 488
           Height = 37
           Align = alClient
           Caption = #1050#1086#1083' - '#1074#1086' '#1075#1088#1091#1087#1087'/'#1091#1095#1077#1085#1080#1082#1086#1074' ->'
-          TabOrder = 1
+          TabOrder = 0
         end
       end
       object Panel4: TPanel
-        Left = 393
+        Left = 491
         Top = 1
-        Width = 552
-        Height = 95
+        Width = 1424
+        Height = 39
         Align = alClient
         TabOrder = 1
         object dbgCurr: TRxDBGrid
           Left = 1
-          Top = 57
-          Width = 550
+          Top = 1
+          Width = 1422
           Height = 37
           Align = alClient
           DataSource = dsCurr
@@ -449,7 +440,7 @@ object fmRepCurriculum: TfmRepCurriculum
           TabOrder = 0
           TitleFont.Charset = DEFAULT_CHARSET
           TitleFont.Color = clWindowText
-          TitleFont.Height = -16
+          TitleFont.Height = -20
           TitleFont.Name = 'MS Sans Serif'
           TitleFont.Style = []
           Columns = <
@@ -544,155 +535,69 @@ object fmRepCurriculum: TfmRepCurriculum
               Visible = True
             end>
         end
-        object dbgCurrCat: TRxDBGrid
-          Left = 1
-          Top = 1
-          Width = 550
-          Height = 56
-          Align = alTop
-          DataSource = dsCurrCat
-          Options = [dgTitles, dgColumnResize, dgColLines, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
-          TabOrder = 1
-          TitleFont.Charset = DEFAULT_CHARSET
-          TitleFont.Color = clWindowText
-          TitleFont.Height = -16
-          TitleFont.Name = 'MS Sans Serif'
-          TitleFont.Style = []
-          OnDrawColumnCell = dbgCurrCatDrawColumnCell
-          Columns = <
-            item
-              Expanded = False
-              FieldName = 'C_NAME_0'
-              Title.Caption = #1050#1083#1072#1089#1089' 0'
-              Width = 91
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'C_NAME_1'
-              Title.Caption = #1050#1083#1072#1089#1089' 1'
-              Width = 91
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'C_NAME_2'
-              Title.Caption = #1050#1083#1072#1089#1089' 2'
-              Width = 91
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'C_NAME_3'
-              Title.Caption = #1050#1083#1072#1089#1089' 3'
-              Width = 91
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'C_NAME_4'
-              Title.Caption = #1050#1083#1072#1089#1089' 4'
-              Width = 91
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'C_NAME_5'
-              Title.Caption = #1050#1083#1072#1089#1089' 5'
-              Width = 91
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'C_NAME_6'
-              Title.Caption = #1050#1083#1072#1089#1089' 6'
-              Width = 91
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'C_NAME_7'
-              Title.Caption = #1050#1083#1072#1089#1089' 7'
-              Width = 91
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'C_NAME_8'
-              Title.Caption = #1050#1083#1072#1089#1089' 8'
-              Width = 91
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'C_NAME_9'
-              Title.Caption = #1050#1083#1072#1089#1089' 9'
-              Visible = True
-            end>
-        end
       end
     end
     object Panel8: TPanel
       Left = 0
-      Top = 401
-      Width = 946
-      Height = 118
+      Top = 621
+      Width = 1916
+      Height = 148
       Align = alBottom
       TabOrder = 2
       object Panel2: TPanel
         Left = 1
         Top = 1
-        Width = 392
-        Height = 116
+        Width = 490
+        Height = 146
         Align = alLeft
         TabOrder = 0
         object Panel9: TPanel
           Left = 1
           Top = 1
-          Width = 390
-          Height = 40
+          Width = 488
+          Height = 50
           Align = alTop
           Caption = #1042#1089#1077#1075#1086
           TabOrder = 0
         end
         object Panel10: TPanel
           Left = 1
-          Top = 41
-          Width = 390
-          Height = 39
+          Top = 51
+          Width = 488
+          Height = 50
           Align = alClient
           Caption = #1053#1077#1088#1072#1089#1087#1088#1077#1076#1077#1083#1077#1085#1085#1099#1077
           TabOrder = 1
         end
         object Panel11: TPanel
           Left = 1
-          Top = 80
-          Width = 390
-          Height = 35
+          Top = 101
+          Width = 488
+          Height = 44
           Align = alBottom
           Caption = #1048#1058#1054#1043#1054
           TabOrder = 2
         end
       end
       object Panel12: TPanel
-        Left = 393
+        Left = 491
         Top = 1
-        Width = 552
-        Height = 116
+        Width = 1424
+        Height = 146
         Align = alClient
         TabOrder = 1
         object dbgCurrTotal: TRxDBGrid
           Left = 1
-          Top = 80
-          Width = 550
-          Height = 35
+          Top = 101
+          Width = 1422
+          Height = 44
           Align = alBottom
           DataSource = dsCurr
           Options = [dgColumnResize, dgColLines, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
           TabOrder = 0
           TitleFont.Charset = DEFAULT_CHARSET
           TitleFont.Color = clWindowText
-          TitleFont.Height = -16
+          TitleFont.Height = -20
           TitleFont.Name = 'MS Sans Serif'
           TitleFont.Style = []
           Columns = <
@@ -744,16 +649,16 @@ object fmRepCurriculum: TfmRepCurriculum
         end
         object dbgCurrVSum: TRxDBGrid
           Left = 1
-          Top = 41
-          Width = 550
-          Height = 39
+          Top = 51
+          Width = 1422
+          Height = 50
           Align = alClient
           DataSource = dsCurr
           Options = [dgColumnResize, dgColLines, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
           TabOrder = 1
           TitleFont.Charset = DEFAULT_CHARSET
           TitleFont.Color = clWindowText
-          TitleFont.Height = -16
+          TitleFont.Height = -20
           TitleFont.Name = 'MS Sans Serif'
           TitleFont.Style = []
           Columns = <
@@ -806,15 +711,15 @@ object fmRepCurriculum: TfmRepCurriculum
         object dbgCurrSum: TRxDBGrid
           Left = 1
           Top = 1
-          Width = 550
-          Height = 40
+          Width = 1422
+          Height = 50
           Align = alTop
           DataSource = dsCurr
           Options = [dgColumnResize, dgColLines, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
           TabOrder = 2
           TitleFont.Charset = DEFAULT_CHARSET
           TitleFont.Color = clWindowText
-          TitleFont.Height = -16
+          TitleFont.Height = -20
           TitleFont.Name = 'MS Sans Serif'
           TitleFont.Style = []
           Columns = <
@@ -988,87 +893,6 @@ object fmRepCurriculum: TfmRepCurriculum
       FieldKind = fkInternalCalc
       FieldName = 'PERIOD'
       Origin = '"VIEW_CURRICULUM"."PERIOD"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_0: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_0'
-      Origin = '"VIEW_CURRICULUM"."CAT_0"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_1: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_1'
-      Origin = '"VIEW_CURRICULUM"."CAT_1"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_2: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_2'
-      Origin = '"VIEW_CURRICULUM"."CAT_2"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_3: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_3'
-      Origin = '"VIEW_CURRICULUM"."CAT_3"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_4: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_4'
-      Origin = '"VIEW_CURRICULUM"."CAT_4"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_5: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_5'
-      Origin = '"VIEW_CURRICULUM"."CAT_5"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_6: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_6'
-      Origin = '"VIEW_CURRICULUM"."CAT_6"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_7: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_7'
-      Origin = '"VIEW_CURRICULUM"."CAT_7"'
-      ProviderFlags = []
-      ReadOnly = True
-      Visible = False
-    end
-    object ibdsCurriculumCAT_8: TLargeintField
-      DisplayWidth = 10
-      FieldKind = fkInternalCalc
-      FieldName = 'CAT_8'
-      Origin = '"VIEW_CURRICULUM"."CAT_8"'
       ProviderFlags = []
       ReadOnly = True
       Visible = False

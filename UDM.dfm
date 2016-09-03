@@ -2,10 +2,10 @@ object DM: TDM
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Left = 750
-  Top = 265
-  Height = 632
-  Width = 713
+  Left = 562
+  Top = 207
+  Height = 696
+  Width = 1082
   object ibDatabase: TIBDatabase
     Connected = True
     DatabaseName = 'localhost:C:\Projects\db\zawuch.fdb'
@@ -18,7 +18,6 @@ object DM: TDM
     Top = 8
   end
   object ibTransaction: TIBTransaction
-    Active = True
     DefaultDatabase = ibDatabase
     Left = 96
     Top = 8
@@ -1589,7 +1588,7 @@ object DM: TDM
       DisplayLabel = #1059#1095#1077#1073#1085#1099#1081' '#1087#1083#1072#1085
       FieldName = 'CURR_NAME'
       Origin = '"VIEW_GROUPING_CURR"."CURR_NAME"'
-      Size = 30
+      Size = 150
     end
   end
   object ibdsGroupCurrSubj: TIBDataSet
